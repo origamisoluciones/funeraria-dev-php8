@@ -1,0 +1,109 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    if(!isset($_SESSION['basePath'])){
+        http_response_code(403);
+        return;
+    }
+
+    if(!isset($_SESSION['user'])){
+        http_response_code(403);
+        return;
+    }
+
+    if(empty($_GET) || !isset($_GET['year']) || !isset($_GET['month']) || !isset($_GET['trimester'])){
+        http_response_code(405);
+        return;
+    }
+
+    /*
+    * DataTables example server-side processing script.
+    *
+    * Please note that this script is intentionally extremely simply to show how
+    * server-side processing can be implemented, and probably shouldn't be used as
+    * the basis for a large complex system. It is suitable for simple use cases as
+    * for learning.
+    *
+    * See http://datatables.net/usage/server-side for full details on the server-
+    * side processing requirements of DataTables.
+    *
+    * @license MIT - http://datatables.net/license_mit
+    */
+    
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    * Easy set variables
+    */
+    
+    // DB table to use
+    $table = array('Cars_ITV', 'Cars');
+    
+    // Table's primary key
+    $primaryKey = 'Cars_ITV.ID';
+
+    // Array of database columns which should be read and sent back to DataTables.
+    // The `db` parameter represents the column name in the database, while the `dt`
+    // parameter represents the DataTables column identifier. In this case simple
+    // indexes
+    $columns = array(
+        array('db' => 'Cars_ITV.ID', 'dt' => 0),
+        array('db' => 'Cars.brand', 'dt' => 1),
+        array('db' => 'Cars.licensePlate', 'dt' => 2),
+        array('db' => 'Cars_ITV.datePrev', 'dt' => 3),
+        array('db' => 'Cars_ITV.cost', 'dt' => 4)
+    );
+
+    $columns2 = array(
+        array('db' => 'column0', 'dt' => 0),
+        array('db' => 'column1', 'dt' => 1),
+        array('db' => 'column2', 'dt' => 2),
+        array('db' => 'column3', 'dt' => 3),
+        array('db' => 'column4', 'dt' => 4)
+    );
+
+    $where = "Cars_ITV.leavingDate IS NULL AND Cars_ITV.car = Cars.ID AND Cars.leavingDate IS NULL";
+    
+    if($_GET['year'] > 0){
+        $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%Y') = " . $_GET['year'];
+    }
+    
+    if($_GET['month'] > 0){
+        $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') = " . $_GET['month'];
+    }
+
+    switch($_GET['trimester']){
+        case 1:
+            $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') > 0 AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') < 4";
+            break;
+        case 2:
+            $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') > 3 AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') < 7";
+            break;
+        case 3:
+            $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') > 6 AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') < 10";
+            break;
+        case 4:
+            $where .= " AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') > 9 AND FROM_UNIXTIME(Cars_ITV.datePrev, '%m') < 13";
+            break;
+    }
+
+    if($_GET['vehicle'] > 0){
+        $where .= " AND Cars.ID = " . $_GET['vehicle'];
+    }
+
+    // SQL server connection information
+    require_once($_SESSION['basePath'] . "core/db/dbHandler.php");
+
+    $db = new DbHandler;
+    $sql_details = $db->getDataConnection();
+    
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    * If you just want to use the basic configuration for DataTables with PHP
+    * server-side, there is no need to edit below this line.
+    */
+    require_once($_SESSION['basePath'] . "core/libraries/ssp.class.php");
+    
+    echo json_encode(
+        SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $columns2, null, $where)
+    );
+?>

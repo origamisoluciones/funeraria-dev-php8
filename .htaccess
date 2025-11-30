@@ -1,0 +1,332 @@
+# Security
+# Header set X-Content-Type-Options "nosniff"
+# Header set X-Frame-Options "SAMEORIGIN"
+# Header set X-XSS-Protection "1; mode=block"
+# Header set X-DNS-Prefetch-Control "off"
+
+# Cache
+# Header set Expires "0"
+# Header set Last-Modified "0"
+# Header set Cache-Control "no-cache, no-store, mustrevalidate"
+# Header set Pragma "no-cache"
+
+# DENEGAR ACCESO MENOS A NUESTRA IP
+# order deny,allow
+# deny from all
+# allow from 212.231.192.103
+
+<IfModule security2_module>
+    SecRuleEngine on
+    ServerTokens Full
+    SecServerSignature " "
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header unset Server
+    Header always unset X-Powered-By
+    Header unset X-Powered-By
+    Header unset X-CF-Powered-By
+    Header unset X-Mod-Pagespeed
+    Header unset X-Pingback
+</IfModule>
+
+ServerSignature Off
+
+Options +FollowSymLinks
+Options -Indexes
+
+# Charset
+AddDefaultCharset UTF-8
+
+# Errors
+php_flag display_errors on
+
+ErrorDocument 403 http://10.20.73.20/error-403
+ErrorDocument 404 http://10.20.73.20/error-404
+ErrorDocument 500 http://10.20.73.20/error-500
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+#RewriteBase /
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# RewriteCond %{HTTPS} on
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Para evitar la descarga de archivos desde url
+#RewriteRule \.(pdf)$ - [F]
+
+# API
+RewriteRule ^apiweb$ api/api.php
+RewriteRule ^apiv3/ apiv3/index.php
+
+# API Vehículos
+RewriteRule ^vehicles/sync$ core/scripts/vehicles/vehicles.php
+
+# ACCESO
+RewriteRule ^inicio$ view/login.php
+# RewriteRule ^acceso$ core/login/login.php
+# RewriteRule ^logout$ core/logout/logout.php
+
+# ERROR
+RewriteRule ^error-acceso$ view/error/accessControl.php
+RewriteRule ^error-403$ view/error/403.php
+RewriteRule ^error-404$ view/error/404.php
+RewriteRule ^error-500$ view/error/500.php
+RewriteRule ^error-plan$ view/error/plan.php
+
+# SCRIPTS
+# RewriteRule ^scripts/serviceNotifications$ core/scripts/serviceNotifications.php
+# RewriteRule ^scripts/deleteAllSessions$ core/scripts/deleteAllSessions.php
+# RewriteRule ^scripts/fixLocationsPostalCodes$ core/scripts/fixLocationsPostalCodes.php
+# RewriteRule ^scripts/updates/importCanarias$ core/scripts/updates/importCanarias.php
+# RewriteRule ^scripts/updates/fixExpedientsNumbers$ core/scripts/updates/fixExpedientsNumbers.php
+# RewriteRule ^scripts/updates/fixIvas$ core/scripts/updates/fixIvas.php
+# RewriteRule ^scripts/updates/fixInvoicesIvas$ core/scripts/updates/fixInvoicesIvas.php
+# RewriteRule ^core/scripts/duplicateExpedient.php$ core/scripts/duplicateExpedient.php
+# RewriteRule ^scripts/updates/forceLogoutUsers$ core/scripts/updates/forceLogoutUsers.php
+# RewriteRule ^scripts/updates/fixInvoices$ core/scripts/updates/fixInvoices.php
+# RewriteRule ^scripts/updates/fixInvoicesDocs$ core/scripts/updates/fixInvoicesDocs.php
+# RewriteRule ^scripts/updates/fixBillingSeries$ core/scripts/updates/fixBillingSeries.php
+
+# GESTIÓN DE ARCHIVOS
+RewriteRule ^descargar-archivo$ core/tools/filesHandler.php
+RewriteRule ^descargar-archivo-img$ core/tools/filesHandlerImg.php
+RewriteRule ^descargar-archivoExcel$ core/tools/filesHandlerExcel.php
+RewriteRule ^descargar-archivo-zip$ core/tools/filesHandlerZip.php
+RewriteRule ^descargar-archivoAll$ core/tools/filesHandlerAll.php
+
+# INFORMACIÓN DE INICIO
+RewriteRule ^info$ view/info/info.php
+
+# ACTUALIZACIONES
+RewriteRule ^historico-actualizaciones$ view/adminUpdates/list.php
+
+# AGENDA
+RewriteRule ^agenda/eventos$ view/event/event.php
+RewriteRule ^agenda/vacaciones$ view/event/holidays/holidays.php
+RewriteRule ^agenda/vacaciones/usuario/([0-9_-]+)$ view/event/holidays/holidays-user.php?id=$1
+
+# ALMACÉN
+RewriteRule ^almacen/albaranes$ view/warehouse/deliveryNotes/deliveryNotes.php
+RewriteRule ^almacen/albaranes/([0-9_-]+)$ view/warehouse/deliveryNotes/deliveryNote-edit.php?id=$1
+RewriteRule ^almacen/albaranes/acciones-correctivas$ view/warehouse/deliveryNotes/correctiveActions.php
+RewriteRule ^almacen/pedidos$ view/warehouse/orders/orders.php
+RewriteRule ^almacen/pedidos/([0-9_-]+)$ view/warehouse/orders/orders-edit.php?id=$1
+RewriteRule ^almacen/pedidos/acciones-correctivas$ view/warehouse/orders/correctiveActions.php
+RewriteRule ^almacen/pedidos/nuevo-pedido/([0-9_-]+)$ view/warehouse/orders/orders-new.php?id=$1
+RewriteRule ^almacen/productos$ view/warehouse/products/products.php
+RewriteRule ^almacen/stock-productos$ stock.php
+
+# ASISTENCIAS
+RewriteRule ^asistencias$ view/assistances/assistances.php
+RewriteRule ^asistencias/editar/([0-9_-]+)$ view/assistances/assistances-edit.php?id=$1
+
+# CONFIGURACIÓN
+RewriteRule ^configuracion$ view/configuration/configuration.php
+RewriteRule ^configuracion/ajustes$ view/settings/settings.php
+RewriteRule ^configuracion/asistentes$ view/configuration/assistants.php
+RewriteRule ^configuracion/boletines-actualizacion$ view/configuration/adminUpdates.php
+RewriteRule ^configuracion/campaneros$ view/configuration/bellringer.php
+RewriteRule ^configuracion/cementerios$ view/configuration/cemetery.php
+RewriteRule ^configuracion/centrosCoste$ view/configuration/costCenter.php
+RewriteRule ^configuracion/clientes$ view/configuration/client.php
+RewriteRule ^configuracion/coros$ view/configuration/choir.php
+RewriteRule ^configuracion/correos$ view/configuration/email.php
+RewriteRule ^configuracion/crematorios$ view/configuration/crematorium.php
+RewriteRule ^configuracion/cuestionario$ view/configuration/survey.php
+RewriteRule ^configuracion/curas$ view/configuration/priest.php
+RewriteRule ^configuracion/documentos$ view/configuration/documents.php
+RewriteRule ^configuracion/editor-documentacion/categorias$ view/configuration/documentsEditorCategories.php
+RewriteRule ^configuracion/editor-documentacion/categorias/documentos/([0-9_-]+)$ view/configuration/documentsEditor.php
+RewriteRule ^configuracion/editor-documentacion/categorias/documentos/documento/([0-9_-]+)$ view/configuration/documentsEditorDocument.php?id=$1
+RewriteRule ^configuracion/encuestas-satisfaccion$ view/configuration/polls.php
+RewriteRule ^configuracion/encuestas-satisfaccion/preguntas/([0-9_-]+)$ view/configuration/pollsItems.php?id=$1
+RewriteRule ^configuracion/enterradores$ view/configuration/gravedigger.php
+RewriteRule ^configuracion/esquelas$ view/configuration/obituary.php
+RewriteRule ^configuracion/estadisticas$ view/configuration/statistics.php
+RewriteRule ^configuracion/estadisticas/confeccion/nueva$ view/configuration/statistics/confeccion-new.php
+RewriteRule ^configuracion/estadisticas/confeccion/editar/([0-9_-]+)$ view/configuration/statistics/confeccion-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/controlMando/nueva$ view/configuration/statistics/controlPanel-new.php
+RewriteRule ^configuracion/estadisticas/controlMando/editar/([0-9_-]+)$ view/configuration/statistics/controlPanel-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/destinoDifunto/nueva$ view/configuration/statistics/deceasedDestination-new.php
+RewriteRule ^configuracion/estadisticas/destinoDifunto/editar/([0-9_-]+)$ view/configuration/statistics/deceasedDestination-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/edadMedia/nueva$ view/configuration/statistics/middleAge-new.php
+RewriteRule ^configuracion/estadisticas/edadMedia/editar/([0-9_-]+)$ view/configuration/statistics/middleAge-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/encuestas-satisfaccion/nueva$ view/configuration/statistics/expedientPoll-new.php
+RewriteRule ^configuracion/estadisticas/encuestas-satisfaccion/editar/([0-9_-]+)$ view/configuration/statistics/expedientPoll-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/generales/nueva$ view/configuration/statistics/general-new.php
+RewriteRule ^configuracion/estadisticas/generales/editar/([0-9_-]+)$ view/configuration/statistics/general-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/horarioServicios/nueva$ view/configuration/statistics/servicesTimes-new.php
+RewriteRule ^configuracion/estadisticas/horarioServicios/editar/([0-9_-]+)$ view/configuration/statistics/servicesTimes-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/rendimientoEconomico/nueva$ view/configuration/statistics/economicPerformance-new.php
+RewriteRule ^configuracion/estadisticas/rendimientoEconomico/editar/([0-9_-]+)$ view/configuration/statistics/economicPerformance-edit.php?id=$1
+RewriteRule ^configuracion/estadisticas/usoTanatorio/nueva$ view/configuration/statistics/mortuaryUse-new.php
+RewriteRule ^configuracion/estadisticas/usoTanatorio/editar/([0-9_-]+)$ view/configuration/statistics/mortuaryUse-edit.php?id=$1
+RewriteRule ^configuracion/fallecido-en$ view/configuration/deceased-in.php
+RewriteRule ^configuracion/funerarias$ view/configuration/funeral-home.php
+RewriteRule ^configuracion/iglesias$ view/configuration/church.php
+RewriteRule ^configuracion/impuestos$ view/configuration/iva.php
+RewriteRule ^configuracion/limpieza$ view/configuration/cleaning.php
+RewriteRule ^configuracion/localidades$ view/configuration/location.php
+RewriteRule ^configuracion/lugares-destino$ view/configuration/destinationPlaces.php
+RewriteRule ^configuracion/medicos$ view/configuration/doctors.php
+RewriteRule ^configuracion/panel-informativo$ view/configuration/panelinfo.php
+RewriteRule ^configuracion/panel-informativo/([0-9_-]+)$ view/configuration/panelinfo-template.php?id=$1
+RewriteRule ^configuracion/panel-informativo/vista-previa/([0-9_-]+)$ view/configuration/panelinfo-preview.php?id=$1
+RewriteRule ^configuracion/personal$ view/configuration/staff.php
+RewriteRule ^configuracion/personal/formacion/([0-9_-]+)$ view/configuration/trainingtest.php?id=$1
+RewriteRule ^configuracion/plantillas$ view/configuration/template.php
+RewriteRule ^configuracion/plantillas/([0-9_-]+)$ view/configuration/template-edit.php?id=$1
+RewriteRule ^configuracion/plantillas/plantilla-nueva$ view/configuration/template-new.php
+RewriteRule ^configuracion/porteadores$ view/configuration/carrier.php
+RewriteRule ^configuracion/productos$ view/configuration/product.php
+RewriteRule ^configuracion/productos/nuevo-producto$ view/configuration/product-new.php
+RewriteRule ^configuracion/productos/([0-9_-]+)$ view/configuration/product-edit.php?id=$1
+RewriteRule ^configuracion/proveedores$ view/configuration/supplier.php
+RewriteRule ^configuracion/proveedor/historico/([0-9_-]+)$ view/configuration/supplier/supplier.php?id=$1
+RewriteRule ^configuracion/salas-tellmebye$ view/configuration/tellmebye-rooms.php
+RewriteRule ^configuracion/salidas/configuracion$ view/configuration/expenses-configuration.php
+RewriteRule ^configuracion/salidas/plantillas-salarios/nueva$ view/configuration/new-salary-template.php
+RewriteRule ^configuracion/salidas/plantillas-salarios/editar/([0-9_-]+)$ view/configuration/edit-salary-template.php
+RewriteRule ^configuracion/series-facturacion$ view/configuration/billingSeries.php
+RewriteRule ^configuracion/taller$ view/garage/garages/garages.php
+RewriteRule ^configuracion/tanatorios$ view/configuration/mortuary.php
+RewriteRule ^configuracion/tarifas$ view/configuration/price.php
+RewriteRule ^configuracion/tarifas-plantillas/([0-9_-]+)$ view/configuration/prices-templates.php?id=$1
+RewriteRule ^configuracion/tarifas-productos/([0-9_-]+)$ view/configuration/prices-templates-update.php?id=$1
+RewriteRule ^configuracion/timeline$ view/configuration/timeline.php
+RewriteRule ^configuracion/tutoriales$ view/configuration/tutorials.php
+RewriteRule ^configuracion/usuarios$ view/configuration/user.php
+RewriteRule ^configuracion/vacaciones$ view/configuration/holidays.php
+
+# CREMACIONES
+RewriteRule ^cremaciones$ view/cremations/cremations.php
+RewriteRule ^gasoil$ view/cremations/gasoil.php
+
+# DOCUMENTACIÓN DE LA EMPRESA
+RewriteRule ^documentacion$ view/documentation/documentation.php
+
+# EDITORES
+RewriteRule ^editores$ view/editors/list.php
+
+# ESTADÍSTICAS
+RewriteRule ^estadisticas/asistencias$ view/statistics/assistances/assistances.php
+RewriteRule ^estadisticas/confeccion$ view/statistics/making/making.php
+RewriteRule ^estadisticas/gasoil$ view/statistics/gasoil/gasoil.php
+RewriteRule ^estadisticas/destino-final-difunto$ view/statistics/deceasedDestination/deceasedDestination.php
+RewriteRule ^estadisticas/edad-media$ view/statistics/age/age.php
+RewriteRule ^estadisticas/uso-tanatorios$ view/statistics/mortuaryUse/mortuaryUse.php
+RewriteRule ^estadisticas/generales$ view/statistics/generals/general.php
+RewriteRule ^estadisticas/cuadro-de-mando$ view/statistics/controlPanel/controlPanel.php
+RewriteRule ^estadisticas/encuesta-satisfaccion view/statistics/polls/expedientsPolls.php
+RewriteRule ^estadisticas/control-emisiones view/statistics/emissionControl/expedients.php
+RewriteRule ^estadisticas/rendimiento-economico$ view/statistics/economicPerformance/economicPerformance.php
+RewriteRule ^estadisticas/horarios-servicios$ view/statistics/servicesTimes/servicesTimes.php
+
+# EXPEDIENTES
+RewriteRule ^expedientes$ view/expedient/expedient.php
+RewriteRule ^expediente/encuesta-satisfaccion/([A-Za-z0-9_.]+)$ view/expedient/expedient-poll-results.php?id=$1
+RewriteRule ^nuevo-expediente$ view/expedient/expedient-new.php
+RewriteRule ^editar-expediente/([A-Za-z0-9_.]+)$ view/expedient/expedient-edit.php?id=$1
+RewriteRule ^expediente/contratacion/([0-9_-]+)$ view/expedient/expedient-hiring.php?id=$1
+RewriteRule ^expediente/esquela/([0-9_-]+)$ view/expedient/obituary.php?id=$1
+RewriteRule ^expediente/esquela-prensa/([0-9_-]+)$ view/expedient/obituary-press.php?id=$1
+RewriteRule ^expediente/recordatorio/([0-9_-]+)$ view/expedient/reminder.php?id=$1
+RewriteRule ^expediente/cservicio/([0-9_-]+)$ view/expedient/expedient-services.php?id=$1
+RewriteRule ^expediente/documentacion/([0-9_-]+)$ view/expedient/expedient-documents.php?id=$1
+RewriteRule ^expediente/logs/([0-9_-]+)$ view/expedient/expedient-logs.php?id=$1
+RewriteRule ^expediente/esquela/editor/([0-9_-]+)/([0-9_-]+)/([0-9_-]+)$ view/expedient/obituary-editor.php?id=$1&type=$2&model=$3
+RewriteRule ^expediente/esquela-prensa/editor/([0-9_-]+)/([0-9_-]+)/([0-9_-]+)$ view/expedient/obituary-press-editor.php?id=$1&type=$2&model=$3
+RewriteRule ^expediente/lapida/editor/([0-9_-]+)/([0-9_-]+)/([0-9_-]+)$ view/expedient/tombstone-editor.php?id=$1&type=$2&model=$3
+RewriteRule ^expediente/recordatorio/editor/([0-9_-]+)/([0-9_-]+)/([0-9_-]+)$ view/expedient/reminder-editor.php?id=$1&type=$2&model=$3
+RewriteRule ^expediente/recordatorio-sobre-cruz/editor/([0-9_-]+)$ view/expedient/reminder-packet-cross-editor.php?id=$1
+RewriteRule ^expediente/recordatorio-sobre/editor/([0-9_-]+)$ view/expedient/reminder-packet-editor.php?id=$1
+RewriteRule ^expediente/cerrado-defuncion/editor/([0-9_-]+)$ view/expedient/closed-death-editor.php?id=$1
+RewriteRule ^expediente/no-recibe-duelo/editor/([0-9_-]+)$ view/expedient/no-duel-received-editor.php?id=$1
+RewriteRule ^expediente/editor-documento/([0-9_-]+)$ view/expedient/expedient-documents-editor.php?id=$1
+RewriteRule ^expediente/documentos/([0-9_-]+)$ view/expedient/expedient-custom-documents.php?id=$1
+RewriteRule ^expediente/tellmebye/([0-9_-]+)$ view/expedient/tellmebye.php?id=$1
+RewriteRule ^expediente/orden-trabajo/([0-9_-]+)$ view/expedient/work-order.php?id=$1
+
+# EXPEDIENTES TPV
+RewriteRule ^nuevo-expediente-tpv$ view/expedient/expedient-new-tpv.php
+RewriteRule ^editar-expediente-tpv/([A-Za-z0-9_.]+)$ view/expedient/expedient-edit-tpv.php?id=$1
+RewriteRule ^expediente/cservicio-tpv/([0-9_-]+)$ view/expedient/expedient-services-tpv.php?id=$1
+RewriteRule ^expediente/documentacion-tpv/([0-9_-]+)$ view/expedient/expedient-documents-tpv.php?id=$1
+
+# FACTURAS
+RewriteRule ^facturas$ view/invoices/invoices.php
+
+# FACTURAS PROFORMA
+RewriteRule ^facturas-proforma$ view/invoicesProforma/invoicesProforma.php
+
+# LIBROS DE REGISTRO
+RewriteRule ^libros-registro$ view/books/books.php
+
+# LOGS
+RewriteRule ^logs$ view/logs/log.php
+
+# MANTENIMIENTO
+RewriteRule ^control-de-visitas$ view/visitsControl/visits-control.php
+RewriteRule ^control-de-visitas/visitas/([0-9_-]+)$ view/visitsControl/visits.php?id=$1
+RewriteRule ^control-de-visitas/editar-visita/([0-9_-]+)$ view/visitsControl/visit-edit.php?id=$1
+RewriteRule ^literales-pendientes$ view/serviceControl/pendingLiterales.php
+RewriteRule ^mantenimiento/agenda$ view/cleanings/events/events.php
+RewriteRule ^mantenimiento/limpieza/registro-general$ view/cleanings/generalMortuary/generalMortuary.php
+RewriteRule ^mantenimiento/limpieza/registro-coches$ view/cleanings/cars/cars.php
+RewriteRule ^tareas-pendientes$ view/serviceControl/pendingTasks.php
+# RewriteRule ^control-de-servicios$ view/serviceControl/serviceControl.php
+
+# PDFS
+RewriteRule ^documento/nuevo/([0-9_-]+)/([a-zA-Z_-]+)$ view/pdfs/create.php?exp=$1&doc=$2
+RewriteRule ^documento/nuevo/([a-zA-Z_-]+)$ view/pdfs/create.php?exp=$1&doc=$2
+
+# PERFIL DE USUARIO
+RewriteRule ^perfil$ view/user/user-profile.php
+
+# PRESUPUESTOS
+RewriteRule ^presupuestos$ view/budgets/budgets.php
+
+# SALIDAS
+RewriteRule ^salidas$ view/expenses/expenses.php
+RewriteRule ^salidas/facturas-recibidas$ view/configuration/received-invoices.php
+RewriteRule ^salidas/financiacion$ view/configuration/financing.php
+RewriteRule ^salidas/sueldos-salarios$ view/salaries/list.php
+RewriteRule ^salidas/sueldos-salarios/editar/([A-Za-z0-9_.]+)$ view/salaries/update.php
+RewriteRule ^salidas/impuestos-tasas$ view/configuration/taxes.php
+
+# SERVICIOS
+RewriteRule ^servicios/buscar-resumen$ view/serviceControl/searchSummary.php
+RewriteRule ^servicios-de-hoy$ view/serviceControl/todaySummary.php
+RewriteRule ^servicios-de-mañana$ view/serviceControl/tomorrowSummary.php
+RewriteRule ^servicios/cremaciones-hoy$ view/serviceControl/todayCremations.php
+RewriteRule ^servicios/cremaciones-mañana$ view/serviceControl/tomorrowCremations.php
+
+# TALLER
+RewriteRule ^taller/agenda$ view/garage/events/events.php
+RewriteRule ^taller/vehiculos$ view/garage/vehicles/vehicles.php
+RewriteRule ^taller/mantenimiento$ view/garage/upkeeps/upkeeps.php
+RewriteRule ^taller/mantenimiento/([0-9_-]+)$ view/garage/upkeeps/upkeepsVehicle.php?id=$1
+RewriteRule ^taller/gastos-generales$ view/garage/generalExpenses/generalExpenses.php
+RewriteRule ^taller/averias/([0-9_-]+)$ view/garage/failures/failuresVehicle.php?id=$1
+RewriteRule ^taller/gps/([0-9_-]+)$ view/garage/vehicles/gps.php?id=$1
+RewriteRule ^taller/repostaje/([0-9_-]+)$ view/garage/refuel/refuel.php?id=$1
+
+# TELÉFONOS
+RewriteRule ^telefonos$ view/phones/phones.php
+RewriteRule ^telefonos/categorias$ view/phones/phonesCategories.php
+
+# TIMELINE
+RewriteRule ^timeline$ view/timeline/timeline.php
+RewriteRule ^timeline/tareas-libres$ view/timeline/freeTasks.php
+RewriteRule ^timeline/mantenimiento-vehiculos$ view/timeline/garageTasks.php
+
+# TUTORIALES
+RewriteRule ^tutoriales$ view/tutorials/list.php
+
+</IfModule>

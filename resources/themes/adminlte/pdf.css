@@ -1,0 +1,368 @@
+/* General */
+body{
+    font-family: "Montserrat",sans-serif!important;
+}
+
+/* Alignment */
+.custom-text-center{
+    text-align: center;
+}
+.custom-text-justify{
+    text-align: justify;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+/* Alignment */
+
+/* Spacing */
+.no-bottom{
+    padding-bottom: 0px!important;
+    margin-bottom: 0px!important;
+}
+.m-0{
+    margin: 0!important;
+}
+.mb-10{
+    margin-bottom: 10px!important;
+}
+.mb-5{
+    margin-bottom: 5px!important;
+}
+.mt-5{
+    margin-top: 15px!important;
+}
+.border-bottom-1{
+    border-bottom: 1px solid #424143;
+}
+.word-break{
+    word-break: break-word!important;
+}
+.width-1{ width: 1%; }
+.width-2{ width: 2%; }
+.width-3{ width: 3%; }
+.width-4{ width: 4%; }
+.width-5{ width: 5%; }
+.width-6{ width: 6%; }
+.width-7{ width: 7%; }
+.width-8{ width: 8%; }
+.width-9{ width: 9%; }
+.width-10{ width: 10%; }
+.width-11{ width: 11%; }
+.width-12{ width: 12%; }
+.width-13{ width: 13%; }
+.width-14{ width: 14%; }
+.width-15{ width: 15%; }
+.width-16{ width: 16%; }
+.width-17{ width: 17%; }
+.width-18{ width: 18%; }
+.width-19{ width: 19%; }
+.width-20{ width: 20%; }
+.width-21{ width: 21%; }
+.width-22{ width: 22%; }
+.width-23{ width: 23%; }
+.width-24{ width: 24%; }
+.width-25{ width: 25%; }
+.width-26{ width: 26%; }
+.width-27{ width: 27%; }
+.width-28{ width: 28%; }
+.width-29{ width: 29%; }
+.width-30{ width: 30%; }
+.width-31{ width: 31%; }
+.width-32{ width: 32%; }
+.width-33{ width: 33%; }
+.width-34{ width: 34%; }
+.width-35{ width: 35%; }
+.width-36{ width: 36%; }
+.width-37{ width: 37%; }
+.width-38{ width: 38%; }
+.width-39{ width: 39%; }
+.width-40{ width: 40%; }
+.width-41{ width: 41%; }
+.width-42{ width: 42%; }
+.width-43{ width: 43%; }
+.width-44{ width: 44%; }
+.width-45{ width: 45%; }
+.width-46{ width: 46%; }
+.width-47{ width: 47%; }
+.width-48{ width: 48%; }
+.width-49{ width: 49%; }
+.width-50{ width: 50%; }
+.width-51{ width: 51%; }
+.width-52{ width: 52%; }
+.width-53{ width: 53%; }
+.width-54{ width: 54%; }
+.width-55{ width: 55%; }
+.width-56{ width: 56%; }
+.width-57{ width: 57%; }
+.width-58{ width: 58%; }
+.width-59{ width: 59%; }
+.width-60{ width: 60%; }
+.width-61{ width: 61%; }
+.width-62{ width: 62%; }
+.width-63{ width: 63%; }
+.width-64{ width: 64%; }
+.width-65{ width: 65%; }
+.width-66{ width: 66%; }
+.width-67{ width: 67%; }
+.width-68{ width: 68%; }
+.width-69{ width: 69%; }
+.width-70{ width: 70%; }
+.width-71{ width: 71%; }
+.width-72{ width: 72%; }
+.width-73{ width: 73%; }
+.width-74{ width: 74%; }
+.width-75{ width: 75%; }
+.width-76{ width: 76%; }
+.width-77{ width: 77%; }
+.width-78{ width: 78%; }
+.width-79{ width: 79%; }
+.width-80{ width: 80%; }
+.width-81{ width: 81%; }
+.width-82{ width: 82%; }
+.width-83{ width: 83%; }
+.width-84{ width: 84%; }
+.width-85{ width: 85%; }
+.width-86{ width: 86%; }
+.width-87{ width: 87%; }
+.width-88{ width: 88%; }
+.width-89{ width: 89%; }
+.width-90{ width: 90%; }
+.width-91{ width: 91%; }
+.width-92{ width: 92%; }
+.width-93{ width: 93%; }
+.width-94{ width: 94%; }
+.width-95{ width: 95%; }
+.width-96{ width: 96%; }
+.width-97{ width: 97%; }
+.width-98{ width: 98%; }
+.width-99{ width: 99%; }
+.width-100{ width: 100%; }
+/* Spacing */
+
+/* Font */
+.text-uppercase{
+    text-transform: uppercase;
+}
+.font-size-medium{
+    font-size: medium!important;
+}
+.to-bold{
+    font-weight: bold;
+}
+.c-red{
+    color: #f58b96;
+}
+.c-green{
+    color: #a5d6a7;
+}
+/* Font */
+
+/* Tables */
+.custom-align-center{
+    text-align: center;
+    vertical-align: middle;
+}
+.custom-align-right{
+    text-align: right;
+    vertical-align: middle;
+}
+.custom-table{
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+.custom-row{
+    display: table-row;
+}
+.custom-cell{
+    display: table-cell;
+    padding-bottom: 0.5em;
+    word-wrap: break-all!important;
+}
+.custom-cell-double{
+    display: table-cell;
+    padding: 0.20em;
+    word-wrap: break-all!important;
+}
+.custom-th{
+    background-color: #424143;
+    color: #FFF;
+    font-weight: 700;
+    font-size: small;
+    text-transform: uppercase;
+}
+.custom-th-no-uppercase{
+    background-color: #424143;
+    color: #FFF;
+    font-weight: 700;
+    font-size: small;
+}
+.custom-tr-odd{
+    background-color: #E4EDF2 !important;
+}
+.custom-tr-even{
+    background-color: #FFF !important;
+}
+.custom-cell .label-th{
+    color:white!important;
+}
+.custom-header.custom-table{
+    width: calc(100% - 2em);
+}
+.custom-hr{
+    border-bottom: 1px solid #968776;
+}
+/* Tables */
+
+/* Labels */
+label{
+    display: block;
+    color: #666666;
+    font-size: 11px;
+    margin-bottom: 1px;
+}
+/* Labels */
+
+/* Inputs */
+input{
+    border: 1px solid #c7c7c7;
+    padding: 7px;
+    font-size: 13px;
+    border-radius: .30rem;
+    background-color: #fffff2;
+}
+textarea{
+    border: 1px solid #c7c7c7;
+    padding: 7px;
+    font-size: 13px;
+    resize: none;
+    border-radius: .30rem;
+    background-color: #fffff2;
+}
+/* Inputs */
+
+/* Legends */
+title{
+    font-size: medium;
+    color: black;
+    padding-bottom: 0.48rem;
+    margin: 0.5em auto;
+    display: block;
+    width: 100%;
+}
+legend{
+    font-size: medium;
+    color: #968776;
+    padding-bottom: 0.48rem;
+    margin: 0.5em auto;
+    border-bottom: 1px solid #dddddd;
+    display: block;
+    width: 100%;
+}
+.sublegend{
+    font-size: large;
+    font-weight: bold;
+    color: #424143;
+    padding-bottom: 0.48rem;
+    margin: 0.5em auto;
+    border-bottom: 1px solid #968776;
+    display: block;
+    width: 100%;
+}
+.legend-tags{
+    font-size: large;
+}
+/* Legends */
+
+/* Input checkbox */
+input.checkbox::before{
+    padding: 40px;
+    border: solid 2px red;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: solid 1px #666666;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid 2px #968776;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container .text-checkbox{
+    font-size: 12px;
+    line-height: 21px;
+    display: block;
+}
+
+/* Print */
+@media print {
+    .new-page {
+        page-break-before: always;
+    }
+}
+/* Print */

@@ -1,0 +1,6 @@
+Expedient: 3484
+  INSERT INTO Expedients_Hirings( expedient, template, product, model, supplier, 
+                                                                retail, amount, texts, discount, total, `check`, extraID, warehouse)
+                                VALUES (3484, null, 121,
+                                        393, 94,
+                                        null, 1, '', 0, 0, 0, 'w6kcXB53jP', 1)

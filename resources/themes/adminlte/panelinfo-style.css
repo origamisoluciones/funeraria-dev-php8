@@ -1,0 +1,85 @@
+/* UI Panel Info */
+.centered{
+    text-align: center;
+}
+.carousel-fade .carousel-inner .item {
+    animation:fade 10s infinite;
+    -webkit-animation:fade 10s infinite;
+}
+.carousel-fade .carousel-inner .item.active {
+    animation:fade1 10s infinite;
+    -webkit-animation:fade1 10s infinite;
+}
+@keyframes fade
+{
+  0%   {opacity:1}
+  17.333% { opacity: 0}
+  45.666% { opacity: 0} 
+  100% { opacity: 1}
+}
+@keyframes fade1
+{
+  0%   {opacity:0}
+  17.333% { opacity: 1}
+  45.666% { opacity: 0 }  
+  100% { opacity: 0}
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 0;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-inner .carousel-control {
+    z-index: 2;
+}
+.template .table .centered th{
+    text-align: center;
+}
+.template .table th{
+    color: #002490;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.template .table tbody,
+.template .table tbody tr td{
+    color: #002490 !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+.template .header,
+.template .body{
+    clear: both;
+}
+.template .body{
+    padding-top: 15px;
+}
+.template .body .messages{
+    margin: 30px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
+.template .body #media{
+    height: 400px;
+}
+#carousel-footer .photo{
+    display: block;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

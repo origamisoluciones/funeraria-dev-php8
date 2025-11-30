@@ -1,0 +1,3764 @@
+/* typeface, color */
+.small{
+    font-size: small !important;
+}
+.medium{
+    font-size: medium !important;
+}
+.large{
+    font-size: large !important;
+}
+.x-large{
+    font-size: x-large !important;
+}
+.xx-large{
+    font-size: xx-large !important;
+}
+.light{
+    font-weight: 300;
+}
+.bolder{
+    font-weight: 700;
+}
+.bge-lile{
+    background-color: #9C9CDE !important;
+}
+.bge-pink{
+    background-color: #F5A3CC !important;
+}
+.bge-green{
+    background-color: #CBF1B1 !important;
+}
+.bge-red{
+    background-color: #E61919 !important;
+}
+.bge-red-light{
+    background-color: #F9C8C8 !important;
+}
+.bge-blue{
+    background-color: #33B8FF !important;
+}
+.bge-blue-light{
+    background-color: #D6F1FF !important;
+}
+.bge-grey{
+    background-color: #E1E0E0 !important;
+}
+.bge-grey-light{
+    background-color: #F5F0F0 !important;
+}
+.bg-lile{
+    background-color: #002490 !important;
+}
+.bge-brown {
+    background-color: #a94442 !important;
+}
+.c-pink{
+    color: #F5A3CC !important;
+}
+.c-green{
+    color: #CBF1B1 !important;
+}
+.c-red{
+    color: #E61919 !important;
+}
+.c-blue{
+    color: #33B8FF !important;
+}
+.c-blue-light{
+    color: #D6F1FF !important;
+}
+.c-grey{
+    color: #E1E0E0 !important;
+}
+.c-white{
+    color: #FFF !important;
+}
+.c-grey-medium{
+    color: #333 !important;
+}
+.c-lile{
+    color: #002490 !important;
+}
+/* Icons */
+.fa.fa-large{
+    font-size: 90px !important;
+}
+.fa.fa-small{
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+}
+.box-title .fa.fa-small{
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+    vertical-align: bottom;
+}
+.box-title .fa{
+    margin-right: 7px;
+    vertical-align: bottom;
+}
+.fa-ashes{
+    background-image: url("./dist/img/graphic-icon-ashes.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.fa-ashes-o{
+    background-image: url("./dist/img/graphic-icon-ashes-white.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.fa-mortuory{
+    background-image: url("./dist/img/graphic-icon-mortuory.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.fa-church{
+    background-image: url("./dist/img/graphic-icon-church.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fa-priest{
+    background-image: url("./dist/img/graphic-icon-priest.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fa-tanatory{
+    background-image: url("./dist/img/graphic-icon-tanatory.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fa-cemetery{
+    background-image: url("./dist/img/graphic-icon-thumb.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fa-choir{
+    background-image: url("./dist/img/graphic-icon-choir.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+.graphic-logo{
+    background-repeat: no-repeat;
+    background-position: left center;
+    /* background-size: 270px 65px; */
+    /* width: 270px; */
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-size: 170px 41px; */
+    background-size: contain;
+    /* width: 170px;
+    height: 41px; */
+    margin-top: 3px;
+}
+.btn-gotop i{
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: large;
+}
+/* Links */
+/*.nav-tabs>li>a.btn {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 6px 12px;
+}*/
+/* Buttons */
+.btn{
+    padding: 2px 3px 2px 3px !important;
+}
+.btn-primary, .btn-primary:focus {
+    background-color: #002490 ;
+    border-color: #002490;
+}
+.btn-primary:hover {
+    background-color: #212331 ;
+    border-color: #212331;
+}
+.details-control .btn.dropdown-toggle{
+    padding: 0px 6px;
+}
+.btn-new-color{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-left: 10px;
+}
+.dropdown-menu>li>a,
+.btn-default{
+    color: #002490 !important;
+    cursor: pointer;
+}
+.dt-buttons.btn-group{
+    margin: 6px 0;
+}
+i.btn-remove{
+    cursor: pointer;
+}
+/* Tables */
+.table > tbody > tr > td{
+    vertical-align: middle;
+}
+.bottom > div{
+    width: 33.33%;
+    float: left;
+}
+.bottom.bottom-2 > div{
+    width: 50%;
+    float: left;
+}
+.table-fixed{
+    position: relative;
+    padding-top: 40px;
+}
+.table-fixed .table-responsive{
+    overflow-y: auto;
+}
+.table-fixed .table>thead>tr>th{
+    padding: 0px;
+}
+.th-inner {
+    position: absolute;
+    top: 0;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 3px;
+}
+table.table.dataTable thead > tr > th{
+    padding: 8px;
+}
+table.dataTable>tbody>tr.child ul.dtr-details ul.actions-menu li{
+    border-bottom: 0px !important;
+    padding: 0px !important;
+}
+table.dataTable.display tbody tr.selected{
+    background-color: #ecf0f5!important;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+    right: 0px !important;
+}
+/* Export */
+.btn-default.export-button{
+    background: none;
+}
+/* Forms */
+/*.fieldset{
+    border: 1px solid #002490;
+    padding: 5px;
+    margin-bottom: 30px;
+    display: block;
+}*/
+fieldset legend{
+    font-size: 15px;
+    padding: 0 7px;
+    margin-left: 7px;
+    border: 0px;
+    margin-bottom: 0px;
+    display: block;
+    width: auto;
+    color: #002490;
+}
+fieldset{
+    /*border: 1px solid #bdbcbc;*/
+    border: 1px solid #000088;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 15px;
+}
+fieldset div[class^="col-"]{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+fieldset .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.form-control{
+    font-size: 13px;
+    width: auto !important;
+    height: 24px !important;
+    padding: 3px !important;
+    border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+}
+textarea.form-control{
+    /*width: 90% !important;*/
+    height: auto !important;
+}
+select.form-control{
+    padding: 0px 3px !important;
+}
+.form-control:focus{
+    border-color: #484848 !important;
+}
+.control-label{
+    font-size: 13px;
+    padding-top: 2px !important;
+    padding-right: 0px !important;
+}
+.input-group-addon{
+    /*float: left !important;*/
+    padding: 4px 8px !important;
+    height: 24px !important;
+    width: 30px !important;
+}
+.form-group{
+    margin-bottom: 12px !important;
+}
+.form-inline .form-group{
+    margin-bottom: 0px !important;
+    margin-right: 10px;
+}
+.form-inline label{
+    margin-bottom: 0px !important;
+}
+.input-group .select2-container,
+.input-group .form-control{
+    /*float: left !important;*/
+    display: inline-block;
+}
+div.input-group.date .input-group-addon i{
+    width: 14px;
+    height: 14px;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    border: 0px !important;
+    background-color: #f4f4f4 !important;
+}
+.input-group .form-control[disabled]{
+    border: 1px solid #ccc !important;
+}
+.input-small{
+    width: 40px;
+}
+.input-medium{
+    width: 66px;
+}
+.input-large{
+    width: 92px;
+}
+textarea{
+    resize: none !important;
+}
+.text{
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.text > span{
+    margin-right: 5px;
+}
+.checkbox label:first-child, .radio label:first-child{
+    padding-left: 0px;
+}
+.checkbox-inline span{
+    display: inline-block !important;
+    margin-right: 7px !important;
+}
+.input-group .input-group-addon{
+    background-color: #F5F0F0;
+    color: #002490;
+}
+.validateSuccess{
+    border: 1px solid #3c763d !important;
+}
+.validateError{
+    border: 1px solid #E61919 !important;
+}
+.inputError{
+    font-size: 14px;
+    font-style: italic;
+    color: #E61919;
+    line-height: 24px;
+    display: none;
+}
+.control-label{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* Breadcrumb */
+.content-header{
+    display:flex; 
+    justify-content:space-between;
+}
+.content-header > ol.breadcrumb{
+    font-size: 14px;
+    padding:0;
+    float:none;
+    position:initial;
+    margin-right:10px;
+}
+.content-header .div-content-progress{
+    display: flex;
+}
+.content-header .progress{
+    margin-bottom:0;
+    width:400px;
+    background-color: white!important;
+    border: 1px solid #002490;
+    margin-left: 8px;
+}
+.content-header #sessionProgressBar{
+    line-height: 16px;
+    width: 100%;
+}
+/* Errors */
+.unhappyMessage, .help-block-error {
+    color: red;
+    font-style: italic;
+    font-weight: 400;
+}
+div.has-feedback label~.form-control-feedback{
+    top: 0px;
+}
+/* Validation */
+.checkbox-inline .error{
+    text-indent: -999999px;
+}
+.form-group.has-success label.control-label,
+.form-group.has-error label.control-label{
+    color: #002490 !important;
+}
+.form-group.has-error label.error{
+    font-weight: 400;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-style: italic;
+}
+/*Panel*/
+.box, .box.box-primary{
+    border: 1px solid #002490 !important;
+    border-radius: 0px;
+    -mox-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+/* Fullcalendar (events) */
+.fc-newEvent-button.fc-button{
+    background: #002490;
+    color: #FFF;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+.fc-newEvent-button.fc-button::before{
+    content: '\f067';
+    display: inline-block;
+    font: normal normal normal 16px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #FFF;
+    padding-right: 7px;
+}
+a.fc-event{
+    font-size: 14px;
+}
+button.fc-state-active,
+button.fc-state-down{
+    background-color: #002490;
+    color: #FFF;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+button.fc-state-active:focus,
+button.fc-state-down:focus,
+button.fc-state-active:active,
+button.fc-state-down:active,
+button.fc-state-active:hover,
+button.fc-state-down:hover{
+    background-color: #002490;
+    color: #FFF;
+}
+button.fc-prev-button,
+button.fc-next-button{
+    color: #FFF !important;
+    background: #f39c12 !important;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+.fc-toolbar .fc-center h2{
+    font-size: 24px;
+    color: #002490;
+}
+/* Ckeditor */
+#cke_text{
+    width: 100% !important;
+}
+/*Carousel Plugin Bootstrap Effect Fade*/
+.carousel-fade .carousel-inner .item {
+    animation:fade 10s infinite;
+    -webkit-animation:fade 10s infinite;
+}
+.carousel-fade .carousel-inner .item.active {
+    animation:fade1 10s infinite;
+    -webkit-animation:fade1 10s infinite;
+}
+@keyframes fade
+{
+  0%   {opacity:1}
+  17.333% { opacity: 0}
+  45.666% { opacity: 0} 
+  100% { opacity: 1}
+}
+@keyframes fade1
+{
+  0%   {opacity:0}
+  17.333% { opacity: 1}
+  45.666% { opacity: 0 }  
+  100% { opacity: 0}
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 0;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-inner .carousel-control {
+    z-index: 2;
+}
+/* Select2 */
+.select2-container{
+    min-width: 87px !important;
+    max-width: 87px !important;
+    width: auto !important;
+}
+.expedient-list .select2.select2-container.select2-container--default{
+    min-width: 155px !important;
+    max-width: 155px !important;
+    width: auto !important;
+}
+/* .expedient-list .box-filters span.select2.select2-container.select2-container--default:first-of-type {
+    min-width: 100px !important;
+    max-width: 100px !important;
+    width: auto !important;
+} */
+#crematoriumsOwnServiceTable .select2-container, 
+#crematoriumsTable .select2-container,
+#crematoriumsOutServiceTable .select2-container{
+    min-width: 200px !important;
+    max-width: 200px !important;
+    width: auto !important;
+    margin-left: 1em;
+}
+#state-show-filter .select2.select2-container.select2-container--default{
+    min-width: 170px !important;
+    max-width: 170px !important;
+    width: auto !important;
+}
+.select2-container--default .select2-selection--single{
+    height: 24px !important;
+    width: auto !important;
+    padding: 3px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 24px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    border-bottom: 1px solid #b3b5b7;
+    width: 15px !important;
+    height: 23px !important;
+    top: 0px;
+    background: #FFF;
+}
+.select2-container--default .select2-selection--single.validateError .select2-selection__arrow {
+    border-bottom: 1px solid #E61919;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear{
+    width: 15px !important;
+    height: 24px !important;
+    margin-right: -10px !important;
+    color: #002490 !important;
+    background-color: #FFF !important;
+    border-top: 1px solid #b3b5b7 !important;
+    border-bottom: 1px solid #b3b5b7 !important;
+    text-align: center;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 0px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice > div{
+    float: none;
+    display: inline-block;
+}
+/* General */
+body{
+    color: #002490 !important;
+}
+hr{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border-color: #bdbcbc;
+}
+.hidden{
+    display: none;
+}
+.footer-static-bottom .show{
+    display: inline !important;
+}
+blockquote{
+    border-left: 7px solid #212331;
+    padding: 5px 15px !important;
+}
+.box .box-header blockquote .box-title{
+    font-weight: 400;
+}
+.box .box-header .box-title{
+    font-size: 18px;
+    color: #002490;
+    font-weight: 700;
+}
+.box.box-configuration .box-header .box-title{
+    font-weight: 400;
+}
+.box .box-header .box-title a::after{
+    content: '\f0d8';
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #002490;
+    padding-left: 7px;
+}
+.box .box-header .box-title a.collapsed::after{
+    content: '\f0d7';
+}
+.priests,
+.churches{
+    padding-top: 5px;
+}
+.phones,
+.contactPeople{
+    opacity: 0;
+    padding-top: 5px;
+}
+.phones.in,
+.contactPeople.in{
+    opacity: 1;
+}
+.priests.in .label,
+.churches.in .label,
+.phones.in .label,
+.contactPeople.in .label{
+    margin: 3px;
+    display: inline-block;
+}
+.phones .number{
+    font-weight: 400;
+    margin-right: 3px;
+    color: #002490;
+}
+.fa-times-circle.btn-remove.btn-remove{
+    color: #5b5959;
+}
+#selectColor{
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    width: 200px;
+}
+#selectColor .colorpicker:before,
+#selectColor .colorpicker:after{
+    display: none !important;
+    visibility: hidden !important;
+}
+.list-inline li.active a,
+.list-inline li.active a:active,
+.list-inline li.active a:link,
+.list-inline li.active a:focus,
+.list-inline li.active a:visited,
+.list-inline li.active a:hover{
+    font-weight: 700;
+}
+.footer-static-bottom{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 99;
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    padding: 5px 20px;
+    background: #fff;
+    box-shadow: 0 0 10px #333;
+    -moz-box-shadow: 0 0 10px #333;
+    -webkit-box-shadow: 0 0 10px #333;
+}
+.footer-static-bottom .online-users{
+    margin-top: 7px;
+}
+.footer-static-bottom .online-users p{
+    margin-bottom: 4px;
+    margin-right: 7px;
+    display: inline;
+}
+.footer-static-bottom .online-users ul{
+    display: inline;
+}
+.footer-static-bottom .online-users li{
+    display: inline;
+    margin: 0 5px;
+}
+.footer-static-bottom .online-users li > .fa {
+    padding-right: 5px;
+}
+.footer-static-bottom .block-2{
+    padding-top: 0px;
+}
+.footer-static-bottom .block-2 .btn{
+    margin-left: 7px;
+} 
+.dotted-line{
+    border-style: dotted;    
+    border-top: 1px solid #ddd;
+}
+.inline-block{
+    display: inline-block;
+}
+.clearfix{
+    clear: both;
+}
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: middle!important;
+}
+div.alert{
+    padding: 7px;
+    margin-bottom: 7px;
+}
+.alert-dismissable button.close,
+.alert-dismissible button.close{
+    right: 0px;
+}
+.support-menu{
+    float: left;
+    padding: 15px 15px;
+}
+.actions-menu{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 70px;
+}
+.actions-menu-visit{
+    list-style-type: none;
+}
+.actions-menu > li, .actions-menu-visit >li{
+    display: inline-block;
+    margin: 0px 5px;
+}
+.actions-menu a{
+    cursor: pointer;
+}
+
+.navbar-nav > .users-menu > ul.dropdown-menu{
+    width: 185px;
+}
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a,
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:link,
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:active,
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:focus,
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:visited
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:hover{
+    padding-left: 15px;
+    color: #002490;
+    white-space: normal;
+}
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a:hover{
+    text-decoration: underline;
+}
+.navbar-nav > .users-menu > ul.dropdown-menu > li .menu > li > a > .fa{
+    padding-right: 5px;
+}
+.navbar-custom-menu .fa.fa-gears{
+    font-size: 18px;
+}
+.navbar-custom-menu .fa.fa-ashes{
+    width: 20px !important; 
+    height: 20px !important;
+    background-size: 20px 20px !important;
+}
+.skin-black .main-header ul li.user-header{
+    background-color:#002490;
+}
+.skin-black .main-header ul li.user-header .fa{
+    font-size: 84px;
+    color: white;
+}
+.skin-black .main-header .navbar .nav>li>a{
+    line-height: 36px;
+}
+.navbar-nav > .user-menu > .dropdown-menu{
+    border-color: #002490 !important;
+}
+.navbar-nav > .user-menu > ul.dropdown-menu > li.user-header > p{
+    font-size: large;
+    font-weight: 700;
+}
+.navbar-nav > .user-menu > ul.dropdown-menu {
+    width: auto;
+    min-width: 220px;
+}
+.navbar-nav > .user-menu > ul.dropdown-menu .user-footer a,
+.navbar-nav > .user-menu > ul.dropdown-menu .user-footer a:link,
+.navbar-nav > .user-menu > ul.dropdown-menu .user-footer a:active,
+.navbar-nav > .user-menu > ul.dropdown-menu .user-footer a:focus,
+.navbar-nav > .user-menu > ul.dropdown-menu .user-footer a:visited{
+    color: #002490 !important;
+}
+.navbar-nav > .user-menu #userName{
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-weight: bold!important;
+}
+/*.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover{
+    font-weight: 700;
+    color: #002490 !important;
+}*/
+.nav-tabs>li.active>a{
+    background-color: #e9e9e9 !important;
+}
+.nav-tabs>li>a,
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover,
+.nav>li.disabled>a:focus,
+.nav>li.disabled>a:hover{
+    border: 0px !important;
+    border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    -webkit-border-radius: 4px !important;
+}
+.nav-tabs>li>a,
+.nav>li.disabled>a:focus,
+.nav>li.disabled>a:hover{
+    background-color: #b3b3b3 !important;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover{
+    color: #FFF !important;
+    background-color: #002490 !important;
+}
+.nav > li > a, .nav > li > a:hover, .nav > li > a:active, .nav > li > a:focus{
+    color: #002490 !important;
+    padding: 7px 10px;
+}
+div.nav-tabs-custom>.nav-tabs{
+    border-bottom-color: #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+}
+div.nav-tabs-custom>.nav-tabs>li.active>a{
+    border-right-color: transparent;
+    border-left-color: transparent;
+    background-color: transparent;
+}
+div.nav-tabs-custom {
+    background: #f9f9f9;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+.modal .modal-header{
+    padding: 5px 10px;
+}
+.modal .modal-footer,
+.modal .modal-body{
+    padding: 5px;
+}
+.modal-xl{
+    width: 80% !important;
+}
+.modal-xxl{
+    width: 1050px!important;
+}
+.close{
+    opacity: 1;
+    color: #002490;
+}
+/*.icheckbox_minimal-purple, .iradio_minimal-purple{
+    border: 1px solid #002490 !important;
+    margin-right: 4px !important;
+    margin-left: 4px !important;
+}*/
+.icheckbox_minimal-purple, .iradio_minimal-purple{
+    width: 14px !important;
+    height: 14px !important;
+    border: 1px solid #b3b5b7 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+}
+.icheckbox_minimal-purple.checked{
+    background-position: -43px -4px !important;
+}
+.breadcrumb>.active{
+    color: #002490;
+    font-weight: 700;
+}
+.tooltip.tooltip-sidebar-toggle .tooltip-inner {
+    background-color: #f39c12;
+}
+.tooltip.tooltip-sidebar-toggle .tooltip-arrow{
+    border-left-color: #f39c12;
+    border-right-color: #f39c12;
+}
+/* Count notifications */
+.count-notifications{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 19px;
+    height: 19px;
+    background-color: #002490;
+    border-radius: 50%;
+    -moz-border-radius: 80%;
+    -webkit-border-radius: 80%;
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: sonar;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+body.sidebar-collapse section.sidebar li#sidebarUpdates .count-notifications{
+    top: 3px;
+    left: 25px;
+}
+body section.sidebar li#sidebarUpdates .count-notifications{
+    top: 5px;
+    left: 138px;
+}
+@keyframes sonar { 
+    0% {transform: scale(.9); opacity:1;}
+    100% {transform: scale(2);opacity: 0;}
+}
+@keyframes pulse {
+    0% {transform: scale(1);}
+    20% {transform: scale(1.4); } 
+    50% {transform: scale(.9);} 
+    80% {transform: scale(1.2);} 
+    100% {transform: scale(1);}
+}
+
+.btn-new, .viewClick, .editClick, .removeClick{
+    cursor: pointer;
+}
+ul.pagination{
+    margin: 2px 0 !important;
+}
+/* UI - Login */
+.login-page{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.login-page a,
+.login-page a:active,
+.login-page a:focus,
+.login-page a:link,
+.login-page a:visited{
+    color: #002490!important;
+}
+.login-page a:hover{
+    color: #212331!important;
+}
+.login-page .login-box{
+    margin: 0 auto;
+    padding: 15% 0;
+}
+.login-box-body, .register-box-body{
+    border-top: 7px solid #002490;
+    border-bottom: 7px solid #002490;
+}
+/* UI - Events */
+.box-actions .labels ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.box-actions .labels ul li{
+    display: inline-block;
+    margin: 0px 4px;
+}
+.box-actions .labels .fa{
+    font-size: smaller;
+    padding-right: 7px;
+}
+.box-actions label{
+    margin-left: 15px;
+}
+.box-actions label .form-control{
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.box-actions .pagination{
+    margin: 0px;
+    float: left;
+}
+.bootstrap-timepicker-widget.dropdown-menu{
+    left: 92px;
+}
+.web-aniversary .time-aniversary-web .dropdown-menu{
+    top:-80px;
+}
+/* UI Cleanings */
+#cleaning-description-modal table > thead > tr > th{
+    text-align: center;
+}
+/* UI - Page */
+.page .labels .label{
+    color: #002490 !important;
+}
+.page .state-filter select,
+.page .state-filter .btn{
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+.tab-content{
+    padding-top: 15px;
+}
+.page .tab-content blockquote p{
+    font-size: 18px;
+    color: #002490;
+}
+.page .box-header,
+.page .box-body{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+.page .nav-tabs .btn{
+    margin: 0px 3px;
+}
+
+.page .checkbox-inline .icheckbox_minimal-purple{
+    margin-top: 0px;
+}
+.page .block-control-form .form-control{
+    width: 64px;
+}
+/* UI - Expedient Page*/
+.literal-page .control-label,
+.response-page .control-label,
+.asistances-view-page .control-label,
+.deliveryNote-edit-page .control-label,
+.orders-new-page .control-label,
+.orders-edit-page .control-label,
+.cremations-page .control-label,
+.assistances-page .control-label,
+.settings-page .control-label,
+.configuration-page .control-label,
+.documentation-page .control-label,
+.cservice-page .control-label,
+.obituary-page .control-label,
+.expedient-page .control-label{
+    padding-right: 9px !important;
+}
+.expedient-new-page.contract-page label{
+    margin-left: 12px;
+}
+.expedient-new-page.contract-page select{
+    margin-right: 15px;
+}
+#expedient-tabs{
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+}
+#expedient-tabs.nav-tabs > li{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.new-expedient-page .select2-container{
+    min-width: 185px !important;
+    max-width: 185px !important;
+    width: auto !important;
+}
+.new-expedient-page .input-group .select2-container{
+    min-width: 162px !important;
+    max-width: 162px !important;
+    width: auto !important;
+}
+.new-expedient-page .form-group-client .input-group .select2-container{
+    min-width: 250px !important;
+    max-width: 250px !important;
+    width: auto !important;
+}
+.new-expedient-page select{
+    min-width: 190px !important;
+    max-width: 190px !important;
+    width: auto !important;
+}
+.new-expedient-page select#churchLabel,
+.new-expedient-page select#cemeteryLabel{
+    min-width: 160px !important;
+    max-width: 160px !important;
+    width: auto !important;
+}
+.new-expedient-page #coffin{
+    min-width: 168px !important;
+    max-width: 168px !important;
+    width: auto !important;
+}
+.new-expedient-page #deceasedRoom{
+    min-width: 185px !important;
+    max-width: 185px !important;    
+}
+.new-expedient-page #tanatologicalPractice {
+    min-width: 156px !important;
+    max-width: 156px !important;
+    width: auto !important;
+}
+.new-expedient-page select.smoke-section,
+.nexpedient-pagee select.smoke-section
+{
+    min-width: 157px !important; 
+    max-width: 157px !important;
+}
+.new-expedient-page .nicheSelect .select2.select2-container.select2-container--default,
+.expedient-page .nicheSelect .select2.select2-container.select2-container--default
+{
+    min-width: 154px !important; 
+    max-width: 154px !important;
+}
+.new-expedient-page #clientSelectNewExpedient .select2.select2-container.select2-container--default{
+    min-width: 156px !important; 
+    max-width: 156px !important;
+}
+.new-expedient-page #crematClientNewExpedient .select2.select2-container.select2-container--default{
+    min-width: 185px !important; 
+    max-width: 185px !important;
+    width: auto !important;
+}
+.new-expedient-page .associate-expedient-select,
+.hiring-page .associate-expedient-select{
+    min-width: 300px !important; 
+    max-width: 300px !important;
+    width: auto !important;
+}
+.new-expedient-page #expedientToAssociateSection span.select2-container{
+    min-width: 350px !important;
+    max-width: 350px !important;
+    width: auto !important;
+}
+body.expedient-page{
+    min-width: 1200px;
+}
+body.expedient-page.fixed .content-wrapper{
+    padding-bottom: 80px;
+}
+
+/* UI  Configuration Page */
+.configuration-page .list-unstyled li{
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.configuration-page .list-unstyled li a,
+.configuration-page .list-unstyled li a:link,
+.configuration-page .list-unstyled li a:active,
+.configuration-page .list-unstyled li a:focus,
+.configuration-page .list-unstyled li a:visited{
+    height: 110px;
+    padding: 1em;
+    text-align: center;
+    background-color: #F5F0F0;
+    border-bottom: 4px solid #F5F0F0;
+    display: block;
+    -webkit-transition: background-color 0.6s;
+    -moz-transition: background-color 0.6s;
+    -ms-transition: background-color 0.6s;
+    -o-transition: background-color 0.6s;
+    font-size: 16px;
+}
+.configuration-page .list-unstyled li a:hover{
+    height: 110px;
+    padding: 1em;
+    background-color: #E4DDDD;
+    border-bottom: 4px solid #002490;
+    display: block;
+}
+.configuration-page .list-unstyled a i.fa{
+    font-size: 2em;
+    margin-bottom: 15px;
+    display: block;
+}
+.configuration-page #mortuaries-grid.list-unstyled li a,
+.configuration-page #mortuaries-grid.list-unstyled li a:link,
+.configuration-page #mortuaries-grid.list-unstyled li a:active,
+.configuration-page #mortuaries-grid.list-unstyled li a:focus,
+.configuration-page #mortuaries-grid.list-unstyled li a:visited,
+.configuration-page #mortuaries-grid.list-unstyled li a:hover{
+    min-height: 90px;
+    height: auto;
+}
+.configuration-page #mortuaries-grid.list-unstyled a i.fa{
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    margin-bottom: 15px;
+    display: block;
+}
+.box-configuration{
+    margin-bottom: 15px;
+}
+.box-configuration .box-header{
+    padding: 7px 10px 5px 10px;
+}
+.box-configuration .box-body{
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+}
+.box-configuration .btn-primary{
+    color: #FFF;
+}
+.box-configuration .btn-primary .fa{
+    margin-right: 5px;
+}
+.box-configuration .box-body .list-inline li{
+    padding-bottom: 5px;
+}
+.box-configuration .box-body .list-inline{
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+.box-configuration .box-body .list-inline a{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+/* -- UI Configuration Settings*/
+.settings-page .background-login{
+    width: 320px;
+}
+.settings-page .logo{
+    max-width: 200px;
+}
+/* -- UI Configuration Cemetery */
+#carsTableBody .form-group .select2-container,
+#modal-new-garage span.select2-container,
+#modal-edit-garage span.select2-container,
+#modal-new-deliveryNoteLine span.select2-container,
+#modal-edit-deliveryNoteLine span.select2-container,
+#modal-new-phone span.select2-container,
+#modal-edit-phone span.select2-container,
+.deliveryNote-edit-page span.select2-container,
+.orders-new-page span.select2-container,
+.orders-edit-page span.select2-container,
+.template-edit-page span.select2-container,
+#modal-edit-cleaning-register span.select2-container,
+#modal-new-cleaning-register span.select2-container,
+#modal-new-holiday span.select2-container,
+#modal-new-template span.select2-container,
+#modal-choose-expedient span.select2-container,
+#modal-new-event span.select2-container,
+#modal-edit-event span.select2-container,
+#modal-new-user span.select2-container,
+#modal-edit-user span.select2-container,
+#modal-new-mortuary span.select2-container,
+#modal-edit-mortuary span.select2-container,
+#modal-new-costCenter span.select2-container,
+#modal-edit-costCenter span.select2-container,
+#modal-new-salary-template span.select2-container,
+#modal-edit-salary-template span.select2-container,
+#modal-new-supplier span.select2-container,
+#modal-edit-supplier span.select2-container,
+#modal-new-carrier span.select2-container,
+#modal-edit-carrier span.select2-container,
+#modal-new-church span.select2-container,
+#modal-edit-church span.select2-container,
+#modal-new-funeralHome span.select2-container,
+#modal-edit-funeralHome span.select2-container,
+#modal-new-deceasedIn span.select2-container,
+#modal-new-destinarion-middle span.select2-container,
+#modal-edit-destinarion-middle span.select2-container,
+#modal-new-destinarion-final span.select2-container,
+#modal-edit-destinarion-final span.select2-container,
+#modal-new-gravedigger span.select2-container,
+#modal-edit-gravedigger span.select2-container,
+#modal-new-priest span.select2-container,
+#modal-edit-priest span.select2-container,
+#modal-new-choir span.select2-container,
+#modal-edit-choir span.select2-container,
+#modal-new-choir span.select2-container,
+#modal-edit-choir span.select2-container,
+#modal-new-crematory span.select2-container,
+#modal-edit-crematory span.select2-container,
+#modal-new-staff span.select2-container,
+#modal-edit-staff span.select2-container,
+#modal-new-cemetery span.select2-container,
+#modal-new-assistant span.select2-container,
+#modal-edit-assistant span.select2-container,
+#modal-edit-cemetery span.select2-container,
+#modal-new-gasoil span.select2-container,
+#modal-edit-gasoil span.select2-container,
+#modal-new-received-invoice span.select2-container,
+#modal-edit-received-invoice span.select2-container,
+#sumaryGeneralStatistics span.select2-container,
+#modal-new-crematorium span.select2-container,
+#modal-users-notes-thread span.select2-container,
+#modal-new-trainingTest span.select2-container,
+#modal-edit-trainingTest span.select2-container,
+#modal-duplicate-document span.select2-container
+{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+.invoices-page span.select2-client,
+.invoices-page span.select2-dropdown,
+.invoices-page span.select2-container{
+    min-width: 215px !important;
+    max-width: 215px !important;
+    width: auto !important;
+}
+
+.recived-invoices-page span.select2-client,
+.recived-invoices-page span.select2-dropdown,
+.recived-invoices-page span.select2-container{
+    min-width: 225px !important;
+    max-width: 225px !important;
+    width: auto !important;
+}
+.recived-invoices-page #ivasSection span.select2-container{
+    min-width: 425px !important;
+    max-width: 425px !important;
+    width: auto !important;
+}
+
+#modal-new-received-invoice-delivery span.select2-container{
+    min-width: 150px !important;
+    max-width: 150px !important;
+    width: auto !important;
+}
+.orders-new-page input[type="number"],
+#modal-new-gasoil input,
+#modal-edit-gasoil input,
+.orders-edit-page input[type="number"]{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+
+.visitscontrol-page input[type="number"],
+.visitscontrol-page select,
+.visitscontrol-page span.select2-container{
+    min-width: 175px !important;
+    max-width: 175px !important;
+    width: auto !important;
+}
+#burialTemp{
+    margin-left: 7px;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    width: auto !important;
+}
+#modal-new-event select,
+#modal-edit-event select,
+#modal-new-crematory select,
+#modal-edit-crematory select,
+#modal-new-crematorium select,
+#modal-new-crematory input[type="number"],
+#modal-edit-crematory input[type="number"],
+#modal-new-crematorium input[type="number"]{
+    min-width: 216px !important;
+}
+
+.visitscontrol-page select{
+    min-width: 175px;
+}
+
+.coffeeLabel{
+    text-align: right;
+    margin-right: 10px;
+}
+
+#modal-new-crematorium #isYourOwn {
+    margin: 0px;
+}
+#modal-new-service input[type="number"],
+#modal-edit-service input[type="number"]{
+    min-width: 216px;
+}
+#modal-new-church input[type="number"],
+#modal-edit-church input[type="number"]{
+    min-width: 216px;
+}
+#modal-new-mortuary input[type="number"],
+#modal-new-mortuary select,
+#modal-edit-mortuary input[type="number"],
+#modal-edit-mortuary select{
+    min-width: 216px;
+}
+#modal-new-location input[type="number"],
+#modal-edit-location input[type="number"]{
+    min-width: 216px;
+}
+#modal-new-priest select,
+#modal-edit-priest select{
+    min-width: 216px;
+}
+#modal-new-gravedigger select,
+#modal-edit-gravedigger select{
+    min-width: 216px;
+}
+#modal-new-deceasedIn select,
+#modal-edit-deceasedIn select,
+#modal-new-deceasedBirthdayLocation input[type="number"]{
+    min-width: 216px;
+}
+#modal-new-funeralHome select,
+#modal-edit-funeralHome select{
+    min-width: 216px !important;
+}
+#modal-new-church select,
+#modal-edit-church select{
+    min-width: 216px !important;
+}
+#modal-new-choir select,
+#modal-edit-choir select{
+    min-width: 216px;
+}
+#modal-new-cemetery select,
+#modal-edit-cemetery select{
+    min-width: 216px !important;
+}
+#modal-edit-event select,
+#modal-new-phone select,
+#modal-edit-phone select,
+#modal-new-user select,
+#modal-edit-user select,
+#modal-new-staff select,
+#modal-edit-staff select{
+    min-width: 216px;
+}
+#modal-new-cemetery input[type="number"],
+#modal-edit-cemetery input[type="number"]{
+    min-width: 216px;
+}
+#modal-new-price input[type="number"],
+#modal-edit-price input[type="number"],
+#modal-new-template input[type="number"]{
+    min-width: 216px;
+}
+.template-edit-page input[type="number"]{
+    min-width: 70px;
+}
+#modal-new-carrier select,
+#modal-edit-carrier select,
+#modal-new-garage select,
+#modal-edit-garage select,
+#modal-new-carrier #surname{
+    min-width: 216px;
+}
+.product-edit-page input[type="number"],
+.product-edit-page select{
+    min-width: 216px;
+}
+#modal-edit-refuel input[type="number"]{
+    min-width: 188px;
+}
+
+#modal-edit-failure input[type="number"],
+#modal-new-failure input[type="number"],
+#modal-historic-kms input[type="number"],
+#modal-new-car input[type="number"],
+#modal-edit-vehicle input[type="number"],
+#modal-edit-vehicle select,
+#modal-new-vehicle input[type="number"],
+#modal-new-vehicle select,
+#modal-edit-supplier #nif,
+#modal-new-supplier input[type="number"],
+#modal-edit-supplier input[type="number"],
+#modal-new-supplier select,
+#modal-edit-supplier select{
+    min-width: 216px;
+}
+#modal-new-upkeep input[type="number"],
+#modal-edit-upkeep input[type="number"]{
+    min-width: 188px;
+}
+
+.products-page span.select2-container{
+    min-width: 188px !important;
+}
+
+#modal-new-upkeep .modal-dialog, 
+#modal-edit-upkeep .modal-dialog{
+    width: 1000px !important;
+}
+
+#modal-new-upkeep .select2-container,
+#modal-edit-upkeep .select2-container
+{
+    min-width: 190px !important;
+    max-width: 190px !important;
+    width: auto !important;
+}
+
+#modal-send-docs-emails .select2-container
+{
+    min-width: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+#modal-new-room .select2-container,
+#modal-edit-room .select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+
+/* -- UI Configuration Clients */
+.select2-driver span.select2-container,
+.select2-cleanBefore span.select2-container,
+.select2-cleanAfter span.select2-container,
+#modal-new-failure span.select2-container,
+#modal-edit-failure span.select2-container,
+#modal-new-salary span.select2-container,
+#modal-edit-salary span.select2-container,
+#modal-cuotas-financing span.select2-container,
+.assistances-page span.select2-container,
+.assistances-page select.province,
+.product-edit-page span.select2-container,
+.product-page span.select2-container,
+#modal-new-client span.select2-container,
+#modal-edit-client span.select2-container,
+#modal-new-deceased span.select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+#modal-new-tax span.select2-container,
+#modal-edit-tax span.select2-container{
+    min-width: 188px !important;
+    max-width: 188px !important;
+    width: auto !important;
+}
+#modal-new-tax select,
+#modal-edit-tax select,
+#modal-new-tax input[type="number"],
+#modal-edit-tax input[type="number"]{
+    min-width: 188px !important;
+}
+#modal-new-financing span.select2-container,
+#modal-edit-financing span.select2-container,
+#modal-new-financing select,
+#modal-edit-financing select,
+#modal-new-financing input[type="number"],
+#modal-edit-financing input[type="number"]{
+    min-width: 180px !important;
+    max-width: 180px !important;
+    width: auto !important;
+}
+#modal-new-client .form-group-location span.select2-container,
+#modal-edit-client .form-group-location span.select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+#modal-new-client select,
+#modal-edit-client select,
+#modal-new-mortuary select,
+#modal-new-costCenter select,
+#modal-new-deceased select{
+    min-width: 216px !important;
+}
+
+#modal-new-received-invoice label,
+#modal-edit-received-invoice label{
+    text-align: right;
+}
+
+/* #modal-edit-received-invoice select{
+    min-width: 158px !important;
+} */
+
+#modal-edit-invoice input[type="number"],
+#modal-edit-invoice select{
+    min-width: 216px !important;
+}
+
+.invoices-page select{
+    min-width: 125px !important;
+}
+
+.deliveryNote-edit-page .row{
+    padding-bottom: 10px;
+}
+
+.deliveryNote-edit-page label{
+    text-align: right;
+}
+
+.deliveryNote-edit-page select{
+    min-width: 170px;
+}
+/* -- UI Configuration Funeral Home */
+form .input-contactPeople .form-control:first-child{
+    margin-right: 5px;
+}
+.contactPeople .label-default{
+    margin-right: 3px;
+}
+.contactPeople .name{
+    font-weight: 700;
+    color: #002490;
+}
+.contactPeople .post{
+    font-weight: 400;
+    color: #002490;
+}
+/* -- UI Configuration Expenses */
+.block-expenses-repeated,
+.block-expenses-lone{
+    display: block;
+}
+.block-expenses-repeated{
+    padding-top: 30px;
+}
+#modal-edit-salary-template .separate,
+#modal-new-salary-template .separate{
+    margin-top: 7px;
+}
+/* UI Configuration Receive Expenses Page*/
+.configuration-page.receive-expenses-page .show.clearfix{
+    padding-top: 15px;
+}
+.configuration-page.receive-expenses-page .select2-container .select2-selection--multiple{
+    min-height: 24px !important;
+    height: 24px !important;
+}
+.configuration-page.receive-expenses-page .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.configuration-page.receive-expenses-page .select2-container--default .select2-selection--multiple .select2-selection__clear,
+.configuration-page.receive-expenses-page .select2-container .select2-search--inline .select2-search__field{
+    margin-top: 0px;
+}
+/* -- UI Configuration Procucts */
+#modal-new-product #actions .checkbox-inline{
+    margin: 5px; 
+}
+/* UI Events Page*/
+.event .box .box-body .pull-left{
+    width: 290px;
+}
+.event .box-actions > .box-header{
+    background-color: #002490;
+}
+.event .box-actions > .box-header .box-title{
+    color: #fff;
+}
+.event .box.box-default{
+    border-top: 0px;
+}
+.external-event{
+    float: left;
+    margin: 0px 5px;
+}
+.event .box-actions label{
+    margin-left: 0px;
+}
+/* UI - Holidays */
+.holiday .holidays-box.info-box{
+    min-height: 70px;
+}
+.holiday .holidays-box .info-box-icon{
+    font-size: 32px;
+    height: 70px;
+    line-height: 70px;
+}
+.holiday .holidays-box .progress-description{
+    font-size: 18px;
+}
+/* UI Cremations Page */
+.cremations-page .fa-ashes{
+    background-size: 28px 28px;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+}
+/* UI Errors page */
+.error-page .list-unstyled li{
+    margin: 7px 0;
+}
+/* UI Obituary Page */
+.obituary-page .form-control.pull-right{
+    margin-right: 9px;
+}
+body.obituary-page{
+    min-width: 1210px;
+}
+/* UI Obituary Editor */
+#modal-obituary-preview.modal{
+    padding: 0px !important;
+    margin: 0px !important;
+    width: 100%;
+}
+#modal-obituary-preview.modal .modal-lg{
+    width: 100%;
+    height: 100%;
+    margin: 0px !important;
+    padding: 15px;
+    background: #002490;
+    background: linear-gradient(45deg, #E6F6FF, #222d32, #002490);
+    background: -webkit-linear-gradient(bottom left, #E6F6FF, #222d32, #000000);
+    background: -o-linear-gradient(bottom left, #E6F6FF, #222d32, #000000);
+    background: -moz-linear-gradient(bottom left, #E6F6FF, #222d32, #000000);
+    background-size: 200% 200%;
+    -webkit-animation: obituaryEffect 12s ease infinite;
+    -moz-animation: obituaryEffect 12s ease infinite;
+    -o-animation: obituaryEffect 12s ease infinite;
+    animation: obituaryEffect 12s ease infinite;
+}
+@-webkit-keyframes obituaryEffect {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes obituaryEffect {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes obituaryEffect {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+#modal-obituary-preview.modal .modal-content{
+    height: 100%;
+}
+#modal-obituary-preview.modal .modal-body iframe{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+#modal-obituary-preview button.close{
+    color: #002490;
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+/* UI C. Service */
+.cservice-page .actions-menu, .cservice-page .actions-menu-visit{
+    width: auto;
+}
+.cservice-page .box.box-danger{
+    border-color: #E6F6FF;
+}
+.cservice-page .panel.box{
+    margin: 0;
+}
+.cservice-page #othersSection .box .box-header .box-title a::after{
+    color: #002490;
+}
+.cservice-page .box-obituary .typeFields{
+    width: 15% !important;
+}
+.cservice-page.page .box-body{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cservice-page #expedient-tabs{
+    display: none;
+}
+.cservice-page .panel .box-header{
+    padding: 0px;
+    position: absolute;
+    top: -25px;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+}
+.cservice-page #othersSections .panel .box-header{
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+}
+.cservice-page #othersSections .panel .box-header.with-border{
+    border: 0px;
+    background-color: #d3d2d2;
+    padding: 3px;
+}
+.cservice-page #othersSections .panel .box-header .box-title{
+    font-size: 14px;
+    font-weight: 700;
+}
+.cservice-page #othersSections .panel .box-header .box-title a{
+    color: #002490;
+}
+.cservice-page fieldset #othersSections div[class^="col-"]{
+    /*padding-left: 15px;*/
+    padding-right: 15px;
+}
+.cservice-page .box .box-header .box-title a::after{
+    content: '\f070';
+    font-size: inherit;
+    margin-top:3px;
+}
+.cservice-page .box .box-header .box-title a.collapsed::after {
+    content: '\f06e';
+}
+.cservice-page fieldset{
+    min-height: 36px;
+}
+.cservice-page .box, .cservice-page .box.box-primary{
+    border: 0px !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.cservice-page table.dataTable{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.cservice-page .select2-container{
+    min-width: 245px !important;
+    max-width: none !important;
+}
+.hiringSelect{
+    min-width: 225px !important;
+    max-width: 225px !important;
+}
+.cservice-page #personalSection #select2-funeralHome-container{
+    min-width: 245px !important;
+    max-width: 245px !important;
+}
+.new-expedient-page .select2-personal span.select2-container{
+    min-width: 240px !important;
+    max-width: 240px !important;
+}
+
+#modal-new-car select{
+    min-width: 218px !important;
+    max-width: 218px !important;
+}
+.cservice-page #tribunalUser #select2-tribunalUser-container,
+.cservice-page #personalSection #select2-familyAssistance-container,
+.cservice-page #personalSection #select2-carCollection-container{
+    min-width: 245px !important;
+    max-width: 245px !important;
+}
+/*.cservice-page #personalSection #select2-carCollection-container{
+    min-width: 220px !important;
+    max-width: 220px !important;
+}*/
+.cservice-page #select2-carrierAdd-container,
+.cservice-page #select2-priestAdd-container{
+    min-width: 245px !important;
+    max-width: 245px !important;
+}
+.cservice-page #select2-addGravedigger-container{
+    min-width: 220px !important;
+    max-width: 220px !important;
+}
+.cservice-page #select2-addCar-container{
+    min-width: 245px !important;
+    max-width: 245px !important;
+}
+#modal-new-supplier-invoices .select2, #modal-new-supplier-invoices select#province,
+#modal-new-supplier-edit-invoices .select2, #modal-new-supplier-edit-invoices select#province{
+    min-width: 248px !important;
+    max-width: 248px !important;
+}
+#modal-new-supplier-invoices .alert, #modal-new-supplier-edit-invoices .alert{
+   width: fit-content;
+}
+.cservice-page #select2-choir-container,
+.cservice-page #select2-bellringer-container{
+    min-width: 350px !important;
+    max-width: 350px !important;
+}
+.cservice-page #notesSection textarea{
+    width: 100% !important;
+}
+.orders-edit-page textarea,
+.orders-new-page textarea{
+    width: 90% !important;
+}
+.cservice-page .controlSection textarea{
+    width: 80% !important;
+}
+.cservice-page #othersSections .checkbox{
+    text-align: left;
+} 
+.cservice-page #othersSections .select2-container{
+    min-width: 200px !important;
+    max-width: 200px !important;
+}
+.cservice-page #controlServiceSendEmail .select2-selection.select2-selection--multiple{
+    min-width: 300px !important;
+    max-width: 300px !important;
+    width: auto !important;
+}
+.cservice-page #priestsSection .select2-selection.select2-selection--single,
+.cservice-page #choirSection .select2-selection.select2-selection--single,
+.cservice-page #bellringerSection .select2-selection.select2-selection--single,
+.cservice-page #gravediggersSection .select2-selection.select2-selection--single,
+.cservice-page #carriersSection .select2-selection.select2-selection--single,
+.cservice-page #addCarSelect .select2-selection.select2-selection--single{
+    min-width: 335px !important;
+    max-width: 335px !important;
+    width: auto !important;
+}
+.cservice-page #funeralHomeSelect .select2.select2-container.select2-container--default,
+.cservice-page #personalSection select#corpseCollection1,
+.cservice-page #personalSection select#corpseCollection2{
+    min-width: 255px !important;
+    max-width: 255px !important;
+    width: auto !important;
+}
+#modal-new-update .select2-container,
+#modal-edit-update .select2-container{
+    min-width: 200px !important;
+    max-width: 200px !important;
+}
+#modal-new-tutorial .select2-container,
+#modal-edit-tutorial .select2-container{
+    min-width: 160px !important;
+    max-width: 160px !important;
+}
+#modal-new-billing-serie .select2-container,
+#modal-edit-billing-serie .select2-container{
+    min-width: 215px !important;
+    max-width: 215px !important;
+    width: auto !important;
+}
+#modal-new-invoice .select2-container{
+    min-width: 250px !important;
+    max-width: 250px !important;
+    width: auto !important;
+}
+#modal-go-duplicate-expedient .select2-container{
+    min-width: 250px !important;
+    max-width: 250px !important;
+    width: auto !important;
+}
+
+.cservice-page #othersSections .panel .box-body{
+    padding: 0px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background: #f4f4f4;
+}
+body.cservice-page{
+    min-width: 1480px;
+}
+.details-sumary{
+    position: relative;
+}
+.details-sumary dl{
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #F5F0F0;
+    border-bottom: 4px solid #002490;
+}
+.details-sumary::before{
+    content: '\f08d';
+    display: inline-block;
+    font: normal normal normal 16px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #002490;
+    position: absolute;
+    z-index: 1;
+    top: 7px;
+    right: 21px;
+}
+.cservice-page #modal-view-orders .box{
+    margin-bottom: 0px;
+}
+
+.documentation-page .box .box-header .box-title a::after{
+    content: '\f070';
+    font-size: inherit;
+    margin-top:3px;
+}
+/* UI Visits Control Page */
+.visitscontrol-page .box-body div.checkbox{
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+.visitscontrol-page .details .checkbox .control-label .icheckbox_minimal-purple{
+    margin-right: 9px;
+    margin-top: 0px;
+}
+.visitscontrol-page .details h5{
+    margin: 0px;
+}
+/* UI General Expenses Page*/
+.generalexpenses-garage-page .box-header blockquote{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.generalexpenses-garage-page .total1,
+.generalexpenses-garage-page .total2{
+    font-size: 18px !important;
+    text-align: right;
+    display: block;
+    margin-bottom: 15px;
+}
+.generalexpenses-garage-page fieldset{
+    position: relative;
+}
+.generalexpenses-garage-page fieldset .box-actions{
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: -5px;
+    background: #FFF;
+    padding-right: 10px;
+    display: block;
+}
+.generalexpenses-garage-page fieldset .box-actions label{
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+#modal-edit-upkeep-intervals fieldset{
+    margin-bottom: 4px;
+}
+#modal-edit-upkeep-intervals fieldset .input-group{
+    margin: 5px auto;
+}
+#modal-edit-upkeep-intervals fieldset textarea{
+    width: 100% !important;
+}
+
+.display-flex{
+    display: flex!important;
+}
+
+/* UI Panel Info */
+.template{
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border: 2px dotted #002490;
+    padding: 10px;
+    overflow: hidden;
+}
+.template .table .centered th{
+    text-align: center;
+}
+.template .table th{
+    color: #002490;
+    font-size: 2.75vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+.template .table tbody,
+.template .table tbody tr td{
+    color: #002490;
+    font-size: 3.4vh;
+    font-weight: bold;
+    text-align: center;
+}
+.template .header,
+.template .body{
+    clear: both;
+}
+.template .body{
+    padding-top: 15px;
+}
+.template .body .messages{
+    margin: 30px 15px;
+    font-size: 3vh;
+    font-weight: bold;
+    font-style: italic;
+}
+.template .body #media{
+    height: 400px;
+}
+.template .header #slide{
+    padding: 2px;
+    cursor: pointer;
+}
+.template .header #slide:hover{
+    padding: 0px;
+    border: 2px dotted #002490;
+}
+#modal-slides-panelinfo .current-photos ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+#modal-slides-panelinfo .current-photos ul li{
+    display: inline-block;
+    width: 23%;
+    margin: 1%;
+}
+#modal-slides-panelinfo .current-photos ul li a,
+#modal-slides-panelinfo .current-photos ul li a:link,
+#modal-slides-panelinfo .current-photos ul li a:focus,
+#modal-slides-panelinfo .current-photos ul li a:visited,
+#modal-slides-panelinfo .current-photos ul li a:active{
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+#modal-slides-panelinfo .current-photos ul li a::before{
+    content: '\f057';
+    display: none;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #E61919;
+    background-color: #FFF;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#modal-slides-panelinfo .current-photos ul li a:hover::before{
+    display: block;
+}
+/* UI Expedient Hiring Page and Template Edit */
+.template-edit-page .input-group,
+.hiring-page #formEditData .input-group{
+    width: 90%;
+}
+.template-edit-page .input-group .input-group-addon,
+.hiring-page #formEditData .input-group .input-group-addon{
+    width: 15%;
+}
+.template-edit-page #datatable.table,
+.hiring-page #datatable.table{
+    border-spacing: 0 9px;
+    border-collapse: separate;
+}
+.template-edit-page #datatable.table h4,
+.hiring-page #datatable.table h4{
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px;
+}
+.template-edit-page table.table-bordered tbody td,
+.hiring-page table.table-bordered tbody td{
+    border-bottom-width: 1px;
+    border-right-width: 0;
+    padding: 4px;
+}
+.template-edit-page table.table-bordered thead tr th,
+.hiring-page table.table-bordered thead tr th{
+    border-bottom-width: 1px;
+    border-right-width: 0;
+    padding: 0px 5px 5px 5px;
+}
+.template-edit-page table.table-bordered thead > tr > th,
+.hiring-page table.table-bordered thead > tr > th{
+    text-align: center;
+}
+.template-edit-page table.table-bordered tbody > tr.info,
+.hiring-page table.table-bordered tbody > tr.info{
+    cursor: pointer;
+}
+.template-edit-page table.table-bordered tbody > tr.info > td,
+.hiring-page table.table-bordered tbody > tr.info > td{
+    background-color: #d3d2d2;
+    color: #002490;
+}
+.template-edit-page table.table-bordered tbody > tr.info h4 i,
+.hiring-page table.table-bordered tbody > tr.info h4 i{
+    margin: 0px 7px;
+}
+.template-edit-page table .actions-menu,
+.hiring-page table .actions-menu{
+    text-align: center;
+    width: 100%;
+}
+.template-edit-page table .select2-container,
+.hiring-page table .select2-container{
+    min-width: 160px !important;
+    max-width: none !important;
+}
+body.template-edit-page,
+body.hiring-page{
+    min-width: 1600px;
+}
+.template-edit-page .container,
+.hiring-page .container {
+    width: auto;
+}
+.hiring-page .block-control-form-templates .select2-container{
+    min-width: 200px !important;
+    max-width: 200px !important;
+}
+.hiring-page .block-control-form .select2,
+.hiring-page .block-control-form .label-total{
+    margin-right: 30px;
+}
+.hiring-page .block-control-form .label-total{
+    font-size: 14px;
+}
+.servicesTimes-page .tableFloatingHeaderOriginal,
+.statistics-page .tableFloatingHeaderOriginal,
+.template-edit-page .tableFloatingHeaderOriginal,
+.hiring-page .tableFloatingHeaderOriginal{
+    background-color: #FFF;
+}
+.hiring-page #expedient-tabs .block-control-form{
+    padding-top: 8px;
+}
+.hiring-page .block-2 .pull-right .select2-container{
+    min-width: 170px !important;
+    max-width: 170px !important;
+}
+/* UI Profile Page */
+.profile-page .content .col-xs-3 .box.box-primary .box-header.with-border{
+    padding-bottom: 10px;
+}
+.profile-page .content .col-xs-3 .box-body .text-muted{
+    word-break: break-all;
+}
+/* UI Service Control */
+#modal-edit-task .form-horizontal .checkbox-inline{
+    padding-top: 0px;
+}
+/*UI Statistics Page*/
+.statistics-page.literal-page .box-header .pull-right .label,
+.statistics-page.cremations-page .box-header .pull-right .label,
+.statistics-page.response-page .box-header .pull-right .label,
+.statistics-page.assistances-page .box-header .pull-right .label{
+    vertical-align: middle;
+}
+.statistics-page.literal-page .table,
+.statistics-page.cremations-page .table,
+.statistics-page.response-page .table,
+.statistics-page.assistances-page .table{
+    margin-bottom: 7px;
+}
+.statistics-page.literal-page .table thead,
+.statistics-page.cremations-page .table thead,
+.statistics-page.response-page .table thead,
+.statistics-page.assistances-page .table thead{
+    font-weight: bold;
+}
+.configuration-page.literal-new-page .form-horizontal .control-label.col-xs-4,
+.configuration-page.literal-edit-page .form-horizontal .control-label.col-xs-4,
+.statistics-page.literal-page .form-horizontal .control-label.col-xs-4,
+.statistics-page.cremations-page .form-horizontal .control-label.col-xs-6,
+.statistics-page.response-page .form-horizontal .control-label.col-xs-6,
+.statistics-page.assistances-page .form-horizontal .control-label.col-xs-6{
+    text-align: left;
+    padding-left: 30px;
+}
+.statistics-page.literal-page .box-header .pull-right .inline-block,
+.statistics-page.cremations-page .box-header .pull-right .inline-block,
+.statistics-page.response-page .box-header .pull-right .inline-block,
+.statistics-page.assistances-page .box-header .pull-right .inline-block{
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.statistics-page.assistances-page{
+    min-width: 1448px !important;
+}
+.configuration-page.literal-new-page,
+.configuration-page.literal-edit-page,
+.statistics-page.literal-page{
+    min-width: 1366px !important;
+}
+.configuration-page.times-new-page,
+.configuration-page.times-edit-page,
+.configuration-page.cremations-new-page,
+.configuration-page.cremations-edit-page,
+.statistics-page.cremations-page,
+.statistics-page.response-page{
+    min-width: 1720px !important;
+}
+.configuration-page.literal-new-page .select2-container,
+.configuration-page.literal-edit-page .select2-container,
+.statistics-page.literal-page .select2-container{
+    min-width: 260px !important;
+    max-width: 260px !important;
+    width: auto !important;
+}
+.configuration-page.times-new-page .select2-container,
+.configuration-page.times-edit-page .select2-container,
+.configuration-page.cremations-new-page .select2-container,
+.configuration-page.cremations-edit-page .select2-container,
+.statistics-page.cremations-page .select2-container,
+.statistics-page.response-page .select2-container{
+    min-width: 185px !important;
+    max-width: 185px !important;
+    width: auto !important;
+}
+.configuration-page.times-new-page .selectDeceasedLocation .select2-container,
+.configuration-page.times-edit--page .selectDeceasedLocation .select2-container,
+.configuration-page.cremations-new-page .selectDeceasedLocation .select2-container,
+.configuration-page.cremations-edit--page .selectDeceasedLocation .select2-container,
+.statistics-page.cremations-page .selectDeceasedLocation .select2-container{
+    min-width: 280px !important;
+    max-width: 280px !important;
+    width: auto !important;
+}
+/* Almacén */
+.input-warehouse{
+    width: 75px;
+}
+/* Pedidos */
+.input-email{
+    width: 240px;
+}
+
+/* Expediente */
+.obituary-page .select2-container{
+    min-width: 200px !important;
+    max-width: 200px !important;
+    width: auto !important;
+}
+
+.obituary-expedient-page .select2-container{
+    min-width: 125px !important;
+    max-width: 125px !important;
+    width: auto !important;
+}
+
+.obituary-expedient-page .select2-container{
+    min-width: 125px !important;
+    max-width: 125px !important;
+    width: auto !important;
+}
+
+/* Expediente - Contratación */
+.hiringMoney{
+    width: 65px !important;
+}
+
+.hiringTexts{
+    width: 300px !important;
+}
+
+.hiringTotal{
+    width: 100px !important;
+}
+
+#modal-new-cremation .modal-dialog, #modal-edit-cremation .modal-dialog{
+    min-width: 1000px !important;
+    max-width: 1000px !important;
+}
+.cremations-page .modal-dialog, .cremations-page .modal-dialog{
+/*.cremations-page #modal-new-event, .cremations-page #modal-edit-event{*/
+    min-width: 1200px !important;
+    max-width: 1200px !important;
+}
+
+/* Settings timeline */
+.subsection-title{
+    font-weight: 700;
+    font-size: x-large;
+    padding-left: 15px;
+}
+
+/*Responsive*/
+@media (max-width: 768px){
+     /*General*/
+    .fixed .content-wrapper, .fixed .right-side{
+        /* padding-top: 93px !important; */
+        padding-top: 50px !important;
+    }
+    .expedient-page.fixed .content-wrapper{
+        padding-top: 50px !important;
+    }
+    .footer-static-bottom .block-users{
+        width: 20% !important;
+    }
+    .footer-static-bottom .block-chat{
+        width: 15% !important;
+    }
+    /* .footer-static-bottom .block-2{
+        width: 65% !important;
+    } */
+    .modal-open div.modal{
+        overflow-x: visible;
+    }
+    div.footer-static-bottom{
+        position: fixed;
+        width: 97% !important;
+    }
+    div.footer-static-bottom .row > div{
+        width: auto !important;
+    }
+    div.footer-static-bottom .row > div.block-message{
+        width: 97% !important;
+    }
+    div.footer-static-bottom .pull-left,
+    div.footer-static-bottom .pull-right{
+        float: left!important;
+    }
+    .footer-static-bottom .footer-editor.pull-right{
+        clear: both;
+        padding-top: 15px;
+    }
+    body.fixed .main-header, body.fixed .left-side{
+        position: absolute;
+    }
+    header.main-header .sidebar-toggle,
+    .main-sidebar{
+        position: fixed!important;
+    }
+    header.main-header .sidebar-toggle:focus,
+    header.main-header .sidebar-toggle:active,
+    header.main-header .sidebar-toggle{
+        background: #222d32;
+        width: 50px;
+        z-index: 999999;
+    }
+
+    /*body.statistics-page div.footer-static-bottom{
+        width: 100%  !important;
+        left: 0 !important; 
+        position: fixed !important;
+        bottom: 0px;        
+    }*/
+    .statistics-page .footer-static-bottom div.block-chat{
+        margin-left: 80px;
+        z-index: 100;
+        width: 100px !important;
+    }
+    .statistics-page .footer-static-bottom div.block-2{
+        margin-left: -23%;
+    }
+    /*.footer-static-bottom div.block-users{
+        margin-left: 7%;
+    }*/
+
+
+    /*Modal*/
+    #modal-new-orderLine .modal-dialog,
+    #modal-edit-orderLine .modal-dialog,
+    #modal-new-phone .modal-dialog,
+    #modal-edit-phone .modal-dialog,
+    #modal-new-user .modal-dialog,
+    #modal-edit-user .modal-dialog,
+    #modal-edit-invoice .modal-dialog,
+    #modal-edit-cleaning-register .modal-dialog,
+    #modal-new-cleaning-register .modal-dialog,
+    #modal-new-holiday .modal-dialog,
+    #modal-edit-holiday .modal-dialog,
+    #modal-new-expense-fixed .modal-dialog,
+    #modal-new-expense-variable .modal-dialog,
+    #modal-new-bank-account .modal-dialog,
+    #modal-new-credit-card .modal-dialog,
+    #modal-new-salary-template .modal-dialog,
+    #modal-edit-expense-fixed .modal-dialog,
+    #modal-edit-expense-variable .modal-dialog,
+    #modal-edit-bank-account .modal-dialog,
+    #modal-edit-credit-card .modal-dialog,
+    #modal-edit-salary-template .modal-dialog,
+    #modal-new-product .modal-dialog,
+    #modal-edit-product .modal-dialog,
+    #modal-new-action .modal-dialog,
+    #modal-edit-action .modal-dialog,
+    #modal-new-model .modal-dialog,
+    #modal-edit-model .modal-dialog,
+    #modal-new-carrier .modal-dialog,
+    #modal-edit-carrier .modal-dialog,
+    #modal-new-doctor .modal-dialog,
+    #modal-edit-doctor .modal-dialog,
+    #modal-new-location .modal-dialog,
+    #modal-edit-location .modal-dialog,
+    #modal-new-church .modal-dialog,
+    #modal-edit-church .modal-dialog,
+    #modal-new-funeralHome .modal-dialog,
+    #modal-edit-funeralHome .modal-dialog,
+    #modal-new-deceasedIn .modal-dialog,
+    #modal-edit-deceasedIn .modal-dialog,
+    #modal-new-priest .modal-dialog,
+    #modal-edit-priest .modal-dialog,
+    #modal-new-gravedigger .modal-dialog,
+    #modal-edit-gravedigger .modal-dialog,
+    #modal-new-cemetery .modal-dialog,
+    #modal-edit-cemetery .modal-dialog,
+    #modal-new-bellringer .modal-dialog,
+    #modal-edit-bellringer .modal-dialog{
+        width: 480px;
+    }
+   
+    #modal-new-garage .modal-dialog,
+    #modal-edit-garage .modal-dialog,
+    #modal-new-event .modal-dialog,
+    #modal-edit-event .modal-dialog,
+    #modal-new-template .modal-dialog,
+    #modal-new-price .modal-dialog,
+    #modal-edit-price .modal-dialog,
+    #modal-new-mortuary .modal-dialog,
+    #modal-edit-mortuary .modal-dialog,
+    #modal-new-costCenter .modal-dialog,
+    #modal-edit-costCenter .modal-dialog,
+    #modal-new-supplier .modal-dialog,
+    #modal-edit-supplier .modal-dialog{
+        width: 600px;
+    }
+
+    .cservice-page #modal-view-orders .box .box-header > div{
+        float: none !important;
+        margin-bottom: 7px;
+    }
+    body.expedient-page.fixed div.content-wrapper{
+        padding-bottom: 0px;
+    }
+    .table .tableFloatingHeaderOriginal{
+        top: 0px !important;
+    }
+    /* body.expedient-page.hiring-page .footer-static-bottom{
+        width: 1550px !important;
+    } */
+    body.expedient-page.obituary-page #expedient-tabs .pull-right #obituaryType{
+        width: 95px;
+        direction: rtl;
+    }
+    body.expedient-page.obituary-page #expedient-tabs .pull-right .bolder{
+        font-size: 12px;
+        margin-bottom: 3px;
+        text-align: center;
+        display: block;
+    }
+    body.expedient-page.obituary-page #backLink{
+        display: none;
+        visibility: hidden;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px){
+    header.main-header .navbar-custom-menu{
+        margin: 0px;
+    }
+    .skin-black .main-header .navbar .navbar-custom-menu .navbar-nav>li>a, .skin-black .main-header .navbar .navbar-right>li>a {
+        border-left: none;       
+    }
+    header .navbar-custom-menu #notice,
+    header .navbar-custom-menu #visitsControlTitle{
+        display: none;
+        visibility: hidden;
+    }
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#expedientsMenu,
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#noticeMenu,
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#visitMenu,
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#agendaMenu,
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#crematMenu,
+    header .navbar-custom-menu>.navbar-nav>li>.dropdown-menu#manteniMenu{
+        right: auto;
+        left: 0px;
+    }
+    body.expedient-page.fixed .main-header, body.assistances-page.fixed .main-header, body.pendingTasks-page.fixed .main-header,
+    body.todaySummary-page.fixed .main-header, body.tomorrowSummary.fixed .main-header, body.todayCremations-page.fixed .main-header,
+    body.tomorrowCremations-page.fixed .main-header, body.cremations-page.fixed .main-header, body.event.fixed .main-header,
+    body.holidays-page.fixed .main-header, body.events-cleanings-page.fixed .main-header, body.visitscontrol-page.fixed .main-header,
+    body.cars-cleanings-page.fixed .main-header, body.generalMortuary-cleanings-page.fixed .main-header, body.funeraryRecords-page.fixed .main-header,
+    body.budgets-page.fixed .main-header, body.invoices-page.fixed .main-header, body.configuration-page.fixed .main-header,
+    body.products-page.fixed .main-header, body.orders-page.fixed .main-header, body.deliveryNotes-page.fixed .main-header,
+    body.statistics-page.fixed .main-header, body.events-garage-page.fixed .main-header, body.vehicles-garage-page.fixed .main-header,
+    body.generalexpenses-garage-page.fixed .main-header, body.logs-page.fixed .main-header, body.phones-page.fixed .main-header, body.documentation-page.fixed .main-header{
+        min-width: 768px;
+    }
+    body.expedient-page.obituary-page #expedient-tabs .pull-right #obituaryType{
+        width: 95px;
+        direction: rtl;
+    }
+    body.expedient-page.obituary-page #expedient-tabs .pull-right .bolder{
+        font-size: 12px;
+        margin-bottom: 3px;
+        text-align: center;
+        display: block;
+    }
+    body.expedient-page.obituary-page #backLink{
+        display: none;
+        visibility: hidden;
+    }
+    body.fixed .main-header, body.fixed .left-side{
+        position: absolute;
+    }
+    header.main-header .sidebar-toggle,
+    .main-sidebar{
+        position: fixed!important;
+    }
+    header.main-header .sidebar-toggle:focus,
+    header.main-header .sidebar-toggle:active,
+    header.main-header .sidebar-toggle{
+        background: #222d32;
+        width: 50px;
+        z-index: 999999;
+    }
+    div.footer-static-bottom .row > div{
+        width: auto !important;
+    }
+    div.footer-static-bottom .row > div.block-message{
+        width: 97% !important;
+    }
+    div.footer-static-bottom .pull-left,
+    div.footer-static-bottom .pull-right{
+        float: left!important;
+    }
+    .footer-static-bottom .footer-editor.pull-right{
+        clear: both;
+        padding-top: 15px;
+    }
+}
+@media (max-width: 1200px){
+    /*General*/
+    .footer-static-bottom div.block-users{
+        width: 27%;
+    }
+    .footer-static-bottom div.block-chat{
+        width: 18%;
+    }
+    .footer-static-bottom div.block-2{
+        width: 100%;
+    }
+    .footer-static-bottom{
+        width: 97% !important; 
+        /* position: relative; */
+        position: fixed!important;
+    }
+    /*Modal*/
+    #modal-new-tax .modal-dialog,
+    #modal-edit-tax .modal-dialog,
+    #modal-new-salary .modal-dialog,
+    #modal-edit-salary .modal-dialog,
+    #modal-new-financing .modal-dialog,
+    #modal-edit-financing .modal-dialog,
+    #modal-cuotas-financing .modal-dialog{
+        width: 700px;
+    }
+    #modal-edit-upkeep-intervals .modal-dialog,
+    #modal-new-failure .modal-dialog,
+    #modal-edit-failure .modal-dialog,
+    #modal-new-received-invoice .modal-dialog,
+    #modal-edit-received-invoice .modal-dialog{
+        width: 900px;
+    }
+    #modal-new-event .modal-dialog.modal-xl,
+    #modal-edit-event .modal-dialog.modal-xl{
+        width: 1245px !important;
+    }
+    #modal-send-email,
+    #modal-new-event,
+    #modal-edit-event{
+        overflow: auto;
+    }
+
+    .generalStats{
+        width: 1500px !important;
+    }
+    /*new expedient*/
+    /*.new-expedient-page span.select2-container{
+        min-width: 148px !important;
+        max-width: 148px !important;
+        width: auto !important;
+    } */
+    /*.new-expedient-page .input-group span.select2-container{
+        min-width: 118px !important;
+        max-width: 118px !important;
+        width: auto !important;
+    }*/
+    .new-expedient-page #formEditExpedient #moveCollectionProvince,
+    .new-expedient-page #formEditExpedient #moveDestinationProvince,
+    .new-expedient-page #formNewExpedient #moveCollectionProvince,
+    .new-expedient-page #formNewExpedient #moveDestinationProvince{
+        width: 130px !important;
+    }
+    
+    /*cservice expediente page*/
+    /*body.cservice-page #personalSection #select2-corpseCollection1-container,
+    body.cservice-page #personalSection #select2-corpseCollection2-container,
+    body.cservice-page #personalSection #select2-familyAssistance-container{
+        min-width: 150px !important;
+        max-width: 150px !important;
+    }*/
+    body.cservice-page #select2-addGravedigger-container{
+        min-width: 220px !important;
+        max-width: 220px !important;
+    }
+    body.cservice-page #select2-choir-container{
+        min-width: 200px !important;
+        max-width: 200px !important;
+    } 
+    body.cservice-page #othersSections .select2-container{
+        min-width: 150px !important;
+        max-width: 150px !important;
+    }
+    .cservice-page #othersSection .checkbox-inline + .checkbox-inline{
+        margin-left: 5px;
+    }
+    /*page*/
+    body.price-page,
+    body.templates-page{
+        min-width: 600px;
+    }
+    body.phones-categories-page,
+    /*body.assistances-main-page,*/
+    body.expenses-page{
+        min-width: 800px;
+    }
+    body.receive-expenses-page{
+        overflow-x: auto !important;
+    }
+    body.cremations-page{
+        overflow-x: auto !important;
+       /* min-width: 1366px !important;*/
+    }
+    body.phones-page{
+        min-width: 1366px !important;
+    }
+    body.configuration-page.literal-new-page div.footer-static-bottom,
+    body.configuration-page.literal-edit-page div.footer-static-bottom,
+    body.configuration-page.times-new-page div.footer-static-bottom,
+    body.configuration-page.times-edit-page div.footer-static-bottom,
+    body.configuration-page.cremations-new-page div.footer-static-bottom,
+    body.configuration-page.cremations-edit-page div.footer-static-bottom,
+    /*body.statistics-page.cremations-page div.footer-static-bottom,
+    body.statistics-page.response-page div.footer-static-bottom,
+    body.statistics-page.assistances-page div.footer-static-bottom,*/
+    body.cremations-page div.footer-static-bottom,
+    body.phones-page div.footer-static-bottom{
+        width: 97% !important;
+    }
+    body.statistics-page.literal-page div.footer-static-bottom{
+        width: 95% !important;
+    }
+    body.statistics-page div.footer-static-bottom{
+        width: 97%  !important;
+        left: 32px !important; 
+        position: fixed !important;
+        bottom: 0px;        
+    }
+    #modal-new-invoice textarea.form-control,
+    #modal-new-invoice select.form-control,
+    .deliveryNote-edit-page textarea.form-control,
+    .taxes-page .form-horizontal textarea.form-control,
+    .receive-expenses-page .form-horizontal textarea.form-control,
+    .assistances-view-page .form-horizontal textarea.form-control,
+    .assistances-edit-page .form-horizontal textarea.form-control{
+        width: 90% !important;
+    }
+    .survey-page #formSatisfactionSurvey #name.form-control{
+        width: 90% !important;
+    }
+    .polls-page #formSatisfactionPolls #name.form-control{
+        width: 90% !important;
+    }
+    body.configuraiont-page.times-new-page .select2DeceasedIn .select2-container,
+    body.configuraiont-page.times-edit-page .select2DeceasedIn .select2-container,
+    body.configuraiont-page.cremations-new-page .select2DeceasedIn .select2-container,
+    body.configuraiont-page.cremations-edit-page .select2DeceasedIn .select2-container,
+    body.statistics-page.cremations-page .select2DeceasedIn .select2-container,
+    body.configuration-page.literal-new-page .select2DeceasedIn .select2-container,
+    body.configuration-page.literal-edit-page .select2DeceasedIn .select2-container,
+    body.statistics-page.literal-page .select2DeceasedIn .select2-container,
+    body.statistics-page.response-page .select2DeceasedIn .select2-container{
+        min-width: 90% !important;
+        max-width: 90% !important;
+        width: 90% !important;
+    }
+    /*Pages*/
+    .expedient-page.fixed .main-header, .assistances-page.fixed .main-header, .pendingTasks-page.fixed .main-header,
+    .todaySummary-page.fixed .main-header, .tomorrowSummary.fixed .main-header, .todayCremations-page.fixed .main-header,
+    .tomorrowCremations-page.fixed .main-header, .cremations-page.fixed .main-header, .event.fixed .main-header,
+    .holidays-page.fixed .main-header, .events-cleanings-page.fixed .main-header, .visitscontrol-page.fixed .main-header,
+    .cars-cleanings-page.fixed .main-header, .generalMortuary-cleanings-page.fixed .main-header, .funeraryRecords-page.fixed .main-header,
+    .budgets-page.fixed .main-header, .invoices-page.fixed .main-header, .configuration-page.fixed .main-header,
+    .products-page.fixed .main-header, .orders-page.fixed .main-header, .deliveryNotes-page.fixed .main-header,
+    .statistics-page.fixed .main-header, .events-garage-page.fixed .main-header, .vehicles-garage-page.fixed .main-header,
+    .generalexpenses-garage-page.fixed .main-header, .logs-page.fixed .main-header, .phones-page.fixed .main-header, .documentation-page.fixed .main-header{
+        min-width: 1150px;
+    }
+    .expedient-page.hiring-page .block-control-form .label-total{
+        margin-right: 0px;
+    }
+    body.fixed .main-header, body.fixed .left-side{
+        position: absolute;
+    }
+    header.main-header .sidebar-toggle,
+    .main-sidebar{
+        position: fixed!important;
+    }
+    header.main-header .sidebar-toggle:focus,
+    header.main-header .sidebar-toggle:active,
+    header.main-header .sidebar-toggle{
+        background: #222d32;
+        width: 50px;
+        z-index: 999999;
+    }
+}
+/**********************************************************/
+.table-striped > tbody{
+    background-color: #dad7d7 !important; 
+}
+
+.colorNewMessage{
+    background-color: #28904e !important;
+    border-color: #28904e !important;
+
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name:parpadeo;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1.0; }
+  }
+  
+  @-webkit-keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1.0; }
+  }
+  
+  @keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1.0; }
+  }
+
+  #chatSection.dropdown-menu {
+      min-width: 270px;
+  }
+
+  #chatMessage.form-control{
+      width: 100% !important;
+  }
+
+  .panel.box.box-danger{
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+  .typeFields{
+      font-weight: 700;
+      padding-left: 3px !important;
+  }
+
+#linkToMovilData{
+    font-weight: 700;    
+}  
+#warehouseTitle{
+    margin-left: 45px;
+}
+.reminder, .reminderVisits, .reminderCremation, .reminderUpkeep, .reminderGarage, .reminderStock, .reminderNotice, .reminderExpedients, .expedientsNotesExpedients{
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    padding-top: 0 !important;
+    margin-top: 12px;
+    margin-left: 3px;
+}
+.reminderItems{
+    display: inline-flex;
+    width: inherit;
+}
+.expedientsNotesItems{
+    display: inline-flex;
+    width: inherit;
+}
+.reminderGoTo{
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    padding-top: 0 !important;
+    margin-top: 12px;
+    margin-left: 3px;
+}
+
+#modal-new-bellringer span.select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+#modal-edit-bellringer span.select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+#modal-new-bellringer select{
+    min-width: 216px;
+}
+#modal-edit-bellringer select{
+    min-width: 216px;
+}
+.cservice-page #select2-bellringer-container{
+    min-width: 350px !important;
+    max-width: 350px !important;
+}
+.cservice-page #expedient-tabs .pull-right{
+    padding-top: 5px;    
+}
+.assistances-page .checkBelow, .assistances-edit-page .checkBelow {
+    margin-left: 0px;
+}
+.assistances-page .checkbox-inline, .assistances-edit-page .checkbox-inline {
+    padding-top: 0px;
+}
+.assistances-page textarea.form-control, .assistances-edit-page textarea.form-control {
+    width: 90% !important;
+}
+#modal-new-event .checkbox-inline.crematoriumIntroductionCheck, #modal-edit-event .checkbox-inline.crematoriumIntroductionCheck,
+#modal-new-cremation .checkbox-inline.crematoriumIntroductionCheck, #modal-edit-cremation .checkbox-inline.crematoriumIntroductionCheck {
+    padding-left: 108px !important;
+}
+#modal-new-event #arriveFamilyTime, #modal-edit-event #arriveFamilyTime,
+#modal-new-cremation #arriveFamilyTime, #modal-edit-cremation #arriveFamilyTime {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#modal-edit-event #status, #modal-new-event #status, #modal-new-cremation #status, #modal-edit-cremation #status,
+.new-expedient-page #crematoriumStatus, .expedient-page #crematoriumStatus {
+    min-width: 110px !important;
+    max-width: 110px !important;
+}
+#modal-edit-event select#cremationServiceProvince {
+    min-width: 118px !important;
+    max-width: 200px !important;
+}
+#modal-new-cleaning select, #modal-new-cleaning .select2, #modal-edit-cleaning select, #modal-edit-cleaning .select2{
+    min-width: 155px !important;
+    max-width: 155px !important;
+}
+#modal-new-cremation select, #modal-new-cremation .select2, #modal-edit-cremation select,#modal-edit-cremation .select2{
+    min-width: 180px !important;
+    max-width: 180px !important;
+}
+#modal-new-cremation .labelsCremat, #modal-edit-cremation .labelsCremat{
+    padding-right: 10px !important;
+}
+
+.sectionFixed{
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+    width: 90%;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.personalSec{
+    margin-bottom: 4px;
+}
+#noticeMenu, #expedientsMenu{    
+    width: auto;
+    min-width: 200px;
+}
+#closeNotices, #closeVisits, #closeCalendar, #closeCremations, #closeUpkeeps, #closeGarage, #closeStock, #closeExpedients{
+    float: right;
+    color:#E61919;
+    background-color: white;
+}
+#corpseCollectLabel{
+    text-align: left;
+}
+
+.dropWidth{
+    width: 400px !important;
+}
+
+#acta-preparacion-modal .form-check-label{
+    padding-top: 12px;
+}
+#acta-preparacion-modal #belongingsText{
+    margin-top: 25px;
+}
+
+#modal-edit-task #expNumber, .cremations-page #modal-edit-event #numExp, #modal-edit-cremation #numExp{
+    padding-left: 200px;
+}
+
+.spaceRight{
+    margin-right: 15px;
+    display: inline-block;
+}
+.configuration-page.price-page #modelsTemplate thead,
+.configuration-page #tableSalaries #salaries thead,
+.configuration-page #configTableSalaries #salaries thead,
+.orders-new-page #tableLinesNewOrder #tableLines thead,
+.orders-edit-page #tableLinesEditOrder #tableLines thead,
+.deliveryNote-edit-page #tableLinesDeliveryNotes #tableLines thead,
+.deliveryNote-edit-page #tableDeliveryNoteLines thead,
+.statistics-page #mortuaryUseTable thead,
+.statistics-page #costCenterUseTable thead,
+.statistics-page #makingTable thead,
+.statistics-page #ageTable thead,
+.products-page .stickyWithe{
+    background-color: #FFF;
+}
+
+.spaceBottom{
+    margin-bottom: 5px;
+}
+
+.cservice-page .datepicker{
+    padding: 0px;
+    border-radius: 0px !important; 
+}
+
+.statistics-page .borderForTable table, .borderForTable th, .borderForTable td{
+    border: 1px solid #dad7d7 !important;
+}
+
+#otherInhumation, #otherCeremony{
+    margin-left: 10%;
+}
+.deceasedData{
+    margin-top: 10px !important;
+    margin-left: 20px !important;
+}
+
+.order-corrective-action-page span.select2-container{
+    min-width: 216px !important;
+    max-width: 216px !important;
+    width: auto !important;
+}
+
+.toBold{
+    font-weight: bold;
+}
+
+.toNormal{
+    font-weight: normal !important;
+}
+
+.labelLgExp{
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+.fsExp{
+    margin-bottom: 10px;
+}
+
+.fsMgExp{
+    margin: 5px;
+}
+
+.boxBo{
+    border: 1px solid #002490 !important;
+}
+
+.confWrapper{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.settings-page label,
+.logs-page label,
+.documentation-page label,
+.cservice-page label,
+.assistances-edit-page label,
+.pendingTasks-page label,
+.cremations-page label,
+.generalMortuary-cleanings-page label,
+.visitscontrol-page label,
+.events-cleanings-page label,
+.events-page label,
+.funeraryRecords-page label,
+.invoices-page label,
+.taxes-page label,
+.receive-expenses-page label,
+.expenses-page label,
+.order-corrective-action-page label,
+.deliveryNote-edit-page label,
+.orders-edit-page label,
+.orders-new-page label,
+.failuresVehicle-garage-page label,
+.garages-page label,
+.generalexpenses-garage-page label,
+.upkeepsVehicle-garage-page label,
+.vehicles-garage-page label,
+.events-garage-page label,
+.logs-page label,
+.phones-categories-page label,
+.phones-page label,
+.documentation-page label,
+.holidays-page label,
+.users-page label,
+.price-page label,
+.mortuaries-page label,
+.garages-page label,
+.expenses-page label,
+.supplier-page label,
+.product-edit-page label,
+.product-page label,
+.carriers-page label,
+.template-edit-page label,
+.templates-page label,
+.staff-page label,
+.panelInfoTemplate-page label,
+.doctors-page label,
+.locations-page label,
+.cleaning-page label,
+.iva-page label,
+.churches-page label,
+.funeralhomes-page label,
+.deceased-in-page label,
+.gravediggers-page label,
+.priests-page label,
+.survey-page label,
+.polls-page label,
+.crematoriums-page label,
+.emails-page label,
+.choirs-page label,
+.clients-page label,
+.cemeteries-page label,
+.bellringers-page label{
+    font-weight: normal !important;
+}
+
+.settingsBottom{
+    margin-bottom: 30px;
+}
+
+.legendBottom{
+    margin-bottom: 10px;
+}
+
+.labelPhones{
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.searchSpace{
+    margin-right: 15px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #CACACA !important;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #E4E4E4 !important;
+}
+.documentation-page .select2-container{
+    min-width: 185px !important;
+    max-width: 185px !important;
+    width: auto !important;
+}
+#instancia-ayto-sant-joan-modal .large-select2 .select2-container,
+#instancia-ayto-sant-joan-modal .large-select2 .select2-container{
+    min-width: 750px !important;
+    max-width: 750px !important;
+    width: auto !important;
+}
+.vehicles-garage-page .select2-carriers,
+.vehicles-garage-page .select2.select2-container.select2-container--default{
+    min-width: 215px !important;
+    max-width: 215px !important;
+}
+
+.products-page .tableFloatingHeaderOriginal{
+    background-color: #FFF;
+    margin-top: 50px !important;
+}
+
+.goActive,
+.goPending,
+.goTasks,
+.goExpedient{
+    cursor: pointer;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+.passwordBottom{
+    padding-bottom: 8px;
+}
+
+.phonesJoinInfo{
+    margin-left: 5px;
+    width: 25px;
+}
+
+.settingsInline{
+    display: flex;
+}
+
+.textareaFixToDiv{
+    width: 100%;
+    color: #555;
+}
+
+.floresInputModalBottom{
+    margin-bottom: 5px;
+    width: 90% !important;
+}
+
+.floresButtonModal{
+    width: 30px;
+}
+
+.showCursor{
+    cursor: pointer;
+}
+
+.panelInfoSlide{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.panelInfoSlideModal{
+    width: 75px;
+}
+
+.panelInfoPreviewUp{
+    width: 98vw;
+    height: 15vh;
+    max-height: 15vh;
+    /*background-color: #cf1414;*/
+}
+
+.panelInfoPreviewUpImg{
+    max-height: 15vh;
+}
+
+.panelInfoPreviewMiddle{
+    width: 98vw;
+    height: 45vh;
+    max-height: 45vh;
+    /*background-color: #1da7dd;*/
+}
+
+.panelInfoPreviewDown{
+    width: 98vw;
+    height: 34vh;
+    max-height: 34vh;
+    /*background-color: #ec1f64;*/
+}
+
+.panelInfoPreviewDownImg{
+    max-height: 23vh;
+    float: right;
+}
+
+.panelInfoPreviewDownTitle{
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.panelInfoPreviewDownMessage{
+    font-size: 2vh;
+    white-space: pre-wrap;
+}
+
+.panelInfoPreviewBreak{
+    width: 98vw;
+    height: 2vh;
+    max-height: 2vh;
+}
+
+.containerAlign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+}
+
+.containerAlignDown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+}
+
+.containerAlignItem{
+    max-width: 92%;
+}
+
+.containerAlignItem--top{
+    align-self: flex-start;
+}
+
+.containerAlignItem--bottom{
+    align-self: flex-end;
+}
+
+.listExpedientsEst{
+    height: 500px;
+    overflow-y: auto;
+}
+
+.expedient-list span.stars{
+    /* width: 90%!important; */
+    width: 100%!important;
+    justify-content: center;
+    display: flex!important;
+}
+.expedient-list span.stars, .expedient-list span.stars span {
+    display: block;
+    background: url(dist/img/star-solid1.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+.expedient-list span.stars span {
+    background-position: 0 0;
+}
+
+.A4h{
+    width: 297mm;
+    height: 210mm;
+}
+
+.A5h{
+    width: 210mm;
+    height: 148.5mm;
+}
+
+.A6h{
+    width: 148mm;
+    height: 105mm;
+}
+
+.A6h-packet{
+    width: 140mm;
+    height: 90mm;
+}
+
+#getAllExpedients + .select2 {
+    min-width: 160px!important;
+}
+
+.form-control{
+    color: #000!important;
+}
+
+#divCars > .select2-container{
+    min-width: 250px!important;
+}
+
+#modal-edit-invoice .select2-container {
+    min-width: 320px !important;
+    max-width: 320px !important;
+    width: auto !important;
+}
+.showInvoices,
+.showFinancing{
+    cursor: pointer;
+}
+
+.general-coronas{
+    background-color: lightskyblue!important;
+}
+
+.general-centros{
+    background-color: rosybrown!important;
+}
+
+.general-tiempos{
+    background-color: burlywood!important;
+}
+
+.general-cremaciones{
+    background-color: darksalmon!important;
+}
+
+.general-edades{
+    background-color: darkkhaki!important;
+}
+
+.general-facturacion{
+    background-color: paleturquoise!important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+/*Timeline*/
+body.timeline-page .schedule-box{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 500px;
+    overflow-x: auto;
+}
+body.timeline-page .grid-container{
+    display: grid;
+    grid-template-columns: repeat(48, minmax(50px, 1fr));
+    flex-basis: 100%;
+    border: 1px solid #002490;
+}
+body.timeline-page .grid-container-hours{
+    display: grid;
+    grid-template-columns: repeat(48, minmax(50px, 1fr));
+    flex-basis: 100%;
+    height: auto;
+    margin-left: 5.15em;
+}
+body.timeline-page .grid-container > div:nth-child(odd){
+    background-color: #80808070;
+}
+body.timeline-page .grid-container > div:nth-child(even){
+    background-color: #d3d3d370;
+}
+body.timeline-page .card-item{
+    border: 2px solid black;
+}
+body.timeline-page .card-tareas-pendientes{
+    z-index: 2;
+    position: relative;
+    padding: .5em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px 0;
+    cursor:pointer;
+}
+body.timeline-page .card-tareas-pendientes > div{
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    justify-content: center;
+}
+body.timeline-page .card-salidas-hoy{
+    z-index: 2;
+    position: relative;
+    padding: .5em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px 0;
+    cursor:pointer;
+}
+body.timeline-page .card-salidas-hoy > div{
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    justify-content: center;
+}
+body.timeline-page .card-salidas-hoy > div.badge-cointer{
+    position: absolute;
+    top: 0.4em;
+    right: 0.4em;
+}
+body.timeline-page .card-salidas-hoy > div > span.badge{
+    padding:0.2em 0.7em 0.4em;
+    font-size:medium
+}
+body.timeline-page .card-cremaciones{
+    z-index: 2;
+    position: relative;
+    padding: .5em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px 0;
+    cursor:pointer;
+}
+body.timeline-page .card-cremaciones > div{
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    justify-content: center;
+}
+body.timeline-page .card-tareas-personal{
+    z-index: 2;
+    position: relative;
+    padding: .5em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 5px 0;
+    cursor:pointer;
+}
+body.timeline-page .card-tareas-personal > div{
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    justify-content: center;
+}
+
+body.timeline-page div#LA_HORA{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #002490;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    background: white;
+    text-align: center;
+    font-weight: 700;
+}
+body.timeline-page div#LA_HORA.current-moment{
+    background-color:#ff7979;
+    font-weight:700
+}
+body.timeline-page .grid-container > div:nth-child(odd) #LA_HORA{
+    border-right: 0;
+    border-left: 0;
+    border-right: 0;
+}
+body.timeline-page .grid-container > div:nth-child(even) #LA_HORA{
+    border-left: 0;
+    border-right: 0;
+}
+body.timeline-page .box-row{ 
+    display: flex;
+    box-sizing: border-box;
+    min-height: calc(25vh - 70px);
+}
+body.timeline-page .title-row{
+    padding: 0px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+body.timeline-page .cell-date{
+    padding: 1em;
+    text-align: center;
+    background-color: #002490;
+    color: white;
+    grid-row: 1;
+    grid-column: 1/49;
+    font-size: medium;
+    font-weight: 700;
+}
+body.timeline-page .hora-salida{
+    background-color: white;
+    color: #002490;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    font-weight: bold;
+    height: 80px;
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+body.timeline-page .select2-container{
+    margin-left:1em;
+    min-width: 215px !important;
+    max-width: 215px !important;
+    width: auto !important;
+    text-align: left;
+}
+body.timeline-page .modal-dialog{
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+}
+
+/* Free tasks and Garage tasks */
+body.timeline-scheduled-tasks #modal-new-task span.select2-container,
+body.timeline-scheduled-tasks #modal-edit-task span.select2-container{
+    min-width: 248px !important;
+    max-width: 248px !important;
+    width: auto !important;
+}
+
+/* Documents editor */
+.expediente-copy-alias{
+    cursor: pointer;
+}
+
+/* Expedients - Custom docuemnts */
+.expedient-custom-documents-page .list-unstyled li{
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.expedient-custom-documents-page .list-unstyled li div,
+.expedient-custom-documents-page .list-unstyled li div:link,
+.expedient-custom-documents-page .list-unstyled li div:active,
+.expedient-custom-documents-page .list-unstyled li div:focus,
+.expedient-custom-documents-page .list-unstyled li div:visited{
+    height: 140px;
+    padding: 1em;
+    text-align: center;
+    background-color: #D6F1FF;
+    border-bottom: 4px solid #D6F1FF;
+    display: block;
+    -webkit-transition: background-color 0.6s;
+    -moz-transition: background-color 0.6s;
+    -ms-transition: background-color 0.6s;
+    -o-transition: background-color 0.6s;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #002490;
+}
+.expedient-custom-documents-page .list-unstyled li div:hover{
+    background-color: #E4DDDD;
+    border-bottom: 4px solid #002490;
+}
+.expedient-custom-documents-page .list-unstyled a i.fa{
+    font-size: 2em;
+    margin-bottom: 14px;
+    display: block;
+}
+.expedient-custom-documents-page .list-unstyled li div.card-disabled{
+    background-color: #F5F0F0;
+    cursor: not-allowed;
+}
+.expedient-custom-documents-page .list-unstyled li div span{
+    font-weight: bold;
+    font-size: 16px;
+}
+/* Expedients - Custom docuemnts */
+
+/* Expedients - Tellmebye */
+.expedient-tellmebye .fieldset-section-title{
+    font-weight: bold;
+    font-size: 18px;
+}
+.expedient-tellmebye .form-control{
+    width: 100% !important;
+}
+.expedient-tellmebye div[class^="col-"]{
+    padding: 5px;
+}
+.expedient-tellmebye .btn-switch{
+    width: 50px;
+    height: 35px;
+}
+.expedient-tellmebye .select2-container{
+    width: 100% !important;
+    min-width: 100% !important;
+    min-width: 100% !important;
+}
+.expedient-tellmebye .tellmebye-button{
+    width: 70px !important;
+    height: 28px !important;
+}
+.expedient-tellmebye .tellmebye-deceased-image{
+    max-width: 80px;
+}
+/* Expedients - Tellmebye */
+
+/* Expedients - Work order */
+/* Expedients - Work order */
+
+.d-flex{
+    display: flex !important;
+}
+.d-block{
+    display: block !important;
+}
+.d-none{
+    display: none !important;
+}
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #002490 !important;
+}
+.float-right{
+    float: right;
+}
+.align-items-center{
+    align-items: center;
+}
+.ml-2{
+    margin-left: 2em;
+}

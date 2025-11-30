@@ -1,0 +1,205 @@
+page{
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    border: solid 1px #002490;
+}
+page[size="A3"]{
+    width: 29.7cm;
+    height: 42cm;
+}
+page[size="srA3"]{
+    width: 32cm;
+    height: 45cm;
+}
+page[size="A4"]{
+    width: 21cm;
+    height: 29.7cm;
+}
+page[size="A4h"]{
+    width: 29.7cm;
+    height: 21cm;
+}
+page[size="A5"]{
+    width: 14.8cm;
+    height: 21cm;
+}
+page[size="A6"]{
+    width: 10.5cm;
+    height: 14.8cm;
+}
+
+/* Documents editor */
+.documents-editor-page page[size="A3"]{
+    width: 29.7cm;
+    height: 42cm;
+}
+.documents-editor-page page[size="srA3"]{
+    width: 32cm;
+    height: 44.5cm;
+}
+.documents-editor-page page[size="A4"]{
+    width: 21cm;
+    height: 29.7cm;
+}
+.documents-editor-page page[size="A4h"]{
+    width: 29.7cm;
+    height: 21cm;
+}
+.documents-editor-page page[size="A5"]{
+    width: 14.8cm;
+    height: 21cm;
+}
+.documents-editor-page page[size="A6"]{
+    width: 10.5cm;
+    height: 14.8cm;
+}
+/* Documents editor */
+
+/* Fuentes */
+@font-face{
+    font-family: 'arial';
+    src: 
+        url('../../js/tools/fonts/arial/arial.ttf') format('ttf'),
+        url('../../js/tools/fonts/arial/arial.woff2') format('woff2'),
+        url('../../js/tools/fonts/arial/arial.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'caslon';
+    src: 
+        url('../../js/tools/fonts/caslon/caslon.ttf') format('ttf'),
+        url('../../js/tools/fonts/caslon/caslon.woff2') format('woff2'),
+        url('../../js/tools/fonts/caslon/caslon.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'comic sans ms';
+    src: 
+        url('../../js/tools/fonts/comicsans/comicsans.ttf') format('ttf'),
+        url('../../js/tools/fonts/comicsans/comicsans.woff2') format('woff2'),
+        url('../../js/tools/fonts/comicsans/comicsans.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'garamond';
+    src: 
+        url('../../js/tools/fonts/garamond/garamond.ttf') format('ttf'),
+        url('../../js/tools/fonts/garamond/garamond.woff2') format('woff2'),
+        url('../../js/tools/fonts/garamond/garamond.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'garamonditalic';
+    src: 
+        url('../../js/tools/fonts/garamonditalic/garamonditalic.ttf') format('ttf'),
+        url('../../js/tools/fonts/garamonditalic/garamonditalic.woff2') format('woff2'),
+        url('../../js/tools/fonts/garamonditalic/garamonditalic.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'garamondbolditalic';
+    src: 
+        url('../../js/tools/fonts/garamonditalic/garamondbolditalic.ttf') format('ttf'),
+        url('../../js/tools/fonts/garamonditalic/garamondbolditalic.woff2') format('woff2'),
+        url('../../js/tools/fonts/garamonditalic/garamondbolditalic.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'helvetica';
+    src: 
+        url('../../js/tools/fonts/helvetica/helvetica.ttf') format('ttf'),
+        url('../../js/tools/fonts/helvetica/helvetica.woff2') format('woff2'),
+        url('../../js/tools/fonts/helvetica/helvetica.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'tahoma';
+    src: 
+        url('../../js/tools/fonts/tahoma/tahoma.ttf') format('ttf'),
+        url('../../js/tools/fonts/tahoma/tahoma.woff2') format('woff2'),
+        url('../../js/tools/fonts/tahoma/tahoma.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'times new roman';
+    src: 
+        url('../../js/tools/fonts/timesnewroman/timesnewroman.ttf') format('ttf'),
+        url('../../js/tools/fonts/timesnewroman/timesnewroman.woff2') format('woff2'),
+        url('../../js/tools/fonts/timesnewroman/timesnewroman.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'verdana';
+    src: 
+        url('../../js/tools/fonts/verdana/verdana.ttf') format('ttf'),
+        url('../../js/tools/fonts/verdana/verdana.woff2') format('woff2'),
+        url('../../js/tools/fonts/verdana/verdana.woff') format('woff');
+}
+
+@media(max-width: 992px){
+    page{
+        background: white;
+        display: block;
+        /*margin: 0 auto;*/
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        /* margin-left: 100px; */
+    }
+}
+
+/* Sidebar */
+.sidenav{
+    z-index: 1;
+    position: sticky !important;
+    top: 50px;
+    margin:0 2em !important;
+    height: 100% !important;
+}
+.sidenav.A6-sticky:first-of-type{
+    height: 560px !important;
+    overflow: auto !important;
+}
+.documents-editor-page  div.wrapper{
+    overflow: clip !important;
+}
+
+.item{
+    padding-bottom: 2px;
+}
+
+hr{
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.overlay{
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 2;
+    background: transparent;
+}
+
+.sideInput{
+    min-width: 95px !important;
+    max-width: 95px !important;
+}
+
+.documents-editor-page .main{
+    overflow: auto !important;
+    margin: 0 !important;
+}
+
+@media(max-width: 1200px){
+    .sidenav {
+        top: 10px;
+      }
+}

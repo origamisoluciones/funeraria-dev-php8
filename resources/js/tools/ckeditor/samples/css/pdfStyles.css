@@ -1,0 +1,340 @@
+#cke_1_contents{
+    min-height: 1000px;
+}
+.folio{
+    background-color:none; 
+    max-width:790px;
+    top: -10%;
+}
+.folioTarjeta{
+    background-color:none; 
+    max-width:450px;
+    top: -10%;
+}
+.folioTarjeta2{
+    background-color:none; 
+    max-width:400px;
+    top: -15%;
+}
+.folioPompas{
+    background-color:white;
+    background-color:none; 
+    max-width: 820px;
+    height: 1374px;
+    top: -10%;
+    background-size: contain; 
+    background-repeat: no-repeat;
+    margin-right: auto;
+    margin-left: auto;
+}
+.folioApaisado{
+    background-color:#ffffff; 
+    max-width:790px;
+}
+.contenidoPompas{
+    padding-top: 110px;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 50px;
+    font-family: "Adobe Garamond Pro Bold";
+}
+.tableFloresRegistroPompas{
+    margin-left: 80px;
+    margin-right: 10px;
+}
+.contenido{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.fuente{
+    font-size: 12px;
+    color:#1f497d;
+}
+.fuente-black{
+    font-size: 12px;
+    color: black !important;
+}
+.titulo{
+    font-size: 14px;
+}
+
+.tablePdf, .tablePdf-black, .tableFloresRegistro, .tableFloresRegistro-black, .tablePdfNoBorder, .tableContratos, .tableContratos-black, .tablePdfBlack, .tablaVacaciones-black{
+    width: 100%;
+}
+.tableContratos{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableContratos thead, .tableContratos thead tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableContratos tbody{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableContratos tbody, .tableContratos tbody tr td{
+    color:#1f497d;
+    border-left: 1px solid #1f497d !important;
+    border-right: 1px solid #1f497d !important;
+}
+.tableContratos tbody tr td{
+    padding: 3px;
+}
+.tableContratos-black{
+    color:black;
+    border: 1px solid black !important;
+}
+.tableContratos-black thead, .tableContratos-black thead tr td{
+    color:black;
+    border: 1px solid black !important;
+}
+.tableContratos-black tbody{
+    color:black;
+    border: 1px solid black !important;
+    
+}
+.tableContratos-black tbody, .tableContratos-black tbody tr td{
+    color:black;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+}
+.tableContratos-black tbody tr td{
+    padding: 3px;
+}
+.tablaVacaciones{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tablaVacaciones thead, .tablaVacaciones thead tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tablaVacaciones tbody{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+    
+}
+.tablaVacaciones tbody, .tablaVacaciones tbody tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tablaVacaciones tbody tr td{
+    padding: 3px;
+}
+.tablaVacaciones-black{
+    color:black;
+    border: 1px solid black !important;
+}
+.tablaVacaciones-black thead, .tablaVacaciones-black thead tr td{
+    color:black;
+    border: 1px solid black !important;
+}
+.tablaVacaciones-black tbody{
+    color:black;
+    border: 1px solid black !important;
+    
+}
+.tablaVacaciones-black tbody, .tablaVacaciones-black tbody tr td{
+    color:black;
+    border: 1px solid black !important;
+}
+.tablaVacaciones-black tbody tr td{
+    padding: 3px;
+}
+.tablePdf tbody tr, .tablePdf tbody tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tablePdf tbody tr td{
+    padding: 5px;
+}
+.tablePdf tbody tr.tableHead{
+    background-color: #6a7e96;
+}
+.tablePdf-black tbody tr, .tablePdf-black tbody tr td{
+    color:black;
+    border: 1px solid black !important;
+}
+.tablePdf-black tbody tr td{
+    padding: 5px;
+}
+.tablePdf-black tbody tr.tableHead{
+    background-color: #6a7e96;
+}
+.tablePdfv2 tbody tr, .tablePdfv2 tbody tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+    border-spacing:0 150px
+}
+.tablePdfv2 thead tr, .tablePdfv2 thead tr td, .tablePdfv2 thead tr th{
+    color:#86888b;
+    border: 1px solid #1f497d !important;
+}
+.tablePdfv2 tbody tr td{
+    width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.tablePdfv2 tbody tr.tableHead{
+    background-color: #6a7e96;
+}
+.tablePdfv2-black tbody tr, .tablePdfv2-black tbody tr td{
+    color:black;
+    border: 1px solid black !important;
+    border-spacing:0 150px
+}
+.tablePdfv2-black thead tr, .tablePdfv2-black thead tr td, .tablePdfv2-black thead tr th{
+    color:#86888b;
+    border: 1px solid black !important;
+}
+.tablePdfv2-black tbody tr td{
+    width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.tablePdfv2-black tbody tr.tableHead{
+    background-color: #6a7e96;
+}
+.tablePdfv4 tbody tr, .tablePdfv4 tbody tr td{
+    color:black;
+    border: 1px solid black !important;
+    border-spacing:0 150px
+}
+.tablePdfv4 thead tr, .tablePdfv4 thead tr td, .tablePdfv4 thead tr th{
+    color:#86888b;
+    border: 1px solid black !important;
+}
+.tablePdfv4 tbody tr td{
+    width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.tablePdfv4 tbody tr.tableHead{
+    background-color: #6a7e96;
+}
+.tableFloresRegistro{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableFloresRegistro thead tr td, .tableFloresRegistro tbody tr td{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableFloresRegistro tbody tr td{
+    padding: 15px;
+}
+.tableFloresRegistro-black{
+    color:black;
+    border: 1px solid black !important;
+}
+.tableFloresRegistro-black thead tr td, .tableFloresRegistro-black tbody tr td{
+    color:black;
+    border: 1px solid black !important;
+}
+.tableFloresRegistro-black tbody tr td{
+    padding: 15px;
+}
+.tablePdfBlack tbody tr, .tablePdfBlack tbody tr td{
+    color:#000000;
+    border: 1px solid #000000 !important;
+}
+.tablePdfBlack tbody tr td{
+    padding: 5px;
+}
+.tableBorderTop{
+    color:#1f497d;
+    border-top: 1px solid #1f497d !important;
+    border-left: 1px solid #1f497d !important;
+    border-right: 1px solid #1f497d !important;
+}
+.tableBorderTop tr td{
+    padding: 10px;
+}
+.tableBorderTop-black{
+    color:black;
+    border-top: 1px solid black !important;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+}
+.tableBorderTop-black tr td{
+    padding: 10px;
+}
+.tableBorderMid{
+    color:#1f497d;
+    border: 1px solid #1f497d !important;
+}
+.tableBorderMid tr td{
+    padding: 10px;
+}
+.tableBorderMid-black{
+    color:black;
+    border: 1px solid black !important;
+}
+.tableBorderMid-black tr td{
+    padding: 10px;
+}
+.tableBorderBottom{
+    color:#1f497d;
+    border-left: 1px solid #1f497d !important;
+    border-right: 1px solid #1f497d !important;
+    border-bottom: 1px solid #1f497d !important;
+}
+.tableBorderBottom tr td{
+    padding: 10px;
+}
+.tableBorderBottom-black{
+    color:black;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+}
+.tableBorderBottom-black tr td{
+    padding: 10px;
+}
+.tablePdfNoBorder, .tablePdfNoBorder tbody tr, .tablePdfNoBorder tbody tr td{
+    border: none!important;
+}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    margin-left: 20px;
+    position: relative;
+}
+.firma{
+    border: 1px solid #1f497d;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.firma-black{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.firma2{
+    border: 2px solid #8b8b8b;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.firma4{
+    border: 2px solid #74393F;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.img-cruz{
+    background-image: url("images/tarjeton.jpg");
+    background-size: cover;
+}
+hr{
+    border-top: 1px solid #000000;
+}
+.boisaca{
+    margin-top: 60px;
+}
+.imgFooter{
+    position: fixed;
+    bottom: -50px;
+    right: -50px;
+    background-color: red;
+}
+.separator{
+    padding-bottom: 5px;
+}

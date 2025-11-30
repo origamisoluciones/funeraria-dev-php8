@@ -1,0 +1,296 @@
+function changeSpaceFooter(){
+    var heightFooter = $('.footer-static-bottom').height()
+    $('.content-wrapper').css('padding-bottom', heightFooter)
+}
+$(window).scroll(function(){
+    changeSpaceFooter()
+})
+$(window).resize(function(){
+    changeSpaceFooter()
+})
+$(function(){
+    //Toolbar Bottom
+    $('.footer-static-bottom .block-2 .btn-gotop').before('<button type="button" id="backLink" class="btn btn-default"><i class="fa fa-arrow-circle-left c-lile" aria-hidden="true"></i> Volver</button>')
+    changeSpaceFooter()
+    $('#backLink').click(function(event) {
+        event.preventDefault()
+        
+        if(document.referrer == ''){
+            history.back(1);
+        }else{
+            if(window.location.href == document.referrer){
+                history.back(1);
+            }else{
+                window.location.href = document.referrer;
+            }
+        }
+    })
+
+    setWidthBottomToolbar()
+    $(window).resize(function(){
+        setWidthBottomToolbar()
+    })
+
+    $('.btn-gotop').click(function(){
+        $('html, body').animate({scrollTop : 0}, 800)
+        return false
+    })
+
+    $.ajax({
+        url: uri + "core/serviceControl/tomorrowSumary/list.php",
+        method: 'POST',
+        async: false,
+        success: function(data){
+            data = $.parseJSON(data)
+
+            if(data.expedients == null){
+                $('#tomorrowSummary').append(   
+                    '   <div class="col-xs-12">' +
+                    '       <div class="alert alert-warning alert-dismissible fade in" role="alert">' +
+                    '           <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">×</span></button>' +
+                    '           No hay servicios disponibles para mañana' +
+                    '       </div>' +
+                    '   </div>');
+            }else{
+                $.each(data.expedients, function(index, elem){
+                    var expedient = elem.expedientID
+                    var funeralDate = '-'
+                    if(elem.funeralDate != null){
+                        funeralDate = moment(elem.funeralDate, 'YYYY-MM-DD').format('DD/MM/YYYY')
+                    }
+                    var funeralTime = '-'
+                    if(elem.funeralTime != null){
+                        funeralTime = moment(elem.funeralTime, 'HH:mm:ss').format('HH:mm')
+                    }
+                    var number = elem.number
+                    var deceasedName = '-'
+                    if(elem.deceasedName != ''){
+                        deceasedName = elem.deceasedName
+                    }
+                    var deceasedSurname = '-'
+                    if(elem.deceasedSurname != ''){
+                        deceasedSurname = elem.deceasedSurname
+                    }
+                    var mortuary = '-'
+                    if(elem.mortuary != null){
+                        mortuary = elem.mortuary
+                    }
+                    var deceasedRoom = elem.deceasedRoom
+                    var cemetery = '-'
+                    if(elem.cemetery != null){
+                        cemetery = elem.cemetery
+                    }
+                    var carriersTime = '-'
+                    if(elem.carriersTime != null){
+                        carriersTime = moment(elem.carriersTime, 'HH:mm:ss').format('HH:mm')
+                    }
+                    if(parseInt(index)%parseInt(3) == 0 && index != 0){
+                        $('#todaySummary').append("<div class='clearfix'></div>")
+
+                    }
+                    var funeralHome = '-'
+                    if(elem.funeralHome != null){
+                        funeralHome = elem.funeralHome
+                    }
+                    var church = '-'
+                    if(elem.church != null){
+                        church = elem.church
+                    }
+                    var buses = '-'
+                    if(elem.buses != null){
+                        buses = elem.buses
+                    }
+                    var marcapasos = 'Si'
+                    if(elem.marcapasos != 0){
+                        marcapasos = "No";
+                    }else{
+                        marcapasos = "Si";
+                    }
+
+                    var flag = false;
+                    if(elem.type == 3 || elem.type == '3'){
+                        $.each(data.cremations, function(index, elem2){
+                            if(elem2.expedientID == elem.expedientID){
+                                flag = true;
+                            }
+                        })
+                    }
+
+                    var text =  "   <div class='details-sumary col-xs-4'>" +
+                                "       <dl class='dl-horizontal'>" +
+                                "           <dt>Hora de salida: </dt><dd><strong>" + funeralTime + "</strong></dd>" +
+                                "           <dt>Nº exp: </dt><dd>" + number + "</dd>" +
+                                "           <dt>Nombre: </dt><dd>" + deceasedName + " " + deceasedSurname + "</dd>" +
+                                "           <dt>Funeraria del servicio: </dt><dd>" + funeralHome + "</dd>" +
+                                "           <dt>Casa mortuoria: </dt><dd>" + mortuary + "</dd>" +
+                                "           <dt>Sala: </dt><dd>" + deceasedRoom + "</dd>" +
+                                "           <dt>Nº Autobuses: </dt><dd>" + buses + "</dd>" +
+                                "           <dt>Parroquia: </dt><dd>" + church + "</dd>" +
+                                "           <dt>Cementerio: </dt><dd>" + cemetery + "</dd>" +
+                                "           <dt>Porteadores: </dt><dd>" + carriersTime + "</dd>" +
+                                "           <ol>";
+
+                    if(elem.carriers.length > 0){                        
+                        var brand =''
+                        var model = ''
+                        var license = ''
+                        elem.carriers.forEach(function(carrier){
+                            var flag = true
+                            if(elem.cars.length > 0){                                                              
+                                elem.cars.forEach(function(car){
+                                    if(flag){
+                                        if((carrier.name + ' ' + carrier.surname) == (car.driverName + ' ' + car.driverSurname)){                                    
+                                            brand = ' - ' + car.brand
+                                            model = car.model
+                                            license = car.licensePlate
+                                            flag = false                                        
+                                        }else{
+                                            brand =''
+                                            model = ''
+                                            license = ''                                            
+                                        }
+                                    }
+                                })
+                            }
+                            if(carrier.confirmed == 1){                                
+                                text +=     "       <li>" + carrier.name + " " + carrier.surname + "<strong>" + brand + " " + model + " " + license + "</strong></li>";      
+                            }else{                                
+                                text +=     "       <li class='c-red'>" + carrier.name + " " + carrier.surname + "<strong>" + brand + " " + model + " " + license + "</strong></li>";
+                            }
+                        })
+                    }
+                    text +=     "           </ol>";
+                    text +=     "       </dl>"
+                                "   </div>";
+
+                    if(elem.type == 3 || elem.type == '3'){
+                        if(flag){
+                            $('#tomorrowSummary').append(text)
+                        }
+                    }else{
+                        $('#tomorrowSummary').append(text)
+                    }
+                })
+            }
+
+            if(data.cremations == null){
+                $('#tomorrowCremations').append(   
+                        '<div class="col-xs-12">' +
+                        '   <div class="alert alert-warning alert-dismissible fade in" role="alert">' +
+                        '       <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">×</span></button>' +
+                        '       No hay cremaciones disponibles para mañana' +
+                        '   </div>' +
+                        '</div>'
+                );
+            }else{
+                var cremationsOrdered = data.cremations.sort((a, b) => parseInt(a.crematoriumID) - parseInt(b.crematoriumID));
+
+                var currentCrematorium = null;
+                var text = '';
+                $.each(cremationsOrdered, function(index, elem){
+
+                    var crematoriumName = '-'
+                    if(elem.crematoriumName != ''){
+                        crematoriumName = elem.crematoriumName
+                    }
+
+                    if(elem.crematoriumID != currentCrematorium){
+                        text += "<div class='col-xs-12'>"+
+                                "    <legend class='legendBottom' style='border-bottom:0px; text-align:center'>"+
+                                "       <span class='label label-primary labelLgExp'>Crematorio "+crematoriumName+"</span>"+
+                                "   </legend>" +
+                                "</div>"
+
+                        currentCrematorium = elem.crematoriumID;
+                    }
+                    
+                    var deceasedName = '-'
+                    if(elem.deceasedName != ''){
+                        deceasedName = elem.deceasedName
+                    }
+                    var deceasedSurname = '-'
+                    if(elem.deceasedSurname != ''){
+                        deceasedSurname = elem.deceasedSurname
+                    }
+                    var crematoriumIntroduction = 'No'
+                    if(elem.crematoriumIntroduction == "1"){
+                        crematoriumIntroduction = "Si"
+                    }
+                    var crematoriumWaitOnRoom = 'No'
+                    if(elem.crematoriumWaitOnRoom == "1"){
+                        crematoriumWaitOnRoom = "Si"
+                    }
+                    var crematoriumVaseBio = 'No'
+                    if(elem.crematoriumVaseBio == "1"){
+                        crematoriumVaseBio = "Si"
+                    }
+                    var funeralHome = '-'
+                    if(elem.funeralHome != null){
+                        funeralHome = elem.funeralHome
+                    }
+                    var crematoriumArriveTime = '-'
+                    if(elem.crematoriumArriveTime != null && elem.crematoriumArriveTime != "" ){
+                        crematoriumArriveTime = moment(elem.crematoriumArriveTime,"hh:mm:ss").format("HH:mm")
+                    }
+                    if(elem.ecologicCoffin == "0"){
+                        var ecologicCoffin = "No";
+                    }else{
+                        var ecologicCoffin = "Si";
+                    }
+                    var authDateTime = '';
+                    if(elem.authDate != null){
+                        authDateTime += moment(elem.authDate, 'X').format('DD/MM/YYYY');
+                    }
+                    if(elem.authTime != null){
+                        authDateTime += ' ' + moment(elem.authTime, 'X').format('HH:mm');
+                    }
+
+                    text +=     "<div class='details-sumary col-xs-4'>" +
+                                "    <dl class='dl-horizontal' style='background-color: #D1FAFF;!important'>" +
+                                "        <dt>Crematorio: </dt><dd><strong>" + crematoriumName + "</strong></dd>" +
+                                "        <dt>Hora de introducción: </dt><dd><strong>" + moment(elem.start,"YYYY-MM-DD hh:mm:ss").format("HH:mm") + "</strong></dd>" +
+                                "        <dt>Nº expediente: </dt><dd>" + elem.number + "</dd>" +
+                                "        <dt>Nombre: </dt><dd>" + deceasedName + " " + deceasedSurname + "</dd>" +
+                                "        <dt>Funeraria del servicio: </dt><dd>" + funeralHome + "</dd>" +
+                                "        <dt>Familiar de contacto: </dt><dd>" + elem.familyContactName + " " + elem.familyContactSurname + " - " + elem.familyContactMobilePhone + "</dd>" +
+                                "        <dt>Introducción: </dt><dd>" + crematoriumIntroduction + "</dd>";
+                    if(elem.crematoriumIntroduction == "1"){
+                        text +=     "    <dt>Hora llegada familia: </dt><dd>" + crematoriumArriveTime + "</dd>";
+                    }
+                    text +=     "        <dt>Esperar en sala: </dt><dd>" + crematoriumWaitOnRoom + "</dd>" +
+                                "        <dt>Urna biodegradable: </dt><dd>" + crematoriumVaseBio + "</dd>" +
+                                "        <dt>Féretro ecológico: </dt><dd>" + ecologicCoffin + "</dd>" +
+                                "        <dt>Entrega de cenizas: </dt><dd>" + authDateTime + "</dd>" +
+                                "        <dt>Lugar de entrega: </dt><dd>" + elem.authPlace + "</dd>" +
+                                "    </dl>" +
+                                "</div>";
+                })
+
+                $('#tomorrowCremations').append(text);                                                    
+            }
+        }
+    });
+
+    $('#genPDF').click(function(){
+
+        var text;
+        $.ajax({
+            url: uri + 'core/libraries/pdfs/getPdfs.php',
+            data: {doc: 'resumenManhana', text: text, service: 0, data: ""},
+            type: 'POST',
+            async: false,            
+            success: function (data) {
+                text = data;
+                $.ajax({
+                    url: uri + 'core/libraries/pdfs/process.php',
+                    data: {text : text, doc : 'resumenManhana', expedientID: 0},
+                    type: 'POST',
+                    async: false,            
+                    success: function (data) {
+                        window.open(uri + 'descargar-archivo?file=expedients/0/docs/resumenManhana.pdf', '_blank')
+                    }
+                });
+            }
+        });
+    })
+});
