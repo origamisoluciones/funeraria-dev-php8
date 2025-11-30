@@ -8,10 +8,10 @@
         return;
     }
 
-    if(!isset($_SESSION['user'])){
-        http_response_code(403);
-        return;
-    }
+    // if(!isset($_SESSION['user'])){
+    //     http_response_code(403);
+    //     return;
+    // }
 
     if(empty($_POST) || !isset($_POST['type'])){
         http_response_code(405);

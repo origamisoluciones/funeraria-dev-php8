@@ -41,8 +41,8 @@
                     }
                 }
             }
+            rmdir($dir);
         }
-        rmdir($dir);
 
         $logs->createSimple("Configuración", "Personal - Formación - Baja", "'Ha eliminado un curso'");
         echo json_encode(true);

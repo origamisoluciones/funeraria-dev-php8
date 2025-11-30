@@ -6,7 +6,7 @@
     define('ENVIRONMENT', 'DEV');
 
     define('IP_DEV', [
-        '192.168.224.1'
+        '10.20.73.1'
     ]);
 
     // URL Qr
@@ -22,8 +22,8 @@
 
 	// Db settings
     define('DB_HOST', 'localhost');
-    define('DB_USERNAME', 'mariadmin');
-    define('DB_PASSWORD', '70u(w*4wN76)-n;8');
+    define('DB_USERNAME', 'origami.pma');
+    define('DB_PASSWORD', 'G>i(5ZwMNcjHmNsp');
 
     define('DB_DATABASE_SETTINGS', 'Settings');
     define('DB_DATABASE_AROSA', 'apparosa');

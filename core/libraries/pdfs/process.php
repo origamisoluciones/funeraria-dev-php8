@@ -45,7 +45,7 @@
             if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/expedients/" . $_POST['expedientID'] . "/docs")){
                 mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/expedients/" . $_POST['expedientID'] . "/docs", 0777, true);
             }
-        }else if($_POST['vehicleID'] != ""){
+        }else if(isset($_POST['vehicleID']) && $_POST['vehicleID'] != ""){
          
             if(!file_exists($_SESSION['basePath'] .  "resources/files/{$_SESSION['company']}/garage/vehicles/" . $_POST['vehicleID'] . "/ficha")){
                 mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/garage/vehicles/" . $_POST['vehicleID'] . "/ficha", 0777, true);

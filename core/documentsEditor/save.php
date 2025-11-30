@@ -156,6 +156,8 @@
             break;
         }
 
+        array_push($options, 'enable-local-file-access');
+
         $html = '   
             <!DOCTYPE html>
             <html lang="en">

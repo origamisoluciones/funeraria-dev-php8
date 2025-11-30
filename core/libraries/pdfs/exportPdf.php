@@ -16,7 +16,7 @@
     if(!isset($_SESSION['basePath'])){
         $_SESSION['basePath'] = $_SERVER['DOCUMENT_ROOT'] . "/";
     }
-    require_once "tools/mpdf60/mpdf.php"; // MPDF library
+    require_once "tools/mpdf/autoload.php"; // MPDF library
     
     function exportPDF($text, $path, $docType, $radio, $logo = null){
         require_once($_SESSION['basePath'] . "core/tools/utils.php");
@@ -899,7 +899,20 @@
                     }else if(intval($_SESSION['company']) == 24){
                         $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 2,
+                            'margin_footer' => 1,
+                            'orientation' => 'P'
+                        ]);
+                        // $pdf = new \Mpdf\Mpdf('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
                     }
 
                     //Fondo pompas funebres
@@ -1677,6 +1690,7 @@
             return true;
         } 
         catch(Exception $e){
+            var_dump($e);
             return false;
         }
     }
