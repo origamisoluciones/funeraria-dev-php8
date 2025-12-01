@@ -461,7 +461,7 @@
                                         WHERE   churchID = " . $data['churchID']);
             }
            
-            if(isset($data['priests'])){
+            if(isset($data['priests']) && count($data['priests']) > 0){
                 $priests = '(';
                 foreach($data['priests'] as $priest){
                     $priest = cleanStr($priest);

@@ -808,7 +808,7 @@
                                                 " . $data['entryDate'] . "
                                                 sentObituary = '" . $data['sentObituary'] . "',
                                                 fax = '" . $data['fax'] . "', description = '" . $data['description'] . "'
-                                        WHERE   supplierID = " . $data['supplierID'] . "");
+                                        WHERE   supplierID = " . $data['supplierID']);
                 if(!$result){
                     return false;
                 }

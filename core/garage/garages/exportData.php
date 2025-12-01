@@ -27,7 +27,7 @@
     $f = fopen($path, 'w');
 
     //set column headers
-    $fields = array('ID', 'Nombre', 'Dirección', 'Provincia', 'Localidad', 'Email', 'Teléfono', 'Proveedor asociado');
+    $fields = array('ID', 'Nombre', 'Dirección', 'Provincia', 'Localidad', 'Código postal', 'Email', 'Teléfono', 'Proveedor asociado');
     fputcsv($f, $fields, $delimiter);
 
     foreach($result["garages"] as $garage){

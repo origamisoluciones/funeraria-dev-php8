@@ -36,10 +36,16 @@
                 }
             }
 
+            if($data['supplier'] == ''){
+                $data['supplier'] = 'null';
+            }else{
+                $data['supplier'] = "'" . $data['supplier'] . "'";
+            }
+
             return $db->query(" INSERT INTO Garages(location, name, address, mail, phone, supplier)
                                 VALUES(" . $data['location'] . ", '" . $data['name'] . "', 
                                         '" . $data['address'] . "', '" . $data['mail'] . "', 
-                                        '" . $data['phone'] . "', '" . $data['supplier'] . "')");
+                                        '" . $data['phone'] . "', " . $data['supplier'] . ")");
         }
 
         /**
@@ -96,13 +102,19 @@
                 }
             }
 
+            if($data['supplier'] == ''){
+                $data['supplier'] = 'null';
+            }else{
+                $data['supplier'] = "'" . $data['supplier'] . "'";
+            }
+
             return $db->query(" UPDATE  Garages
                                 SET     location = " . $data['location'] . ",
                                         name= '" . $data['name'] . "',
                                         address = '" . $data['address'] . "',
                                         mail = '" . $data['mail'] . "',
                                         phone = '" . $data['phone'] . "',
-                                        supplier = '" . $data['supplier'] . "'
+                                        supplier = " . $data['supplier'] . "
                                 WHERE   ID = " . $data['ID'] . "");
         }
 

@@ -979,16 +979,20 @@
                 return "Nombre no puede ser vacío";
             }
 
+            if($data['mortuary'] == ''){
+                $data['mortuary'] = 'null';
+            }
+
             $db->query("UPDATE  Cost_Center
                         SET     location = " . $data['location'] . ",
                                 name = '" . $data['name'] . "', 
                                 address = '" . $data['address'] . "',
                                 mail = '" . $data['mail'] . "', 
                                 phones = '" . $data['phones'] . "',
-                                mortuary = '" . $data['mortuary'] . "',
+                                mortuary = " . $data['mortuary'] . ",
                                 company = '" . $data['company'] . "',
                                 warehousePpal = '" . $data['warehousePpal'] . "'
-                        WHERE   ID = " . $data['ID'] . "");
+                        WHERE   ID = " . $data['ID']);
 
             // Stock
             require_once($_SESSION['basePath'] . "model/stock.php");
@@ -1232,6 +1236,26 @@
 			}else{
 				return $db->resultToArray($result);
 			}
+        }
+
+        /**
+         * Obtiene los tanatorios propios por nombre
+         *
+         * @param string $name Nombre del tanatorio
+         * @return array
+         */
+        public function searchByNameEquals($name){
+            $db = new DbHandler;
+
+            $name = cleanStr($name);
+
+            $result = $db->query("  SELECT      m.mortuaryID
+                                    FROM        Mortuaries m
+                                    WHERE       m.name = '$name' AND
+                                                m.leavingDate IS NULL
+                                    ORDER BY    m.name");
+            
+            return mysqli_num_rows($result) == 0 ? null : $db->resultToArray($result);
         }
     }
 ?>

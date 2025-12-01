@@ -387,8 +387,8 @@ $(function(){
             });
             phones=phones.slice(0,-1);
             var drives = $("#formNewData #drives").val();
-            if(drives=="undefined" || drives==""){
-                drives = "NULL";
+            if(drives=="undefined"){
+                drives = "";
             }
             var entryDate = $("#formNewData #entryDate").val();
             if(moment(entryDate, "DD/MM/YYYY").isValid()){
@@ -521,8 +521,8 @@ $(function(){
             });
             phones=phones.slice(0,-1);
             var drives = $("#formEditData #drives").val();
-            if(drives=="undefined" || drives==""){
-                drives = "NULL";
+            if(drives=="undefined"){
+                drives = "";
             }
             var entryDate = $("#formEditData #entryDate").val();
             if(moment(entryDate, "DD/MM/YYYY").isValid()){

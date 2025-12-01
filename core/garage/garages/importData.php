@@ -61,8 +61,9 @@
                 $line[0] = trim($line[0]);
                 if($line[0] != ''){
                     $data = explode(';', $line[0]);
-
+                    
                     if(!isset($data[0]) || !isset($data[1]) || !isset($data[2]) || !isset($data[3]) || !isset($data[4]) || !isset($data[5]) || !isset($data[6]) || !isset($data[7]) || !isset($data[8])){
+                        var_dump($data);
                         array_push($errors, "Número de columnas incorrecto. Las columnas son: ID, Nombre, Dirección, Provincia, Localidad, Código postal, Email, Teléfono, Proveedor asociado");
                         break;
                     }else{

@@ -141,8 +141,9 @@
                             
                             if(count($priestsIDs) > 0){
                                 $data['priests'] = $priestsIDs;
+                            }else{
+                                $data['priests'] = array();
                             }
-
                         
                             if($data["churchID"] == ""){
                                 $response = $churches->createImport($data);

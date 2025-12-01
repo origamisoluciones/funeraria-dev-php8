@@ -410,7 +410,9 @@
             }
 
             if($data['entryDate'] == ""){
-                $data['entryDate'] = 'null';
+                $entryDate = 'null';
+            }else{
+                $entryDate = "'" . $data['entryDate'] . "'";
             }
 
             if(!$this->existsCif($data['nif'], $data['carrierID'])){
@@ -418,8 +420,8 @@
                                     SET     location = " . $data['location'] . ", nif = '" . $data['nif'] . "', 
                                             name = '" . $data['name'] . "', surname = '" . $data['surname'] . "', 
                                             address = '" . $data['address'] . "', mail = '" . $data['mail'] . "', 
-                                            entryDate = '" . $data['entryDate'] . "', phones = '" . $data['phones'] . "', drives = '" . $data['drives'] . "' 
-                                    WHERE   carrierID = " .$data['carrierID']. "");
+                                            entryDate = $entryDate, phones = '" . $data['phones'] . "', drives = '" . $data['drives'] . "' 
+                                    WHERE   carrierID = " .$data['carrierID']);
             }else{
                 return "Ya existe un porteador con ese NIF";
             }

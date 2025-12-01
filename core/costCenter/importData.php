@@ -116,6 +116,9 @@
                             $locationId = $location == '' ? null : $locations->searchByNameAndProvinceImport($location, $province, $postalCode);
                             $location = $locationId == null ? 'null' : $locationId[0]['locationID'];
 
+                            $found = $costCenter->searchByNameEquals($mortuary);
+                            $mortuaryId = $found == null ? '' : $found[0]['mortuaryID'];
+
                             if($ppal == 'Sí'){
                                 $ppal = 1;
                             }else{
@@ -129,7 +132,7 @@
                                 'mail' => $email,
                                 'phones' => $phones,
                                 'location' => $location,
-                                'mortuary' => $mortuary,
+                                'mortuary' => $mortuaryId,
                                 'company' => $company,
                                 'warehousePpal' => $ppal
                             );

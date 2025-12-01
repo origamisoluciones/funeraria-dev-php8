@@ -149,7 +149,7 @@
                                 'fax' => $fax,
                                 'description' => $description,
                                 'entryDate' => $entryDate,
-                                'sentObituary' => $sentObituary,
+                                'sentObituary' => $sentObituary == 'No' ? 0 : 1,
                                 'contactNames' => $contactNames
                             );
     
