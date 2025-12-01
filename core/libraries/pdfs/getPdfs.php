@@ -9926,9 +9926,15 @@
                     $segurosLabel = "<div style='margin-top: 8px; margin-bottom: 25px;'>".$segurosLabel."</div>";
                 }
 
+                if($_SESSION['company'] == 28){
+                    $qrTopContent = 0;
+                }else{
+                    $qrTopContent = -21;
+                }
+
                 $text .= "
                     <div class='contenidoPompas'>
-                        <div class='pull-left' style='width:40%; margin-top: -21px'>
+                        <div class='pull-left' style='width:40%; margin-top: ".$qrTopContent."px'>
                             <table class='tablePdf$tablePdfColor' style='font-size:10px'>
                                 <tbody>
                                     <tr>
