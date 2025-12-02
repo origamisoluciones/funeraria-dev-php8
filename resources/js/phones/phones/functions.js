@@ -208,9 +208,7 @@ $(function(){
 
     // TELÉFONOS
     var table = $('#datatable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": uri + "core/phones/list.php?category=" + category,
+        "ajax": uri + "core/phones/listDatatables.php?category=" + category,
         "responsive": false,
         "select": true,
         "paging": true,

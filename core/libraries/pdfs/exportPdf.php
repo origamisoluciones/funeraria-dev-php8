@@ -1,4 +1,12 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    // ini_set("pcre.backtrack_limit", "10000000");
+    // ini_set("pcre.recursion_limit", "10000000");
+    // ini_set("memory_limit", "4096M");
+
     if(!isset($_SESSION)){
         session_start();
     }
@@ -33,11 +41,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -53,11 +97,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -72,7 +152,19 @@
                 case 'vacaciones':                
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -85,11 +177,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -103,7 +231,19 @@
                 case 'albaran':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -117,7 +257,19 @@
                 case 'noConformidad':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 8,
+                        'margin_top' => 8,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -132,7 +284,19 @@
                 case 'accionCorrectiva':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 8,
+                        'margin_top' => 8,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -146,7 +310,19 @@
                 case 'noConformidadPedido':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -160,7 +336,19 @@
                 case 'accionCorrectivaPedido':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -174,7 +362,19 @@
                 case 'noConformidades':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -186,7 +386,19 @@
                     $html_foot='';
                 break;
                 case 'asistencia':
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
 
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -201,11 +413,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -220,7 +468,19 @@
                 case 'autoCremacionTanatorioMSanchez':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -233,7 +493,19 @@
                 break;
                 case 'autoIncineracion':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -242,17 +514,52 @@
                     $html='<div style="width: 100%">' . $text . '</div>';
 
                     $html_foot='';
-
                 break;
                 case 'autoPubliEsquela':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -267,7 +574,19 @@
                 case 'enterradores':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -283,11 +602,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -303,11 +658,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -317,12 +708,24 @@
                     str_replace("style='margin-top: 23px;'", "", $text);
                     $html='<div width="100%">' . $text . '</div>';
 
-                //Pie margen izquierdo
-                $html_foot='';
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'cash-flow':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -338,23 +741,74 @@
                 break;
                 case 'cerradoDefuncion':
                     //Tamaño del documento
-                    $pdf = new mPDF('utf-8','A4-L', 0, '', 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //$pdf->SetHTMLHeader('<img width="2480px" height="1748px" style="width:100%; height:auto" src="images/fondoCerrado.jpg"/>');
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html = '<div style="width:100%;">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;            
                 case 'conservEmbalsamiento':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -370,11 +824,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -389,11 +879,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -408,11 +934,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -426,7 +988,19 @@
                 case 'cuestionarioCliente':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -444,11 +1018,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
@@ -465,11 +1075,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -483,11 +1129,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -503,7 +1185,19 @@
                 case 'distribution':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 4, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 4,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -521,11 +1215,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
@@ -548,13 +1278,61 @@
                         intval($_SESSION['company']) == 17 ||
                         intval($_SESSION['company']) == 18
                     ){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22){
-                        $pdf = new mPDF('','A4', 0, 0, 4, 0, 4, 5, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 4,
+                            'margin_right' => 0,
+                            'margin_top' => 4,
+                            'margin_bottom' => 5,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 23){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -571,9 +1349,33 @@
                         intval($_SESSION['company']) == 1 ||
                         intval($_SESSION['company']) == 3
                     ){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
 
                     //Fondo pompas funebres
@@ -586,7 +1388,19 @@
                 break;
                 case 'facturado':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -600,7 +1414,19 @@
                 break;
                 case 'facturadoCremaciones':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
@@ -612,7 +1438,19 @@
                 break;
                 case 'facturadoComp':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -628,7 +1466,19 @@
                 break;
                 case 'facturasEmitidas':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -644,7 +1494,19 @@
                 break;
                 case 'facturaRecibida':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -657,7 +1519,19 @@
                 break;
                 case 'financiacion':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
 
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -670,7 +1544,19 @@
                 case 'justificanteSepelio':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -684,7 +1570,19 @@
                 case 'lapidaProvisional':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A3-L', 0, 0, 1, 0, 30, 40, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A3',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 1,
+                        'margin_right' => 0,
+                        'margin_top' => 30,
+                        'margin_bottom' => 40,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     if($radio == "general"){
@@ -699,61 +1597,146 @@
 
                     //Formato con imagen de fondo
                     $html='<div width="100%">' . $text . '</div>';
+
                     //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'libroCrematorio':
                     //Tamaño del documento
                     //left-right-top
-                    $pdf = new mPDF('','A4-L', 0, '', 10, 10, 10, 10, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 10,
+                        'margin_right' => 10,
+                        'margin_top' => 10,
+                        'margin_bottom' => 10,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'libroFuneraria':
                     //Tamaño del documento
                     //left-right
-                    $pdf = new mPDF('','A4-L', 0, '', 10, 10, 10, 10, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 10,
+                        'margin_right' => 10,
+                        'margin_top' => 10,
+                        'margin_bottom' => 10,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'libroPersonal':
                     //Tamaño del documento
                     //left-right-top
-                    $pdf = new mPDF('','A4-L', 0, '', 10, 10, 10, 10, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 10,
+                        'margin_right' => 10,
+                        'margin_top' => 10,
+                        'margin_bottom' => 10,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'libroTanatorio':
                     //Tamaño del documento
                     //left-right-top
-                    $pdf = new mPDF('','A4-L', 0, '', 10, 10, 10, 10, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 10,
+                        'margin_right' => 10,
+                        'margin_top' => 10,
+                        'margin_bottom' => 10,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'libroVisitas':
                     //Tamaño del documento
 
                     //Tamaño del documento
                     if($_SESSION['company'] == '2'){
-                        // $pdf = new mPDF('','A4', 5, '', 10, 10, 10, 10, 0, 0);
-                        $pdf = new mPDF('','A3-L', 5, '', 10, 10, 10, 10, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A3',
+                            'default_font_size' => 5,
+                            'default_font' => '',
+                            'margin_left' => 10,
+                            'margin_right' => 10,
+                            'margin_top' => 10,
+                            'margin_bottom' => 10,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'L'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A3-L', 5, '', 10, 10, 10, 10, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A3',
+                            'default_font_size' => 5,
+                            'default_font' => '',
+                            'margin_left' => 10,
+                            'margin_right' => 10,
+                            'margin_top' => 10,
+                            'margin_bottom' => 10,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'L'
+                        ]);
                     }
                     //Fondo pompas funebre
                     $pdf->SetDisplayMode('fullpage');
@@ -766,10 +1749,25 @@
                     }else{
                         $html='<div style="width:48%; float:right">' . $text . '</div>';
                     }
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'literalesPendientes':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -777,21 +1775,51 @@
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'noDuelo':
                     //Tamaño del documento
-                    $pdf = new mPDF('utf-8','A4-L', 0, '', 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //$pdf->SetHTMLHeader('<img width="2480px" height="1748px" style="width:100%; height:auto" src="images/fondoCerrado.jpg"/>');
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html = '<div style="width:100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'pedido':
                     //Tamaño del documento
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
 
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -803,7 +1831,19 @@
                 break;
                 case 'pesameWeb':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     
                     //$pdf->SetHTMLHeader('<img style="margin-left:80px; padding-top:55px" src="images/logo.jpg"width="33%" height="7%"/>');
@@ -813,10 +1853,25 @@
                     //Formato con imagen de fondo
                     //$html='<div width="100%" style="margin-left:80px; padding-right:40px; padding-top:150px">' . $text . '</div>';
                     $html='<div width="100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'pesamesWeb':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 8, 8, 10, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 10,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     
                     //$pdf->SetHTMLHeader('<img style="margin-left:80px; padding-top:55px" src="images/logo.jpg"width="33%" height="7%"/>');
@@ -826,16 +1881,55 @@
                     //Formato con imagen de fondo
                     //$html='<div width="100%" style="margin-left:80px; padding-right:40px; padding-top:150px">' . $text . '</div>';
                     $html='<div width="100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'precintadoFeretro':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -859,17 +1953,89 @@
                         intval($_SESSION['company']) == 17 ||
                         intval($_SESSION['company']) == 18 
                     ){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 10){
-                        $pdf = new mPDF('','A4', 0, 0, 4, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 4,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22){
-                        $pdf = new mPDF('','A4', 0, 0, 4, 0, 4, 5, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 4,
+                            'margin_right' => 0,
+                            'margin_top' => 4,
+                            'margin_bottom' => 5,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 23){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
 
                     //Fondo pompas funebres
@@ -891,13 +2057,61 @@
                         intval($_SESSION['company']) == 17 ||
                         intval($_SESSION['company']) == 18 
                     ){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22){
-                        $pdf = new mPDF('','A4', 0, 0, 4, 0, 4, 5, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 4,
+                            'margin_right' => 0,
+                            'margin_top' => 4,
+                            'margin_bottom' => 5,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 23){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 1, 2, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 1,
+                            'margin_bottom' => 2,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
                         $pdf = new \Mpdf\Mpdf([
                             'mode' => 'utf-8',
@@ -912,7 +2126,6 @@
                             'margin_footer' => 1,
                             'orientation' => 'P'
                         ]);
-                        // $pdf = new \Mpdf\Mpdf('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
                     }
 
                     //Fondo pompas funebres
@@ -926,7 +2139,19 @@
                 case 'ficha':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
 
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -939,7 +2164,19 @@
                 case 'recibis':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -954,11 +2191,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -971,7 +2244,19 @@
                 break;
                 case 'recordatorio':
                     //Tamaño del documento
-                    $pdf = new mPDF('', 'A5-L', 0, '', 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A5',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -979,10 +2264,25 @@
 
                     //Formato con imagen de fondo
                     $html= $text;
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'recordatorioSobre':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A6-L', 0, '', -15, -15, 2, 2, 5, 5);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A6',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => -15,
+                        'margin_right' => -15,
+                        'margin_top' => 2,
+                        'margin_bottom' => 2,
+                        'margin_header' => 5,
+                        'margin_footer' => 5,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -990,10 +2290,25 @@
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'recordatorioSobreCruz':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A6-L', 0, '', -15, -15, 2, 2, 5, 5);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A6',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => -15,
+                        'margin_right' => -15,
+                        'margin_top' => 2,
+                        'margin_bottom' => 2,
+                        'margin_header' => 5,
+                        'margin_footer' => 5,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -1001,10 +2316,25 @@
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'registroLiterales':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A5-L', 0, '', 5, 5, 5, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A5',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -1012,10 +2342,25 @@
 
                     //Formato con imagen de fondo
                     $html='<div>' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'rendimientoEconomico':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     if(intval($_SESSION['company']) == 1){
                         $pdf->SetHTMLHeader('<img src="images/folio_pompas.jpg"/>');
@@ -1033,11 +2378,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1052,11 +2433,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1070,11 +2487,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1088,11 +2541,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 5, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 5,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1105,7 +2594,19 @@
                 case 'resumenHoy':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
@@ -1115,42 +2616,123 @@
                 case 'resumenManhana':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div width="100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'cremacionesHoy':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div width="100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'cremacionesMañana':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'L'
+                    ]);
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
 
                     //Formato con imagen de fondo
                     $html='<div width="100%">' . $text . '</div>';
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'situacionNichoJudicial':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1166,11 +2748,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1186,11 +2804,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1204,7 +2858,19 @@
                 break;
                 case 'tarjetas':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, '', 5, 5, 5, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -1224,10 +2890,25 @@
                     $html .= $row;
                     $html .= $row;
                     $html .= $row;
+
+                    //Pie margen izquierdo
+                    $html_foot='';
                 break;
                 case 'tarjetonAgradecimiento':
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4-L', 0, '', 5, 5, 5, 5, 10, 8);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 5,
+                        'margin_right' => 5,
+                        'margin_top' => 5,
+                        'margin_bottom' => 5,
+                        'margin_header' => 10,
+                        'margin_footer' => 8,
+                        'orientation' => 'L'
+                    ]);
                     //Fondo pompas funebres
 
                     $pdf->SetDisplayMode('fullpage');
@@ -1263,16 +2944,55 @@
                         </div>
                     ';
                     $html .= $html;
+
+                    //Pie margen izquierdo
+                    $html_foot='';z
                 break;
                 case 'trasladoCenizasCadaver':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1286,11 +3006,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1306,7 +3062,19 @@
                 case 'plantillaTarifa':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1320,7 +3088,19 @@
                 case 'solicitudModificacion':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1334,7 +3114,19 @@
                 case 'fichaAsistencia':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1348,7 +3140,19 @@
                 case 'prestacionServicio':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1363,11 +3167,47 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 2){
-                        $pdf = new mPDF('','A4', 0, 0, 0, 0, 3, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 3,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 0, 0, 3, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
 
                     $pdf->SetDisplayMode('fullpage');
@@ -1388,7 +3228,19 @@
                 case 'autorizacionPreventiva':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1402,7 +3254,19 @@
                 case 'reciboOcaso':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1417,9 +3281,33 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 3, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 3,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1434,7 +3322,19 @@
                 case 'formularioPedido':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1448,7 +3348,19 @@
                 case 'hojaPedidos':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1465,7 +3377,19 @@
                 case 'autoSepultura':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1482,7 +3406,19 @@
                 case 'mandatoExpreso':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1500,9 +3436,33 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 3, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 3,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1520,7 +3480,19 @@
                 case 'modificacionServicioFunerario':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1537,7 +3509,19 @@
                 case 'modeloHojaDeDatos':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1554,7 +3538,19 @@
                 case 'resumenCremacion':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1571,7 +3567,19 @@
                 case 'update':
                     //Tamaño del documento
                     //Tamaño del documento
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
 
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1584,7 +3592,19 @@
                 case 'instanciaSanJose':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1600,7 +3620,19 @@
                 case 'instanciaInhumacionIbiza':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1615,9 +3647,33 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 3, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 3,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1632,7 +3688,19 @@
                 case 'hojaCementerioCiudadReal':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 0,
+                        'default_font' => '',
+                        'margin_left' => 8,
+                        'margin_right' => 8,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1647,9 +3715,33 @@
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
                     if(intval($_SESSION['company']) == 22 || (intval($_SESSION['company'])) == 23 || (intval($_SESSION['company'])) == 24){
-                        $pdf = new mPDF('','A4', 3, 0, 0, 0, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 3,
+                            'default_font' => '',
+                            'margin_left' => 0,
+                            'margin_right' => 0,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }else{
-                        $pdf = new mPDF('','A4', 0, 0, 8, 8, 0, 0, 0, 0);
+                        $pdf = new \Mpdf\Mpdf([
+                            'mode' => 'utf-8',
+                            'format' => 'A4',
+                            'default_font_size' => 0,
+                            'default_font' => '',
+                            'margin_left' => 8,
+                            'margin_right' => 8,
+                            'margin_top' => 0,
+                            'margin_bottom' => 0,
+                            'margin_header' => 0,
+                            'margin_footer' => 0,
+                            'orientation' => 'P'
+                        ]);
                     }
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
@@ -1664,7 +3756,19 @@
                 case 'parteDefuncion':
                     //Tamaño del documento
                     //ultimos 6 ceros: mode, format, default_font_size, default_font, margin_left, margin_right, margin_top, margin_bottom, margin_header, margin_footer, orientation
-                    $pdf = new mPDF('','A4', 3, 0, 0, 0, 0, 0, 0, 0);
+                    $pdf = new \Mpdf\Mpdf([
+                        'mode' => 'utf-8',
+                        'format' => 'A4',
+                        'default_font_size' => 3,
+                        'default_font' => '',
+                        'margin_left' => 0,
+                        'margin_right' => 0,
+                        'margin_top' => 0,
+                        'margin_bottom' => 0,
+                        'margin_header' => 0,
+                        'margin_footer' => 0,
+                        'orientation' => 'P'
+                    ]);
                     //Fondo pompas funebres
                     $pdf->SetDisplayMode('fullpage');
                     $pdf->list_indent_first_level = 0;
@@ -1684,6 +3788,12 @@
             // $pdf->showImageErrors = true;
             
             $pdf->WriteHTML($stylesheet, 1);
+
+            $chunks = str_split($html, 20000); // 20k chars por chunk
+            foreach($chunks as $chunk){
+                $pdf->WriteHTML($chunk);
+            }
+
             $pdf->WriteHTML($html, 2);
             $pdf->Output($path, 'F');
             $pdf->Output($path, 'I');

@@ -27,7 +27,7 @@
         $posted_editor = trim($_POST['text']);
         $path = "";
  
-        if($_POST['expedientID'] != ""){
+        if(isset($_POST['expedientID']) && $_POST['expedientID'] != ""){
 
             if(
                 isset($_POST['invoiceID']) && $_POST['invoiceID'] != "" && 
@@ -52,34 +52,34 @@
             }
             $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/garage/vehicles/" . $_POST['vehicleID'] . "/ficha/" . $_POST['fileName'] . ".pdf"; 
         }else{
-            if($_POST['doc'] == "albaranes"){
+            if(isset($_POST['doc']) && $_POST['doc'] == "albaranes"){
                 $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/warehouse/deliveryNotes/docs/" . $_POST['nameFile'] . ".pdf"; 
                 if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/warehouse/deliveryNotes/docs")){
                     mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/warehouse/deliveryNotes/docs", 0777, true);
                 }
-            }elseif($_POST['doc'] == "plantillaTarifa"){
+            }elseif(isset($_POST['doc']) && $_POST['doc'] == "plantillaTarifa"){
                 $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/configuration/pricesTemplates/plantilla.pdf";
                 if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/configuration/pricesTemplates")){
                     mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/configuration/pricesTemplates", 0777, true);
                 }
-            }elseif($_POST['doc'] == 'cuestionarioCliente'){
+            }elseif(isset($_POST['doc']) && $_POST['doc'] == 'cuestionarioCliente'){
                 $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/clients/surveys/encuesta.pdf";
                 if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/clients/surveys")){
                     mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/clients/surveys", 0777, true);
                 }
-            }elseif($_POST['doc'] == 'vacaciones'){
+            }elseif(isset($_POST['doc']) && $_POST['doc'] == 'vacaciones'){
                 $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/holidays/vacaciones.pdf";
                 if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/holidays")){
                     mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/holidays", 0777, true);
                 }
-            }elseif($_POST['doc'] == 'templateHirings'){
+            }elseif(isset($_POST['doc']) && $_POST['doc'] == 'templateHirings'){
                 $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/templates/" . $_POST['templateID']."/" . $_POST['fileName'] . ".pdf";
                 if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/templates/" . $_POST['templateID'])){
                     mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/templates/" . $_POST['templateID'], 0777, true);
                 }
             }else{
                 if(isset($_POST['nameFile'])){
-                    if($_POST['doc'] == 'financiaciones'){
+                    if(isset($_POST['doc']) && $_POST['doc'] == 'financiaciones'){
                         $path = $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/financing/" . $_POST['nameFile'] . ".pdf"; 
                         if(!file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/financing")){
                             mkdir($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/financing", 0777, true);

@@ -5,6 +5,53 @@
 
     class Phones{
         /**
+         * Gets phones for datatables
+         *
+         * @return array
+         */
+        public function listPhonesDatatables(){
+            if($_GET['category'] != "null"){
+                $where = "
+                    p.category = " . (int)$_GET['category'] . " AND
+                    p.leavingDate IS NULL AND
+                    p.category = pc.ID AND
+                    pc.leavingDate IS NULL
+                ";
+            }else{
+                $where = "
+                    p.leavingDate IS NULL AND
+                    p.category = pc.ID AND
+                    pc.leavingDate IS NULL
+                ";
+            }
+
+            $db = new DbHandler;
+
+            $result = $db->query("  SELECT      p.ID,
+                                                pc.ID,
+                                                p.name,
+                                                p.homePhone,
+                                                p.mobilePhone,
+                                                p.otherPhone,
+                                                p.fax,
+                                                l.name,
+                                                p.parish,
+                                                p.area,
+                                                p.pay,
+                                                p.email,
+                                                p.description
+                                    FROM        (Phones p, Phones_Categories pc)
+                                    LEFT JOIN   Locations l ON p.location = l.locationID
+                                    WHERE       $where");
+            
+            if(mysqli_num_rows($result) == 0){
+				return array();
+			}else{
+				return $db->resultToArrayValue($result);
+			}
+        }
+
+        /**
          * Añade un teléfono a la guía
          * 
          * @param array $data Datos telefónicos

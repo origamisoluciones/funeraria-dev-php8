@@ -71,7 +71,7 @@
 
         $f = fopen($_SESSION['basePath'] . 'resources/files/' . $_SESSION['company'] . '/phones/categorias.csv', 'w');
 
-        fputcsv($f, ['Categoría'], 'Código', ';');
+        fputcsv($f, ['Categoría', 'Código'], ';');
 
         foreach($response as $line){
             fputcsv($f, $line, ';');

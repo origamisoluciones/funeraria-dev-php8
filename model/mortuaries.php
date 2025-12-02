@@ -546,7 +546,7 @@
 			}
         }
 
-       /**
+        /**
         * Obtiene los datos de los tanatorios
         *
         * @return array
