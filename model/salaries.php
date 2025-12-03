@@ -22,10 +22,10 @@
                 if(mysqli_num_rows($exist) > 1){
                     $time = strtotime(date('m') . "/1/" . $year);
                     foreach ($exist as $key => $salarie) {
-                        $db->query(" INSERT INTO Salaries(user, userType, date, gross, liquid, IRPF, SSTRAB, SSEMP, totalTC1, companyCost, seizure, diet, plus, extra)
+                        $db->query(" INSERT INTO Salaries(user, userType, date, gross, liquid, IRPF, SSTRAB, SSEMP, totalTC1, companyCost, seizure, diet, plus, extra, extraID)
                                 VALUES(" . $salarie['user'] . ", " . $salarie['userType'] . ", " . $time . ", " . $salarie['gross'] . ", " . $salarie['liquid'] . ", 
                                         " . $salarie['IRPF'] . ", " . $salarie['SSTRAB'] . ", " . $salarie['SSEMP'] . ", " . $salarie['totalTC1'] . ", " . $salarie['companyCost'] . ", 
-                                        " . $salarie['seizure'] . ", " . $salarie['diet'] . ", " . $salarie['plus'] . ", " . $salarie['extra'] . ")");
+                                        " . $salarie['seizure'] . ", " . $salarie['diet'] . ", " . $salarie['plus'] . ", " . $salarie['extra'] . ", '')");
                     }
                 }else{
                     require_once($_SESSION['basePath'] . "model/staff.php");
@@ -36,8 +36,8 @@
                     $time = strtotime(date('m') . "/1/" . $year);
                     if(count($personal) > 0){
                         foreach($personal as $key => $staff){
-                            $db->query("INSERT INTO Salaries(staff, date)
-                                        VALUES(" . $staff['ID'] . ", " . $time . ")");
+                            $db->query("INSERT INTO Salaries(staff, date, extraID)
+                                        VALUES(" . $staff['ID'] . ", " . $time . ", '')");
                         }
                     }    
                 }
@@ -91,8 +91,8 @@
 
                     if(mysqli_num_rows($result) < 1){
                         $flag = true;
-                        $db->query("INSERT INTO Salaries(staff, date)
-                                                    VALUES ({$elem['ID']}, $date)");
+                        $db->query("INSERT INTO Salaries(staff, date, extraID)
+                                                    VALUES ({$elem['ID']}, $date, '')");
                     }
                 }
 
@@ -255,11 +255,11 @@
                         return false;
                     }
                 }else{
-                    $sql = "INSERT INTO Salaries(staff, date, gross, liquid, retribution, IRPF, SSTRAB, SSEMP, totalTC1, companyCost, seizure, diet, plus, extra, discounts)
+                    $sql = "INSERT INTO Salaries(staff, date, gross, liquid, retribution, IRPF, SSTRAB, SSEMP, totalTC1, companyCost, seizure, diet, plus, extra, discounts, extraID)
                             VALUES(" . $salary['staff'] . ", " . $salary['date'] . ", " . $salary['gross'] . ", " . $salary['liquid'] . ", 
                                     " . $salary['retribution'] . ", " . $salary['IRPF'] . ", " . $salary['SSTRAB'] . ", " . $salary['SSEMP'] . ", " . $salary['totalTC1'] . ", 
                                     " . $salary['companyCost'] . ", " . $salary['seizure'] . ", " . $salary['diet'] . ", " . $salary['plus'] . ", 
-                                    " . $salary['extra'] . ", " . $salary['discounts'] . ")";
+                                    " . $salary['extra'] . ", " . $salary['discounts'] . ", '')";
                     if(!$db->query($sql)){
                         return false;
                     }

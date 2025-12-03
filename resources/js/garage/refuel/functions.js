@@ -173,9 +173,14 @@ function existsVehicle(vehicle){
     return check
 }
 
-var acumulate
-var refuelMonth
-var media
+var acumulate;
+
+var refuelMonth;
+
+var media;
+
+var table = null;
+
 function changeSpaceFooter(){
     var heightFooter = $('.footer-static-bottom').height()
     $('.content-wrapper').css('padding-bottom', heightFooter)
@@ -370,7 +375,7 @@ $(function(){
     }
 
     // REPOSTAJE
-    var table = $('#dataRefueltable').DataTable({
+    table = $('#dataRefueltable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": uri+"core/garage/refuel/list.php?id=" + vehicleID + "&year=" + yearSelected + "&month=" + monthSelected,

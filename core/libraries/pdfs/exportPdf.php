@@ -3,10 +3,6 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    // ini_set("pcre.backtrack_limit", "10000000");
-    // ini_set("pcre.recursion_limit", "10000000");
-    // ini_set("memory_limit", "4096M");
-
     if(!isset($_SESSION)){
         session_start();
     }
@@ -2946,7 +2942,7 @@
                     $html .= $html;
 
                     //Pie margen izquierdo
-                    $html_foot='';z
+                    $html_foot='';
                 break;
                 case 'trasladoCenizasCadaver':
                     //Tamaño del documento
@@ -3789,12 +3785,12 @@
             
             $pdf->WriteHTML($stylesheet, 1);
 
-            $chunks = str_split($html, 20000); // 20k chars por chunk
+            // $pdf->WriteHTML($html, 2);
+            $chunks = explode('<!-- CHUNKING -->', $html);
             foreach($chunks as $chunk){
                 $pdf->WriteHTML($chunk);
             }
 
-            $pdf->WriteHTML($html, 2);
             $pdf->Output($path, 'F');
             $pdf->Output($path, 'I');
             return true;

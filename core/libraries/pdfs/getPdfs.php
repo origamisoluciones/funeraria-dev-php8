@@ -8082,7 +8082,7 @@
                                     <pagebreak>
                                     <div>
                                         <div style='text-align:center' class='centered'>
-                                            <p style='font-size:16px'><strong><i>Libro Registro de Crematorios - ".$crematoriumName."</i></strong></p>
+                                            <p style='font-size:16px'><strong><i>Libro Rexistro de Crematorios - ".$crematoriumName."</i></strong></p>
                                         </div>
                                         <div style='text-align:right' class='pull-right'>
                                             <p style='font-size:16px'><strong><i>Folla Nº </i></strong>" . $j . "</p>
@@ -8161,7 +8161,7 @@
                 $rest =     "<div class='container $fuente'>
                                 <table class='tablePdfNoBorder' style='color: #00305c;'>
                                     <tr> 
-                                        <td><span style='font-size:16px'><strong>Libro Registro de Funerarias - $companyName</strong></span></td>
+                                        <td><span style='font-size:16px'><strong>Libro Rexistro de Funerarias - $companyName</strong></span></td>
                                         <td style='text-align:right'><span style='font-size:16px;'><strong>Hoja número </strong>" . $pag . "</span></td>
                                     </tr>
                                 </table>
@@ -8268,7 +8268,7 @@
                                     <div class='container $fuente'>
                                         <table class='tablePdfNoBorder' style='color: #00305c;'>
                                             <tr> 
-                                                <td><span style='font-size:16px'><strong>Libro Registro de Funerarias - $companyName</strong></span></td>
+                                                <td><span style='font-size:16px'><strong>Libro Rexistro de Funerarias - $companyName</strong></span></td>
                                                 <td style='text-align:right'><span style='font-size:16px;'><strong>Hoja número </strong>" . $pag . "</span></td>
                                             </tr>
                                         </table>
@@ -8635,6 +8635,7 @@
                                     <div class='text-center' style='margin-top:10px'>
                                         <p>                   --------------------------------------------------------------------                </p>
                                     </div>
+                                    <!-- CHUNKING -->
                                 ";
                             $exp++;
                         }

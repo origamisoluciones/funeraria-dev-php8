@@ -135,7 +135,7 @@ $(function(){
         year = $('#year').val()
         month = $('#month').val()
         trimester = $('#trimester').val()
-        vehicle = $('#cars').val()
+        vehicle = $('#cars').val() == null ? 0 : $('#cars').val()
         table.ajax.url(uri + "core/garage/failures/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
         table2.ajax.url(uri + "core/garage/upkeeps/upkeeps/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
         table3.ajax.url(uri + "core/garage/generalExpenses/listItvDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
@@ -249,7 +249,7 @@ $(function(){
         year = $('#year').val()
         month = $('#month').val()
         trimester = $('#trimester').val()
-        vehicle = $('#cars').val()
+        vehicle = $('#cars').val() == null ? 0 : $('#cars').val()
         table.ajax.url(uri + "core/garage/failures/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
         table2.ajax.url(uri + "core/garage/upkeeps/upkeeps/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
         table3.ajax.url(uri + "core/garage/generalExpenses/listItvDatatables.php?year=" + year + "&month=" + month + "&trimester=" + "&vehicle=" + vehicle).load()
@@ -270,7 +270,7 @@ $(function(){
         year = $('#year').val()
         month = $('#month').val()
         trimester = $('#trimester').val()
-        vehicle = $('#cars').val()
+        vehicle = $('#cars').val() == null ? 0 : $('#cars').val()
         table.ajax.url(uri + "core/garage/failures/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + trimester + "&vehicle=" + vehicle).load()
         table2.ajax.url(uri + "core/garage/upkeeps/upkeeps/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + trimester + "&vehicle=" + vehicle).load()
         table3.ajax.url(uri + "core/garage/generalExpenses/listItvDatatables.php?year=" + year + "&month=" + month + "&trimester=" + trimester + "&vehicle=" + vehicle).load()
@@ -279,12 +279,12 @@ $(function(){
         getTotalImports(year, month, trimester, vehicle)
     })
 
-    var vehicle = $('#cars').val()
+    var vehicle = $('#cars').val() == null ? 0 : $('#cars').val()
     $('#cars').on('change', function(){
         year = $('#year').val()
         month = $('#month').val()
         trimester = $('#trimester').val()
-        vehicle = $('#cars').val()
+        vehicle = $('#cars').val() == null ? 0 : $('#cars').val()
 
         table.ajax.url(uri + "core/garage/failures/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + trimester + "&vehicle=" + vehicle).load()
         table2.ajax.url(uri + "core/garage/upkeeps/upkeeps/listDatatables.php?year=" + year + "&month=" + month + "&trimester=" + trimester  + "&vehicle=" + vehicle).load()
@@ -390,67 +390,43 @@ $(function(){
             filename: 'gastos',
             title: 'Gastos',
             customize: function ( doc ) {
-                // A documentation reference can be found at
-                // https://github.com/bpampuch/pdfmake#getting-started
-                //https://codepen.io/RedJokingInn/pen/XMVoXL
+                // Limpia la plantilla por defecto
+                doc.content.splice(0, 1)
 
-                //Remove the title created by datatTables
-                doc.content.splice(0,1);
-                //Create a date string that we use in the footer. Format is dd-mm-yyyy
-                var now = new Date();
-                var jsDate = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear();
-                // Logo converted to base64
-                doc.pageMargins = [20,60,20,30];
-                // Set the font size fot the entire document
-                doc.defaultStyle.fontSize = 12;
-                // Create a header object with 3 columns
-                // Left side: Logo
-                // Middle: brandname
-                // Right side: A document title
-                doc['header']=(function() {
+                // Configuración
+                doc.pageMargins = [30, 60, 30, 50]
+                doc.defaultStyle.fontSize = 10
+
+                // Header
+                doc['header'] = (function(){
                     return {
-                        columns: [
-                            {
-                                alignment: 'left',
-                                width: 120
-                            },
-                        ],
-                        margin: 10
+                        columns: [{
+                            alignment: 'left',
+                            text: 'Averías',
+                            fontSize: 12
+                        },
+                        {
+                            alignment: 'right',
+                            text: moment().format('DD/MM/YYYY HH:mm'),
+                            fontSize: 10
+                        }],
+                        margin: 30
                     }
-                });
-                // Create a footer object with 2 columns
-                // Left side: report creation date
-                // Right side: current page and total pages
-                doc['footer']=(function(page, pages) {
+                })
+
+                // Footer
+                doc['footer'] = (function(page, pages){
                     return {
-                        columns: [
-                            {
-                                alignment: 'left',
-                                text: ['Vilagarcía de Arousa, ', { text: jsDate.toString() }]
-                            },
-                            {
-                                alignment: 'right',
-                                text: [{ text: page.toString() },	' de ',	{ text: pages.toString() }]
-                            }
-                        ],
-                        margin: 10
+                        columns: [{
+                            alignment: 'center',
+                            text: 'Página ' + page.toString() + ' de ' + pages.toString(),
+                            fontSize: 10
+                        }],
+                        margin: 20
                     }
-                });
+                })
             },
             text: 'PDF <i class="fa fa-file-pdf-o"></i>',
-            className: 'c-lile export-button'
-        },
-        {
-            extend: 'print',
-            exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7],
-                search: 'applied',
-                order: 'applied'
-            },
-            customize: function(win){
-                $(win.document.body).find('h1').css('display','none')
-            },
-            text: 'Imprimir <i class="fa fa-print" aria-hidden="true"></i>',
             className: 'c-lile export-button'
         }],
         "order": [[4, 'asc']],
@@ -550,7 +526,7 @@ $(function(){
             {
                 extend:    'excelHtml5',
                 exportOptions: {
-                    columns: [1,2,3,4,5, 6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+                    columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
                     search: 'applied',
                     order: 'applied'
                 },
@@ -567,52 +543,41 @@ $(function(){
                     order: 'applied'
                 },
                 customize: function ( doc ) {
-                    // A documentation reference can be found at
-                    // https://github.com/bpampuch/pdfmake#getting-started
-                    //https://codepen.io/RedJokingInn/pen/XMVoXL
+                    // Limpia la plantilla por defecto
+                    doc.content.splice(0, 1)
 
-                    //Remove the title created by datatTables
-                    doc.content.splice(0,1);
-                    //Create a date string that we use in the footer. Format is dd-mm-yyyy
-                    var now = new Date();
-                    var jsDate = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear();
-                    // Logo converted to base64
-                    doc.pageMargins = [20,60,20,30];
-                    // Set the font size fot the entire document
-                    doc.defaultStyle.fontSize = 12;
-                    // Create a header object with 3 columns
-                    // Left side: Logo
-                    // Middle: brandname
-                    // Right side: A document title
-                    doc['header']=(function() {
+                    // Configuración
+                    doc.pageMargins = [30, 60, 30, 50]
+                    doc.defaultStyle.fontSize = 10
+
+                    // Header
+                    doc['header'] = (function(){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    width: 120
-                                },
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'left',
+                                text: 'Mantenimientos',
+                                fontSize: 12
+                            },
+                            {
+                                alignment: 'right',
+                                text: moment().format('DD/MM/YYYY HH:mm'),
+                                fontSize: 10
+                            }],
+                            margin: 30
                         }
-                    });
-                    // Create a footer object with 2 columns
-                    // Left side: report creation date
-                    // Right side: current page and total pages
-                    doc['footer']=(function(page, pages) {
+                    })
+
+                    // Footer
+                    doc['footer'] = (function(page, pages){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    text: ['Vilagarcía de Arousa, ', { text: jsDate.toString() }]
-                                },
-                                {
-                                    alignment: 'right',
-                                    text: [{ text: page.toString() },	' de ',	{ text: pages.toString() }]
-                                }
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'center',
+                                text: 'Página ' + page.toString() + ' de ' + pages.toString(),
+                                fontSize: 10
+                            }],
+                            margin: 20
                         }
-                    });
+                    })
                 },
                 text:      'PDF <i class="fa fa-file-pdf-o"></i>',
                 className: 'c-lile export-button'
@@ -683,7 +648,7 @@ $(function(){
             {
                 extend:    'excelHtml5',
                 exportOptions: {
-                    columns: [1,2,3,4],
+                    columns: [1,2,3,4,5],
                     search: 'applied',
                     order: 'applied'
                 },
@@ -691,65 +656,56 @@ $(function(){
                 className: 'c-lile export-button'
             },
             {
-                extend:    'pdfHtml5',
+                extend: 'pdfHtml5',
                 orientation: 'portrait',
                 pageSize: 'A4',
                 exportOptions: {
-                    columns: [1,2,3,4],
+                    columns: [1,2,3,4,5],
                     search: 'applied',
                     order: 'applied'
                 },
+                filename: 'gastos',
+                title: 'Gastos',
                 customize: function ( doc ) {
-                    // A documentation reference can be found at
-                    // https://github.com/bpampuch/pdfmake#getting-started
-                    //https://codepen.io/RedJokingInn/pen/XMVoXL
+                    // Limpia la plantilla por defecto
+                    doc.content.splice(0, 1)
 
-                    //Remove the title created by datatTables
-                    doc.content.splice(0,1);
-                    //Create a date string that we use in the footer. Format is dd-mm-yyyy
-                    var now = new Date();
-                    var jsDate = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear();
-                    // Logo converted to base64
-                    doc.pageMargins = [20,60,20,30];
-                    // Set the font size fot the entire document
-                    doc.defaultStyle.fontSize = 12;
-                    // Create a header object with 3 columns
-                    // Left side: Logo
-                    // Middle: brandname
-                    // Right side: A document title
-                    doc['header']=(function() {
+                    // Configuración
+                    doc.pageMargins = [30, 60, 30, 50]
+                    doc.defaultStyle.fontSize = 10
+
+                    // Header
+                    doc['header'] = (function(){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    width: 120
-                                },
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'left',
+                                text: 'ITV',
+                                fontSize: 12
+                            },
+                            {
+                                alignment: 'right',
+                                text: moment().format('DD/MM/YYYY HH:mm'),
+                                fontSize: 10
+                            }],
+                            margin: 30
                         }
-                    });
-                    // Create a footer object with 2 columns
-                    // Left side: report creation date
-                    // Right side: current page and total pages
-                    doc['footer']=(function(page, pages) {
+                    })
+
+                    // Footer
+                    doc['footer'] = (function(page, pages){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    text: ['Vilagarcía de Arousa, ', { text: jsDate.toString() }]
-                                },
-                                {
-                                    alignment: 'right',
-                                    text: [{ text: page.toString() },	' de ',	{ text: pages.toString() }]
-                                }
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'center',
+                                text: 'Página ' + page.toString() + ' de ' + pages.toString(),
+                                fontSize: 10
+                            }],
+                            margin: 20
                         }
-                    });
+                    })
                 },
-                text:      'PDF <i class="fa fa-file-pdf-o"></i>',
+                text: 'PDF <i class="fa fa-file-pdf-o"></i>',
                 className: 'c-lile export-button'
-            },
+            }
         ],
         "order": [[3, 'desc']],
     })
@@ -827,65 +783,56 @@ $(function(){
                 className: 'c-lile export-button'
             },
             {
-                extend:    'pdfHtml5',
+                extend: 'pdfHtml5',
                 orientation: 'portrait',
                 pageSize: 'A4',
                 exportOptions: {
-                    columns: [1,2,3,4,5],
+                    columns: [1, 2, 3, 4, 5],
                     search: 'applied',
                     order: 'applied'
                 },
+                filename: 'gastos',
+                title: 'Gastos',
                 customize: function ( doc ) {
-                    // A documentation reference can be found at
-                    // https://github.com/bpampuch/pdfmake#getting-started
-                    //https://codepen.io/RedJokingInn/pen/XMVoXL
+                    // Limpia la plantilla por defecto
+                    doc.content.splice(0, 1)
 
-                    //Remove the title created by datatTables
-                    doc.content.splice(0,1);
-                    //Create a date string that we use in the footer. Format is dd-mm-yyyy
-                    var now = new Date();
-                    var jsDate = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear();
-                    // Logo converted to base64
-                    doc.pageMargins = [20,60,20,30];
-                    // Set the font size fot the entire document
-                    doc.defaultStyle.fontSize = 12;
-                    // Create a header object with 3 columns
-                    // Left side: Logo
-                    // Middle: brandname
-                    // Right side: A document title
-                    doc['header']=(function() {
+                    // Configuración
+                    doc.pageMargins = [30, 60, 30, 50]
+                    doc.defaultStyle.fontSize = 10
+
+                    // Header
+                    doc['header'] = (function(){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    width: 120
-                                },
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'left',
+                                text: 'Seguro',
+                                fontSize: 12
+                            },
+                            {
+                                alignment: 'right',
+                                text: moment().format('DD/MM/YYYY HH:mm'),
+                                fontSize: 10
+                            }],
+                            margin: 30
                         }
-                    });
-                    // Create a footer object with 2 columns
-                    // Left side: report creation date
-                    // Right side: current page and total pages
-                    doc['footer']=(function(page, pages) {
+                    })
+
+                    // Footer
+                    doc['footer'] = (function(page, pages){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    text: ['Vilagarcía de Arousa, ', { text: jsDate.toString() }]
-                                },
-                                {
-                                    alignment: 'right',
-                                    text: [{ text: page.toString() },	' de ',	{ text: pages.toString() }]
-                                }
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'center',
+                                text: 'Página ' + page.toString() + ' de ' + pages.toString(),
+                                fontSize: 10
+                            }],
+                            margin: 20
                         }
-                    });
+                    })
                 },
-                text:      'PDF <i class="fa fa-file-pdf-o"></i>',
+                text: 'PDF <i class="fa fa-file-pdf-o"></i>',
                 className: 'c-lile export-button'
-            },
+            }
         ],
         "order": [[3, 'desc']],
     })
@@ -953,7 +900,7 @@ $(function(){
             {
                 extend:    'excelHtml5',
                 exportOptions: {
-                    columns: [1,2,3,4,5],
+                    columns: [1,2,3,4,5,6],
                     search: 'applied',
                     order: 'applied'
                 },
@@ -961,65 +908,56 @@ $(function(){
                 className: 'c-lile export-button'
             },
             {
-                extend:    'pdfHtml5',
+                extend: 'pdfHtml5',
                 orientation: 'portrait',
                 pageSize: 'A4',
                 exportOptions: {
-                    columns: [1,2,3,4,5],
+                    columns: [1, 2, 3, 4, 5, 6],
                     search: 'applied',
                     order: 'applied'
                 },
+                filename: 'gastos',
+                title: 'Gastos',
                 customize: function ( doc ) {
-                    // A documentation reference can be found at
-                    // https://github.com/bpampuch/pdfmake#getting-started
-                    //https://codepen.io/RedJokingInn/pen/XMVoXL
+                    // Limpia la plantilla por defecto
+                    doc.content.splice(0, 1)
 
-                    //Remove the title created by datatTables
-                    doc.content.splice(0,1);
-                    //Create a date string that we use in the footer. Format is dd-mm-yyyy
-                    var now = new Date();
-                    var jsDate = now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear();
-                    // Logo converted to base64
-                    doc.pageMargins = [20,60,20,30];
-                    // Set the font size fot the entire document
-                    doc.defaultStyle.fontSize = 12;
-                    // Create a header object with 3 columns
-                    // Left side: Logo
-                    // Middle: brandname
-                    // Right side: A document title
-                    doc['header']=(function() {
+                    // Configuración
+                    doc.pageMargins = [30, 60, 30, 50]
+                    doc.defaultStyle.fontSize = 10
+
+                    // Header
+                    doc['header'] = (function(){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    width: 120
-                                },
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'left',
+                                text: 'Repostaje',
+                                fontSize: 12
+                            },
+                            {
+                                alignment: 'right',
+                                text: moment().format('DD/MM/YYYY HH:mm'),
+                                fontSize: 10
+                            }],
+                            margin: 30
                         }
-                    });
-                    // Create a footer object with 2 columns
-                    // Left side: report creation date
-                    // Right side: current page and total pages
-                    doc['footer']=(function(page, pages) {
+                    })
+
+                    // Footer
+                    doc['footer'] = (function(page, pages){
                         return {
-                            columns: [
-                                {
-                                    alignment: 'left',
-                                    text: ['Vilagarcía de Arousa, ', { text: jsDate.toString() }]
-                                },
-                                {
-                                    alignment: 'right',
-                                    text: [{ text: page.toString() },	' de ',	{ text: pages.toString() }]
-                                }
-                            ],
-                            margin: 10
+                            columns: [{
+                                alignment: 'center',
+                                text: 'Página ' + page.toString() + ' de ' + pages.toString(),
+                                fontSize: 10
+                            }],
+                            margin: 20
                         }
-                    });
+                    })
                 },
-                text:      'PDF <i class="fa fa-file-pdf-o"></i>',
+                text: 'PDF <i class="fa fa-file-pdf-o"></i>',
                 className: 'c-lile export-button'
-            },
+            }
         ],
         "order": [[3, 'desc']],
     })
