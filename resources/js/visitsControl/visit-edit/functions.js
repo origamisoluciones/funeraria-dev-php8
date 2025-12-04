@@ -1393,6 +1393,8 @@ $(function(){
                         }, 1500);
                     });
                 }
+
+                $('#' + type).find('i').removeClass('fa-plus').addClass('fa-pencil');
             });
             
             //Ocultamos la ventana modal
