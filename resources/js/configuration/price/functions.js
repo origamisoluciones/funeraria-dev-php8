@@ -1024,7 +1024,6 @@ $(function(){
          {
             "className": "details-control centered editClick",
             "targets": [3],
-            "visible": false,
             "orderable": false,
             "searchable": false,
             "width": "4%",

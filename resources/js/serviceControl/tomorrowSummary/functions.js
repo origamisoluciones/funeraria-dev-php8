@@ -54,61 +54,102 @@ $(function(){
             }else{
                 $.each(data.expedients, function(index, elem){
                     var expedient = elem.expedientID
-                    var funeralDate = '-'
-                    if(elem.funeralDate != null){
-                        funeralDate = moment(elem.funeralDate, 'YYYY-MM-DD').format('DD/MM/YYYY')
-                    }
+
                     var funeralTime = '-'
                     if(elem.funeralTime != null){
                         funeralTime = moment(elem.funeralTime, 'HH:mm:ss').format('HH:mm')
                     }
+
                     var number = elem.number
+
+                    var preName = '';
+                    if(elem.deceasedGender != null && elem.deceasedGender != ''){
+                        preName = 'D. ';
+                    }else{
+                        preName = 'Dña. ';
+                    }
+
                     var deceasedName = '-'
                     if(elem.deceasedName != ''){
                         deceasedName = elem.deceasedName
                     }
+
                     var deceasedSurname = '-'
                     if(elem.deceasedSurname != ''){
                         deceasedSurname = elem.deceasedSurname
                     }
+                    
                     var mortuary = '-'
-                    if(elem.mortuary != null){
-                        mortuary = elem.mortuary
+                    if(elem.mortuary != null && elem.mortuary != ''){
+                        if(elem.mortuary == 'Otro'){
+                            mortuary = elem.deceasedMortuaryAddress
+                        }else{
+                            mortuary = elem.mortuary
+                        }
                     }
-                    var deceasedRoom = elem.deceasedRoom
-                    var cemetery = '-'
-                    if(elem.cemetery != null){
-                        cemetery = elem.cemetery
+
+                    var deceasedRoom = '-'
+                    if(elem.deceasedRoom != null && elem.deceasedRoom != ''){
+                        deceasedRoom = elem.deceasedRoom
                     }
+
+                    var cemeteryRow = '';
+                    if(parseInt(elem.cremation) == 1){
+                        cemeteryRow = "<dt>Crematorio: </dt><dd>";
+
+                        if(elem.crematoriumName != null && elem.crematoriumName != ''){
+                            cemeteryRow += elem.crematoriumName
+
+                            if(elem.crematoriumEntry != null && elem.crematoriumEntry != ''){
+                                cemeteryRow += ' ('+ moment(elem.crematoriumEntry, 'YYYY-MM-DD HH:mm:ss').format('HH:mm') + ')';
+                            }
+                        }
+                        
+                        cemeteryRow += "</dd>";
+                    }else{
+                        cemeteryRow = "<dt>Cementerio: </dt><dd>";
+                        
+                        if(elem.cemetery != null && elem.cemetery != ''){
+                            cemeteryRow += elem.cemetery
+
+                            if(elem.funeralTimeBurial != null && elem.funeralTimeBurial != ''){
+                                cemeteryRow += ' ('+ moment(elem.funeralTimeBurial, 'HH:mm:ss').format('HH:mm') + ')';
+                            }
+                        }
+
+
+                        cemeteryRow += "</dd>";
+                    }
+
                     var carriersTime = '-'
                     if(elem.carriersTime != null){
                         carriersTime = moment(elem.carriersTime, 'HH:mm:ss').format('HH:mm')
                     }
                     if(parseInt(index)%parseInt(3) == 0 && index != 0){
                         $('#todaySummary').append("<div class='clearfix'></div>")
-
                     }
+
                     var funeralHome = '-'
                     if(elem.funeralHome != null){
                         funeralHome = elem.funeralHome
                     }
+
                     var church = '-'
                     if(elem.church != null){
                         church = elem.church
+
+                        if(elem.ceremonyTime != null && elem.ceremonyTime != ''){
+                            church += ' ('+ moment(elem.ceremonyTime, 'HH:mm:ss').format('HH:mm') + ')';
+                        }
                     }
+
                     var buses = '-'
                     if(elem.buses != null){
                         buses = elem.buses
                     }
-                    var marcapasos = 'Si'
-                    if(elem.marcapasos != 0){
-                        marcapasos = "No";
-                    }else{
-                        marcapasos = "Si";
-                    }
 
                     var flag = false;
-                    if(elem.type == 3 || elem.type == '3'){
+                    if(parseInt(elem.type) == 3){
                         $.each(data.cremations, function(index, elem2){
                             if(elem2.expedientID == elem.expedientID){
                                 flag = true;
@@ -120,13 +161,13 @@ $(function(){
                                 "       <dl class='dl-horizontal'>" +
                                 "           <dt>Hora de salida: </dt><dd><strong>" + funeralTime + "</strong></dd>" +
                                 "           <dt>Nº exp: </dt><dd>" + number + "</dd>" +
-                                "           <dt>Nombre: </dt><dd>" + deceasedName + " " + deceasedSurname + "</dd>" +
+                                "           <dt>Nombre: </dt><dd>" + preName + deceasedName + " " + deceasedSurname + "</dd>" +
                                 "           <dt>Funeraria del servicio: </dt><dd>" + funeralHome + "</dd>" +
                                 "           <dt>Casa mortuoria: </dt><dd>" + mortuary + "</dd>" +
                                 "           <dt>Sala: </dt><dd>" + deceasedRoom + "</dd>" +
                                 "           <dt>Nº Autobuses: </dt><dd>" + buses + "</dd>" +
                                 "           <dt>Parroquia: </dt><dd>" + church + "</dd>" +
-                                "           <dt>Cementerio: </dt><dd>" + cemetery + "</dd>" +
+                                            cemeteryRow +
                                 "           <dt>Porteadores: </dt><dd>" + carriersTime + "</dd>" +
                                 "           <ol>";
 

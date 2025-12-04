@@ -49,6 +49,7 @@
                     "isFlowerNotified" => isFlowerNotified(),
                     "isBusNotified" => isBusNotified(),
                     "isTaxiNotified" => isTaxiNotified(),
+                    "getExpedientStatusPendingRevision" => getExpedientStatusPendingRevision(),
                     "getExpedientStatusPendingInvoices" => getExpedientStatusPendingInvoices(),
                     "expedientsNotes" => getExpedientsNotes()
                 );
@@ -339,6 +340,17 @@
         require_once($_SESSION['basePath'] . "model/expedients.php");
         $expedients = new Expedients;
         return $expedients->getExpedientStatusPendingInvoices();
+    }
+
+    /**
+     * obtiene los expedientes con estado pendiente de facturacion
+     *     
+     * @return array
+     */
+    function getExpedientStatusPendingRevision(){
+        require_once($_SESSION['basePath'] . "model/expedients.php");
+        $expedients = new Expedients;
+        return $expedients->getExpedientStatusPendingRevision();
     }
    
     /**

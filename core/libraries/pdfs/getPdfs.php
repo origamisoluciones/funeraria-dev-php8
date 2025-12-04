@@ -13129,13 +13129,7 @@
                         <div class='contenido container $fuente folioApaisado'>
                     ";                        
                     foreach($data["expedients"] AS $key=> $expedient){
-                        $funeralTime = $expedient['funeralTime'];
-                        if($funeralTime != null){
-                            $funeralTime = date('H:i', strtotime($funeralTime));
-                        }
-                        if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
-                            $expedient['deceasedRoom'] = "O";
-                        }
+
                         if($key % 3 == 0 && $key % 9 != 0 && $key != 0){
                             $text .= "</div><div class='clearfix'></div><div class='contenido container $fuente folioApaisado'>";
                         }else{
@@ -13147,13 +13141,86 @@
                             }
                         }
 
-                        $buses = '-';
-                        if($expedient['buses'] != null){
-                            $buses = $expedient['buses'];
+                        // Hora salida
+                        $funeralTimeInfo = '-';
+                        if($expedient['funeralTime'] != null && $expedient['funeralTime'] != ''){
+                            $funeralTimeInfo = date('H:i', strtotime($expedient['funeralTime']));
                         }
-                        $carriersTime = $expedient['carriersTime'];
-                        if($carriersTime != null){
-                            $carriersTime = date('H:i', strtotime($carriersTime));
+
+                        // Funeraria
+                        $funeralHomeInfo = '-';
+                        if($expedient['funeralHome'] != null && $expedient['funeralHome'] != ''){
+                            $funeralHomeInfo = $expedient['funeralHome'];
+                        }
+
+                        // Casa mortuoria
+                        $mortuaryNameInfo = "-";
+                        if($expedient['mortuary'] != null && $expedient['mortuary'] != ''){
+                            if($expedient['mortuary'] == 'Otro'){
+                                $mortuaryNameInfo = $expedient['deceasedMortuaryAddress'];
+                            }else{
+                                $mortuaryNameInfo = $expedient['mortuary'];
+                            }
+                        }
+
+                        // Sala
+                        $deceasedRoomInfo = '-';
+                        if($expedient['deceasedRoom'] != null && $expedient['deceasedRoom'] != ''){
+                            if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
+                                $expedient['deceasedRoom'] = "O";
+                            }
+                            $deceasedRoomInfo = $expedient['deceasedRoom'];
+                        }
+
+                        // Autobuses
+                        $busesInfo = '-';
+                        if($expedient['buses'] != null){
+                            $busesInfo = $expedient['buses'];
+                        }
+
+                        // Parroquia
+                        $churchInfo = '-';
+                        if($expedient['church'] != null && $expedient['church'] != ''){
+                            $churchInfo = $expedient['church'];
+
+                            if($expedient['ceremonyTime'] != null && $expedient['ceremonyTime'] != ''){
+                                $churchInfo .= ' ('. date('H:i', strtotime($expedient['ceremonyTime'])) . ')';
+                            }
+                        }
+
+                        // Cementerio / Crematorio
+                        $cemeteryRow = '';
+                        if(intval($expedient['cremation']) == 1){
+                            $cemeteryRow = "<strong>Crematorio: </strong> ";
+
+                            if($expedient['crematoriumName'] != null && $expedient['crematoriumName'] != ''){
+                                $cemeteryRow .= $expedient['crematoriumName'];
+
+                                if($expedient['crematoriumEntry'] != null && $expedient['crematoriumEntry'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['crematoriumEntry'])) . ')';
+                                }
+                            }
+                            
+
+                            $cemeteryRow .= "<br>";
+                        }else{
+                            $cemeteryRow = "<strong>Cementerio: </strong> ";
+                            
+                            if($expedient['cemetery'] != null && $expedient['cemetery'] != ''){
+                                $cemeteryRow .= $expedient['cemetery'];
+
+                                if($expedient['funeralTimeBurial'] != null && $expedient['funeralTimeBurial'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['funeralTimeBurial'])) . ')';
+                                }
+                            }
+
+                            $cemeteryRow .= "<br>";
+                        }
+
+                        // Porteadores
+                        $carriersInfo = "-";
+                        if($expedient['carriersTime'] != null){
+                            $carriersInfo = date('H:i', strtotime($expedient['carriersTime']));
                         }
 
                         $flag = false;
@@ -13177,19 +13244,19 @@
                                 $pre = 'Dña. ';
                             }
 
-                            $mortuaryName = $expedient['mortuary'];
-
                             $text .= "<div style='width:30%; background-color:#f5f0f0; float: left; border-bottom: 2px solid $colorStyle margin-left: 3px; margin-bottom:8px; padding: 10px; height:300px;'>
-                                    <p><strong>Hora de salida: </strong>$funeralTime<br>
-                                    <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
-                                    <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
-                                    <strong>Funeraria: </strong>" . $expedient['funeralHome'] . "<br>
-                                    <strong>Casa mortuoria: </strong>" . $mortuaryName . "<br>
-                                    <strong>Sala: </strong>" . $expedient['deceasedRoom'] . "<br>
-                                    <strong>Nº Autobuses: </strong>" . $buses . "<br>
-                                    <strong>Parroquia: </strong>" . $expedient['church'] . "<br>
-                                    <strong>Cementerio: </strong>" . $expedient['cemetery'] . "<br>
-                                    <strong>Porteadores: </strong>$carriersTime</p>
+                                    <p>
+                                        <strong>Hora de salida: $funeralTimeInfo</strong><br>
+                                        <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
+                                        <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
+                                        <strong>Funeraria del servicio: </strong>" . $funeralHomeInfo . "<br>
+                                        <strong>Casa mortuoria: </strong>" . $mortuaryNameInfo . "<br>
+                                        <strong>Sala: </strong>" . $deceasedRoomInfo . "<br>
+                                        <strong>Nº Autobuses: </strong>" . $busesInfo . "<br>
+                                        <strong>Parroquia: </strong>" . $churchInfo . "<br>
+                                        $cemeteryRow
+                                        <strong>Porteadores: </strong>$carriersInfo
+                                    </p>
                             ";
                             if(isset($expedient['carriers']) && count($expedient['carriers']) > 0){
                                 $brand ='';
@@ -13337,9 +13404,7 @@
                     ";
 
                     foreach($data["expedients"] AS $key=> $expedient){
-                        if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
-                            $expedient['deceasedRoom'] = "O";
-                        }
+                       
                         if($key % 3 == 0 && $key % 9 != 0 && $key != 0){
                             $text .= "</div><div class='clearfix'></div><div class='contenido container $fuente folioApaisado'>";
                         }else{
@@ -13350,13 +13415,87 @@
                                 $text .= "<div style='width:1%; float: left;'></div>";
                             }
                         }
-                        $buses = '-';
-                        if($expedient['buses'] != null){
-                            $buses = $expedient['buses'];
+
+                        // Hora salida
+                        $funeralTimeInfo = '-';
+                        if($expedient['funeralTime'] != null && $expedient['funeralTime'] != ''){
+                            $funeralTimeInfo = date('H:i', strtotime($expedient['funeralTime']));
                         }
-                        $carriersTime = '';
+
+                        // Funeraria
+                        $funeralHomeInfo = '-';
+                        if($expedient['funeralHome'] != null && $expedient['funeralHome'] != ''){
+                            $funeralHomeInfo = $expedient['funeralHome'];
+                        }
+
+                        // Casa mortuoria
+                        $mortuaryNameInfo = "-";
+                        if($expedient['mortuary'] != null && $expedient['mortuary'] != ''){
+                            if($expedient['mortuary'] == 'Otro'){
+                                $mortuaryNameInfo = $expedient['deceasedMortuaryAddress'];
+                            }else{
+                                $mortuaryNameInfo = $expedient['mortuary'];
+                            }
+                        }
+
+                        // Sala
+                        $deceasedRoomInfo = '-';
+                        if($expedient['deceasedRoom'] != null && $expedient['deceasedRoom'] != ''){
+                            if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
+                                $expedient['deceasedRoom'] = "O";
+                            }
+                            $deceasedRoomInfo = $expedient['deceasedRoom'];
+                        }
+
+                        // Autobuses
+                        $busesInfo = '-';
+                        if($expedient['buses'] != null){
+                            $busesInfo = $expedient['buses'];
+                        }
+
+                        // Parroquia
+                        $churchInfo = '-';
+                        if($expedient['church'] != null && $expedient['church'] != ''){
+                            $churchInfo = $expedient['church'];
+
+                            if($expedient['ceremonyTime'] != null && $expedient['ceremonyTime'] != ''){
+                                $churchInfo .= ' ('. date('H:i', strtotime($expedient['ceremonyTime'])) . ')';
+                            }
+                        }
+
+                        // Cementerio / Crematorio
+                        $cemeteryRow = '';
+                        if(intval($expedient['cremation']) == 1){
+                            $cemeteryRow = "<strong>Crematorio: </strong> ";
+
+                            if($expedient['crematoriumName'] != null && $expedient['crematoriumName'] != ''){
+                                $cemeteryRow .= $expedient['crematoriumName'];
+
+                                if($expedient['crematoriumEntry'] != null && $expedient['crematoriumEntry'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['crematoriumEntry'])) . ')';
+                                }
+                            }
+                            
+
+                            $cemeteryRow .= "<br>";
+                        }else{
+                            $cemeteryRow = "<strong>Cementerio: </strong> ";
+                            
+                            if($expedient['cemetery'] != null && $expedient['cemetery'] != ''){
+                                $cemeteryRow .= $expedient['cemetery'];
+
+                                if($expedient['funeralTimeBurial'] != null && $expedient['funeralTimeBurial'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['funeralTimeBurial'])) . ')';
+                                }
+                            }
+
+                            $cemeteryRow .= "<br>";
+                        }
+
+                        // Porteadores
+                        $carriersInfo = "-";
                         if($expedient['carriersTime'] != null){
-                            $carriersTime = date('H:i', strtotime($expedient['carriersTime']));
+                            $carriersInfo = date('H:i', strtotime($expedient['carriersTime']));
                         }
 
                         $flag = false;
@@ -13380,25 +13519,19 @@
                                 $pre = 'Dña. ';
                             }
 
-                            $mortuaryName = $expedient['mortuary'];
-                            if($mortuaryName == 'Otro'){
-                                $mortuaryName = $expedient['deceasedMortuaryAddress'];
-                            }
-
-                            $funeralTime = $expedient['funeralTime'] == null ? '' : date('H:i', strtotime($expedient['funeralTime']));
-
                             $text .= "
                                 <div style='width:30%; background-color:#f5f0f0; float: left; border-bottom: 2px solid $colorStyle margin-left: 3px; margin-bottom:8px; padding: 10px; height:300px;'>
-                                <p><strong>Hora de salida: </strong>" . $funeralTime . "<br>
-                                <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
-                                <strong>Nombre: </strong> $pre " . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . " (Q.E.P.D.)<br>
-                                <strong>Funeraria del servicio: </strong>" . $expedient['funeralHome'] . "<br>
-                                <strong>Casa mortuoria: </strong>" . $mortuaryName . "<br>
-                                <strong>Sala: </strong>" . $expedient['deceasedRoom'] . "<br>
-                                <strong>Nº Autobuses: </strong>" . $buses . "<br>
-                                <strong>Parroquia: </strong>" . $expedient['church'] . "<br>
-                                <strong>Cementerio: </strong>" . $expedient['cemetery'] . "<br>
-                                <strong>Porteadores: </strong>$carriersTime</p>
+                                    <p><strong>Hora de salida: $funeralTimeInfo</strong><br>
+                                        <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
+                                        <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
+                                        <strong>Funeraria del servicio: </strong>" . $funeralHomeInfo . "<br>
+                                        <strong>Casa mortuoria: </strong>" . $mortuaryNameInfo . "<br>
+                                        <strong>Sala: </strong>" . $deceasedRoomInfo . "<br>
+                                        <strong>Nº Autobuses: </strong>" . $busesInfo . "<br>
+                                        <strong>Parroquia: </strong>" . $churchInfo . "<br>
+                                        $cemeteryRow
+                                        <strong>Porteadores: </strong>$carriersInfo
+                                    </p>
                             ";
 
                             if(isset($expedient['carriers']) && count($expedient['carriers']) > 0){                                    
@@ -13541,37 +13674,100 @@
                 $text = "<p style='color:$colorStyle text-align:center;'><strong>RESUMEN Y CREMACIONES DEL DÍA ".$dates["dateS"]."</strong></p>";
                 if($data["expedients"] != null){
                     $text .= "
-                        <div class='fondo'>
-                            <div class='container $fuente folioApaisado'>
-                                <div class='contenido'>
-                    ";  
+                        <div class='contenido container $fuente folioApaisado'>
+                    ";   
 
                     foreach($data["expedients"] AS $key=> $expedient){
-                        $funeralTime = $expedient['funeralTime'];
-                        if($funeralTime != null){
-                            $funeralTime = date('H:i', strtotime($funeralTime));
-                        }
-                        if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
-                            $expedient['deceasedRoom'] = "O";
-                        }
+                        
                         if($key % 3 == 0 && $key % 9 != 0 && $key != 0){
-                            $text .= "</div><div class='clearfix'></div><div class='contenido'>";
+                            $text .= "</div><div class='clearfix'></div><div class='contenido container $fuente folioApaisado'>";
                         }else{
                             if($key % 9 == 0 && $key != 0){
-                                $text .= "</div></div></div><div class='clearfix'></div><pagebreak><div class='fondo'><div class='container $fuente folioApaisado'><div class='contenido'>";
+                                $text .= "</div><div class='clearfix'></div><pagebreak><div class='contenido container $fuente folioApaisado'>";
                             }
                             if($key != 0){
                                 $text .= "<div style='width:1%; float: left;'></div>";
                             }
                         }
 
-                        $buses = '-';
-                        if(isset($expedient['buses']) && $expedient['buses'] != null){
-                            $buses = $expedient['buses'];
+                        // Hora salida
+                        $funeralTimeInfo = '-';
+                        if($expedient['funeralTime'] != null && $expedient['funeralTime'] != ''){
+                            $funeralTimeInfo = date('H:i', strtotime($expedient['funeralTime']));
                         }
-                        $carriersTime = $expedient['carriersTime'];
-                        if($carriersTime != null){
-                            $carriersTime = date('H:i', strtotime($carriersTime));
+
+                        // Funeraria
+                        $funeralHomeInfo = '-';
+                        if($expedient['funeralHome'] != null && $expedient['funeralHome'] != ''){
+                            $funeralHomeInfo = $expedient['funeralHome'];
+                        }
+
+                        // Casa mortuoria
+                        $mortuaryNameInfo = "-";
+                        if($expedient['mortuary'] != null && $expedient['mortuary'] != ''){
+                            if($expedient['mortuary'] == 'Otro'){
+                                $mortuaryNameInfo = $expedient['deceasedMortuaryAddress'];
+                            }else{
+                                $mortuaryNameInfo = $expedient['mortuary'];
+                            }
+                        }
+
+                        // Sala
+                        $deceasedRoomInfo = '-';
+                        if($expedient['deceasedRoom'] != null && $expedient['deceasedRoom'] != ''){
+                            if($expedient['deceasedRoom'] === 0 || $expedient['deceasedRoom'] === '0'){
+                                $expedient['deceasedRoom'] = "O";
+                            }
+                            $deceasedRoomInfo = $expedient['deceasedRoom'];
+                        }
+
+                        // Autobuses
+                        $busesInfo = '-';
+                        if($expedient['buses'] != null){
+                            $busesInfo = $expedient['buses'];
+                        }
+
+                        // Parroquia
+                        $churchInfo = '-';
+                        if($expedient['church'] != null && $expedient['church'] != ''){
+                            $churchInfo = $expedient['church'];
+
+                            if($expedient['ceremonyTime'] != null && $expedient['ceremonyTime'] != ''){
+                                $churchInfo .= ' ('. date('H:i', strtotime($expedient['ceremonyTime'])) . ')';
+                            }
+                        }
+
+                        // Cementerio / Crematorio
+                        $cemeteryRow = '';
+                        if(intval($expedient['cremation']) == 1){
+                            $cemeteryRow = "<strong>Crematorio: </strong> ";
+
+                            if($expedient['crematoriumName'] != null && $expedient['crematoriumName'] != ''){
+                                $cemeteryRow .= $expedient['crematoriumName'];
+
+                                if($expedient['crematoriumEntry'] != null && $expedient['crematoriumEntry'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['crematoriumEntry'])) . ')';
+                                }
+                            }
+                            
+                            $cemeteryRow .= "<br>";
+                        }else{
+                            $cemeteryRow = "<strong>Cementerio: </strong> ";
+                            
+                            if($expedient['cemetery'] != null && $expedient['cemetery'] != ''){
+                                $cemeteryRow .= $expedient['cemetery'];
+                                if($expedient['funeralTimeBurial'] != null && $expedient['funeralTimeBurial'] != ''){
+                                    $cemeteryRow .= ' ('. date('H:i', strtotime($expedient['funeralTimeBurial'])) . ')';
+                                }
+                            }
+
+                            $cemeteryRow .= "<br>";
+                        }
+
+                        // Porteadores
+                        $carriersInfo = "-";
+                        if($expedient['carriersTime'] != null){
+                            $carriersInfo = date('H:i', strtotime($expedient['carriersTime']));
                         }
 
                         $flag = false;
@@ -13594,26 +13790,21 @@
                             }else{
                                 $pre = 'Dña. ';
                             }
-
-                            $mortuaryName = $expedient['mortuary'];
-                            if($mortuaryName == 'Otro'){
-                                $mortuaryName = $expedient['deceasedMortuaryAddress'];
-                            }
                         
                             $text .= "
                                 <div style='width:30%; background-color:#f5f0f0; float: left; border-bottom: 2px solid $colorStyle margin-left: 3px; margin-bottom:8px; padding: 10px; height:300px;'>
-                                <p>
-                                    <strong>Hora de salida: </strong>$funeralTime<br>
-                                    <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
-                                    <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
-                                    <strong>Funeraria: </strong>" . $expedient['funeralHome'] . "<br>
-                                    <strong>Casa mortuoria: </strong>" . $mortuaryName . "<br>
-                                    <strong>Sala: </strong>" . $expedient['deceasedRoom'] . "<br>
-                                    <strong>Nº Autobuses: </strong>" . $buses . "<br>
-                                    <strong>Parroquia: </strong>" . $expedient['church'] . "<br>
-                                    <strong>Cementerio: </strong>" . $expedient['cemetery'] . "<br>
-                                    <strong>Porteadores: </strong>$carriersTime
-                                </p>
+                                    <p>
+                                        <strong>Hora de salida: $funeralTimeInfo</strong><br>
+                                        <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
+                                        <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
+                                        <strong>Funeraria del servicio: </strong>" . $funeralHomeInfo . "<br>
+                                        <strong>Casa mortuoria: </strong>" . $mortuaryNameInfo . "<br>
+                                        <strong>Sala: </strong>" . $deceasedRoomInfo . "<br>
+                                        <strong>Nº Autobuses: </strong>" . $busesInfo . "<br>
+                                        <strong>Parroquia: </strong>" . $churchInfo . "<br>
+                                        $cemeteryRow
+                                        <strong>Porteadores: </strong>$carriersInfo
+                                    </p>
                             ";
                             if(isset($expedient['carriers']) && count($expedient['carriers']) > 0){
                                 $brand ='';
@@ -13654,69 +13845,101 @@
                 }
 
                 if($data["cremations"] != null){ //CREMACIONES
-                    foreach($data["cremations"] AS $key=> $expedient){                   
-                        
-                        if($key % 3 == 0 && $key % 9 != 0 && $key != 0){
-                            $text .= "</div><div class='clearfix'></div><div class='contenido'>";
-                        }else{
-                            if($key % 9 == 0 && $key != 0){
-                                $text .= "</div></div></div><div class='clearfix'></div><pagebreak><div class='fondo'><div class='container $fuente folioApaisado'><div class='contenido'>";
-                            }
+                    if($data["expedients"] != null){
+                        $text .= "<pagebreak>";
+                    }
+                    usort($data["cremations"], function($a, $b) {return strcmp($a['crematoriumID'], $b['crematoriumID']);});
+
+                    $currentCrematorium = null;
+                    foreach($data["cremations"] AS $key=> $expedient){   
+                        if($currentCrematorium != $expedient['crematoriumID']){
                             if($key != 0){
-                                $text .= "<div style='width:1%; float: left;'></div>";
+                                $text .= "<pagebreak>";
+                            }
+
+                            $text .= "<p style='color:$colorStyle text-align:center;'><strong>Crematorio ".$expedient['crematoriumName']."</strong></p>";
+                            $currentCrematorium = $expedient['crematoriumID'];
+                        }else{
+                            if($key % 3 == 0 && $key % 9 != 0 && $key != 0){
+                                $text .= "</div><div class='clearfix'></div><div class='contenido container $fuente folioApaisado'>";
+                            }else{
+                                if($key % 9 == 0 && $key != 0){
+                                    $text .= "</div><div class='clearfix'></div><pagebreak><div class='contenido container $fuente folioApaisado'>";
+                                }
+                                if($key != 0){
+                                    $text .= "<div style='width:1%; float: left;'></div>";
+                                }
                             }
                         }
 
+                        $start = $expedient['start'] == null ? '' : date('H:i', strtotime($expedient['start']));
+                        $crematoriumArriveTime = $expedient['crematoriumArriveTime'] == null ? '' : date('H:i', strtotime($expedient['crematoriumArriveTime']));
+
                         $crematoriumIntroduction = 'No';
-                        if(isset($expedient['crematoriumIntroduction'])  && $expedient['crematoriumIntroduction'] == "1"){
-                            $crematoriumIntroduction = "Si";
+                        if($expedient['crematoriumIntroduction'] == "1"){
+                            $crematoriumIntroduction = "Sí";
                         }
                         $crematoriumWaitOnRoom = 'No';
-                        if(isset($expedient['crematoriumWaitOnRoom'])  && $expedient['crematoriumWaitOnRoom'] == "1"){
-                            $crematoriumWaitOnRoom = "Si";
+                        if($expedient['crematoriumWaitOnRoom'] == "1"){
+                            $crematoriumWaitOnRoom = "Sí";
                         }
                         $crematoriumVaseBio = 'No';
-                        if(isset($expedient['crematoriumVaseBio'])  && $expedient['crematoriumVaseBio'] == "1"){
-                            $crematoriumVaseBio = "Si";
+                        if($expedient['crematoriumVaseBio'] == "1"){
+                            $crematoriumVaseBio = "Sí";
                         }
                         $ecologicCoffin = 'No';
-                        if(isset($expedient['ecologicCoffin'])  && $expedient['ecologicCoffin'] == "1"){
-                            $ecologicCoffin = "Si";
+                        if($expedient['ecologicCoffin'] == "1"){
+                            $ecologicCoffin = "Sí";
                         }
                         $crematoriumPacemaker = 'No';
-                        if(isset($expedient['crematoriumPacemaker'])  &&  $expedient['crematoriumPacemaker'] == "1"){
-                            $crematoriumPacemaker = "Si";
+                        if($expedient['crematoriumPacemaker'] == "1"){
+                            $crematoriumPacemaker = "Sí";
                         }
-                        
-                        $text .= "<div class='$fuente' style='width:30%; background-color:#D1FAFF; float: left; border-bottom: 2px solid $colorStyle margin-left: 3px; margin-bottom:8px; padding: 10px; height:300px;'>";
-                        $text .= "<p><strong>Hora de introducción: </strong>" . date('H:i', strtotime($expedient['start'])) . "<br>";
 
                         if($expedient['deceasedGender'] == 'Hombre'){
                             $pre = 'D. ';
                         }else{
                             $pre = 'Dña. ';
                         }
-                            
-                        $text .=  "
-                            <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
-                            <strong>Nombre: </strong> $pre" . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . " (Q.E.P.D.)<br>
-                            <strong>Funeraria del servicio: </strong>" . $expedient['funeralHome'] . "<br>
-                            <strong>Familiar de contacto: </strong>" . $expedient['familyContactName'] . " ". $expedient['familyContactSurname'] . " " . $expedient['familyContactMobilePhone'] . "<br>
-                            <strong>Introducción: </strong>" . $crematoriumIntroduction . "<br>"
-                        ;
-                        if(isset($expedient['crematoriumIntroduction']) && $expedient['crematoriumIntroduction'] == "1"){
-                            $text .= "<strong>Hora llegada familia: </strong>" . $expedient['crematoriumArriveTime'] . "<br>";
+
+                        $text .= "
+                            <div class='$fuente' style='width:30%; background-color:#D1FAFF; float: left; border-bottom: 2px solid $colorStyle margin-left: 3px; margin-bottom:8px; padding: 10px; height:220px;'>
+                            <p>
+                                <strong>Crematorio: </strong>" . $expedient['crematoriumName'] . "<br>
+                                <strong>Hora de introducción: </strong>" . $start . "<br>
+                                <strong>Nº exp: </strong>" . $expedient['number'] . "<br>
+                                <strong>Nombre: </strong>" . $pre . $expedient['deceasedName'] . " " . $expedient['deceasedSurname'] . "<br>
+                                <strong>Funeraria: </strong>" . $expedient['funeralHome'] . "<br>
+                                <strong>Familiar de contacto: </strong>" . $expedient['familyContactName'] . " ". $expedient['familyContactSurname'] . " " . $expedient['familyContactMobilePhone'] . "<br>
+                                <strong>Introducción: </strong>" . $crematoriumIntroduction . "<br>
+                        " ;
+
+                        if($expedient['crematoriumIntroduction'] == "1"){
+                            $text .=    "<strong>Hora llegada familia: </strong>" . $crematoriumArriveTime . "<br>";
                         }
-                        $text .= "  
-                                <strong>Esperar en sala: </strong>" . $crematoriumWaitOnRoom . "<br>
-                                <strong>Urna biodegradable: </strong>" . $crematoriumVaseBio . "<br>
-                                <strong>Féretro ecológico: </strong>" . $ecologicCoffin . "<br>
-                                <strong>Portador marcapasos: </strong>" . $crematoriumPacemaker . "<br>
-                            </div>
+
+                        $text .= " 
+                            <strong>Esperar en sala: </strong>" . $crematoriumWaitOnRoom . "<br>
+                            <strong>Urna biodegradable: </strong>" . $crematoriumVaseBio . "<br>
+                            <strong>Féretro ecológico: </strong>" . $ecologicCoffin . "<br>
                         ";
+
+                        $authDateTime = '';
+                        if($expedient['authDate'] != null){
+                            $authDateTime .= date('d/m/Y', $expedient['authDate']);
+                        }
+                        if($expedient['authTime'] != null){
+                            $authDateTime .= ' ' . date('H:i', $expedient['authTime']);
+                        }
+                        $text .= " 
+                            <strong>Entrega de cenizas: </strong>" . $authDateTime . "<br>
+                            <strong>Lugar de entrega: </strong>" . $expedient['authPlace'] . "<br>
+                        ";
+
+                        $text .= '</div>';
                     } 
                 }
-                $text .= "</div></div></div>";
+                $text .= "</div></div></div>"; 
 
                 return $text;
             break;

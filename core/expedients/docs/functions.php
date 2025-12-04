@@ -700,8 +700,8 @@
     * @return array
     */
     function getResumenServicio($data){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->getResumenServicio($data);
+        $expedients = new Expedients();
+        return $expedients->getResumenServicio($data);
     }
 
     /**
@@ -710,8 +710,8 @@
     * @return array
     */
     function getSearchSummary($data){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->getSearchSummary($data);
+        $expedients = new Expedients();
+        return $expedients->getSearchSummary($data);
     }
 
     /**
@@ -720,8 +720,8 @@
     * @return array
     */
     function getResumenHoy(){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->listTodayExpedients();
+        $expedients = new Expedients();
+        return $expedients->listTodayExpedients();
     }
 
     /**
@@ -730,8 +730,8 @@
     * @return array
     */
     function getResumenManhana(){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->listTomorrowExpedients();
+        $expedients = new Expedients();
+        return $expedients->listTomorrowExpedients();
     }
 
     /**
@@ -740,8 +740,8 @@
     * @return array
     */
     function getRetirarCenizas($data){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->getRetirarCenizas($data);
+        $expedients = new Expedients();
+        return $expedients->getRetirarCenizas($data);
     }
 
     /**
@@ -750,8 +750,8 @@
     * @return array
     */
     function getActaExtraccionDispositivos($data){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->getActaExtraccionDispositivos($data);
+        $expedients = new Expedients();
+        return $expedients->getActaExtraccionDispositivos($data);
     }
 
     /**
@@ -760,8 +760,8 @@
     * @return array
     */
     function getRecibisCampanerosLaFE($data){
-        $retirarCenizas = new Expedients();
-        return $retirarCenizas->getRecibisCampanerosLaFE($data);
+        $expedients = new Expedients();
+        return $expedients->getRecibisCampanerosLaFE($data);
     }
 
     /**

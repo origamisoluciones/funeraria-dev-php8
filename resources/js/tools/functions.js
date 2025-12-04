@@ -178,7 +178,7 @@ function getAllNotifications(){
                         var month = moment(elem.start, 'YYYY/MM/DD HH:mm:ss').format('MM')
                         var year = moment(elem.start, 'YYYY/MM/DD HH:mm:ss').format('YYYY')
 
-                        $('#eventsGarageReminderData').append('<li class="reminderItems"><button type="button" class="btn btn-danger reminder">X</button><a href="' + uri + 'agenda/eventos?month=' + month + '&year=' + year + '">' + start + ' - ' + name + '</a></li>')
+                        $('#eventsGarageReminderData').append('<li class="reminderItems"><button type="button" class="btn btn-danger reminderGarage">X</button><a href="' + uri + 'agenda/eventos?month=' + month + '&year=' + year + '">' + start + ' - ' + name + '</a></li>')
                     }
                 })
             }
@@ -452,6 +452,20 @@ function getAllNotifications(){
                 $('#noticeData').append('<li><a>No hay avisos pendientes</a></li>')
             }
 
+            // Expedients pending revision
+            expedientsRev = data['getExpedientStatusPendingRevision']
+            if(expedientsRev == null){
+                $('#expedientsRevAmount').html('0')
+                $('#expedientsRevData').append('<li><a>No hay expedientes pendientes de revisión</a></li>')
+            }else{
+                $('#expedientsRevAmount').html(expedientsRev.length)
+
+                expedientsRev.forEach(element => {                                   
+                    $('#expedientsRevData').append('<li class="reminderItems"><button type="button" class="btn btn-danger reminderExpedientsRev">X</button><a href="' + uri + 'editar-expediente' + (element.tpv == '1' ? '-tpv' : '') + '/' + element.expedientID +'">' + element.number + ' - ' + element.deceasedName +'</a></li>')
+                })
+            }
+
+            // Expedients pending invoices
             expedients = data['getExpedientStatusPendingInvoices']
             if(expedients == null){
                 $('#expedientsAmount').html('0')
@@ -497,6 +511,95 @@ function getAllNotifications(){
                     })
                 })
             }
+
+            if(contGarage == 0){
+                $('#eventsGarageReminderAmount').html('0')
+                $('#eventsGarageReminderData').append('<li><a>No hay notificaciones de taller pendientes</a></li>')
+            }else{
+                contGarage = 0
+            }
+
+            $('.reminder').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#eventsCalendarReminderAmount').text()) - 1;
+                $('#eventsCalendarReminderAmount').html(amount)
+                if(amount == 0){
+                    $('#eventsCalendarReminderData').empty().append('<li><a>No hay visitas pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderVisits').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#visitsControlAmount').text()) - 1;
+                $('#visitsControlAmount').html(amount)
+                if(amount == 0){
+                    $('#visitsControlData').empty().append('<li><a>No hay visitas pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderCremation').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#eventsCremationReminderAmount').text()) - 1;
+                $('#eventsCremationReminderAmount').html(amount)
+                if(amount == 0){
+                    $('#eventsCremationReminderData').empty().append('<li><a>No hay cremaciones pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderUpkeep').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#eventsUpkeepReminderAmount').text()) - 1;
+                $('#eventsUpkeepReminderAmount').html(amount)
+                if(amount == 0){
+                    $('#eventsUpkeepReminderData').empty().append('<li><a>No hay mantenimientos pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderGarage').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#eventsGarageReminderAmount').text()) - 1;
+                $('#eventsGarageReminderAmount').html(amount)
+                if(amount == 0){
+                    $('#eventsGarageReminderData').empty().append('<li><a>No hay notificaciones de taller pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderStock').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#stockReminderAmount').text()) - 1;
+                $('#stockReminderAmount').html(amount)
+                if(amount == 0){
+                    $('#stockReminderData').empty().append('<li><a>No hay notificaciones de almacén</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderNotice').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#noticeAmount').text()) - 1;
+                $('#noticeAmount').html(amount)
+                if(amount == 0){
+                    $('#noticeData').empty().append('<li><a>No hay notificaciones pendientes</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderExpedients').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#expedientsAmount').text()) - 1;
+                $('#expedientsAmount').html(amount)
+                if(amount == 0){
+                    $('#expedientsData').empty().append('<li><a>No hay expedientes pendientes de facturación</a></li>')
+                }
+                e.stopPropagation()
+            })
+            $('.reminderExpedientsRev').click(function(e){
+                $(this).closest('li').remove()
+                amount = parseInt($('#expedientsRevAmount').text()) - 1;
+                $('#expedientsRevAmount').html(amount)
+                if(amount == 0){
+                    $('#expedientsRevData').empty().append('<li><a>No hay expedientes pendientes de revisión</a></li>')
+                }
+                e.stopPropagation()
+            })
         }
     })
 }
@@ -560,12 +663,6 @@ $(function(){
     })
 
     getAllNotifications()
-    if(contGarage == 0){
-        $('#eventsGarageReminderAmount').html('0')
-        $('#eventsGarageReminderData').append('<li><a>No hay notificaciones de taller pendientes</a></li>')
-    }else{
-        contGarage = 0
-    }
 
     $('#goLogout').click(function(){
         $.ajax({
@@ -635,55 +732,7 @@ $(function(){
             }
         }
     })
-
-    $('.reminder').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#eventsCalendarReminderAmount').text()
-        $('#eventsCalendarReminderAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderVisits').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#visitsControlAmount').text()
-        $('#visitsControlAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderCremation').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#eventsCremationReminderAmount').text()
-        $('#eventsCremationReminderAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderUpkeep').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#eventsUpkeepReminderAmount').text()
-        $('#eventsUpkeepReminderAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderGarage').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#eventsGarageReminderAmount').text()
-        $('#eventsGarageReminderAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderStock').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#stockReminderAmount').text()
-        $('#stockReminderAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderNotice').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#noticeAmount').text()
-        $('#noticeAmount').html(amount - 1)
-        e.stopPropagation()
-    })
-    $('.reminderExpedients').click(function(e){
-        $(this).closest('li').remove()
-        amount = $('#expedientsAmount').text()
-        $('#expedientsAmount').html(amount - 1)
-        e.stopPropagation()
-    })
+    
     //Borrar todas las notificaciones
     $('#closeNotices').click(function(e){        
         amount = $('#noticeAmount').text()
@@ -691,62 +740,48 @@ $(function(){
             $('#noticeData').closest('li').remove()
         }
         $('#noticeAmount').html(0)
+        $('#noticeData').empty().append('<li><a>No hay notificaciones pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeVisits').click(function(e){        
-        amount = $('#visitsControlAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#visitsControlData').closest('li').remove()
-        }
         $('#visitsControlAmount').html(0)
+        $('#visitsControlData').empty().append('<li><a>No hay visitas pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeCalendar').click(function(e){        
-        amount = $('#eventsCalendarReminderAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#eventsCalendarReminderData').closest('li').remove()
-        }
         $('#eventsCalendarReminderAmount').html(0)
+        $('#eventsCalendarReminderData').empty().append('<li><a>No hay eventos pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeCremations').click(function(e){        
-        amount = $('#eventsCremationReminderAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#eventsCremationReminderData').closest('li').remove()
-        }
         $('#eventsCremationReminderAmount').html(0)
+        $('#eventsCremationReminderData').empty().append('<li><a>No hay cremaciones pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeUpkeeps').click(function(e){        
-        amount = $('#eventsUpkeepReminderAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#eventsUpkeepReminderData').closest('li').remove()
-        }
         $('#eventsUpkeepReminderAmount').html(0)
+        $('#eventsUpkeepReminderData').empty().append('<li><a>No hay mantenimientos pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeGarage').click(function(e){        
-        amount = $('#eventsGarageReminderAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#eventsGarageReminderData').closest('li').remove()
-        }
         $('#eventsGarageReminderAmount').html(0)
+        $('#eventsGarageReminderData').empty().append('<li><a>No hay notificaciones de taller pendientes</a></li>')
         e.stopPropagation()
     })
     $('#closeStock').click(function(e){        
-        amount = $('#stockReminderAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#stockReminderData').closest('li').remove()
-        }
         $('#stockReminderAmount').html(0)
+        $('#stockReminderData').empty().append('<li><a>No hay notificaciones de almacén</a></li>')
         e.stopPropagation()
     })
     $('#closeExpedients').click(function(e){        
-        amount = $('#expedientsAmount').text()
-        for (let index = 0; index < amount; index++) {
-            $('#expedientsData').closest('li').remove()
-        }
         $('#expedientsAmount').html(0)
+        $('#expedientsData').empty().append('<li><a>No hay expedientes pendientes de facturación</a></li>')
+        e.stopPropagation()
+    })
+    $('#closeExpedientsRev').click(function(e){        
+        $('#expedientsRevAmount').html(0)
+        $('#expedientsRevData').empty().append('<li><a>No hay expedientes pendientes de revisión</a></li>')
+
         e.stopPropagation()
     })
 })

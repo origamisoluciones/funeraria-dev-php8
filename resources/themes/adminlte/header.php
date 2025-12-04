@@ -23,13 +23,26 @@
         <ul class="nav navbar-nav">
             <!-- Notifications: style can be found in dropdown.less -->
             <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Pendiente de Revisión">
+                    <span>Pdte. Rev.</span>
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <span id="expedientsRevAmount" class="label label-warning"></span>
+                </a>
+                <ul class="dropdown-menu dropWidth" id="expedientsRevMenu">
+                    <li id="even"class="header bolder">Notificaciones - Pendiente de Revisión <button type="button" id="closeExpedientsRev" class="btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
+                    <li>
+                        <ul id="expedientsRevData" class="menu"></ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Pendiente de Facturación">
                     <span>Pdte. Fact</span>
                     <i class="fa fa-bell" aria-hidden="true"></i>
                     <span id="expedientsAmount" class="label label-warning"></span>
                 </a>
                 <ul class="dropdown-menu dropWidth" id="expedientsMenu">
-                    <li id="even"class="header bolder">Notificaciones - Pendiente de Facturación: <button type="button" id="closeExpedients"class="btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
+                    <li id="even"class="header bolder">Notificaciones - Pendiente de Facturación <button type="button" id="closeExpedients" class="btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
                     <li>
                         <ul id="expedientsData" class="menu"></ul>
                     </li>
@@ -55,7 +68,7 @@
                     <span id="visitsControlAmount" class="label label-warning"></span>
                 </a>
                 <ul class="dropdown-menu dropWidth" id="visitMenu">
-                    <li id="even"class="header bolder">Notificaciones - Control de visitas <button type="button" id="closeVisits"class="btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
+                    <li id="even"class="header bolder">Notificaciones - Control de visitas <button type="button" id="closeVisits" class="btn"><i class="fa fa-times-circle" aria-hidden="true"></i></button></li>
                     <li>
                         <ul id="visitsControlData" class="menu"></ul>
                     </li>

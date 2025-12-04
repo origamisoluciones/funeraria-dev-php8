@@ -68,11 +68,6 @@ $(window).resize(function(){
 
 $(function(){
 
-    // Show verifactu section - After 01/01/2025
-    if(moment().format('X') < 1767222000){
-        $(".verifactu-section").removeClass('hide');
-    }
-
     // Toolbar Bottom
     $('.footer-static-bottom .block-2 .btn-gotop').before('<button type="button" id="backLink" class="btn btn-default"><i class="fa fa-arrow-circle-left c-lile" aria-hidden="true"></i> Volver</button>');
     $('.footer-static-bottom .block-2 .btn-gotop').before('<button type="button" id="cancelLink" class="btn btn-danger"><i class="fa fa-close" aria-hidden="true"></i> Cancelar</button>');

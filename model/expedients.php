@@ -8460,7 +8460,9 @@
             // Expedientes
             $currentDate = date("Y-m-d");
 
-            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime,
+            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, 
+                                                e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime, e.deceasedMortuaryAddress,
+                                                e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 m.name AS mortuary,
                                                 c.name AS cemetery,
                                                 l.name AS mortuaryLocation,
@@ -8475,6 +8477,7 @@
                                     LEFT JOIN   Locations l ON ch.location = l.locationID
                                     LEFT JOIN   FuneralHomes f ON f.funeralHomeID = es.funeralHomeService
                                     LEFT JOIN   Crematoriums cr  ON e.crematorium = cr.crematoriumID
+                                    LEFT JOIN   Events ev ON e.crematoriumEvent = ev.ID AND ev.leavingDate IS NULL
                                     WHERE       es.expedient = e.expedientID AND
                                                 e.funeralDate LIKE '%$currentDate%' AND
                                                 e.leavingDate IS NULL AND
@@ -8567,22 +8570,28 @@
             $data['date'] = cleanStr($data['date']);
             $date =  $data['date'];
 
-            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime,
+            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, 
+                                                e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime, e.deceasedMortuaryAddress,
+                                                e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 m.name AS mortuary,
                                                 c.name AS cemetery,
                                                 l.name AS mortuaryLocation,
                                                 ch.name AS church,
                                                 es.carriersTime,
-                                                f.name AS funeralHome
+                                                f.name AS funeralHome,
+                                                cr.name as crematoriumName
                                     FROM        (Expedients e, Expedients_Services es)
                                     LEFT JOIN   Mortuaries m ON e.deceasedMortuary = m.mortuaryID
                                     LEFT JOIN   Cemeteries c ON e.cemetery = c.cemeteryID
                                     LEFT JOIN   Churches ch ON e.church = ch.churchID
                                     LEFT JOIN   Locations l ON ch.location = l.locationID
                                     LEFT JOIN   FuneralHomes f ON f.funeralHomeID = es.funeralHomeService
+                                    LEFT JOIN   Crematoriums cr  ON e.crematorium = cr.crematoriumID
+                                    LEFT JOIN   Events ev ON e.crematoriumEvent = ev.ID AND ev.leavingDate IS NULL
                                     WHERE       es.expedient = e.expedientID AND
                                                 e.funeralDate LIKE '%$date%' AND
-                                                e.leavingDate IS NULL
+                                                e.leavingDate IS NULL AND
+                                                e.type != 2
                                     ORDER BY    e.funeralDate, e.funeralTime");
 
             $expedients = $db->resultToArray($result);
@@ -8667,19 +8676,25 @@
             $list = array();
 
             $currentDate = date("Y-m-d", time() + 60 * 60 * 24);
-            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.deceasedMortuaryAddress,
+            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, 
+                                                e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.deceasedMortuaryAddress, 
+                                                e.crematoriumArriveTime, 
+                                                e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 m.name AS mortuary,
                                                 c.name AS cemetery,
                                                 l.name AS mortuaryLocation,
                                                 ch.name AS church,
                                                 es.carriersTime,
-                                                f.name AS funeralHome
+                                                f.name AS funeralHome,
+                                                cr.name as crematoriumName
                                     FROM        (Expedients e, Expedients_Services es)
                                     LEFT JOIN   Mortuaries m ON e.deceasedMortuary = m.mortuaryID
                                     LEFT JOIN   Cemeteries c ON e.cemetery = c.cemeteryID
                                     LEFT JOIN   Churches ch ON e.church = ch.churchID
                                     LEFT JOIN   Locations l ON ch.location = l.locationID
                                     LEFT JOIN   FuneralHomes f ON f.funeralHomeID = es.funeralHomeService
+                                    LEFT JOIN   Crematoriums cr  ON e.crematorium = cr.crematoriumID
+                                    LEFT JOIN   Events ev ON e.crematoriumEvent = ev.ID AND ev.leavingDate IS NULL
                                     WHERE       es.expedient = e.expedientID AND
                                                 e.funeralDate LIKE '%$currentDate%' AND
                                                 e.leavingDate IS NULL AND
@@ -13066,25 +13081,37 @@
             return mysqli_num_rows($result) > 0 ? $db->resultToArray($result)[0] : null;
         }
 
+        /**
+         * Obtiene los datos para el pdf buscar resumen
+         * 
+         * @param int $data
+         * 
+         * @return array
+         */
         public function getSearchSummary($date){
             $db = new DbHandler;
 
             $list = array();
 
             // Expedientes
-            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.deceasedMortuaryAddress,
+            $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, 
+                                                e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime, e.deceasedMortuaryAddress,
+                                                e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 m.name AS mortuary,
                                                 c.name AS cemetery,
                                                 l.name AS mortuaryLocation,
+                                                ch.name AS church,
                                                 es.carriersTime,
-                                                ch.name as church,
-                                                fh.name as funeralHome
+                                                f.name AS funeralHome,
+                                                cr.name as crematoriumName
                                     FROM        (Expedients e, Expedients_Services es)
                                     LEFT JOIN   Mortuaries m ON e.deceasedMortuary = m.mortuaryID
                                     LEFT JOIN   Cemeteries c ON e.cemetery = c.cemeteryID
                                     LEFT JOIN   Churches ch ON e.church = ch.churchID
                                     LEFT JOIN   Locations l ON ch.location = l.locationID
-                                    LEFT JOIN   FuneralHomes fh ON es.funeralHomeService = fh.funeralHomeID
+                                    LEFT JOIN   FuneralHomes f ON f.funeralHomeID = es.funeralHomeService
+                                    LEFT JOIN   Crematoriums cr  ON e.crematorium = cr.crematoriumID
+                                    LEFT JOIN   Events ev ON e.crematoriumEvent = ev.ID AND ev.leavingDate IS NULL
                                     WHERE       es.expedient = e.expedientID AND
                                                 e.funeralDate LIKE '%$date%' AND
                                                 e.leavingDate IS NULL AND
@@ -13094,41 +13121,71 @@
             $expedients = $db->resultToArray($result);
 
             if(mysqli_num_rows($result) > 0){
-                $i = 0;
-                foreach($expedients as $expedient){
+                foreach($expedients as $key => $expedient){
                     $carriers = $db->query("SELECT  c.name, c.surname, sc.confirmed
                                             FROM    Carriers c, Services_Carriers sc
                                             WHERE   c.carrierID = sc.carrier AND
                                                     sc.service = " . $expedient['expedientID'] . "");
 
                     if(mysqli_num_rows($carriers) > 0){
-                        $expedients[$i]['carriers'] = $db->resultToArray($carriers);
+                        $expedients[$key]['carriers'] = $db->resultToArray($carriers);
                     }else{
-                        $expedients[$i]['carriers'] = array();
+                        $expedients[$key]['carriers'] = array();
                     }
 
-                    $i++;
+                    $cars = $db->query("    SELECT      ca.name AS driverName, ca.surname AS driverSurname, c.licensePlate, c.brand, c.model, sca.confirmed
+                                            FROM        (Cars c, Services_Cars sc, Expedients e)
+                                            LEFT JOIN   Carriers ca ON sc.driver = ca.carrierID
+                                            LEFT JOIN   Services_Carriers sca ON ca.carrierID = sca.carrier AND sca.service = e.expedientID
+                                            WHERE       e.expedientID = sc.service AND
+                                                        c.ID = sc.car AND
+                                                        sc.service = " . $expedient['expedientID']);
+
+                    if(mysqli_num_rows($cars) > 0){
+                        $expedients[$key]['cars'] = $db->resultToArray($cars);
+                    }else{
+                        $expedients[$key]['cars'] = array();
+                    }
+
+                    $maxNumHiring = $this->getActiveHiring($expedient['expedientID']);
+                    $buses = $db->query("   SELECT  SUM(eh.amount) AS buses
+                                            FROM    Expedients_Hirings eh, Products p
+                                            WHERE   eh.expedient = " . $expedient['expedientID'] . " AND
+                                                    eh.num_hiring = $maxNumHiring AND
+                                                    eh.check = 1 AND
+                                                    eh.product = p.productID AND
+                                                    p.isBus = 1");
+
+                    if(mysqli_num_rows($buses) > 0){
+                        $expedients[$key]['buses'] = $db->resultToArray($buses)[0]['buses'];
+                    }else{
+                        $expedients[$key]['buses'] = 0;
+                    }                                          
                 }
             }
             
             count($expedients) == 0 ? $list['expedients'] = null : $list['expedients'] = $expedients;
 
             // Cremaciones
-            $result = $db->query("  SELECT      e.expedientID, e.type, e.number, e.deceasedName, e.deceasedSurname, e.deceasedGender,
-                                                e.familyContactName, e.familyContactSurname, e.familyContactMobilePhone,
+            $result = $db->query("  SELECT      e.type, e.expedientID, e.number, e.deceasedName, e.deceasedSurname, e.crematoriumIntroduction, e.crematoriumWaitOnRoom, e.crematoriumVaseBio, e.deceasedGender,
+                                                e.familyContactName, e.familyContactSurname, e.crematoriumArriveTime, e.familyContactMobilePhone, e.ecologicCoffin, e.crematoriumPacemaker,
+                                                e.authDate, e.authTime, e.authPlace,
                                                 ev.start,
-                                                fh.name as funeralHome
+                                                f.name AS funeralHome,
+                                                e.crematorium as crematoriumID, cr.name AS crematoriumName
                                     FROM        (Expedients e, Expedients_Services es, Events ev)
-                                    LEFT JOIN   FuneralHomes fh ON es.funeralHomeService = fh.funeralHomeID
-                                    WHERE       e.crematoriumEvent = ev.ID AND
-                                                e.expedientID = es.expedient AND
-                                                e.cremation = 1 AND 
+                                    LEFT JOIN   FuneralHomes f ON f.funeralHomeID = es.funeralHomeService
+                                    LEFT JOIN   Crematoriums cr  ON e.crematorium = cr.crematoriumID
+                                    WHERE       es.expedient = e.expedientID AND
+                                                e.cremation = 1 AND
+                                                e.crematoriumEvent = ev.ID AND 
                                                 ev.start LIKE '%$date%' AND
-                                                e.leavingDate IS NULL
+                                                e.leavingDate IS NULL AND
+                                                ev.status = 7
                                     ORDER BY    ev.start");
 
             $cremations = $db->resultToArray($result);
-
+            
             count($cremations) == 0 ? $list['cremations'] = null : $list['cremations'] = $cremations;
 
             return $list;
@@ -14933,6 +14990,26 @@
             $result = $db->query("  SELECT  e.expedientID, e.number, e.tpv, CONCAT(e.deceasedName, ' ' , e.deceasedSurname) as deceasedName
                                     FROM    Expedients e 
                                     WHERE   e.status = 3 AND e.leavingDate IS NULL");
+
+            if(mysqli_num_rows($result) > 0){
+                $expedients = $db->resultToArray($result);                           
+            }else{
+                $expedients = null;
+            }
+
+            return $expedients;  
+        }
+
+        /**
+         * Obtiene los expedientes pendiente de revision 
+         * @return array
+         */
+        public function getExpedientStatusPendingRevision(){
+            $db = new DbHandler;            
+            
+            $result = $db->query("  SELECT  e.expedientID, e.number, e.tpv, CONCAT(e.deceasedName, ' ' , e.deceasedSurname) as deceasedName
+                                    FROM    Expedients e 
+                                    WHERE   e.status = 6 AND e.leavingDate IS NULL");
 
             if(mysqli_num_rows($result) > 0){
                 $expedients = $db->resultToArray($result);                           
