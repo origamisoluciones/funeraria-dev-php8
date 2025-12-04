@@ -2234,8 +2234,6 @@
                                         )
                             )
                     ';
-                }else if(intval($status) == 4){ // Anulada
-                    $statusWhere .= ' AND i.invoice_type = 3 AND i.anuledDate IS NOT NULL';
                 }
             }
             $invoiceTypeWhere = '';
@@ -2256,26 +2254,66 @@
                 $search = trim($search);
 
                 $searchWhere = " AND (
-                            e.number LIKE '%$search%'
-                            OR i.generatedInvoiceNumber LIKE '%$search%'
-                            OR c.brandName LIKE '%$search%'
-                            OR c.name LIKE '%$search%'
-                            OR c.surname LIKE '%$search%'
-                            OR e.deceasedName LIKE '%$search%'
-                            OR e.deceasedSurname LIKE '%$search%'
-                            OR e.deceasedNIF LIKE '%$search%'
-                            OR i.paymentMethod LIKE '%$search%'
-                            OR IF(i.accountNumber IS NULL OR i.accountNumber = '', '-', i.accountNumber) LIKE '%$search%'
-                            OR DATE_FORMAT(FROM_UNIXTIME(i.paymentDate), '%d/%m/%Y') LIKE '%$search%'
-                            OR IF(i.paymentState = 0, 'Pendiente', 'Pagada') LIKE '%$search%'
-                            OR u.username LIKE '%$search%'
-                        )";
+                                    e.number LIKE '%$search%'
+                                    OR i.generatedInvoiceNumber LIKE '%$search%'
+                                    OR c.brandName LIKE '%$search%'
+                                    OR c.name LIKE '%$search%'
+                                    OR c.surname LIKE '%$search%'
+                                    OR e.deceasedName LIKE '%$search%'
+                                    OR e.deceasedSurname LIKE '%$search%'
+                                    OR e.deceasedNIF LIKE '%$search%'
+                                    OR i.paymentMethod LIKE '%$search%'
+                                    OR IF(i.accountNumber IS NULL OR i.accountNumber = '', '-', i.accountNumber) LIKE '%$search%'
+                                    OR DATE_FORMAT(FROM_UNIXTIME(i.paymentDate), '%d/%m/%Y') LIKE '%$search%'
+                                    OR IF(i.paymentState = 0, 'Pendiente', 'Pagada') LIKE '%$search%'
+                                    OR u.username LIKE '%$search%'
+                                )
+                ";
             }else{
                 $searchWhere = '';
             }
 
             $where = "  AND i.expedient = e.expedientID 
-                        AND u.userID = i.user 
+                        AND u.userID = i.user
+                        AND i.invoice_type != 3
+                        AND i.anuledDate IS NULL
+                        AND (
+                            i.invoice_type != 2 OR
+                            (
+                                i.invoice_type = 2 AND
+                                (
+                                    i.rectified_type = 2 OR
+                                    (
+                                        i.rectified_type = 1 AND
+                                        i.ID = (
+                                            SELECT  MAX(i2.ID)
+                                            FROM    Invoices i2
+                                            WHERE   i2.expedient = i.expedient AND
+                                                    i2.leavingDate IS NULL AND
+                                                    (
+                                                        i2.rectified_type IS NULL OR
+                                                        i2.rectified_type != 2
+                                                    )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                        AND
+                        (
+                            i.original_invoice_rectified IS NOT NULL OR
+                            (
+                                i.original_invoice_rectified IS NULL AND
+                                (
+                                    SELECT  COUNT(*)
+                                    FROM    Invoices i2
+                                    WHERE   i2.expedient = i.expedient AND
+                                            i2.leavingDate IS NULL AND
+                                            i2.invoice_type = 2 AND
+                                            i2.rectified_type = 1
+                                ) = 0
+                            )
+                        )
                         $type $clientType $clientWhere $statusWhere $invoiceTypeWhere $searchWhere $paymentMethodWhere";
 
             if(isset($from) && isset($to) && $from != null && $from != '' && $to != null && $to != ''){
@@ -2328,7 +2366,8 @@
                                                 t.invoiceID,
                                                 t.typeIva,
                                                 t.base,
-                                                t.iva
+                                                t.iva,
+                                                t.original_invoice_rectified
                                     FROM        (
                                                     SELECT      e.expedientID, 
                                                                 e.number as expedientNumber, 
@@ -2347,9 +2386,11 @@
                                                                 i.ID as invoiceID,
                                                                 iniv.typeIva,
                                                                 iniv.base,
-                                                                iniv.iva
+                                                                iniv.iva,
+                                                                ir.generatedInvoiceNumber as original_invoice_rectified
                                                     FROM        (Invoices i, Expedients e, Users u, Invoices_Ivas iniv)
-                                                    LEFT JOIN   Clients c ON c.clientId = e.client 
+                                                    LEFT JOIN   Clients c ON c.clientId = e.client
+                                                    LEFT JOIN   Invoices ir ON i.original_invoice_rectified = ir.ID
                                                     WHERE       i.leavingDate IS NULL AND
                                                                 iniv.expedient = e.expedientID AND
                                                                 iniv.invoice = i.ID AND

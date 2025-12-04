@@ -32,12 +32,6 @@
 
     if(count($list) > 0){
 
-        $cellsLettersData = [
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
-            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 
-            'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        ];
-
         // Get IVA types
         require_once($_SESSION['basePath'] . "model/iva.php");
         $iva = new Iva;
@@ -61,6 +55,7 @@
         $sheet->getColumnDimension('J')->setWidth(15);
         $sheet->getColumnDimension('K')->setWidth(15);
         $sheet->getColumnDimension('L')->setWidth(15);
+        $sheet->getColumnDimension('M')->setWidth(15);
 
         $sheet->getRowDimension('1')->setRowHeight(25);
 
@@ -184,7 +179,14 @@
         $sheet->getStyle("L7")->getAlignment()->setWrapText(true);
         $sheet->getStyle("L7")->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('FFFFC0');
 
-        $sheet->setAutoFilter('A7:'.'L7');
+        $sheet->setCellValue("M7", "Rectifica a");
+        $sheet->getStyle("M7")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle("M7")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle("M7")->getFont()->setName('Arial')->setSize(10)->setItalic(true);
+        $sheet->getStyle("M7")->getAlignment()->setWrapText(true);
+        $sheet->getStyle("M7")->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB('FFFFC0');
+
+        $sheet->setAutoFilter('A7:'.'M7');
 
         $sheet->freezePane("A8");
 
@@ -254,48 +256,15 @@
                 $sheet->getStyle("L$row")->getFont()->getColor()->setRGB('AA0000');
             }
 
+            $sheet->setCellValue("M$row", $item['original_invoice_rectified']);
+            $sheet->getStyle("M$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+            $sheet->getStyle("M$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
             $row++;
         }
 
         $rowLimit = $row - 1;
         $row += 1;
-
-        // // Total
-        // $sheet->setCellValue("F$row", "TOTALES");
-        // $sheet->getStyle("F$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("F$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("F$row")->getFont()->setName('Arial')->setSize(11)->setBold(true);
-        // $sheet->getStyle("F$row")->getAlignment()->setWrapText(true);
-
-        // // Total Bruto
-        // $sheet->setCellValue("G$row", "=SUM(G8:G$rowLimit)");
-        // $sheet->getStyle("G$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("G$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("G$row")->getFont()->setName('Calibri')->setSize(11)->setBold(true);
-
-        // // Total Suplidos
-        // $sheet->setCellValue("H$row", "=SUM(H8:H$rowLimit)");
-        // $sheet->getStyle("H$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("H$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("H$row")->getFont()->setName('Calibri')->setSize(11)->setBold(true);
-
-        // // Total Base Imponible
-        // $sheet->setCellValue("J$row", "=SUM(J8:J$rowLimit)");
-        // $sheet->getStyle("J$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("J$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("J$row")->getFont()->setName('Calibri')->setSize(11)->setBold(true);
-
-        // // Total IVA
-        // $sheet->setCellValue("K$row", "=SUM(K8:K$rowLimit)");
-        // $sheet->getStyle("K$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("K$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("K$row")->getFont()->setName('Calibri')->setSize(11)->setBold(true);
-
-        // // Total Neto
-        // $sheet->setCellValue("L$row", "=SUM("."L8:"."L$rowLimit)");
-        // $sheet->getStyle("L$row")->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // $sheet->getStyle("L$row")->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        // $sheet->getStyle("L$row")->getFont()->setName('Calibri')->setSize(11)->setBold(true);
 
         $filename = 'facturas_emitidas_A3_'.time();
 
