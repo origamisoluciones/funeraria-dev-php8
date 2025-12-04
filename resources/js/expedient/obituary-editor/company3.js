@@ -171,8 +171,11 @@ $(function(){
                             case 0:
                                 var x = 387
                                 var y = 980
-                                if(obituaryType == '5'){
-                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY') 
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
                                 }else{
                                     var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
                                 }
@@ -186,7 +189,14 @@ $(function(){
                             case 1:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'
@@ -197,7 +207,14 @@ $(function(){
                             case 2:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'
@@ -208,7 +225,14 @@ $(function(){
                             case 3:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'
@@ -219,7 +243,14 @@ $(function(){
                             case 4:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'
@@ -230,7 +261,14 @@ $(function(){
                             case 5:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'
@@ -241,7 +279,14 @@ $(function(){
                             case 6:
                                 var x = 387
                                 var y = 980
-                                var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                if(obituaryType == '5' || obituaryType == '6'){
+                                    if(obituaryType == '6'){
+                                        moment.locale('gl');
+                                    }
+                                    var text = obituary.location + ', ' + moment().format('MMMM') + ' de ' + moment().format('YYYY');
+                                }else{
+                                    var text = 'Casa mortuoria: ' + mortuaryName + ', Sala nº ' + obituary.roomNumber + '\n' + obituary.location + ', ' + funeralDate
+                                }
                                 var fontSize = 18
                                 var fontStyle = 'normal'
                                 var fontFamily = 'caslon'

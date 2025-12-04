@@ -1837,7 +1837,17 @@ function loadNewObituary(obituary, obituaryType) {
                         $('#died').val('Finou o  ' + deceasedDateAux + ', aos ' + yearsLife + ' anos de idade, confortad'+prayAuxGender+' cos Santos Sacramentos.');
 
                     }else{
-                        $('#died').val('Pasou á presenza do Señor ' +  onlyDay + ', aos ' + yearsLife + ' anos de idade.');
+                        var deceasedDateAux = '';
+                        if(obituary.deceasedDate != null){
+                            var deceasedDayAux = parseInt(moment(obituary.deceasedDate, "YYYY-MM-DD").format("DD"))
+                            var deceasedMonthAux = moment(obituary.deceasedDate, "YYYY-MM-DD").format("MMMM")
+                            deceasedMonthAux = deceasedMonthAux.charAt(0).toUpperCase() + deceasedMonthAux.slice(1);
+                            var deceasedYearAux = parseInt(moment(obituary.deceasedDate, "YYYY-MM-DD").format("YYYY"))
+
+                            deceasedDateAux = deceasedDayAux + ' de ' + deceasedMonthAux.toLowerCase() + ' de ' + deceasedYearAux;
+                        }
+                        
+                        $('#died').val('Pasou á presenza do Señor o día ' +  deceasedDateAux + ', aos ' + yearsLife + ' anos de idade.');
                     }
                 break;
             }
@@ -2945,7 +2955,17 @@ function loadNewObituary(obituary, obituaryType) {
                     $('#died').val('Que faleceu ' + onlyDay + ', aos ' + yearsLife + ' anos de idade, despois de recibir os Santos Sacramentos');
                 break
                 default:
-                    $('#died').val('Pasou á presenza do Señor ' +  onlyDay + ', aos ' + yearsLife + ' anos de idade. ');
+                    var deceasedDateAux = '';
+                    if(obituary.deceasedDate != null){
+                        var deceasedDayAux = parseInt(moment(obituary.deceasedDate, "YYYY-MM-DD").format("DD"))
+                        var deceasedMonthAux = moment(obituary.deceasedDate, "YYYY-MM-DD").format("MMMM")
+                        deceasedMonthAux = deceasedMonthAux.charAt(0).toUpperCase() + deceasedMonthAux.slice(1);
+                        var deceasedYearAux = parseInt(moment(obituary.deceasedDate, "YYYY-MM-DD").format("YYYY"))
+
+                        deceasedDateAux = deceasedDayAux + ' de ' + deceasedMonthAux.toLowerCase() + ' de ' + deceasedYearAux;
+                    }
+                    
+                    $('#died').val('Pasou á presenza do Señor o día ' +  deceasedDateAux + ', aos ' + yearsLife + ' anos de idade.');
                 break;
             }
                 

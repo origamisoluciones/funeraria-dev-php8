@@ -5294,7 +5294,7 @@ $(function(){
         })
         data.images = new Array;
         $.each(stage.find('.image'), function(index, elem){
-            if(/image_/.test(elem.attrs.id)){
+            if(!/background/.test(elem.attrs.id)){
                 data.push([elem.attrs.image.src, 'image', elem.attrs.x, elem.attrs.y, '', elem.attrs.scaleX, elem.attrs.scaleY]);
             }
         })

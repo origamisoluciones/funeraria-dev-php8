@@ -1663,6 +1663,8 @@ function save(expedient, type, model){
                                         saveClick = false
                     
                                         window.open(uri + 'descargar-archivo?file=expedients/'+ expedient + '/obituary-press/' + type + '/' + model + '/files/esquela.pdf', '_blank')
+
+                                        window.location.reload();
                                     }catch(e){
                                         $('#block-message').html('<div class="alert alert-error alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> Error mientras se procesaba su solicitud. Vuelva a intentarlo más tarde. Disculpe las molestias.</div>')
                                         setTimeout(function(){
@@ -5851,12 +5853,12 @@ $(function(){
         var data = new Array;
 
         $.each(stage.find('.text'), function(index, elem){
-            data.push([elem.attrs.text, 'text', elem.attrs.y, elem.attrs.id]);
+            data.push([elem.attrs.text, 'text', elem.attrs.x, elem.attrs.y, elem.attrs.align, elem.attrs.id]);
         })
         data.images = new Array;
         $.each(stage.find('.image'), function(index, elem){
-            if(/image_/.test(elem.attrs.id)){
-                data.push([elem.attrs.image.src, 'image', elem.attrs.y, elem.attrs.scaleX, elem.attrs.scaleY]);
+            if(!/background/.test(elem.attrs.id)){
+                data.push([elem.attrs.image.src, 'image', elem.attrs.x, elem.attrs.y, '', elem.attrs.scaleX, elem.attrs.scaleY]);
             }
         })
 
