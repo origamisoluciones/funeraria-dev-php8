@@ -1395,11 +1395,16 @@ function save(){
                                         }
                                     })
 
-                                    images.push(
-                                        elem.toDataURL({
-                                            pixelRatio: 2
-                                        })
-                                    );
+                                    var canvas = elem.toCanvas({ pixelRatio: 2 });
+                                    var ctx = canvas.getContext("2d");
+
+                                    ctx.globalCompositeOperation = 'destination-over';
+                                    ctx.fillStyle = '#ffffff';
+                                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                                    var dataURL = canvas.toDataURL("image/png");
+
+                                    images.push(dataURL);
                                 }
                             })
 
@@ -1551,11 +1556,16 @@ function onlySave(){
                                         }
                                     })
 
-                                    images.push(
-                                        elem.toDataURL({
-                                            pixelRatio: 2
-                                        })
-                                    );
+                                    var canvas = elem.toCanvas({ pixelRatio: 2 });
+                                    var ctx = canvas.getContext("2d");
+
+                                    ctx.globalCompositeOperation = 'destination-over';
+                                    ctx.fillStyle = '#ffffff';
+                                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                                    var dataURL = canvas.toDataURL("image/png");
+
+                                    images.push(dataURL);
                                 }
                             })
 
