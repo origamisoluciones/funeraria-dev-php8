@@ -13161,6 +13161,13 @@
                             }else{
                                 $mortuaryNameInfo = $expedient['mortuary'];
                             }
+
+                            if(
+                                $expedient['startVelacionDate'] != null && $expedient['startVelacionDate'] != '' &&
+                                $expedient['startVelacionTime'] != null && $expedient['startVelacionTime'] != ''
+                            ){
+                                $mortuaryNameInfo .= ' (' . date('d/m', strtotime($expedient['startVelacionDate'])) . ' ' . date('H:i', strtotime($expedient['startVelacionTime'])) . ')';
+                            }
                         }
 
                         // Sala
@@ -13436,6 +13443,13 @@
                             }else{
                                 $mortuaryNameInfo = $expedient['mortuary'];
                             }
+
+                            if(
+                                $expedient['startVelacionDate'] != null && $expedient['startVelacionDate'] != '' &&
+                                $expedient['startVelacionTime'] != null && $expedient['startVelacionTime'] != ''
+                            ){
+                                $mortuaryNameInfo .= ' (' . date('d/m', strtotime($expedient['startVelacionDate'])) . ' ' . date('H:i', strtotime($expedient['startVelacionTime'])) . ')';
+                            }
                         }
 
                         // Sala
@@ -13709,6 +13723,13 @@
                                 $mortuaryNameInfo = $expedient['deceasedMortuaryAddress'];
                             }else{
                                 $mortuaryNameInfo = $expedient['mortuary'];
+                            }
+
+                            if(
+                                $expedient['startVelacionDate'] != null && $expedient['startVelacionDate'] != '' &&
+                                $expedient['startVelacionTime'] != null && $expedient['startVelacionTime'] != ''
+                            ){
+                                $mortuaryNameInfo .= ' (' . date('d/m', strtotime($expedient['startVelacionDate'])) . ' ' . date('H:i', strtotime($expedient['startVelacionTime'])) . ')';
                             }
                         }
 

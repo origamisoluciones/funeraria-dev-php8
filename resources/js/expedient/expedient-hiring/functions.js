@@ -4250,8 +4250,6 @@ $(function(){
                     }
                 }
 
-                
-
                 if(validate == 0){
                 
                     billingSerie = $('#formNewInvoice #billingSerie').val();
@@ -4313,11 +4311,10 @@ $(function(){
 
                             var priceNoIVA = parseFloat(elem.totalEditPrice).toFixed(2)
                             var percentage = parseFloat(elem.percentage).toFixed(2)
+                            var amount = parseInt(elem.amount)
                             if(elem.texts == 0){
-                                var amount = parseInt(elem.amount)
                                 var discount = parseFloat(elem.discount).toFixed(2)
                             }else{
-                                var amount = 1
                                 var discount = parseFloat(elem.multipleDiscount).toFixed(2)
                             }
                             var subTotalDiscount = parseFloat(priceNoIVA) * parseFloat(discount) / 100
@@ -4344,16 +4341,13 @@ $(function(){
                         factura.suplidos.forEach(function(elem){
                             var cost = parseFloat(elem.cost).toFixed(2)
 
+                            var amount = parseInt(elem.amount)
                             if(elem.texts == 0){
-                                var amount = parseInt(elem.amount)
                                 var discount = parseFloat(elem.discount).toFixed(2)
-
-                                var subTotal = parseFloat((parseFloat(cost) - (parseFloat(cost) * parseFloat(discount) / 100)) * parseInt(amount)).toFixed(2)
                             }else{
                                 var discount = parseFloat(elem.multipleDiscount).toFixed(2)
-                                
-                                var subTotal = parseFloat(parseFloat(cost) - (parseFloat(cost) * parseFloat(discount) / 100)).toFixed(2)
                             }
+                            var subTotal = parseFloat((parseFloat(cost) - (parseFloat(cost) * parseFloat(discount) / 100)) * parseInt(amount)).toFixed(2)
 
                             totalDiscount = parseFloat(parseFloat(totalDiscount) + parseFloat(discount)).toFixed(2)
                             supplied = parseFloat(parseFloat(supplied) + parseFloat(subTotal)).toFixed(2)

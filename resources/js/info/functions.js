@@ -2526,6 +2526,13 @@ $(function(){
                         }else{
                             mortuary = elem.mortuary
                         }
+
+                        if(
+                            elem.startVelacionDate != null && elem.startVelacionDate != '' &&
+                            elem.startVelacionTime != null && elem.startVelacionTime != ''
+                        ){
+                            mortuary += ' (' + moment(elem.startVelacionDate, 'YYYY-MM-DD').format('DD/MM') + ' ' + moment(elem.startVelacionTime, 'HH:mm:ss').format('HH:mm') + ')';
+                        }
                     }
 
                     var deceasedRoom = '-'
@@ -2804,6 +2811,13 @@ $(function(){
                             mortuary = elem.deceasedMortuaryAddress
                         }else{
                             mortuary = elem.mortuary
+                        }
+
+                        if(
+                            elem.startVelacionDate != null && elem.startVelacionDate != '' &&
+                            elem.startVelacionTime != null && elem.startVelacionTime != ''
+                        ){
+                            mortuary += ' (' + moment(elem.startVelacionDate, 'YYYY-MM-DD').format('DD/MM') + ' ' + moment(elem.startVelacionTime, 'HH:mm:ss').format('HH:mm') + ')';
                         }
                     }
 
