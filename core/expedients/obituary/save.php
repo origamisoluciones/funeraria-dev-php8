@@ -142,6 +142,32 @@
                     </body>
                 </html>';
 
+        }else if($_SESSION['company'] == '32'){
+            $options = array(
+                'margin-bottom' => 0,
+                'margin-left' => 0,
+                'margin-right' => 0,
+                'margin-top' => 0,
+                'title' => 'Esquela',
+                'orientation' => 'landscape',
+                'encoding' => 'UTF-8'
+            );
+
+            $html = '   
+                <!DOCTYPE html>
+                <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                        <title>Esquela</title>
+                    </head>
+                    <body>
+                        <div style="width: 100%;">
+                            <img src="' . $_SESSION['basePath'] . 'resources/files/' . $_SESSION['company'] . '/expedients/' . $expedient . '/obituary/' . $type . '/' . $model . '/files/img.png" width="100%">
+                        </div>
+                    </body>
+                </html>';
         }else{
             $options = array(
                 'margin-bottom' => 0,

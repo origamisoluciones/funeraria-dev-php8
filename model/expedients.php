@@ -1662,7 +1662,11 @@
                                                 ess.crematoriumFirstGenerateDocDate,
                                                 CONCAT(u7.name, ' ', u7.surname) as crematoriumFirstGenerateDocUser,
                                                 di.name as deceasedLocationName,
-                                                m.name AS deceasedMortuaryName, m.tellmebye as mortuaryTellmebye, m.tellmebyeName as mortuaryTellmebyeName,
+                                                m.name AS deceasedMortuaryName, 
+                                                m.tellmebye as mortuaryTellmebye, 
+                                                m.tellmebyeName as mortuaryTellmebyeName,
+                                                m.address as mortuaryAddress,
+                                                l8.name AS mortuaryLocation,
                                                 ch.name AS churchName,
                                                 cm.name AS cemeteryName, 
                                                 f.name AS funeralHomeName,
@@ -1802,6 +1806,7 @@
                                     LEFT JOIN   Locations l6 ON dpm.location = l6.locationID
                                     LEFT JOIN   Destination_Places_Finals dpf ON dpf.ID = e.placeDestinationFinal
                                     LEFT JOIN   Locations l7 ON dpf.location = l7.locationID
+                                    LEFT JOIN   Locations l8 ON l8.locationID = m.location
                                     LEFT JOIN   Cemeteries cm2  ON e.placeDestinationFinalCemetery = cm2.cemeteryID
                                     LEFT JOIN   Users u7 ON ess.crematoriumFirstGenerateDocUser = u7.userID
                                     WHERE       e.expedientID = " . $data['ID']. " AND
@@ -15794,7 +15799,7 @@
                                 SELECT      p.productID, 
                                             p.name, 
                                             REPLACE(et.value, '\\\', '') as value, 
-                                            '6' as serviceBelow
+                                            p.serviceBelow
                                 FROM        Expedients_Hirings eh
                                 LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
                                 LEFT JOIN   Products p ON p.productID = eh.product

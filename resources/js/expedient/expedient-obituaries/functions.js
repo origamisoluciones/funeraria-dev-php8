@@ -495,6 +495,15 @@ function loadNewObituary(obituary, obituaryType){
                         $('#namePre').val('Dª.');
                     }
                 break;
+                case 32:
+                    if(obituary.deceasedGender == "Hombre"){
+                        $('#formNewNote #prayForText').val('EL SEÑOR');
+                        $('#namePre').val('DON');
+                    }else{
+                        $('#formNewNote #prayForText').val('LA SEÑORA');
+                        $('#namePre').val('DOÑA');
+                    }
+                break;
                 default:
                     if(obituary.deceasedGender == "Hombre"){
                         $('#namePre').val('D.');
@@ -806,6 +815,18 @@ function loadNewObituary(obituary, obituaryType){
                     onlyDay = '' + parseInt(onlyDay[0]) + ' de ' + onlyDay[1] + ' de ' + onlyDay[2]
 
                     $('#died').val('Falleció el ' + onlyDay + ', a los ' + yearsLife + ' años');
+                break;
+                case 32:
+                    var deceasedPlace = '';
+                    if(obituary.locationName != null){
+                        deceasedPlace = obituary.locationName;
+                    }
+
+                    var onlyDay = moment(obituary.deceasedDate, "YYYY-MM-DD").format("DD MMMM YYYY")
+                    onlyDay = onlyDay.split(' ')
+                    onlyDay = '' + parseInt(onlyDay[0]) + ' de ' + onlyDay[1] + ' de ' + onlyDay[2]
+
+                    $('#died').val('Falleció en '+deceasedPlace+', el día ' + onlyDay + ', a los ' + yearsLife + ' años de edad');
                 break;
                 default:
                     $('#died').val('Que falleció cristianamente ' +  onlyDay + ', a los ' + yearsLife + ' años de edad.');
@@ -1413,7 +1434,6 @@ function loadNewObituary(obituary, obituaryType){
                     ' para su ' + action + '. Favores por los que quedarán profundamente agradecidos.'
                 break;
                 case 30:
-                    console.log(obituary)
                     var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName;
 
                     var startVelacionDate = '';
@@ -1430,6 +1450,22 @@ function loadNewObituary(obituary, obituaryType){
                 break;
                 case 31:
                     pray =  'Ruegan una oración por el eterno descanso de su alma.'
+                break;
+                case 32:
+                    var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName
+                    mortuaryName = 'desde el tanatorio  ' + mortuaryName;
+
+                    var dayNameAux = dayName.split(' ');
+                    dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
+
+                    var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
+                    var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
+                    ceremonyTime = getFuneralTime(h2, m2, 'es');
+
+                    pray = 'Ruegan una oración por su alma y la asistencia a '
+                        + 'la conducción del cadáver que tendrá lugar el ' + dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ' + momento.toLowerCase() + ', ' 
+                        + 'desde el tanatorio hasta la '+ (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? obituary.churchLabel + ' de': obituary.churchLabel) + ' ' + obituary.churchName + ', '
+                        + 'donde se celebrará el Funeral. A continuación, se le dará sepultura en el '+ (obituary.cemeteryLabel == 'Otro' ? '' : obituary.cemeteryLabel) + ' ' + obituary.cemeteryName + '.' 
                 break;
             }
             $('#pray').val(pray);
@@ -1689,6 +1725,17 @@ function loadNewObituary(obituary, obituaryType){
 
                     moment.locale('ca'); 
                 break;
+                case 32:
+                    if(obituary.deceasedGender == "Hombre"){
+                        $('#formNewNote #prayForText').val('O SEÑOR');
+                        $('#namePre').val('DON');
+                    }else{
+                        $('#formNewNote #prayForText').val('A SEÑORA');
+                        $('#namePre').val('DOÑA');
+                    }
+
+                    moment.locale('gl'); 
+                break;
             }
 
             var prayAuxGender = 'a';
@@ -1851,6 +1898,18 @@ function loadNewObituary(obituary, obituaryType){
 
                         $('#died').val('Finou o  ' + deceasedDateAux + ', aos ' + yearsLife + ' anos de idade, confortad'+prayAuxGender+' cos Santos Sacramentos.');
 
+                    }else if(companyId == 32){
+
+                        var deceasedPlace = '';
+                        if(obituary.locationName != null){
+                            deceasedPlace = obituary.locationName;
+                        }
+
+                        var onlyDay = moment(obituary.deceasedDate, "YYYY-MM-DD").format("DD MMMM YYYY")
+                        onlyDay = onlyDay.split(' ')
+                        onlyDay = '' + parseInt(onlyDay[0]) + ' de ' + onlyDay[1] + ' de ' + onlyDay[2]
+
+                        $('#died').val('Finou en '+deceasedPlace+', o día ' + onlyDay + ', aos ' + yearsLife + ' anos de idade');
                     }else{
                         var deceasedDateAux = '';
                         if(obituary.deceasedDate != null){
@@ -2024,6 +2083,22 @@ function loadNewObituary(obituary, obituaryType){
 
                     pray = 'Pregan unha oración pola súa alma e a asistencia á misa polo seu eterno descanso que celebrarase ' + ceremonyTimeDate 
                             + 'na ' + (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? 'Igrexa Parroquial' + ' de': obituary.churchLabel) + ' ' + obituary.churchName + '. Favores que agradecerán.'
+                break;
+                case 32:
+                    var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName
+                    mortuaryName = 'desde el tanatorio  ' + mortuaryName;
+
+                    var dayNameAux = dayName.split(' ');
+                    dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
+
+                    var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
+                    var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
+                    ceremonyTime = getFuneralTime(h2, m2, 'es');
+
+                    pray = 'Pregan unha oración pola súa alma e a asistencia á '
+                        + 'conducción do cadáver, que terá lugar o ' + dayName.toLowerCase() + ' ás '+ funerTime.toUpperCase() +' da ' + momento.toLowerCase() + ', ' 
+                        + 'dende o tanatorio ata a '+ (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? 'Igrexa Parroquial' + ' de': obituary.churchLabel) + ' ' + obituary.churchName + ', '
+                        + 'onde se celebrará o Funeral. A continuación, daráselle sepultura no '+ (obituary.cemeteryLabel == 'Otro' ? '' : 'Cemiterio') + ' ' + obituary.cemeteryName + '.' 
                 break;
                 default:
                     switch(obituary.cemeteryLabel){
@@ -4173,6 +4248,17 @@ $(function(){
             $('#obituaryType').append('<option value="0">Principal</option>');
 
             $(".company-31-hide").addClass('hide');
+
+            $('#obituaryModel').append('<option value="--" disabled>Seleccionar modelo esquela</option>');
+            $('#obituaryModel').append('<option value="0">Principal</option>');
+        break;
+
+        case 32:
+            $('#obituaryType').append('<option value="--" disabled>Seleccionar tipo esquela</option>');
+            $('#obituaryType').append('<option value="0">Principal</option>');
+            $('#obituaryType').append('<option value="1">Esquela en Galego</option>');
+
+            $(".company-32-hide").addClass('hide');
 
             $('#obituaryModel').append('<option value="--" disabled>Seleccionar modelo esquela</option>');
             $('#obituaryModel').append('<option value="0">Principal</option>');

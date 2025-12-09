@@ -338,3 +338,10 @@ hr{
 .separator{
     padding-bottom: 5px;
 }
+
+.backgroundColorImport{
+    background-color: #e5ebff important!;
+}
+.backgroundColorImport-black{
+    background-color: #e5e5e5 important!;
+}

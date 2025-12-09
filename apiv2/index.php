@@ -127,6 +127,9 @@
         case 'api-cardelle':
             $dbName = 'appcardelle';
         break;
+        case 'api-marina':
+            $dbName = 'appmarina';
+        break;
         case 'encuesta':
             switch($data->company){
                 case '1':
@@ -221,6 +224,9 @@
                 break;
                 case '31':
                     $dbName = 'appcardelle';
+                break;
+                case '32':
+                    $dbName = 'appmarina';
                 break;
                 default:
                     header('HTTP/1.1 403 Forbidden');

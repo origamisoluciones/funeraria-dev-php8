@@ -219,6 +219,10 @@
                             $from = 'Cardelle';
                             $text = 'En Servicios Fun. Cardelle nos preocupa la satisfaccion de nuestros clientes, por ello agradecemos que conteste a la siguiente encuesta {LINK}';
                         break;
+                        case 32:
+                            $from = 'Fun Mariña';
+                            $text = 'En Funerarias Mariña nos preocupa la satisfaccion de nuestros clientes, por ello agradecemos que conteste a la siguiente encuesta {LINK}';
+                        break;
                     }
                     $messages = '';
                     foreach($phones as $phone){

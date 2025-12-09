@@ -161,9 +161,12 @@
         $tableBorderTopColor = '';
         $tableBorderMidColor = '';
         $tableBorderBottomColor = '';
+        $tableInvoicesImportBackgroundColor = '';
         $firmaColor = '';
         switch(intval($_SESSION['company'])){
             case 18:
+            case 31:
+            case 32:
                 $colorStyle = 'black;';
                 $fuente = 'fuente-black';
                 $tableContratosColor = '-black';
@@ -174,6 +177,7 @@
                 $tableBorderTopColor = '-black';
                 $tableBorderMidColor = '-black';
                 $tableBorderBottomColor = '-black';
+                $tableInvoicesImportBackgroundColor = '-black';
                 $firmaColor = '-black';
             break;
         }
@@ -4262,7 +4266,7 @@
                                             <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                             <td>$discountValue</td>
                                             <td>".number_format($percentage,2)." %</td>
-                                            <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                            <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                         </tr>";
                                         $lines++;
                                         $totalLines++;
@@ -4273,7 +4277,7 @@
                                         <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                         <td>$discountValue</td>
                                         <td>".number_format($percentage,2)." %</td>
-                                        <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                     </tr>";
                         }
 
@@ -4363,7 +4367,7 @@
                                     <td style='text-align:right'>". number_format($price, 2) ." €</td>
                                     <td>".$discount."</td>
                                     <td>-</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subTotal,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subTotal,2)." €</td>
                                 </tr>";
                         $previousProductID = $productID;
                         $previousModelID = $modelID;
@@ -4437,7 +4441,7 @@
                         ";
 
                         if($index == 0){
-                            $text .= "<td style='background-color: #e5ebff important!;' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
+                            $text .= "<td class='backgroundColorImport$tableInvoicesImportBackgroundColor' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
                         }
 
                         $text .= "</tr>";
@@ -4450,7 +4454,7 @@
                             <td>0.00 €</td>
                             <td> - </td>
                             <td>0.00 €</td>
-                            <td style='background-color: #e5ebff important!;'><strong>" . $total . " €</strong></td>
+                            <td class='backgroundColorImport$tableInvoicesImportBackgroundColor'><strong>" . $total . " €</strong></td>
                         </tr>
                     ";
                 }
@@ -5701,13 +5705,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['generatedInvoiceNumber'] . "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['creationDate'] . "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['number'] . "</p>
                                         </td>
                                     </tr>
@@ -6208,7 +6212,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -6223,7 +6227,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -6270,7 +6274,7 @@
                 }
                 
                 if(isset($data['suplidos']) && is_array($data['suplidos']) && count($data['suplidos']) > 0){
-                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td style='background-color: #e5ebff important!;'></td></tr>";
+                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td class='backgroundColorImport$tableInvoicesImportBackgroundColor'></td></tr>";
                     $lines++;
                     $totalLines++;
 
@@ -6365,7 +6369,7 @@
                                 <td style='text-align:right'>". number_format($price, 2) ." €</td>
                                 <td>".$discount."</td>
                                 <td>-</td>
-                                <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subTotal,2)." €</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subTotal,2)." €</td>
                             </tr>
                         ";
                         $previousProductID = $productID;
@@ -6467,7 +6471,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right;background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -6527,7 +6531,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right;background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -6541,7 +6545,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right;background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -6626,7 +6630,7 @@
                         ";
 
                         if($index == 0){
-                            $text .= "<td style='background-color: #e5ebff important!;' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
+                            $text .= "<td class='backgroundColorImport$tableInvoicesImportBackgroundColor' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
                         }
 
                         $text .= "</tr>";
@@ -6639,7 +6643,7 @@
                             <td>0.00 €</td>
                             <td> - </td>
                             <td>0.00 €</td>
-                            <td style='background-color: #e5ebff important!;'><strong>" . $total . " €</strong></td>
+                            <td class='backgroundColorImport$tableInvoicesImportBackgroundColor'><strong>" . $total . " €</strong></td>
                         </tr>
                     ";
                 }
@@ -8082,7 +8086,7 @@
                                     <pagebreak>
                                     <div>
                                         <div style='text-align:center' class='centered'>
-                                            <p style='font-size:16px'><strong><i>Libro Rexistro de Crematorios - ".$crematoriumName."</i></strong></p>
+                                            <p style='font-size:16px'><strong><i>Libro Registro de Crematorios - ".$crematoriumName."</i></strong></p>
                                         </div>
                                         <div style='text-align:right' class='pull-right'>
                                             <p style='font-size:16px'><strong><i>Folla Nº </i></strong>" . $j . "</p>
@@ -8161,7 +8165,7 @@
                 $rest =     "<div class='container $fuente'>
                                 <table class='tablePdfNoBorder' style='color: #00305c;'>
                                     <tr> 
-                                        <td><span style='font-size:16px'><strong>Libro Rexistro de Funerarias - $companyName</strong></span></td>
+                                        <td><span style='font-size:16px'><strong>Libro Registro de Funerarias - $companyName</strong></span></td>
                                         <td style='text-align:right'><span style='font-size:16px;'><strong>Hoja número </strong>" . $pag . "</span></td>
                                     </tr>
                                 </table>
@@ -8268,7 +8272,7 @@
                                     <div class='container $fuente'>
                                         <table class='tablePdfNoBorder' style='color: #00305c;'>
                                             <tr> 
-                                                <td><span style='font-size:16px'><strong>Libro Rexistro de Funerarias - $companyName</strong></span></td>
+                                                <td><span style='font-size:16px'><strong>Libro Registro de Funerarias - $companyName</strong></span></td>
                                                 <td style='text-align:right'><span style='font-size:16px;'><strong>Hoja número </strong>" . $pag . "</span></td>
                                             </tr>
                                         </table>
@@ -8635,7 +8639,6 @@
                                     <div class='text-center' style='margin-top:10px'>
                                         <p>                   --------------------------------------------------------------------                </p>
                                     </div>
-                                    <!-- CHUNKING -->
                                 ";
                             $exp++;
                         }
@@ -9950,13 +9953,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>". $data['number'] . "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . date('j/n/Y') . "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['number'] . "</p>
                                         </td>
                                     </tr>
@@ -10258,7 +10261,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -10273,7 +10276,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -10320,7 +10323,7 @@
                 }
 
                 if(isset($data['suplidos'])){
-                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td style='background-color: #e5ebff important!;'></td></tr>";
+                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td class='backgroundColorImport$tableInvoicesImportBackgroundColor'></td></tr>";
                     $lines++;
                     $totalLines++;
 
@@ -10392,7 +10395,7 @@
                                 <td style='text-align:right'>". number_format($price, 2) ." €</td>
                                 <td>".$discount."</td>
                                 <td>-</td>
-                                <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subTotal,2)." €</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subTotal,2)." €</td>
                             </tr>
                         ";
 
@@ -10491,7 +10494,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right;background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -10540,7 +10543,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right; background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -10554,7 +10557,7 @@
                                 <td style='text-align:right'>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td style='text-align:right; background-color: #e5ebff important!;'>&nbsp;</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>&nbsp;</td>
                             </tr>
                         ";
                     }
@@ -10654,7 +10657,7 @@
                         ";
 
                         if($index == 0){
-                            $text .= "<td style='background-color: #e5ebff important!;' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
+                            $text .= "<td class='backgroundColorImport$tableInvoicesImportBackgroundColor' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
                         }
 
                         $text .= "</tr>";
@@ -10667,7 +10670,7 @@
                             <td>0.00 €</td>
                             <td> - </td>
                             <td>0.00 €</td>
-                            <td style='background-color: #e5ebff important!;'><strong>" . $total . " €</strong></td>
+                            <td class='backgroundColorImport$tableInvoicesImportBackgroundColor'><strong>" . $total . " €</strong></td>
                         </tr>
                     ";
                 }
@@ -10715,13 +10718,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>". $data['name'] . "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['clientName']. "</p>
                                         </td>
-                                        <td style='text-align:center; background-color: #e5ebff important!;'>
+                                        <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                             <p>" . $data['priceName'] . "</p>
                                         </td>
                                     </tr>
@@ -10987,7 +10990,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -11002,7 +11005,7 @@
                                     <td style='text-align:right'>".number_format($priceToShow,2)." €</td>
                                     <td>$discountValue</td>
                                     <td>".number_format($percentage,2)." %</td>
-                                    <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subtotalPrice,2)." €</td>
+                                    <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subtotalPrice,2)." €</td>
                                 </tr>
                             ";
 
@@ -11041,7 +11044,7 @@
                 }
                 
                 if(isset($data['suplidos'])){
-                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td style='background-color: #e5ebff important!;'></td></tr>";
+                    $text .= "<tr><td><strong>***** SUPLIDOS *****</strong></td><td></td><td></td><td></td><td></td><td class='backgroundColorImport$tableInvoicesImportBackgroundColor'></td></tr>";
                     $lines++;
                     $totalLines++;
 
@@ -11114,7 +11117,7 @@
                                 <td style='text-align:right'>". number_format($price, 2) ." €</td>
                                 <td>".$discount."</td>
                                 <td>-</td>
-                                <td style='text-align:right; background-color: #e5ebff important!;'>".number_format($subTotal,2)." €</td>
+                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:right;'>".number_format($subTotal,2)." €</td>
                             </tr>
                         ";
                         $previousProductID = $productID;
@@ -11350,7 +11353,7 @@
                         ";
 
                         if($index == 0){
-                            $text .= "<td style='background-color: #e5ebff important!;' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
+                            $text .= "<td class='backgroundColorImport$tableInvoicesImportBackgroundColor' rowspan='".count($listIvas)."'><strong>" . $total . " €</strong></td>";
                         }
 
                         $text .= "</tr>";
@@ -11363,7 +11366,7 @@
                             <td>0.00 €</td>
                             <td> - </td>
                             <td>0.00 €</td>
-                            <td style='background-color: #e5ebff important!;'><strong>" . $total . " €</strong></td>
+                            <td class='backgroundColorImport$tableInvoicesImportBackgroundColor'><strong>" . $total . " €</strong></td>
                         </tr>
                     ";
                 }
@@ -11417,16 +11420,16 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style='text-align:center; background-color: #e5ebff important!;'>
+                                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                                     <p>" . $data['licensePlate'] . "</p>
                                                 </td>
-                                                <td style='text-align:center; background-color: #e5ebff important!;'>
+                                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                                     <p>" . $data['brand'] . "</p>
                                                 </td>
-                                                <td style='text-align:center; background-color: #e5ebff important!;'>
+                                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                                     <p>" . $data['model'] . "</p>
                                                 </td>
-                                                <td style='text-align:center; background-color: #e5ebff important!;'>
+                                                <td class='backgroundColorImport$tableInvoicesImportBackgroundColor' style='text-align:center;'>
                                                     <p>" . $data['kms'] . "</p>
                                                 </td>
                                             </tr>

@@ -137,7 +137,7 @@
                                                             </label>
                                                             <div class="col-xs-8">
                                                                 <input type="text" size="37" class="form-control inline-block" id="prayForText" name="prayForText">
-                                                                <input type="text" size="5" class="form-control inline-block company-15-hide company-16-hide company-20-hide" id="prayForGenre" name="prayForGenre">
+                                                                <input type="text" size="5" class="form-control inline-block company-15-hide company-16-hide company-20-hide company-32-hide" id="prayForGenre" name="prayForGenre">
                                                             </div>
                                                         </div>
                                                     </div>

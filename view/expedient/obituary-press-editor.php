@@ -123,7 +123,7 @@
                                                 <button class="btn btn-default btn-block" id="showHelp">Ver atajos</button>
                                             </div>
                                             <div class="main" style="margin-left: 200px;">
-                                                <?php if($_SESSION['company'] == '14' || $_SESSION['company'] == '17' || $_SESSION['company'] == '18'){ ?>
+                                                <?php if($_SESSION['company'] == '14' || $_SESSION['company'] == '17' || $_SESSION['company'] == '18' || $_SESSION['company'] == '32'){ ?>
                                                     <page size="A4h" id="page"></page>
                                                     <div class="overlay hide" id="blockCanvas"></div>
                                                     <page size="A4h" class="hide" id="pageAux"></page>

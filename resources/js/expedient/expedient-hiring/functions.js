@@ -1654,13 +1654,13 @@ $(function(){
         }else{
             $('#totalVentas').addClass('hide')
         }
-        
+
         //Checks if expedient is budget
         if(expedient.type == '2'){
             $('.li-view-proforma').addClass('hide');
             $('.li-generate-proforma').addClass('hide');
         }
-
+        
         // Show view invoices
         if(parseInt(expedient.total_invoices) > 0){
             $('#view-Fac').removeClass("hide");
@@ -4294,7 +4294,6 @@ $(function(){
                         }
                     });
 
-
                     // Prepare items to calculate totals
                     if(rectifiedType == 2){
                         factura.factura = processRectification(factura.factura, factura.facturaRectificada, ['amount', 'discount', 'priceNoIVA']);
@@ -4305,52 +4304,66 @@ $(function(){
                     var totalDiscount = 0;
                     var total = 0;
                     var listIvas = [];
-
+                    
+                    var productsAdded = [];
                     if(factura.factura != null){
                         factura.factura.forEach(function(elem){
 
-                            var priceNoIVA = parseFloat(elem.totalEditPrice).toFixed(2)
-                            var percentage = parseFloat(elem.percentage).toFixed(2)
-                            var amount = parseInt(elem.amount)
-                            if(elem.texts == 0){
-                                var discount = parseFloat(elem.discount).toFixed(2)
-                            }else{
-                                var discount = parseFloat(elem.multipleDiscount).toFixed(2)
-                            }
-                            var subTotalDiscount = parseFloat(priceNoIVA) * parseFloat(discount) / 100
-                            var subTotalPrice = (parseFloat(priceNoIVA) - parseFloat(subTotalDiscount)) * amount
-                            
-                            // Get ivas
-                            var indexAux = listIvas.findIndex(p => p.type_iva == percentage);
-                            if(indexAux === -1){
-                                listIvas.push(
-                                    {
-                                        'type_iva': percentage,
-                                        'base': parseFloat(subTotalPrice),
-                                        'iva': (parseFloat(subTotalPrice) * parseFloat(percentage) / 100)
-                                    }
-                                )
-                            }else{
-                                listIvas[indexAux]['base'] += parseFloat(subTotalPrice);
-                                listIvas[indexAux]['iva'] += (parseFloat(subTotalPrice) * parseFloat(percentage) / 100);
+                            var searchProductAdded = productsAdded.findIndex(pr => pr == elem.hiringID);
+                            if(searchProductAdded === -1){
+                                var priceNoIVA = parseFloat(elem.totalEditPrice).toFixed(2)
+                                var percentage = parseFloat(elem.percentage).toFixed(2)
+                                var amount = parseInt(elem.amount)
+                                if(elem.texts == 0){
+                                    var discount = parseFloat(elem.discount).toFixed(2)
+                                }else{
+                                    var discount = parseFloat(elem.multipleDiscount).toFixed(2)
+                                }
+                                var subTotalDiscount = parseFloat(priceNoIVA) * parseFloat(discount) / 100
+                                var subTotalPrice = (parseFloat(priceNoIVA) - parseFloat(subTotalDiscount)) * amount
+                                
+                                // Get ivas
+                                var indexAux = listIvas.findIndex(p => p.type_iva == percentage);
+                                if(indexAux === -1){
+                                    listIvas.push(
+                                        {
+                                            'type_iva': percentage,
+                                            'base': parseFloat(subTotalPrice),
+                                            'iva': (parseFloat(subTotalPrice) * parseFloat(percentage) / 100)
+                                        }
+                                    )
+                                }else{
+                                    listIvas[indexAux]['base'] += parseFloat(subTotalPrice);
+                                    listIvas[indexAux]['iva'] += (parseFloat(subTotalPrice) * parseFloat(percentage) / 100);
+                                }
+    
+                                productsAdded.push(elem.hiringID);
                             }
                         })
                     }
 
+                    var productsAdded = [];
                     if(factura.suplidos != null){
                         factura.suplidos.forEach(function(elem){
-                            var cost = parseFloat(elem.cost).toFixed(2)
 
-                            var amount = parseInt(elem.amount)
-                            if(elem.texts == 0){
-                                var discount = parseFloat(elem.discount).toFixed(2)
-                            }else{
-                                var discount = parseFloat(elem.multipleDiscount).toFixed(2)
+                            var searchProductAdded = productsAdded.findIndex(pr => pr == elem.hiringID);
+                            if(searchProductAdded === -1){
+
+                                var cost = parseFloat(elem.cost).toFixed(2)
+                                var amount = parseInt(elem.amount)
+
+                                if(elem.texts == 0){
+                                    var discount = parseFloat(elem.discount).toFixed(2)
+                                }else{
+                                    var discount = parseFloat(elem.multipleDiscount).toFixed(2)
+                                }
+                                var subTotal = parseFloat((parseFloat(cost) - (parseFloat(cost) * parseFloat(discount) / 100)) * parseInt(amount)).toFixed(2)
+
+                                totalDiscount = parseFloat(parseFloat(totalDiscount) + parseFloat(discount)).toFixed(2)
+                                supplied = parseFloat(parseFloat(supplied) + parseFloat(subTotal)).toFixed(2)
+
+                                productsAdded.push(elem.hiringID);
                             }
-                            var subTotal = parseFloat((parseFloat(cost) - (parseFloat(cost) * parseFloat(discount) / 100)) * parseInt(amount)).toFixed(2)
-
-                            totalDiscount = parseFloat(parseFloat(totalDiscount) + parseFloat(discount)).toFixed(2)
-                            supplied = parseFloat(parseFloat(supplied) + parseFloat(subTotal)).toFixed(2)
                         })
                     }
                     
