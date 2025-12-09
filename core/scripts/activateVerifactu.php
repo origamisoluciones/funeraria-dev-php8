@@ -1,4 +1,6 @@
 <?php
+    return;
+
     // ESTE SCRIPT TIENE QUE EJECUTARSE EL 1 DE ENERO DE 2026 A LAS 00:00
     $_SERVER['DOCUMENT_ROOT'] = "/var/www/html/";
 

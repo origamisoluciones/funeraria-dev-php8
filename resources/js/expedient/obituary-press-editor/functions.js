@@ -1636,9 +1636,15 @@ function save(expedient, type, model){
                             stage.draw()
                             selected = null
                     
-                            var img = stage.toDataURL({
-                                pixelRatio: 3
-                            })
+                            var canvas = stage.toCanvas({ pixelRatio: 3 });
+                            var ctx = canvas.getContext("2d");
+
+                            ctx.globalCompositeOperation = 'destination-over';
+                            ctx.fillStyle = '#ffffff';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                            var img = canvas.toDataURL("image/png");
+
                             var json = stage.toJSON()
                             gridLayer.show()
                             stage.draw()
