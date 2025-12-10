@@ -3640,6 +3640,20 @@ $(function(){
         $('#formEditExpedient #entryTimeBarrow').val(moment(expedient.entryTimeBarrow, "HH:mm:ss").format("HH:mm"));
     }
 
+    $('#formEditExpedient #refrigeratedChamberName').val(expedient.refrigeratedChamberName);
+    if(expedient.refrigeratedChamberDateStart != null){
+        $('#formEditExpedient #refrigeratedChamberDateStart').val(moment(expedient.refrigeratedChamberDateStart, "YYYY-MM-DD").format("DD/MM/YYYY"));
+    }
+    if(expedient.refrigeratedChamberTimeStart != null){
+        $('#formEditExpedient #refrigeratedChamberTimeStart').val(moment(expedient.refrigeratedChamberTimeStart, "HH:mm:ss").format("HH:mm"));
+    }
+    if(expedient.refrigeratedChamberDateEnd != null){
+        $('#formEditExpedient #refrigeratedChamberDateEnd').val(moment(expedient.refrigeratedChamberDateEnd, "YYYY-MM-DD").format("DD/MM/YYYY"));
+    }
+    if(expedient.refrigeratedChamberTimeEnd != null){
+        $('#formEditExpedient #refrigeratedChamberTimeEnd').val(moment(expedient.refrigeratedChamberTimeEnd, "HH:mm:ss").format("HH:mm"));
+    }
+
     $('#formEditExpedient #coffin').val(expedient.coffin);
     if(expedient.coffin == 3){
         $('#otherCoffinSection').removeClass('hide')
@@ -5029,11 +5043,27 @@ $(function(){
         var hearseModel = $('#hearseModel').val();
         var mortuaryRegNotes = $('#mortuaryRegNotes').val();
 
+        // Fecha y hora entrada en tumulo
         var entryDateBarrow = '';
         if($('#entryDateBarrow').val() != ''){
             entryDateBarrow = moment($('#entryDateBarrow').val(), 'DD/MM/YYYY').format('YYYY-MM-DD');
         }
         var entryTimeBarrow = $('#entryTimeBarrow').val();
+
+        // Camara refrigerada
+        var refrigeratedChamberName = $('#refrigeratedChamberName').val();
+        // Fecha y hora entrada en camara
+        var refrigeratedChamberDateStart = '';
+        if($('#refrigeratedChamberDateStart').val() != ''){
+            refrigeratedChamberDateStart = moment($('#refrigeratedChamberDateStart').val(), 'DD/MM/YYYY').format('YYYY-MM-DD');
+        }
+        var refrigeratedChamberTimeStart = $('#refrigeratedChamberTimeStart').val();
+        // Fecha y hora salida de camara
+        var refrigeratedChamberDateEnd = '';
+        if($('#refrigeratedChamberDateEnd').val() != ''){
+            refrigeratedChamberDateEnd = moment($('#refrigeratedChamberDateEnd').val(), 'DD/MM/YYYY').format('YYYY-MM-DD');
+        }
+        var refrigeratedChamberTimeEnd = $('#refrigeratedChamberTimeEnd').val();
 
         //Datos Cremación
         var crematorium = $('#crematorium').val();
@@ -5459,6 +5489,7 @@ $(function(){
                             deceasedNiche: deceasedNiche, funeralDateNiche: funeralDateNiche, deceasedNiche2: deceasedNiche2, funeralDateNiche2: funeralDateNiche2, deceasedNiche3: deceasedNiche3, funeralDateNiche3: funeralDateNiche3,
                             exhumation: exhumation, nicheHeight: nicheHeight, mortuaryReg: mortuaryReg, funeralReg: funeralReg, personalReg: personalReg, 
                             crematoriumReg: crematoriumReg, tanatologicalPractice: tanatologicalPractice, funeralHome: funeralHome, funeralHomeEntryDate: funeralHomeEntryDate, funeralHomeEntryTime: funeralHomeEntryTime, entryDateBarrow: entryDateBarrow, entryTimeBarrow: entryTimeBarrow, 
+                             refrigeratedChamberName: refrigeratedChamberName, refrigeratedChamberDateStart: refrigeratedChamberDateStart, refrigeratedChamberTimeStart: refrigeratedChamberTimeStart, refrigeratedChamberDateEnd: refrigeratedChamberDateEnd, refrigeratedChamberTimeEnd: refrigeratedChamberTimeEnd,
                             coffin: coffin, responsibleUser: responsibleUser, responsibleName: responsibleName, responsibleNIF: responsibleNIF, crematorium: crematorium, crematoriumStatus: crematoriumStatus,
                             crematoriumEntryDate: crematoriumEntryDate, crematoriumEntryTime: crematoriumEntryTime, crematoriumLeavingDate: crematoriumLeavingDate, crematoriumArriveTime: crematoriumArriveTime, crematoriumLeavingTime: crematoriumLeavingTime, crematoriumClient: crematoriumClient,
                             crematoriumContactPersonPhone: crematoriumContactPersonPhone, crematoriumContactPerson: crematoriumContactPerson, crematoriumIntroduction: crematoriumIntroduction, 

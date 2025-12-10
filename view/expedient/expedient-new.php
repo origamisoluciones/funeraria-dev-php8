@@ -2329,6 +2329,77 @@
 														</div>
 													</div>
 												</div>
+												<div class="row clearfix">
+													<div class="col-xs-3">
+														<div class="form-group">
+															<label class="col-xs-5 control-label toNormal">Cámara Refrigerada</label>
+															<div class="col-xs-6">
+																<input type="text" size="22" class="form-control" id="refrigeratedChamberName" name="refrigeratedChamberName" autocomplete="off">
+																<span class="inputError" id="refrigeratedChamberNameError"></span>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-3">
+														<div class="form-group">
+															<label class="col-xs-5 control-label toNormal">Fecha Entrada en Cámara</label>
+															<div class="col-xs-6">
+																<div class="input-group date">
+																	<input type="text" size="15" class="form-control datepicker" id="refrigeratedChamberDateStart" name="refrigeratedChamberDateStart" autocomplete="off">
+																	<div class="input-group-addon">
+																		<i class="fa fa-calendar"></i>
+																	</div>
+																</div>
+																<span class="inputError" id="refrigeratedChamberDateStartError"></span>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-3">
+														<div class="form-group bootstrap-timepicker timepicker">
+															<label class="col-xs-5 control-label toNormal">Hora Entrada en Cámara</label>
+															<div class="col-xs-6">
+																<div class="input-group">
+																	<input type="text" size="20" class="form-control time" id="refrigeratedChamberTimeStart" name="refrigeratedChamberTimeStart" autocomplete="off">
+																	<div class="input-group-addon">
+																		<i style="cursor:pointer" class="fa fa-clock-o"></i>
+																	</div>
+																</div>
+																<span class="inputError" id="refrigeratedChamberTimeStartError"></span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row clearfix">
+													<div class="col-xs-3">
+													</div>
+													<div class="col-xs-3">
+														<div class="form-group">
+															<label class="col-xs-5 control-label toNormal">Fecha Salida de Cámara</label>
+															<div class="col-xs-6">
+																<div class="input-group date">
+																	<input type="text" size="15" class="form-control datepicker" id="refrigeratedChamberDateEnd" name="refrigeratedChamberDateEnd" autocomplete="off">
+																	<div class="input-group-addon">
+																		<i class="fa fa-calendar"></i>
+																	</div>
+																</div>
+																<span class="inputError" id="refrigeratedChamberDateEndError"></span>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-3">
+														<div class="form-group bootstrap-timepicker timepicker">
+															<label class="col-xs-5 control-label toNormal">Hora Salida de Cámara</label>
+															<div class="col-xs-6">
+																<div class="input-group">
+																	<input type="text" size="20" class="form-control time" id="refrigeratedChamberTimeEnd" name="refrigeratedChamberTimeEnd" autocomplete="off">
+																	<div class="input-group-addon">
+																		<i style="cursor:pointer" class="fa fa-clock-o"></i>
+																	</div>
+																</div>
+																<span class="inputError" id="refrigeratedChamberTimeEndError"></span>
+															</div>
+														</div>
+													</div>
+												</div>
 												<div class="row" style="padding-left: 40px;">
 													<div class="col-xs-12">
 														<label class="checkbox-inline">

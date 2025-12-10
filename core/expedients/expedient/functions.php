@@ -404,6 +404,11 @@
         $newExpedient['tellmebyeRoomName'] = '';
         $newExpedient['entryDateBarrow'] = '';
         $newExpedient['entryTimeBarrow'] = '';
+        $newExpedient['refrigeratedChamberName'] = '';
+        $newExpedient['refrigeratedChamberDateStart'] = '';
+        $newExpedient['refrigeratedChamberTimeStart'] = '';
+        $newExpedient['refrigeratedChamberDateEnd'] = '';
+        $newExpedient['refrigeratedChamberTimeEnd'] = '';
 
         $id = $expedients->createExpedient($newExpedient)['expedient'];
         $hirings = $expedients->getHiring($expedient);

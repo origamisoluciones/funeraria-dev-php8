@@ -263,6 +263,12 @@
             $data['notesExpedient'] = cleanTextArea($data['notesExpedient']);
             $data['mortuaryRegNotes'] = cleanTextArea($data['mortuaryRegNotes']);
 
+            $data['refrigeratedChamberName'] = cleanStr($data['refrigeratedChamberName']);
+            $data['refrigeratedChamberDateStart'] = cleanStr($data['refrigeratedChamberDateStart']);
+            $data['refrigeratedChamberTimeStart'] = cleanStr($data['refrigeratedChamberTimeStart']);
+            $data['refrigeratedChamberDateEnd'] = cleanStr($data['refrigeratedChamberDateEnd']);
+            $data['refrigeratedChamberTimeEnd'] = cleanStr($data['refrigeratedChamberTimeEnd']);
+
             // Validación de campos
             if($data['expType'] == ''){
                 return false;
@@ -1029,6 +1035,42 @@
                 $data['mortuaryRegNotes'] = 'null';
             }
 
+            if($data['refrigeratedChamberName'] == ""){
+                $refrigeratedChamberNameUp = '';
+                $refrigeratedChamberNameDown = '';
+            }else{
+                $refrigeratedChamberNameUp = 'refrigeratedChamberName, ';
+                $refrigeratedChamberNameDown = '"' . $data['refrigeratedChamberName'] . '", ';
+            }
+            if($data['refrigeratedChamberDateStart'] == ""){
+                $refrigeratedChamberDateStartUp = '';
+                $refrigeratedChamberDateStartDown = '';
+            }else{
+                $refrigeratedChamberDateStartUp = 'refrigeratedChamberDateStart, ';
+                $refrigeratedChamberDateStartDown = '"' . $data['refrigeratedChamberDateStart'] . '", ';
+            }
+            if($data['refrigeratedChamberTimeStart'] == ""){
+                $refrigeratedChamberTimeStartUp = '';
+                $refrigeratedChamberTimeStartDown = '';
+            }else{
+                $refrigeratedChamberTimeStartUp = 'refrigeratedChamberTimeStart, ';
+                $refrigeratedChamberTimeStartDown = '"' . $data['refrigeratedChamberTimeStart'] . '", ';
+            }
+            if($data['refrigeratedChamberDateEnd'] == ""){
+                $refrigeratedChamberDateEndUp = '';
+                $refrigeratedChamberDateEndDown = '';
+            }else{
+                $refrigeratedChamberDateEndUp = 'refrigeratedChamberDateEnd, ';
+                $refrigeratedChamberDateEndDown = '"' . $data['refrigeratedChamberDateEnd'] . '", ';
+            }
+            if($data['refrigeratedChamberTimeEnd'] == ""){
+                $refrigeratedChamberTimeEndUp = '';
+                $refrigeratedChamberTimeEndDown = '';
+            }else{
+                $refrigeratedChamberTimeEndUp = 'refrigeratedChamberTimeEnd, ';
+                $refrigeratedChamberTimeEndDown = '"' . $data['refrigeratedChamberTimeEnd'] . '", ';
+            }
+
             $currentDate = $data['requestDate'];
 
             $expNumYear = $createYear;
@@ -1044,6 +1086,7 @@
                                         deceasedMortuary, deceasedMortuaryAddress, deceasedRoom, deceasedPanel, church, cemetery, $funeralDateUp $funeralTimeUp $funeralDateNewUp $funeralTimeNewUp $funeralDateBurialUp $funeralTimeBurialUp $ceremonyDateUp $ceremonyTimeUp niche, funeralNicheNumber, 
                                         funeralBusyNiche, regime, propertyName, deceasedNiche, $funeralDateNicheUp deceasedNiche2, $funeralDateNicheUp2 deceasedNiche3, $funeralDateNicheUp3 exhumation, nicheHeight, mortuaryReg, funeralReg, personalReg, 
                                         crematoriumReg, tanatologicalPractice, funeralHome, $funeralHomeEntryDateUp $funeralHomeEntryTimeUp $entryDateBarrowUp $entryTimeBarrowUp
+                                        $refrigeratedChamberNameUp $refrigeratedChamberDateStartUp $refrigeratedChamberTimeStartUp $refrigeratedChamberDateEndUp $refrigeratedChamberTimeEndUp
                                         coffin, responsibleUser, responsibleName, responsibleNIF, crematorium, crematoriumClient, crematoriumContactPersonPhone, crematoriumContactPerson, 
                                         crematoriumIntroduction, crematoriumWaitOnRoom, crematoriumVaseBio, moveFuneralHome, moveClient, $moveLeavingDateUp
                                         $moveLeavingTimeUp moveCollection, moveDestination, moveVia, moveNotes, moveJudicial, ecologicCoffin, authName, authDni, otherCoffin, churchLabel, cemeteryLabel, authDate,
@@ -1078,7 +1121,9 @@
                                         '" . $data['funeralNicheNumber'] . "', " . $data['funeralBusyNiche'] . ", " . $data['regime'] . ", '" . $data['propertyName'] . "', 
                                         '" . $data['deceasedNiche'] . "', $funeralDateNicheDown '" . $data['deceasedNiche2'] . "', $funeralDateNicheDown2   '" . $data['deceasedNiche3'] . "', $funeralDateNicheDown3 
                                         '" . $data['exhumation'] . "', " . $data['nicheHeight'] . ", " . $data['mortuaryReg'] . ", " . $data['funeralReg'] . ", " . $data['personalReg'] . ", " . $data['crematoriumReg'] . ",
-                                        " . $data['tanatologicalPractice'] . ", " . $data['funeralHome'] . ", $funeralHomeEntryDateDown $funeralHomeEntryTimeDown $entryDateBarrowDown $entryTimeBarrowDown " . $data['coffin'] . ", " . $data['responsibleUser'] . ", '" . $data['responsibleName'] . "', 
+                                        " . $data['tanatologicalPractice'] . ", " . $data['funeralHome'] . ", $funeralHomeEntryDateDown $funeralHomeEntryTimeDown $entryDateBarrowDown $entryTimeBarrowDown 
+                                        $refrigeratedChamberNameDown $refrigeratedChamberDateStartDown $refrigeratedChamberTimeStartDown $refrigeratedChamberDateEndDown $refrigeratedChamberTimeEndDown
+                                        " . $data['coffin'] . ", " . $data['responsibleUser'] . ", '" . $data['responsibleName'] . "', 
                                         '" . $data['responsibleNIF'] . "', " . $data['crematorium'] . ", " . $data['crematoriumClient'] . ", '" . $data['crematoriumContactPersonPhone'] . "', 
                                         '" . $data['crematoriumContactPerson'] . "', " . $data['crematoriumIntroduction'] . ", " . $data['crematoriumWaitOnRoom'] . ", 
                                         " . $data['crematoriumVaseBio'] . ", " . $data['moveFuneralHome'] . ", " . $data['moveClient'] . ", $moveLeavingDateDown $moveLeavingTimeDown 
@@ -1873,10 +1918,8 @@
             $data['funeralDateNiche3'] = cleanStr($data['funeralDateNiche3']);
             $data['funeralHomeEntryDate'] = cleanStr($data['funeralHomeEntryDate']);
             $data['funeralHomeEntryTime'] = cleanStr($data['funeralHomeEntryTime']);
-
             $data['entryDateBarrow'] = cleanStr($data['entryDateBarrow']);
             $data['entryTimeBarrow'] = cleanStr($data['entryTimeBarrow']);
-
             $data['crematoriumEntryDate'] = cleanStr($data['crematoriumEntryDate']);
             $data['crematoriumEntryTime'] = cleanStr($data['crematoriumEntryTime']);
             $data['crematoriumLeavingDate'] = cleanStr($data['crematoriumLeavingDate']);
@@ -2067,6 +2110,12 @@
             $data['placeDestinationFinalCemetery'] = cleanStr($data['placeDestinationFinalCemetery']);
             $data['notesExpedient'] = cleanTextArea($data['notesExpedient']);
             $data['mortuaryRegNotes'] = cleanTextArea($data['mortuaryRegNotes']);
+
+            $data['refrigeratedChamberName'] = cleanStr($data['refrigeratedChamberName']);
+            $data['refrigeratedChamberDateStart'] = cleanStr($data['refrigeratedChamberDateStart']);
+            $data['refrigeratedChamberTimeStart'] = cleanStr($data['refrigeratedChamberTimeStart']);
+            $data['refrigeratedChamberDateEnd'] = cleanStr($data['refrigeratedChamberDateEnd']);
+            $data['refrigeratedChamberTimeEnd'] = cleanStr($data['refrigeratedChamberTimeEnd']);
 
             // Validación de campos
             if($data['expType'] == ''){
@@ -2558,6 +2607,32 @@
             }else{
                 $mortuaryRegNotes = 'mortuaryRegNotes = "' . $data['mortuaryRegNotes'] . '", ';
             }
+
+            if($data['refrigeratedChamberName'] == ""){
+                $refrigeratedChamberName = 'refrigeratedChamberName = null, ';
+            }else{
+                $refrigeratedChamberName = 'refrigeratedChamberName = "' . $data['refrigeratedChamberName'] . '", ';
+            }
+            if($data['refrigeratedChamberDateStart'] == ""){
+                $refrigeratedChamberDateStart = 'refrigeratedChamberDateStart = null, ';
+            }else{
+                $refrigeratedChamberDateStart = 'refrigeratedChamberDateStart = "' . $data['refrigeratedChamberDateStart'] . '", ';
+            }
+            if($data['refrigeratedChamberTimeStart'] == ""){
+                $refrigeratedChamberTimeStart = 'refrigeratedChamberTimeStart = null, ';
+            }else{
+                $refrigeratedChamberTimeStart = 'refrigeratedChamberTimeStart = "' . $data['refrigeratedChamberTimeStart'] . '", ';
+            }
+            if($data['refrigeratedChamberDateEnd'] == ""){
+                $refrigeratedChamberDateEnd = 'refrigeratedChamberDateEnd = null, ';
+            }else{
+                $refrigeratedChamberDateEnd = 'refrigeratedChamberDateEnd = "' . $data['refrigeratedChamberDateEnd'] . '", ';
+            }
+            if($data['refrigeratedChamberTimeEnd'] == ""){
+                $refrigeratedChamberTimeEnd = 'refrigeratedChamberTimeEnd = null, ';
+            }else{
+                $refrigeratedChamberTimeEnd = 'refrigeratedChamberTimeEnd = "' . $data['refrigeratedChamberTimeEnd'] . '", ';
+            }
     
             //Obtener datos del expediente editado antes de realizar la edicion
             $result = $db->query("  SELECT  requestDate, number, expNumLetter, expNumSecuence, expNumYear, expNumType, clientType, client,
@@ -2919,7 +2994,9 @@
                                                 funeralBusyNiche = " . $data['funeralBusyNiche'] . ", regime = " . $data['regime'] . ", propertyName = '" . $data['propertyName'] . "', exhumation = '" . $data['exhumation'] . "', 
                                                 nicheHeight = " . $data['nicheHeight'] . ", $funeralDateNiche $funeralDateNiche2 $funeralDateNiche3 deceasedNiche = '" . $data['deceasedNiche'] . "', deceasedNiche2 = '" . $data['deceasedNiche2'] . "', deceasedNiche3 = '" . $data['deceasedNiche3'] . "',
                                                 mortuaryReg = " . $data['mortuaryReg'] . ", funeralReg = " . $data['funeralReg'] . ", personalReg = " . $data['personalReg'] . ", crematoriumReg = " . $data['crematoriumReg'] . ",
-                                                tanatologicalPractice = " . $data['tanatologicalPractice'] . ", funeralHome = " . $data['funeralHome'] . ", $funeralHomeEntryDate $funeralHomeEntryTime $entryDateBarrow $entryTimeBarrow coffin = " . $data['coffin'] . ", responsibleUser = " . $data['responsibleUser'] . ", responsibleName = '" . $data['responsibleName'] . "', 
+                                                tanatologicalPractice = " . $data['tanatologicalPractice'] . ", funeralHome = " . $data['funeralHome'] . ", $funeralHomeEntryDate $funeralHomeEntryTime $entryDateBarrow $entryTimeBarrow 
+                                                $refrigeratedChamberName $refrigeratedChamberDateStart $refrigeratedChamberTimeStart $refrigeratedChamberDateEnd $refrigeratedChamberTimeEnd
+                                                coffin = " . $data['coffin'] . ", responsibleUser = " . $data['responsibleUser'] . ", responsibleName = '" . $data['responsibleName'] . "', 
                                                 responsibleNIF = '" . $data['responsibleNIF'] . "', crematorium = " . $data['crematorium'] . ", crematoriumClient = " . $data['crematoriumClient'] . ",
                                                 $crematoriumArriveTime crematoriumIntroduction = " . $data['crematoriumIntroduction'] . ", 
                                                 crematoriumWaitOnRoom = " . $data['crematoriumWaitOnRoom'] . ", crematoriumVaseBio = " . $data['crematoriumVaseBio'] . ",
@@ -18454,7 +18531,8 @@
                                     startVelacionDate, startVelacionTime, hearse, placeDestinationMiddle, placeDestinationFinal, placeDestinationFinalCemetery, hiring_rectified,
                                     smokeOpacityDateStart, smokeOpacityTimeStart, smokeOpacityDateEnd, smokeOpacityTimeEnd, smokeOpacityLoadWeight, smokeOpacityBacharachScale,
                                     smokeOpacityDateReading, smokeOpacityTimeReading, smokeOpacityIncidents, smokeOpacityIncidentsNotes, notesExpedient, tellmebyeRoom, tellmebyeRoomName,
-                                    entryDateBarrow, entryTimeBarrow, internalRef, endVelacionDate, endVelacionTime, startVelacionDate2, startVelacionTime2, endVelacionDate2, endVelacionTime2,
+                                    entryDateBarrow, entryTimeBarrow, refrigeratedChamberName, refrigeratedChamberDateStart, refrigeratedChamberTimeStart, refrigeratedChamberDateEnd, refrigeratedChamberTimeEnd,
+                                    internalRef, endVelacionDate, endVelacionTime, startVelacionDate2, startVelacionTime2, endVelacionDate2, endVelacionTime2,
                                     deceasedNiche2, funeralDateNiche2, deceasedNiche3, funeralDateNiche3, agency, agencyContact, agencyContactPhone, departureDate, arrivalDate,
                                     carCollection1LicensePlate, carCollection1Brand, carCollection1Model, hearseLicensePlate, hearseBrand, hearseModel, mortuaryRegNotes, next_invoice_status,
                                     duplicate_origin, duplicate_user, duplicate_date
@@ -18900,6 +18978,13 @@
                 $tellmebyeRoomName = $currentExpedientData['tellmebyeRoomName'];
                 $entryDateBarrow = $currentExpedientData['entryDateBarrow'] == null ? 'null' : "'" . $currentExpedientData['entryDateBarrow'] . "'";
                 $entryTimeBarrow = $currentExpedientData['entryTimeBarrow'] == null ? 'null' : "'" . $currentExpedientData['entryTimeBarrow'] . "'";
+
+                $refrigeratedChamberName = $currentExpedientData['refrigeratedChamberName'] == null ? 'null' : "'" . $currentExpedientData['refrigeratedChamberName'] . "'";
+                $refrigeratedChamberDateStart = $currentExpedientData['refrigeratedChamberDateStart'] == null ? 'null' : "'" . $currentExpedientData['refrigeratedChamberDateStart'] . "'";
+                $refrigeratedChamberTimeStart = $currentExpedientData['refrigeratedChamberTimeStart'] == null ? 'null' : "'" . $currentExpedientData['refrigeratedChamberTimeStart'] . "'";
+                $refrigeratedChamberDateEnd = $currentExpedientData['refrigeratedChamberDateEnd'] == null ? 'null' : "'" . $currentExpedientData['refrigeratedChamberDateEnd'] . "'";
+                $refrigeratedChamberTimeEnd = $currentExpedientData['refrigeratedChamberTimeEnd'] == null ? 'null' : "'" . $currentExpedientData['refrigeratedChamberTimeEnd'] . "'";
+
                 $internalRef = $currentExpedientData['internalRef'];
                 $endVelacionDate = $currentExpedientData['endVelacionDate'] == null ? 'null' : "'" . $currentExpedientData['endVelacionDate'] . "'";
                 $endVelacionTime = $currentExpedientData['endVelacionTime'] == null ? 'null' : "'" . $currentExpedientData['endVelacionTime'] . "'";
@@ -18952,7 +19037,8 @@
                                 startVelacionDate, startVelacionTime, hearse, placeDestinationMiddle, placeDestinationFinal, placeDestinationFinalCemetery, hiring_rectified,
                                 smokeOpacityDateStart, smokeOpacityTimeStart, smokeOpacityDateEnd, smokeOpacityTimeEnd, smokeOpacityLoadWeight, smokeOpacityBacharachScale,
                                 smokeOpacityDateReading, smokeOpacityTimeReading, smokeOpacityIncidents, smokeOpacityIncidentsNotes, notesExpedient, tellmebyeRoom, tellmebyeRoomName,
-                                entryDateBarrow, entryTimeBarrow, internalRef, endVelacionDate, endVelacionTime, startVelacionDate2, startVelacionTime2, endVelacionDate2, endVelacionTime2,
+                                entryDateBarrow, entryTimeBarrow, refrigeratedChamberName, refrigeratedChamberDateStart, refrigeratedChamberTimeStart, refrigeratedChamberDateEnd, refrigeratedChamberTimeEnd,
+                                internalRef, endVelacionDate, endVelacionTime, startVelacionDate2, startVelacionTime2, endVelacionDate2, endVelacionTime2,
                                 deceasedNiche2, funeralDateNiche2, deceasedNiche3, funeralDateNiche3, agency, agencyContact, agencyContactPhone, departureDate, arrivalDate,
                                 carCollection1LicensePlate, carCollection1Brand, carCollection1Model, hearseLicensePlate, hearseBrand, hearseModel, mortuaryRegNotes, next_invoice_status,
                                 duplicate_origin, duplicate_user, duplicate_date
@@ -18981,7 +19067,8 @@
                                 $startVelacionDate, $startVelacionTime, $hearse, $placeDestinationMiddle, $placeDestinationFinal, $placeDestinationFinalCemetery, $hiring_rectified,
                                 $smokeOpacityDateStart, $smokeOpacityTimeStart, $smokeOpacityDateEnd, $smokeOpacityTimeEnd, $smokeOpacityLoadWeight, $smokeOpacityBacharachScale,
                                 $smokeOpacityDateReading, $smokeOpacityTimeReading, $smokeOpacityIncidents, '$smokeOpacityIncidentsNotes', '$notesExpedient', '$tellmebyeRoom', '$tellmebyeRoomName',
-                                $entryDateBarrow, $entryTimeBarrow, '$internalRef', $endVelacionDate, $endVelacionTime, $startVelacionDate2, $startVelacionTime2, $endVelacionDate2, $endVelacionTime2,
+                                $entryDateBarrow, $entryTimeBarrow, $refrigeratedChamberName $refrigeratedChamberDateStart $refrigeratedChamberTimeStart $refrigeratedChamberDateEnd $refrigeratedChamberTimeEnd,
+                                '$internalRef', $endVelacionDate, $endVelacionTime, $startVelacionDate2, $startVelacionTime2, $endVelacionDate2, $endVelacionTime2,
                                 '$deceasedNiche2', $funeralDateNiche2, '$deceasedNiche3', $funeralDateNiche3, '$agency', '$agencyContact', '$agencyContactPhone', $departureDate, $arrivalDate,
                                 '$carCollection1LicensePlate', '$carCollection1Brand', '$carCollection1Model', '$hearseLicensePlate', '$hearseBrand', '$hearseModel', '$mortuaryRegNotes', $next_invoice_status,
                                 $duplicate_origin, $duplicate_user, $duplicate_date

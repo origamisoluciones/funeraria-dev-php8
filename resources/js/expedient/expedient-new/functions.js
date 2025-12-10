@@ -3172,6 +3172,21 @@ $(function(){
         }
         var entryTimeBarrow = $('#entryTimeBarrow').val();
 
+        // Camara refrigerada
+        var refrigeratedChamberName = $('#refrigeratedChamberName').val();
+        // Fecha y hora entrada en camara
+        var refrigeratedChamberDateStart = '';
+        if($('#refrigeratedChamberDateStart').val() != ''){
+            refrigeratedChamberDateStart = moment($('#refrigeratedChamberDateStart').val(), 'DD/MM/YYYY').format('YYYY-MM-DD');
+        }
+        var refrigeratedChamberTimeStart = $('#refrigeratedChamberTimeStart').val();
+        // Fecha y hora salida de camara
+        var refrigeratedChamberDateEnd = '';
+        if($('#refrigeratedChamberDateEnd').val() != ''){
+            refrigeratedChamberDateEnd = moment($('#refrigeratedChamberDateEnd').val(), 'DD/MM/YYYY').format('YYYY-MM-DD');
+        }
+        var refrigeratedChamberTimeEnd = $('#refrigeratedChamberTimeEnd').val();
+
         //Datos Cremación
         var crematorium = $('#crematorium').val();
         var crematoriumStatus = $('#crematoriumStatus').val();
@@ -3587,6 +3602,7 @@ $(function(){
                         deceasedNiche: deceasedNiche, funeralDateNiche: funeralDateNiche, deceasedNiche2: deceasedNiche2, funeralDateNiche2: funeralDateNiche2, deceasedNiche3: deceasedNiche3, funeralDateNiche3: funeralDateNiche3,
                         exhumation: exhumation, nicheHeight: nicheHeight, mortuaryReg: mortuaryReg, funeralReg: funeralReg, personalReg: personalReg, 
                         crematoriumReg: crematoriumReg, tanatologicalPractice: tanatologicalPractice, funeralHome: funeralHome, funeralHomeEntryDate: funeralHomeEntryDate, entryDateBarrow: entryDateBarrow, entryTimeBarrow: entryTimeBarrow,
+                        refrigeratedChamberName: refrigeratedChamberName, refrigeratedChamberDateStart: refrigeratedChamberDateStart, refrigeratedChamberTimeStart: refrigeratedChamberTimeStart, refrigeratedChamberDateEnd: refrigeratedChamberDateEnd, refrigeratedChamberTimeEnd: refrigeratedChamberTimeEnd,
                         funeralHomeEntryTime: funeralHomeEntryTime, coffin: coffin, responsibleUser: responsibleUser, responsibleName: responsibleName, responsibleNIF: responsibleNIF, crematorium: crematorium, crematoriumStatus: crematoriumStatus,
                         crematoriumEntryDate: crematoriumEntryDate, crematoriumEntryTime: crematoriumEntryTime, crematoriumLeavingDate: crematoriumLeavingDate, crematoriumLeavingTime: crematoriumLeavingTime, crematoriumClient: crematoriumClient,
                         crematoriumContactPersonPhone: crematoriumContactPersonPhone, crematoriumContactPerson: crematoriumContactPerson, crematoriumIntroduction: crematoriumIntroduction, 

@@ -548,6 +548,11 @@
                                 <li><span class="expediente-copy-alias" alias="#128#"><strong>Práct. Tanatológica</strong>: #128#</span></li>
                                 <li><span class="expediente-copy-alias" alias="#129#"><strong>Nombre</strong>: #129#</span></li>
                                 <li><span class="expediente-copy-alias" alias="#130#"><strong>NIF/NIE/Pasaporte/Otro</strong>: #130#</span></li>
+                                <li><span class="expediente-copy-alias" alias="#263#"><strong>Cámara refrigerada</strong>: #263#</span></li>
+                                <li><span class="expediente-copy-alias" alias="#264#"><strong>Fecha Entrada en Cámara</strong>: #264#</span></li>
+                                <li><span class="expediente-copy-alias" alias="#265#"><strong>Hora Entrada en Cámara</strong>: #265#</span></li>
+                                <li><span class="expediente-copy-alias" alias="#266#"><strong>Fecha Salida de Cámara</strong>: #266#</span></li>
+                                <li><span class="expediente-copy-alias" alias="#267#"><strong>Hora Salida de Cámara</strong>: #267#</span></li>
                                 <li><span class="expediente-copy-alias" alias="#214#"><strong>Cadáver Grupo I</strong>: #214#</span></li>
                                 <li><span class="expediente-copy-alias" alias="#215#"><strong>Judicial</strong>: #215#</span></li>
                                 <li><span class="expediente-copy-alias" alias="#216#"><strong>Recogida</strong>: #216#</span></li>

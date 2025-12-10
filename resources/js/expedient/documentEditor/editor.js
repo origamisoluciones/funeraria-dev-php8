@@ -811,6 +811,12 @@ function drawLoad(){
             text = text.split('#129#').join(expedientDataSheetInfo.responsibleUserName == null || expedientDataSheetInfo.responsibleUserName == '' ? '' : expedientDataSheetInfo.responsibleUserName + ' ' + expedientDataSheetInfo.responsibleUserSurname);
             text = text.split('#130#').join(expedientDataSheetInfo.responsibleUserNif == null || expedientDataSheetInfo.responsibleUserNif == '' ? '' : expedientDataSheetInfo.responsibleUserNif);
 
+            text = text.split('#263#').join(expedientDataSheetInfo.refrigeratedChamberName == null || expedientDataSheetInfo.refrigeratedChamberName == '' ? '' : expedientDataSheetInfo.refrigeratedChamberName);
+            text = text.split('#264#').join(expedientDataSheetInfo.refrigeratedChamberDateStart == null || expedientDataSheetInfo.refrigeratedChamberDateStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberDateStart, 'YYYY-MM-DD').format('DD/MM/YYYY'));
+            text = text.split('#265#').join(expedientDataSheetInfo.refrigeratedChamberTimeStart == null || expedientDataSheetInfo.refrigeratedChamberTimeStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberTimeStart, 'HH:mm:ss').format('HH:mm'));
+            text = text.split('#266#').join(expedientDataSheetInfo.refrigeratedChamberDateEnd == null || expedientDataSheetInfo.refrigeratedChamberDateEnd == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberDateEnd, 'YYYY-MM-DD').format('DD/MM/YYYY'));
+            text = text.split('#267#').join(expedientDataSheetInfo.refrigeratedChamberTimeStart == null || expedientDataSheetInfo.refrigeratedChamberTimeStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberTimeStart, 'HH:mm:ss').format('HH:mm'));
+
             text = text.split('#214#').join(expedientDataSheetInfo.covid == null || expedientDataSheetInfo.covid == '' ? '' : (expedientDataSheetInfo.covid == '0' ? 'No' : 'Si'));
             text = text.split('#215#').join(expedientDataSheetInfo.moveJudicial == null || expedientDataSheetInfo.moveJudicial == '' ? '' : (expedientDataSheetInfo.moveJudicial == '0' ? 'No' : 'Si'));
             text = text.split('#216#').join(expedientDataSheetInfo.moveTraslado == null || expedientDataSheetInfo.moveTraslado == '' ? '' : (expedientDataSheetInfo.moveTraslado == '0' ? 'No' : 'Si'));
