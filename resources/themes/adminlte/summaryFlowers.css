@@ -1,0 +1,126 @@
+/* --------------------------- */
+/* RESET Y ESTILO GENERAL */
+/* --------------------------- */
+
+* {
+    font-family: "Mulish", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 5px 15px;
+    padding: 0;
+    font-size: 15px;
+}
+
+.page {
+    width: 100%;
+}
+
+/* --------------------------- */
+/* CABECERA (TABLE LAYOUT) */
+/* --------------------------- */
+
+.header-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.header-logo {
+    width: 130px;
+    vertical-align: middle;
+}
+
+.header-logo img {
+    max-width: 400px;
+    height: auto;
+}
+
+.header-title {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.header-title h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Evitar saltos raros en la cabecera */
+.header-table tr {
+    page-break-inside: avoid;
+}
+
+/* --------------------------- */
+/* TABLA PRINCIPAL */
+/* --------------------------- */
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* CABECERA DE TABLA */
+.summary-table thead th {
+    background: #e5e5e5;
+    color: #000;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 4px 6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #999;
+    text-align: center;
+    vertical-align: middle;
+    /* border-left: 5px solid white !important; */
+}
+
+/* PROPORCIONES DE COLUMNAS (similar al PDF subido) */
+.col-producto {
+    width: 25%;
+}
+.col-cinta {
+    width: 30%;
+}
+.col-floristeria {
+    width: 25%;
+}
+.col-recogida {
+    width: 20%;
+}
+
+/* CUERPO DE TABLA */
+.summary-table tbody td {
+    padding: 6px 5px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    background-color: white!important;
+    vertical-align: middle;
+    /* border-left: 5px solid white !important; */
+}
+
+.summary-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* Evitar cortes feos en filas (WKHTML) */
+.summary-table tr {
+    page-break-inside: avoid;
+}
+
+/* Títulos h1/h2 nunca deben separarse */
+h1, h2 {
+    page-break-after: avoid;
+}
+
+.bold{
+    font-weight: 600;
+}

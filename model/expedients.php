@@ -8860,6 +8860,65 @@
         }
 
         /**
+         * Obtiene los datos para el resumen de flores de hoy
+         * 
+         * @param string $day Dat to consult
+         * @return array
+         */
+        public function listSummaryFlowers($day){
+            $db = new DbHandler;
+
+            $list = array();
+
+            $result = $db->query("  SELECT      e.expedientID, e.deceasedName, e.deceasedSurname
+                                    FROM        Expedients e
+                                    WHERE       e.funeralDate LIKE '%$day%' AND
+                                                e.leavingDate IS NULL AND
+                                                e.type != 2
+                                    ORDER BY    e.funeralDate, e.funeralTime
+            ");
+
+            $expedients = [];
+
+            if(mysqli_num_rows($result) > 0){
+                $expedients = $db->resultToArray($result);
+                foreach($expedients as $key => $expedient){
+                    
+                    $maxNumHiring = $this->getActiveHiring($expedient['expedientID']);
+
+                    $result = $db->query("  SELECT	    p.name as product_name, 
+                                                        pm.name as model_name,
+                                                        REPLACE(et.value, '\\\', '') as texts,
+                                                        sup.name as supplier_name,
+                                                        ord.deliveryDate
+                                            FROM	    (Expedients e, Expedients_Hirings eh, Products p, Products_Models pm, Suppliers sup)
+                                            LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
+                                            LEFT JOIN   Pre_Orders po ON po.leavingDate IS NULL AND po.hiring = eh.ID
+                                            LEFT JOIN   Orders ord ON ord.leavingDate IS NULL AND po.order = ord.ID
+                                            WHERE	    e.expedientID = {$expedient['expedientID']} AND
+                                                        eh.expedient = e.expedientID AND
+                                                        eh.num_hiring = $maxNumHiring AND
+                                                        eh.check = 1 AND
+                                                        eh.product = p.productID AND
+                                                        p.blockBelow = 3 AND
+                                                        eh.model = pm.productModelID AND
+                                                        eh.supplier = sup.supplierID
+                    ");
+
+                    if(mysqli_num_rows($result) > 0){
+                        $expedients[$key]['products'] = $db->resultToArray($result);
+                    }else{
+                        unset($expedients[$key]);
+                    }
+                }
+            }
+
+            count($expedients) == 0 ? $list['expedients'] = null : $list['expedients'] = array_values($expedients);
+
+            return $list;
+        }
+
+        /**
          * Obtiene los datos de control del expediente
          * 
          * @param int $data ID del expediente

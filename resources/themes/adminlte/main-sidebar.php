@@ -48,8 +48,8 @@
             <li id="sidebarCServicio" class="
                 <?php 
                     if(
-                        $currentPage == '/tareas-pendientes' || $currentPage == '/control-de-servicios' || $currentPage == '/servicios-de-hoy' || 
-                        $currentPage == '/servicios-de-ma%C3%B1ana' || $currentPage == '/literales-pendientes' || $currentPage == '/servicios/cremaciones-hoy' || 
+                        $currentPage == '/tareas-pendientes' || $currentPage == '/control-de-servicios' || $currentPage == '/servicios-de-hoy' || $currentPage == '/resumen-flores-hoy' || 
+                        $currentPage == '/servicios-de-ma%C3%B1ana' || $currentPage == '/resumen-flores-manana' || $currentPage == '/literales-pendientes' || $currentPage == '/servicios/cremaciones-hoy' || 
                         $currentPage == '/servicios/cremaciones-ma%C3%B1ana' || $currentPage == '/servicios/buscar-resumen'
                     ){
                         echo 'active';
@@ -67,7 +67,9 @@
                     <li id="sidebarCServicioTareasPendientes" class="<?php if($currentPage == '/tareas-pendientes'){echo 'active';} ?>"><a href="<?php echo $route; ?>tareas-pendientes"><i class="fa fa-circle-o"></i> Tareas pendientes <span class="label label-warning" id="pendingTasksNumber"></span></a></li>
                     <li id="sidebarCServicioLiteralesPendientes" class="<?php if($currentPage == '/literales-pendientes'){echo 'active';} ?>"><a href="<?php echo $route; ?>literales-pendientes"><i class="fa fa-circle-o"></i> Literales pendientes </a></li>
                     <li id="sidebarCServicioServiciosHoy" class="<?php if($currentPage == '/servicios-de-hoy'){echo 'active';} ?>"><a href="<?php echo $route; ?>servicios-de-hoy"><i class="fa fa-circle-o"></i> Resumen de hoy</a></li>
+                    <li id="sidebarCServicioResumenFloresHoy" class="<?php if($currentPage == '/resumen-flores-hoy'){echo 'active';} ?>"><a href="<?php echo $route; ?>resumen-flores-hoy"><i class="fa fa-circle-o"></i> Resumen flores de hoy</a></li>
                     <li id="sidebarCServicioServiciosManana" class="<?php if($currentPage == '/servicios-de-ma%C3%B1ana'){echo 'active';} ?>"><a href="<?php echo $route; ?>servicios-de-ma%C3%B1ana"><i class="fa fa-circle-o"></i> Resumen de mañana</a></li>
+                    <li id="sidebarCServicioResumenFloresManana" class="<?php if($currentPage == '/resumen-flores-manana'){echo 'active';} ?>"><a href="<?php echo $route; ?>resumen-flores-manana"><i class="fa fa-circle-o"></i> Resumen flores de mañana</a></li>
                     <li id="sidebarCServicioCremacionesHoy" class="<?php if($currentPage == '/servicios/cremaciones-hoy'){echo 'active';} ?>"><a href="<?php echo $route; ?>servicios/cremaciones-hoy"><i class="fa fa-circle-o"></i> Cremaciones de hoy</a></li>
                     <li id="sidebarCServicioCremacionesManana" class="<?php if($currentPage == '/servicios/cremaciones-ma%C3%B1ana'){echo 'active';} ?>"><a href="<?php echo $route; ?>servicios/cremaciones-ma%C3%B1ana"><i class="fa fa-circle-o"></i> Cremaciones de mañana</a></li>
                     <li id="sidebarCServicioBuscarResumen" class="<?php if($currentPage == '/servicios/buscar-resumen'){echo 'active';} ?>"><a href="<?php echo $route; ?>servicios/buscar-resumen"><i class="fa fa-circle-o"></i> Buscar resumen</a></li>

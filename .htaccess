@@ -303,7 +303,9 @@ RewriteRule ^salidas/impuestos-tasas$ view/configuration/taxes.php
 # SERVICIOS
 RewriteRule ^servicios/buscar-resumen$ view/serviceControl/searchSummary.php
 RewriteRule ^servicios-de-hoy$ view/serviceControl/todaySummary.php
+RewriteRule ^resumen-flores-hoy$ view/serviceControl/todaySummaryFlowers.php
 RewriteRule ^servicios-de-mañana$ view/serviceControl/tomorrowSummary.php
+RewriteRule ^resumen-flores-manana$ view/serviceControl/tomorrowSummaryFlowers.php
 RewriteRule ^servicios/cremaciones-hoy$ view/serviceControl/todayCremations.php
 RewriteRule ^servicios/cremaciones-mañana$ view/serviceControl/tomorrowCremations.php
 
