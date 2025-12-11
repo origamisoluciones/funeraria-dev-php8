@@ -92,6 +92,18 @@ $(function(){
         $(this).closest('div.input-group.date').find('input').focus()
     })
 
+    // TIMEPICKER
+    $('.time').timepicker({
+        showInputs: false,
+        showMeridian: false,
+        defaultTime: false,
+        showSeconds : false
+    });
+
+    $('.fa.fa-clock-o').click(function(){
+        $(this).closest('div.input-group').find('input').focus()
+    })
+
     // SELECT2
     $.fn.select2.defaults.set("width", "100%")
     $('.select2').select2({
@@ -135,26 +147,6 @@ $(function(){
         templateResult: formatData,
         templateSelection: formatData,
     })
-
-    /*$('#type').change(function(){
-        if($(this).val() == 0){
-            $('#expedientSection').removeClass('hide')
-            $('#freeOrder').show()
-            $('#supplier').val('').trigger('change')
-            $('#supplierSection').show()
-        }else{
-            $('#expedientSection').addClass('hide')
-            $('#expedient1').val('').trigger('change')
-            $('#freeOrder').hide()
-            if($('#supplier').find("option[value='127']").length){
-                $('#supplier').val(127).trigger('change')
-            }else{ 
-                var newOption = new Option('No proveedor', 127, true, true)
-                $('#supplier').append(newOption).trigger('change')
-            }
-            $('#supplierSection').hide()
-        }
-    })*/
 
     $('#date').val(moment().format('DD/MM/YYYY'))
     $('#deliveryDate').val(moment().add(1, 'days').format('DD/MM/YYYY'))
@@ -831,6 +823,9 @@ $(function(){
             var deliveryPlace = $('#deliveryPlace').val()
             var deliveryPlaceOther = $('#deliveryPlaceOther').val()
             var deliveryDate = moment($('#deliveryDate').val(), 'DD/MM/YYYY').format('X')
+            if($('#deliveryDate').val() != ''){
+                deliveryDate = moment($('#deliveryDate').val() + ' ' + $('#deliveryTime').val(), 'DD/MM/YYYY HH:mm').format('X')
+            }
             var notes = $('#notes').val()
 
             $.ajax({

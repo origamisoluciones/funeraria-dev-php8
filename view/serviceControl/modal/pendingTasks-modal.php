@@ -56,6 +56,7 @@
                                     <li class="bolder">Def.<span id="deceased"></span>, Nº Exp: <span id="expedientID"></span></li>
                                     <li>Lugar de entrega: <span id="deliveryPlace"></span></li>
                                     <li>Fecha de entrega: <span id="deliveryDate"></span></li>
+                                    <li>Hora de entrega: <span id="deliveryTime"></span></li>
                                 </ul>
                             </div>
                         </div>

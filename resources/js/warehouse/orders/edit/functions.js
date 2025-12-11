@@ -158,6 +158,18 @@ $(function(){
         $(this).closest('div.input-group.date').find('input').focus()
     })
 
+    // TIMEPICKER
+    $('.time').timepicker({
+        showInputs: false,
+        showMeridian: false,
+        defaultTime: false,
+        showSeconds : false
+    });
+
+    $('.fa.fa-clock-o').click(function(){
+        $(this).closest('div.input-group').find('input').focus()
+    })
+
     // SELECT2
     $.fn.select2.defaults.set("width", "100%")
     $('.select2').select2({
@@ -440,6 +452,10 @@ $(function(){
         
                     if(order.deliveryDate != null){
                         $('#deliveryDate').val(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                        
+                        if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                            $('#deliveryTime').val(moment(order.deliveryDate, 'X').format('HH:mm'))
+                        }
                     }
 
                     if(order.sendTo != null){
@@ -883,6 +899,10 @@ $(function(){
 
                     if(order.deliveryDate != null){
                         $('#deliveryDate').val(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+
+                        if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                            $('#deliveryTime').val(moment(order.deliveryDate, 'X').format('HH:mm'))
+                        }
                     }
 
                     //$("#addOrderLine").remove();
@@ -1748,6 +1768,9 @@ $(function(){
             var deliveryPlaceOther = $('#formEditOrder #deliveryPlaceOther').val()
             var deceasedRoom = $('#formEditOrder #deceasedRoom').val()
             var deliveryDate = moment($('#formEditOrder #deliveryDate').val(), 'DD/MM/YYYY').format('X')
+            if($('#formEditOrder #deliveryDate').val() != ''){
+                deliveryDate = moment($('#formEditOrder #deliveryDate').val() + ' ' + $('#formEditOrder #deliveryTime').val(), 'DD/MM/YYYY HH:mm').format('X')
+            }
             var sendTo = $('#formEditOrder #sendTo').val()
             var notes = $('#formEditOrder #notes').val()
             var inAgreement = $('#formEditOrder #inAgreement').val()
@@ -2283,6 +2306,9 @@ $(function(){
             var deliveryPlaceOther = $('#deliveryPlaceOther').val()
             var deceasedRoom = $('#deceasedRoom').val()
             var deliveryDate = moment($('#deliveryDate').val(), 'DD/MM/YYYY').format('X')
+            if($('#deliveryDate').val() != ''){
+                deliveryDate = moment($('#deliveryDate').val() + ' ' + $('#deliveryTime').val(), 'DD/MM/YYYY HH:mm').format('X')
+            }
             var sendTo = $('#sendTo').val()
             var notes = $('#notes').val()
             var inAgreement = $('#inAgreement').val()
@@ -2442,6 +2468,11 @@ $(function(){
 
                                 if(order.deliveryDate != null){
                                     $('#modal-send-email2 #deliveryDate2').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                    if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                        $('#modal-send-email2 #deliveryTime2').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                    }else{
+                                        $('#modal-send-email2 #deliveryTime2').html('-')
+                                    }
                                 }
 
                                 $('#modal-send-email2 #notes2').html(order.notes)

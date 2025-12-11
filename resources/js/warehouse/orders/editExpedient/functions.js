@@ -128,6 +128,7 @@ $(function(){
             $('#formEditOrder #date').prop('disabled', true)
             $('#formEditOrder #deliveryPlace').prop('disabled', true)
             $('#formEditOrder #deliveryDate').prop('disabled', true)
+            $('#formEditOrder #deliveryTime').prop('disabled', true)
             $('#formEditOrder #inAgreement').prop('disabled', true)
             $('#formEditOrder #notes').prop('disabled', true)
             $('#formEditOrder #status').prop('disabled', true)
@@ -396,6 +397,9 @@ $(function(){
             var date = moment($('#formEditOrder #date').val(), 'DD/MM/YYYY').format('X')
             var deliveryPlace = $('#formEditOrder #deliveryPlace').val()
             var deliveryDate = moment($('#formEditOrder #deliveryDate').val(), 'DD/MM/YYYY').format('X')
+            if($('#formEditOrder #deliveryDate').val() != ''){
+                deliveryDate = moment($('#formEditOrder #deliveryDate').val() + ' ' + $('#formEditOrder #deliveryTime').val(), 'DD/MM/YYYY HH:mm').format('X')
+            }
             var inAgreement = $('#formEditOrder #inAgreement').val()
             var notes = $('#formEditOrder #notes').val()
             var status

@@ -3188,6 +3188,11 @@ $(function(){
                                                 $('#modal-send-email #deliveryPlace').html(order.deliveryPlaceName + ", Sala Nº: " + order.deceasedRoom)
                                                 if(order.deliveryDate != null){
                                                     $('#modal-send-email #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                                    if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                                        $('#modal-send-email #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                                    }else{
+                                                        $('#modal-send-email #deliveryTime').html('-')
+                                                    }
                                                 }
                                                 $('#modal-send-email #notes').html(order.notes)
                                                 $('#modal-send-email #send').html(order.mail)
@@ -3367,6 +3372,11 @@ $(function(){
                                     $('#modal-send-email #deliveryPlace').html(order.deliveryPlaceName + ", Sala Nº: " + order.deceasedRoom)
                                     if(order.deliveryDate != null){
                                         $('#modal-send-email #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                        if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                            $('#modal-send-email #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                        }else{
+                                            $('#modal-send-email #deliveryTime').html('-')
+                                        }
                                     }
                                     $('#modal-send-email #notes').html(order.notes)
                                     $('#modal-send-email #send').html(order.mail)
@@ -3566,10 +3576,6 @@ $(function(){
                 $('#block-message').html('<div class="alert alert-error alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> Error mientras se procesaba su solicitud. Vuelva a intentarlo más tarde. Disculpe las molestias.</div>')
             }
         })
-    })
-
-    $('#expedient-new-order').click(function(){
-        window.location.href = uri + 'almacen/pedidos/nuevo-pedido/' + expedientID;
     })
 
     // Documentación múltiple

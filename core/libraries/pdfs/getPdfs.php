@@ -8969,16 +8969,25 @@
                 $expedientID = $order['expedientID'];
                 $nonApproval = $order['nonApproval'];
                 $correctiveAction = $order['correctiveAction'];
+
+                $deliveryPlace = '-';
                 if($order["deliveryPlace"] == null){
                     $deliveryPlace = $order["otherDeliveryPlace"];
                 }else{
                     $deliveryPlace = $order["mortuaryName"];
                 }
+                $date = '-';
                 if($order["date"] != null){
                     $date = date("j/n/Y", $order["date"]);
                 }
+                $deliveryDate = '-';
+                $deliveryTime = '-';
                 if($order["deliveryDate"] != null){
                     $deliveryDate = date("j/n/Y", $order["deliveryDate"]);
+
+                    if(date("H:i", $order["deliveryDate"]) != '00:00'){
+                        $deliveryTime = date("H:i", $order["deliveryDate"]);
+                    }
                 }
 
                 $text = "   
@@ -9001,7 +9010,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td colspan='2'>
                                                     <p><strong>Proveedor:</strong> $supplierName</p>
                                                 </td>
                                             </tr>
@@ -9031,6 +9040,9 @@
                     <tr>
                         <td>
                             <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
+                        </td>
+                        <td>
+                            <p><strong>Hora de entrega:</strong> $deliveryTime</p>
                         </td>
                     </tr>
                     <tr>
@@ -9101,31 +9113,42 @@
 
                 $amount = 0;
                 $total = 0.00;
-                foreach($ordersLines AS $key => $orderLine){
-                    if($orderLine["lastPurchaseDate"] != null){
-                        $orderLine["lastPurchaseDate"] = date("j/n/Y", $orderLine["lastPurchaseDate"]);
+                if($ordersLines != null && count($ordersLines) > 0){
+                    foreach($ordersLines AS $key => $orderLine){
+                        if($orderLine["lastPurchaseDate"] != null){
+                            $orderLine["lastPurchaseDate"] = date("j/n/Y", $orderLine["lastPurchaseDate"]);
+                        }
+    
+                        $amount = $amount + $orderLine['amount'];
+                        $total = $total + $orderLine['price'];
+                        $text .= "
+                            <tr>
+                                <td style='text-align: center'><p>" . $orderLine['productName'] . "</p></td>
+                                <td style='text-align: center'><p>" . $orderLine['modelName'] . "</p></td>
+                                <td style='text-align: center'><p>" . $orderLine['supplierReference'] . "</p></td>
+                                <td style='text-align: center'><p>" . $orderLine['amount'] . "</p></td>
+                                <td style='text-align: center'><p>" . $orderLine['hiring_text'] . "</p></td>
+                            </tr>
+                        ";
                     }
 
-                    $amount = $amount + $orderLine['amount'];
-                    $total = $total + $orderLine['price'];
                     $text .= "
                         <tr>
-                            <td style='text-align: center'><p>" . $orderLine['productName'] . "</p></td>
-                            <td style='text-align: center'><p>" . $orderLine['modelName'] . "</p></td>
-                            <td style='text-align: center'><p>" . $orderLine['supplierReference'] . "</p></td>
-                            <td style='text-align: center'><p>" . $orderLine['amount'] . "</p></td>
-                            <td style='text-align: center'><p>" . $orderLine['hiring_text'] . "</p></td>
+                            <td style='text-align: center'><p><strong>TOTAL</strong></p></td>
+                            <td><p></p></td>
+                            <td><p></p></td>
+                            <td style='text-align: center'><p><strong>$amount</strong></p></td>
                         </tr>
+                    ";
+                }else{
+                    $text .= "
+                            <tr>
+                                <td style='text-align: center' colspan='5'><p>Sin líneas de pedido.</p></td>
+                            </tr>
                         ";
                 }
                 $text .= "
-                                        <tr>
-                                            <td style='text-align: center'><p><strong>TOTAL</strong></p></td>
-                                            <td><p></p></td>
-                                            <td><p></p></td>
-                                            <td style='text-align: center'><p><strong>$amount</strong></p></td>
-                                        </tr>
-                                    </tbody>
+                                        </tbody>
                                     </table>
                                 </div>
                                 <br><br>

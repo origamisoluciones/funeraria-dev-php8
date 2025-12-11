@@ -27,12 +27,13 @@
         <link rel="stylesheet" href="<?php echo $utils->getRoute();?>resources/themes/adminlte/plugins/datatables/dataTables.bootstrap.css?v=<?= CACHE_DATE ?>">
         <link rel="stylesheet" href="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/select2/select2.min.css?v=<?= CACHE_DATE ?>">
         <link rel="stylesheet" href="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/datepicker/datepicker3.css?v=<?= CACHE_DATE ?>">
+        <link rel="stylesheet" href="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/timepicker/bootstrap-timepicker.min.css?v=<?= CACHE_DATE ?>">
     </head>
     <body class="hold-transition skin-black sidebar-collapse sidebar-mini fixed orders-edit-page page">
         <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/orderLine-new-modal.php"); ?>
         <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/email-modal.php"); ?>
-        <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/new-product-modal.php"); ?> <!--modal nuevo producto-->
-        <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/new-productmodel-modal.php"); ?> <!--modal modelo del producto-->
+        <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/new-product-modal.php"); ?>
+        <?php require_once($_SESSION['basePath'] . "view/warehouse/orders/modal/new-productmodel-modal.php"); ?>
         <div class="wrapper">
             <?php require_once($_SESSION['basePath'] . "resources/themes/adminlte/header.php"); ?>
             <?php require_once($_SESSION['basePath'] . "resources/themes/adminlte/main-sidebar.php"); ?>
@@ -76,7 +77,7 @@
                                             <legend><span class="label label-primary labelLgExp">Detalles del pedido </span></legend>
                                             <input type="hidden" id="orderID" value="<?php echo $order; ?>">
                                             <div class="row form-group">
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="date" class="col-xs-4 control-label">Tipo de pedido</label>
                                                     <div class="col-xs-8">
                                                         <select class="form-control" name="type" id="type" disabled>
@@ -85,14 +86,14 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4" id="expedientSection">
+                                                <div class="col-xs-3" id="expedientSection">
                                                     <label for="expedient" class="col-xs-4 control-label">Asociar a exp.</label>
                                                     <div class="col-xs-8">
                                                         <select class="form-control" name="expedient" id="expedient"></select>
                                                         <span class="inputError" id="expedientError"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="date" class="col-xs-4 control-label">Fecha</label>
                                                     <div class="col-xs-8">
                                                         <div class="input-group date">
@@ -106,20 +107,20 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group" id="supplierSection">
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="supplier" class="col-xs-4 control-label">Proveedor</label>
                                                     <div class="col-xs-8">
                                                         <select class="form-control" name="supplier" id="supplier" disabled></select>
                                                         <span class="inputError" id="supplierError"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="phones" class="col-xs-4 control-label">Teléfonos</label>
                                                     <div class="col-xs-8">
                                                         <input type="text" size="25" id="phones" name="phones" class="form-control" aria-describedby="teléfonos" disabled />
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="fax" class="col-xs-4 control-label">Correo electrónico</label>
                                                     <div class="col-xs-8">
                                                         <input type="text" size="35" id="email" name="email" class="form-control" aria-describedby="correo" disabled />
@@ -127,22 +128,22 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="deliveryPlace" class="col-xs-4 control-label">Lugar de entrega</label>
                                                     <div class="col-xs-8">
                                                         <select class="form-control" name="deliveryPlace" id="deliveryPlace"></select>
                                                         <span class="inputError" id="deliveryPlaceError"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4 hide" id="deliveryPlaceOtherSection">
+                                                <div class="col-xs-3 hide" id="deliveryPlaceOtherSection">
                                                     <label for="deliveryPlace" class="col-xs-4 control-label">Otro</label>
                                                     <div class="col-xs-8">
                                                         <input type="text" class="form-control" name="deliveryPlaceOther" id="deliveryPlaceOther">
                                                         <span class="inputError" id="deliveryPlaceOtherError"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4">
-                                                    <label for="deliveryDate" class="col-xs-4 control-label">Fecha estimada de entrega</label>
+                                                <div class="col-xs-3">
+                                                    <label for="deliveryDate" class="col-xs-4 control-label">Fecha de entrega</label>
                                                     <div class="col-xs-8">
                                                         <div class="input-group date">
                                                             <input type="text" size="25" class="form-control datepicker" id="deliveryDate" name="deliveryDate">
@@ -153,9 +154,23 @@
                                                         <span class="inputError" id="deliveryDateError"></span>
                                                     </div>
                                                 </div>
+                                                <div class="col-xs-3">
+                                                    <div class="form-group bootstrap-timepicker timepicker">
+                                                        <label class="col-xs-4 control-label toNormal">Hora de entrega</label>
+                                                        <div class="col-xs-8">
+                                                            <div class="input-group">
+                                                                <input type="text" size="21" class="form-control time" id="deliveryTime" name="deliveryTime" autocomplete="off">
+                                                                <div class="input-group-addon">
+                                                                    <i style="cursor:pointer" class="fa fa-clock-o"></i>
+                                                                </div>
+                                                            </div>
+                                                            <span class="inputError" id="deliveryTimeError"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row form-group hide" id="deceasedRoomSection">
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="deceasedRoom" class="col-xs-4 control-label">Sala</label>
                                                     <div class="col-xs-8">
                                                         <input type="text" size="30" class="form-control" id="deceasedRoom">
@@ -163,13 +178,13 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group" id="emailSection">
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="sendTo" class="col-xs-4 control-label">Enviar a</label>
                                                     <div class="col-xs-8">
                                                         <select class="form-control" name="sendTo" id="sendTo"></select>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-3">
                                                     <label for="sendCopy" class="col-xs-4 control-label">Con copia para</label>
                                                     <div class="col-xs-8">
                                                         <input class="input-email" name="sendCopy" id="sendCopy">
@@ -262,6 +277,7 @@
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/select2/select2.full.min.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/datepicker/bootstrap-datepicker.js?v=<?= CACHE_DATE ?>" charset="UTF-8"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/datepicker/locales/bootstrap-datepicker.es.js?v=<?= CACHE_DATE ?>"></script>
+        <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/timepicker/bootstrap-timepicker.min.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/input-mask/jquery.inputmask.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/functions.js?v=<?= CACHE_DATE ?>"></script>

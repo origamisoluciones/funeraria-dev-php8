@@ -34,6 +34,7 @@
                                     <li id="data1" class="bolder">Def.<span id="deceased2"></span>, Nº Exp: <span id="expedient2"></span></li>
                                     <li>Lugar de entrega: <span id="deliveryPlace2"></span></li>
                                     <li>Fecha de entrega: <span id="deliveryDate2"></span></li>
+                                    <li>Hora de entrega: <span id="deliveryTime2"></span></li>
                                 </ul>
                             </div>
                         </div>

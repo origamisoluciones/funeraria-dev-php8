@@ -80,6 +80,10 @@ $(function(){
                             deliveryDate[0] = deliveryDate[0].charAt(0).toUpperCase() + deliveryDate[0].slice(1)
                             deliveryDate[2] = deliveryDate[2].charAt(0).toUpperCase() + deliveryDate[2].slice(1)
                             deliveryDate = '' + deliveryDate[0] + ' ' + deliveryDate[1] + ' de ' + deliveryDate[2]
+
+                            if(moment(itPr.deliveryDate, "X").format("HH:mm") != '00:00'){
+                                deliveryDate += ' ' + moment(itPr.deliveryDate, "X").format("HH:mm");
+                            }
                         }
 
                         productsList += 

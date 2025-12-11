@@ -102,6 +102,10 @@
             $deliveryDate = '-';
             if (!empty($itemPr['deliveryDate'])) {
                 $deliveryDate = converDate($itemPr['deliveryDate']);
+
+                if(date('H:i', $itemPr['deliveryDate']) != '00:00'){
+                    $deliveryDate .= ' ' . date('H:i', $itemPr['deliveryDate']);
+                }
             }
 
             $styleTr = '';

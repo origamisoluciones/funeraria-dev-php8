@@ -19,8 +19,6 @@
         public function __construct(){
             $utils = new Utils();
 
-            // $this->username = $utils->getMailAddress();
-            // $this->password = $utils->getMailPassword();
             if($_SESSION['company'] == 1){
                 $this->host = 'mail.ppffa.com';
                 $this->port = 587;
@@ -191,6 +189,7 @@
                         </html>
             ";
 
+            $attachments = array();
             if(intval($_SESSION['company']) == 9){
                 // Get main obituary
                 require_once($_SESSION['basePath'] . "model/expedientsObituariesImages.php");
@@ -204,7 +203,6 @@
                     }
                 }
             }else{
-                $attachments = array();
                 if(file_exists($_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/expedients/$expedient/obituary/$type/$model/files/esquela.pdf")){
                     array_push($attachments, $_SESSION['basePath'] . "resources/files/{$_SESSION['company']}/expedients/$expedient/obituary/$type/$model/files/esquela.pdf");
                 }
@@ -258,16 +256,16 @@
                 $expedient = 0;
             }
 
-            if(isset($order['deceasedName'])){
-                $deceased = $order['deceasedName'] . ' ' . $order['deceasedSurname'];
-            }
-
-            if(isset($order['deceasedName'])){
+            $deceased = '-';
+            if(isset($order['deceasedName']) && $order['deceasedName'] != null && $order['deceasedName'] != ''){
                 $deceased = $order['deceasedName'] . ' ' . $order['deceasedSurname'];
             }
            
-            $deceasedRoom = $order['deceasedRoom'];
-            $notes = $order['notes'];
+            $deceasedRoom = $order['deceasedRoom'] == null ? '-' : $order['deceasedRoom'];
+
+            $notes = $order['notes'] == null || $order['notes'] == '' ? '-' : $order['notes'];
+
+            $deliveryPlace = '-';
             if($order["deliveryPlace"] == null){
                 $deliveryPlace = $order["otherDeliveryPlace"];
             }else{
@@ -275,11 +273,19 @@
                     $deliveryPlace = $order["deliveryPlaceName"];
                 }
             }
+            $date = '-';
             if($order["date"] != null){
                 $date = date("j/n/Y", $order["date"]);
             }
+
+            $deliveryDate = '-';
+            $deliveryTime = '-';
             if($order["deliveryDate"] != null){
                 $deliveryDate = date("j/n/Y", $order["deliveryDate"]);
+
+                if(date("H:i", $order["deliveryDate"]) != '00:00'){
+                    $deliveryTime = date("H:i", $order["deliveryDate"]);
+                }
             }
 
             $email = $order['mail'];
@@ -342,7 +348,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Proveedor:</strong> $supplierName</p>
                                                     </td>
                                                 </tr>
@@ -366,6 +372,9 @@
                                                     <td>
                                                         <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
                                                     </td>
+                                                    <td>
+                                                        <p><strong>Hora de entrega:</strong> $deliveryTime</p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
@@ -376,7 +385,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Notas:</strong> $notes</p>
                                                     </td>
                                                 </tr>
@@ -451,7 +460,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Proveedor:</strong> $supplierName</p>
                                                     </td>
                                                 </tr>
@@ -467,14 +476,17 @@
                                                     <td>
                                                         <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
                                                     </td>
+                                                    <td>
+                                                        <p><strong>Hora de entrega:</strong> $deliveryTime</p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Lugar de entrega:</strong> $deliveryPlace</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Notas:</strong> $notes</p>
                                                     </td>
                                                 </tr>
@@ -584,20 +596,22 @@
             $supplierName = $order['supplierName'];
             $supplierPhones = $order['phones'];
             $supplierEmail = $order['mail'];
+
+            $expedientNumber = '-';
             if(isset($order['number'])){
                 $expedientNumber = $order['number'];
             }
 
-            if(isset($order['deceasedName'])){
-                $deceased = $order['deceasedName'] . ' ' . $order['deceasedSurname'];
-            }
-
-            if(isset($order['deceasedName'])){
+            $deceased = '-';
+            if(isset($order['deceasedName']) && $order['deceasedName'] != null && $order['deceasedName'] != ''){
                 $deceased = $order['deceasedName'] . ' ' . $order['deceasedSurname'];
             }
            
-            $deceasedRoom = $order['deceasedRoom'];
-            $notes = $order['notes'];
+            $deceasedRoom = $order['deceasedRoom'] == null ? '-' : $order['deceasedRoom'];
+            
+            $notes = $order['notes'] == null || $order['notes'] == '' ? '-' : $order['notes'];
+
+            $deliveryPlace = '-';
             if($order["deliveryPlace"] == null){
                 $deliveryPlace = $order["otherDeliveryPlace"];
             }else{
@@ -605,11 +619,19 @@
                     $deliveryPlace = $order["deliveryPlaceName"];
                 }
             }
+
+            $date = '-';
             if($order["date"] != null){
                 $date = date("j/n/Y", $order["date"]);
             }
+
+            $deliveryDate = '-';
+            $deliveryTime = '-';
             if($order["deliveryDate"] != null){
                 $deliveryDate = date("j/n/Y", $order["deliveryDate"]);
+                if(date("H:i", $order["deliveryDate"]) != '00:00'){
+                    $deliveryTime = date("H:i", $order["deliveryDate"]);
+                }
             }
 
             $email = $order['mail'];
@@ -672,7 +694,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Proveedor:</strong> $supplierName</p>
                                                     </td>
                                                 </tr>
@@ -696,6 +718,9 @@
                                                     <td>
                                                         <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
                                                     </td>
+                                                    <td>
+                                                        <p><strong>Hora de entrega:</strong> $deliveryTime</p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
@@ -706,7 +731,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Notas:</strong> $notes</p>
                                                     </td>
                                                 </tr>
@@ -777,7 +802,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Proveedor:</strong> $supplierName</p>
                                                     </td>
                                                 </tr>
@@ -793,14 +818,17 @@
                                                     <td>
                                                         <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
                                                     </td>
+                                                    <td>
+                                                        <p><strong>Hora de entrega:</strong> $deliveryTime</p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Lugar de entrega:</strong> $deliveryPlace</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td colspan='2'>
                                                         <p><strong>Notas:</strong> $notes</p>
                                                     </td>
                                                 </tr>
@@ -899,6 +927,7 @@
             
             $notes = $order['notes'];
 
+            $deliveryPlace = '-';
             if($order["deliveryPlace"] == null){
                 $deliveryPlace = $order["otherDeliveryPlace"];
             }else{
@@ -907,11 +936,18 @@
                 }
             }
 
+            $date = '-';
             if($order["date"] != null){
                 $date = date("j/n/Y", $order["date"]);
             }
+
+            $deliveryDate = '-';
+            $deliveryTime = '-';
             if($order["deliveryDate"] != null){
                 $deliveryDate = date("j/n/Y", $order["deliveryDate"]);
+                if(date("H:i", $order["deliveryDate"]) != '00:00'){
+                    $deliveryTime = date("H:i", $order["deliveryDate"]);
+                }
             }
 
             $email = $order['mail'];
@@ -973,7 +1009,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td colspan='2'>
                                                     <p><strong>Proveedor:</strong> $supplierName</p>
                                                 </td>
                                             </tr>
@@ -990,14 +1026,17 @@
                                                 <td>
                                                     <p><strong>Fecha de entrega:</strong> $deliveryDate</p>
                                                 </td>
+                                                <td>
+                                                    <p><strong>Hora de entrega:</strong> $deliveryTime</p>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td colspan='2'>
                                                     <p><strong>Lugar de entrega:</strong> $deliveryPlace</p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td colspan='2'>
                                                     <p><strong>Notas:</strong> $notes</p>
                                                 </td>
                                             </tr>
@@ -1057,12 +1096,22 @@
             $supplierName = $order[0]['supplierName'];
             $supplierPhones = $order[0]['supplierPhones'];
             $supplierEmail = $order[0]['supplierEmail'];
+
+            $deliveryPlace = '-';
             if($order[0]['deliveryPlace'] == null){
                 $deliveryPlace = $order[0]['otherDeliveryPlace'];
             }else{
                 $deliveryPlace = $order[0]['mortuaryName'];
             }
-            $deliveryDate = date('d/m/Y', $order[0]['deliveryDate']);
+
+            $deliveryDate = '-';
+            $deliveryTime = '-';
+            if($order[0]['deliveryDate'] != null && $order[0]['deliveryDate'] != ''){
+                $deliveryDate = date('d/m/Y', $order[0]['deliveryDate']);
+                if(date("H:i", $order[0]['deliveryDate']) != '00:00'){
+                    $deliveryTime = date("H:i", $order[0]['deliveryDate']);
+                }
+            }
             $notes = $order[0]['notes'];
             
             $body = "   <!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd'>
@@ -1113,7 +1162,8 @@
 
             if(intval($order[0]['supplierID']) == 127){
                 $body .= "  <p>Lugar de entrega: $deliveryPlace</p>
-                            <p>Fecha estimada de entrega: $deliveryDate</p>
+                            <p>Fecha de entrega: $deliveryDate</p>
+                            <p>Hora de entrega: $deliveryTime</p>
                             <p>Notas:<br>$notes</p>
                         </td>
                     </tr>
@@ -1123,7 +1173,8 @@
                             <p>Teléfono: $supplierPhones</p>
                             <p>Email: $supplierEmail</p>
                             <p>Lugar de entrega: $deliveryPlace</p>
-                            <p>Fecha estimada de entrega: $deliveryDate</p>
+                            <p>Fecha de entrega: $deliveryDate</p>
+                            <p>Hora de entrega: $deliveryTime</p>
                         <td>
                     </tr>
                 ";

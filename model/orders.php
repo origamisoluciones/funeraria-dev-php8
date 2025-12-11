@@ -97,10 +97,15 @@
                 return 'deliveryPlace';
             }
 
-            $db->query("INSERT INTO Orders( supplier, expedient, deliveryPlace, sendTo, type, date,
-                            otherDeliveryPlace, deliveryDate, notes, sendCopy, leavingDate, extraID, deceasedRoom)
-                        VALUES ($supplier, $expedient, $deliveryPlace, $sendTo, $type, $date,
-                                '$otherDeliveryPlace', $deliveryDate, '$notes', '$sendCopy', $leavingDate, '$extraID', $deceasedRoom)");
+            $db->query("INSERT INTO Orders( 
+                            supplier, expedient, deliveryPlace, sendTo, type, date,
+                            otherDeliveryPlace, deliveryDate, notes, sendCopy, leavingDate, extraID, deceasedRoom
+                        )
+                        VALUES (
+                            $supplier, $expedient, $deliveryPlace, $sendTo, $type, $date,
+                            '$otherDeliveryPlace', $deliveryDate, '$notes', '$sendCopy', $leavingDate, '$extraID', $deceasedRoom
+                        )
+            ");
 
             $order = $db->query("   SELECT  o.ID
                                     FROM    Orders o
@@ -321,8 +326,6 @@
             }else{
                 $deceasedRoom = 'null';
             }
-            /*$sendTo = $data['sendTo'] == '' ? 'null' : $data['sendTo'];
-            $sendCopy = $data['sendCopy'];*/
 
             if($otherDeliveryPlace == ''){
                 $otherDeliveryPlace = 'null';

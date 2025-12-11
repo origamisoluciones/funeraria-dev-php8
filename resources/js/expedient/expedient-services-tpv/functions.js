@@ -3689,6 +3689,11 @@ $(function(){
 
                                                     if(order.deliveryDate != null){
                                                         $('#modal-send-email1 #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                                        if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                                            $('#modal-send-email1 #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                                        }else{
+                                                            $('#modal-send-email1 #deliveryTime').html('-')
+                                                        }
                                                     }
                                                     $('#modal-send-email1 #notes').html(order.notes)
                                                     $('#modal-send-email1 #send').html(order.mail)
@@ -3877,6 +3882,11 @@ $(function(){
 
                                         if(order.deliveryDate != null){
                                             $('#modal-send-email1 #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                            if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                                $('#modal-send-email #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                            }else{
+                                                $('#modal-send-email #deliveryTime').html('-')
+                                            }
                                         }
                                         $('#modal-send-email1 #notes').html(order.notes)
                                         $('#modal-send-email1 #send').html(order.mail)
@@ -4127,6 +4137,11 @@ $(function(){
 
                                                         if(order.deliveryDate != null){
                                                             $('#modal-send-email1 #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                                            if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                                                $('#modal-send-email1 #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                                            }else{
+                                                                $('#modal-send-email1 #deliveryTime').html('-')
+                                                            }
                                                         }
                                                         $('#modal-send-email1 #notes').html(order.notes)
                                                         $('#modal-send-email1 #send').html(order.mail)
@@ -4313,6 +4328,11 @@ $(function(){
 
                                             if(order.deliveryDate != null){
                                                 $('#modal-send-email1 #deliveryDate').html(moment(order.deliveryDate, 'X').format('DD/MM/YYYY'))
+                                                if(moment(order.deliveryDate, 'X').format('HH:mm') != '00:00'){
+                                                    $('#modal-send-email1 #deliveryTime').html(moment(order.deliveryDate, 'X').format('HH:mm'))
+                                                }else{
+                                                    $('#modal-send-email1 #deliveryTime').html('-')
+                                                }
                                             }
                                             $('#modal-send-email1 #notes').html(order.notes)
                                             $('#modal-send-email1 #send').html(" " + order.mail)

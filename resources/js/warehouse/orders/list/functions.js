@@ -279,24 +279,30 @@ $(function(){
             {"title": "Fecha"},
             {"title": "Proveedor"},
             {"title": "Lugar entrega"},
-            {"title": "Fecha estimada entrega"},
+            {"title": "Fecha y hora entrega"},
             {"title": "Conforme"},
             {"title": "Editar"},
             {"title": "Eliminar"},
             {"title": "PDF"},
             {"title": "Albarán"}
-        ],        
+        ],
         "columnDefs": [{
 
             "className": "centered",
-            "targets": 1,
+            "targets": [0,1,3],
             "render": function(data, type, row){
                 return data == null ? '-' : data
             }
         },
         {
             "className": "centered",
-            "targets": [0,1,3],
+            "targets": [2],
+            "render": function(data, type){
+                if(type === 'display' || type === 'filter'){
+                    return data == null ? '-' : moment(data, "X").format("DD/MM/YYYY")
+                }
+                return data
+            }
         },
         {
             "className": "centered",
@@ -324,10 +330,18 @@ $(function(){
         },
         {
             "className": "centered",
-            "targets": [2, 5],
+            "targets": [5],
             "render": function(data, type){
                 if(type === 'display' || type === 'filter'){
-                    return data == null ? '-' : moment(data, "X").format("DD/MM/YYYY")
+                    if(data == null){
+                        return '-'
+                    }else{
+                        if(moment(data, "X").format("HH:mm") != '00:00'){
+                            return moment(data, "X").format("DD/MM/YYYY HH:mm")
+                        }else{
+                            return moment(data, "X").format("DD/MM/YYYY")
+                        }
+                    }
                 }
                 return data
             }
