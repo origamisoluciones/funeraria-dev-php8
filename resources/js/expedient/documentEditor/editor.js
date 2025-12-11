@@ -815,7 +815,7 @@ function drawLoad(){
             text = text.split('#264#').join(expedientDataSheetInfo.refrigeratedChamberDateStart == null || expedientDataSheetInfo.refrigeratedChamberDateStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberDateStart, 'YYYY-MM-DD').format('DD/MM/YYYY'));
             text = text.split('#265#').join(expedientDataSheetInfo.refrigeratedChamberTimeStart == null || expedientDataSheetInfo.refrigeratedChamberTimeStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberTimeStart, 'HH:mm:ss').format('HH:mm'));
             text = text.split('#266#').join(expedientDataSheetInfo.refrigeratedChamberDateEnd == null || expedientDataSheetInfo.refrigeratedChamberDateEnd == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberDateEnd, 'YYYY-MM-DD').format('DD/MM/YYYY'));
-            text = text.split('#267#').join(expedientDataSheetInfo.refrigeratedChamberTimeStart == null || expedientDataSheetInfo.refrigeratedChamberTimeStart == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberTimeStart, 'HH:mm:ss').format('HH:mm'));
+            text = text.split('#267#').join(expedientDataSheetInfo.refrigeratedChamberTimeEnd == null || expedientDataSheetInfo.refrigeratedChamberTimeEnd == '' ? '' : moment(expedientDataSheetInfo.refrigeratedChamberTimeEnd, 'HH:mm:ss').format('HH:mm'));
 
             text = text.split('#214#').join(expedientDataSheetInfo.covid == null || expedientDataSheetInfo.covid == '' ? '' : (expedientDataSheetInfo.covid == '0' ? 'No' : 'Si'));
             text = text.split('#215#').join(expedientDataSheetInfo.moveJudicial == null || expedientDataSheetInfo.moveJudicial == '' ? '' : (expedientDataSheetInfo.moveJudicial == '0' ? 'No' : 'Si'));

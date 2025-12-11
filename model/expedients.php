@@ -18137,6 +18137,7 @@
                                                 e.crematoriumContactPhonePerson,
                                                 e.crematoriumIntroduction, e.crematoriumWaitOnRoom, e.crematoriumVaseBio, e.ecologicCoffin, e.crematoriumPacemaker,
                                                 e.covid, e.moveJudicial, e.moveTraslado, e.moveDevolucion, e.funeralDateBurial, e.funeralTimeBurial, e.notesExpedient,
+                                                e.refrigeratedChamberName, e.refrigeratedChamberDateStart, e.refrigeratedChamberTimeStart, e.refrigeratedChamberDateEnd, e.refrigeratedChamberTimeEnd,
                                                 di.name as deceasedInName, e.deceasedLocality, e.deceasedProvince,
                                                 l.name as applicantLocation, l.province as applicantProvince, l.postalCode as applicantPostalCode,
                                                 l2.name as familyContactLocation, l2.province as familyContactProvince, l2.postalCode as familyContactPostalCode,
