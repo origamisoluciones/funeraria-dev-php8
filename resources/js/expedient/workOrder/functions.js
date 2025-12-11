@@ -43,7 +43,7 @@ var langSelect2 = {
  */
 function validateCrematoryNotes(field){
     var MAX_LINEAS = 12;
-    var MAX_CHARS_POR_LINEA = 75;
+    var MAX_CHARS_POR_LINEA = 100;
 
     var lineasUsuario = field.split(/\r?\n/);
     let lineasFinales = [];
@@ -70,7 +70,7 @@ function validateCrematoryNotes(field){
 
 function validateInhumationNotes(field){
     var MAX_LINEAS = 4;
-    var MAX_CHARS_POR_LINEA = 70;
+    var MAX_CHARS_POR_LINEA = 100;
 
     var lineasUsuario = field.split(/\r?\n/);
     let lineasFinales = [];
@@ -97,7 +97,7 @@ function validateInhumationNotes(field){
 
 function validateTranslationNotes(field){
     var MAX_LINEAS = 5;
-    var MAX_CHARS_POR_LINEA = 70;
+    var MAX_CHARS_POR_LINEA = 100;
 
     var lineasUsuario = field.split(/\r?\n/);
     let lineasFinales = [];
@@ -124,7 +124,7 @@ function validateTranslationNotes(field){
 
 function validateNotes(field){
     var MAX_LINEAS = 5;
-    var MAX_CHARS_POR_LINEA = 70;
+    var MAX_CHARS_POR_LINEA = 100;
 
     var lineasUsuario = field.split(/\r?\n/);
     let lineasFinales = [];
