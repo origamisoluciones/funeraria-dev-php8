@@ -1716,7 +1716,38 @@ function loadNewObituary(obituary, obituaryType) {
                         $('#namePre').val('DON');
                     }else{
                         $('#formNewNote #prayForText').val('A SEÑORA');
-                        $('#namePre').val('DOÑA');
+                        $('#namePre').val('DONA');
+                    }
+
+                    switch (obituary.deceasedMaritalStatus) {
+                        case "Viudo":
+                            if(obituary.deceasedGender == "Hombre"){
+                                $('#spousePre').val('Vvo. de Dna., ');
+                            }else{
+                                $('#spousePre').val('Vva. de D., ');
+                            }
+                            if(obituary.deceasedSecondNuptials  != ""){
+                                $('#spouseName').val(obituary.deceasedSecondNuptials);
+                            }else{
+                                $('#spouseName').val(obituary.deceasedFirstNuptials);
+                            }
+                        break;
+                        case "Casado":
+                            if(obituary.deceasedGender == "Hombre"){   
+                                $('#spousePre').val('A súa esposa, ');
+                            }else{
+                                $('#spousePre').val('O seu esposo, ');                        
+                            }
+                            if(obituary.deceasedSecondNuptials  != ""){
+                                $('#spouseName').val(obituary.deceasedSecondNuptials);
+                            }else{
+                                $('#spouseName').val(obituary.deceasedFirstNuptials);
+                            }
+                        break;       
+                        default:
+                            $('#spousePre').val('');
+                            $('#spouseName').val('');
+                        break;
                     }
 
                     moment.locale('gl'); 

@@ -97,15 +97,20 @@
             </tr>
         ';
 
-        foreach($item['products'] as $itemPr){
+        foreach($item['products'] as $indexPr => $itemPr){
 
             $deliveryDate = '-';
             if (!empty($itemPr['deliveryDate'])) {
                 $deliveryDate = converDate($itemPr['deliveryDate']);
             }
 
+            $styleTr = '';
+            if(($indexPr+1) == count($item['products'])){
+                $styleTr = 'border-bottom: 2px solid black !important;';
+            }
+
             $html .= '
-                <tr>
+                <tr style="'.$styleTr.'">
                     <td>'.$itemPr['product_name'] . ' ' . $itemPr['model_name'] .'</td>
                     <td>'.$itemPr['texts'] .'</td>
                     <td>'.$itemPr['supplier_name'] .'</td>
