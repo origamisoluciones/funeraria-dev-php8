@@ -2391,7 +2391,7 @@
 													</div>
 													<div class="col-xs-3 hide" id="otherCoffinSection">
 														<div class="form-group">
-															<label class="col-xs-3 control-label toNormal">Otro</label>
+															<label class="col-xs-5 control-label toNormal">Otro</label>
 															<div class="col-xs-6">
 																<input type="text" size="25" id="otherCoffin" autocomplete="off">
 															</div>

@@ -1231,203 +1231,248 @@ $(function(){
                                                     setTimeout(() => {
                                                         drawText(optionsMortuaryInfo2, styleMortuaryInfo2)
 
-                                                        // Praytime info
+                                                        // Bus info
                                                         switch(parseInt(obituaryModel)){
                                                             default:
-                                                                var prayTimeX = 228
-                                                                var prayTimeY = 706
-                                                                var prayTimeWidth = 569
-                                                                var prayTimeFontFamily = 'arial'
-                                                                var prayTimeFontSize = 19
-                                                                var prayTimeFontStyle = 'bold'
-                                                                var prayTimeAlign = 'left'
-                                                                var prayTimeLineHeight = 1.25
+                                                                var busX = 228
+                                                                var busY = 706
+                                                                var busWidth = 569
+                                                                var busFontFamily = 'arial'
+                                                                var busFontSize = 19
+                                                                var busFontStyle = 'bold'
+                                                                var busAlign = 'left'
+                                                                var busLineHeight = 1.25
                                                                 var fill = '#000000'
                                                             break
                                                         }
 
-                                                        var optionsPrayTime = {
-                                                            x: prayTimeX,
-                                                            y: prayTimeY,
-                                                            width: prayTimeWidth,
+                                                        var optionsBus = {
+                                                            x: busX,
+                                                            y: busY,
+                                                            width: busWidth,
                                                             name: 'text',
-                                                            id: 'prayTime',
+                                                            id: 'bus',
                                                             draggable: true,
                                                             fill: fill,
                                                             opacity: 1
                                                         }
 
-                                                        var prayTimeText = obituary.funeral;
-                                                            
-                                                        var stylePrayTime = {
-                                                            fontFamily: prayTimeFontFamily,
-                                                            fontSize: prayTimeFontSize,
-                                                            fontStyle: prayTimeFontStyle,
+                                                        var styleBus = {
+                                                            fontFamily: busFontFamily,
+                                                            fontSize: busFontSize,
+                                                            fontStyle: busFontStyle,
                                                             fontVariant: 'normal',
                                                             textDecoration: 'empty string',
-                                                            text: prayTimeText,
-                                                            align: prayTimeAlign,
+                                                            text: obituary.busRoute,
+                                                            align: busAlign,
                                                             verticalAlign: 'top',
                                                             padding: 0,
-                                                            lineHeight: prayTimeLineHeight,
+                                                            lineHeight: busLineHeight,
                                                             wrap: 'word',
                                                             ellipsis: false
                                                         }
 
                                                         setTimeout(() => {
-                                                            drawText(optionsPrayTime, stylePrayTime)
+                                                            drawText(optionsBus, styleBus)
 
-
-                                                            // location info
+                                                            // Funeral info
                                                             switch(parseInt(obituaryModel)){
                                                                 default:
-                                                                    var locationX = 228
-                                                                    var locationY = 735
-                                                                    var locationWidth = 307
-                                                                    var locationFontFamily = 'arial'
-                                                                    var locationFontSize = 18
-                                                                    var locationFontStyle = 'normal'
-                                                                    var locationAlign = 'left'
-                                                                    var locationLineHeight = 1.25
+                                                                    var funeralX = 467
+                                                                    var funeralY = 729
+                                                                    var funeralWidth = 318
+                                                                    var funeralFontFamily = 'arial'
+                                                                    var funeralFontSize = 19
+                                                                    var funeralFontStyle = 'normal'
+                                                                    var funeralAlign = 'left'
+                                                                    var funeralLineHeight = 1.25
                                                                     var fill = '#000000'
                                                                 break
                                                             }
 
-                                                            var optionsLocation = {
-                                                                x: locationX,
-                                                                y: locationY,
-                                                                width: locationWidth,
+                                                            var optionsFuneral = {
+                                                                x: funeralX,
+                                                                y: funeralY,
+                                                                width: funeralWidth,
                                                                 name: 'text',
-                                                                id: 'location',
+                                                                id: 'funeral',
                                                                 draggable: true,
                                                                 fill: fill,
                                                                 opacity: 1
                                                             }
 
-                                                            var locationText = obituary.location;
+                                                            var funeralText = obituary.funeral;
                                                                 
-                                                            var styleLocation = {
-                                                                fontFamily: locationFontFamily,
-                                                                fontSize: locationFontSize,
-                                                                fontStyle: locationFontStyle,
+                                                            var styleFuneral = {
+                                                                fontFamily: funeralFontFamily,
+                                                                fontSize: funeralFontSize,
+                                                                fontStyle: funeralFontStyle,
                                                                 fontVariant: 'normal',
                                                                 textDecoration: 'empty string',
-                                                                text: locationText,
-                                                                align: locationAlign,
+                                                                text: funeralText,
+                                                                align: funeralAlign,
                                                                 verticalAlign: 'top',
                                                                 padding: 0,
-                                                                lineHeight: locationLineHeight,
+                                                                lineHeight: funeralLineHeight,
                                                                 wrap: 'word',
                                                                 ellipsis: false
                                                             }
 
                                                             setTimeout(() => {
-                                                                drawText(optionsLocation, styleLocation)
-                                                                            
-                                                                // Contact info
+                                                                drawText(optionsFuneral, styleFuneral)
+
+                                                                // location info
                                                                 switch(parseInt(obituaryModel)){
                                                                     default:
-                                                                        var contactX = 814
-                                                                        var contactY = 676
-                                                                        var contactWidth = 278
-                                                                        var contactFontFamily = 'arial'
-                                                                        var contactFontSize = 13
-                                                                        var contactFontStyle = 'normal'
-                                                                        var contactAlign = 'center'
-                                                                        var contactLineHeight = 1.25
+                                                                        var locationX = 228
+                                                                        var locationY = 735
+                                                                        var locationWidth = 307
+                                                                        var locationFontFamily = 'arial'
+                                                                        var locationFontSize = 18
+                                                                        var locationFontStyle = 'normal'
+                                                                        var locationAlign = 'left'
+                                                                        var locationLineHeight = 1.25
                                                                         var fill = '#000000'
                                                                     break
                                                                 }
 
-                                                                var optionsContact = {
-                                                                    x: contactX,
-                                                                    y: contactY,
-                                                                    width: contactWidth,
+                                                                var optionsLocation = {
+                                                                    x: locationX,
+                                                                    y: locationY,
+                                                                    width: locationWidth,
                                                                     name: 'text',
-                                                                    id: 'contact',
+                                                                    id: 'location',
                                                                     draggable: true,
                                                                     fill: fill,
                                                                     opacity: 1
                                                                 }
 
-                                                                var contactText = 
-                                                                    'FUNERARIAS MARIÑA SL\n'+
-                                                                    'TANATORIOS - CREMATORIO\n'+
-                                                                    'Burela y Cervo\n'+
-                                                                    'Tfnos.: 982 58 01 99 - 617 49 04 20\n'+
-                                                                    'CONDOLENCIAS en www.funerariaburela.es'
-
-                                                                var styleContact = {
-                                                                    fontFamily: contactFontFamily,
-                                                                    fontSize: contactFontSize,
-                                                                    fontStyle: contactFontStyle,
+                                                                var locationText = obituary.location;
+                                                                    
+                                                                var styleLocation = {
+                                                                    fontFamily: locationFontFamily,
+                                                                    fontSize: locationFontSize,
+                                                                    fontStyle: locationFontStyle,
                                                                     fontVariant: 'normal',
                                                                     textDecoration: 'empty string',
-                                                                    text: contactText,
-                                                                    align: contactAlign,
+                                                                    text: locationText,
+                                                                    align: locationAlign,
                                                                     verticalAlign: 'top',
                                                                     padding: 0,
-                                                                    lineHeight: contactLineHeight,
+                                                                    lineHeight: locationLineHeight,
                                                                     wrap: 'word',
                                                                     ellipsis: false
                                                                 }
 
                                                                 setTimeout(() => {
-                                                                    drawText(optionsContact, styleContact)
-
-                                                                    stage.find('#background')[0].zIndex(0)
-                                                                    
+                                                                    drawText(optionsLocation, styleLocation)
+                                                                                
+                                                                    // Contact info
                                                                     switch(parseInt(obituaryModel)){
-                                                                        case 0:
-                                                                        case 1:
-                                                                        case 2:
-                                                                        case 3:
-                                                                        case 5:
-                                                                        case 6:
-                                                                            var elems = [
-                                                                                'transept',
-                                                                                'quote',
-                                                                                'deceased',
-                                                                                'extraText',
-                                                                                'widow',
-                                                                                'died',
-                                                                                'dep',
-                                                                                'family',
-                                                                                'pray',
-                                                                                'mortuaryLabel',
-                                                                                'mortuaryInfo1',
-                                                                                'mortuaryInfo2',
-                                                                                'prayTime',
-                                                                                'location',
-                                                                                'contact',
-                                                                            ]
-
-                                                                            var i = 1
-                                                                            $.each(elems, function(index, elem){
-                                                                                if(stage.find('#' + elem)[0] != undefined){
-                                                                                    stage.find('#' + elem)[0].zIndex(i)
-                                                                                    i++
-                                                                                }
-                                                                            })
-                                                                        break
-                                                                        case 4:
-                                                                            var i = 1
-                                                                            $.each(elems, function(index, elem){
-                                                                                if(stage.find('#' + elem)[0] != undefined){
-                                                                                    stage.find('#' + elem)[0].zIndex(i)
-                                                                                    i++
-                                                                                }
-                                                                            })
+                                                                        default:
+                                                                            var contactX = 814
+                                                                            var contactY = 676
+                                                                            var contactWidth = 278
+                                                                            var contactFontFamily = 'arial'
+                                                                            var contactFontSize = 13
+                                                                            var contactFontStyle = 'normal'
+                                                                            var contactAlign = 'center'
+                                                                            var contactLineHeight = 1.25
+                                                                            var fill = '#000000'
                                                                         break
                                                                     }
 
-                                                                    stage.draw()
-                                                                    states.push($.parseJSON(stage.toJSON()))
-                                                                    $('.main').removeClass('hide')
+                                                                    var optionsContact = {
+                                                                        x: contactX,
+                                                                        y: contactY,
+                                                                        width: contactWidth,
+                                                                        name: 'text',
+                                                                        id: 'contact',
+                                                                        draggable: true,
+                                                                        fill: fill,
+                                                                        opacity: 1
+                                                                    }
 
-                                                                    firtsLoad = false;
-                                                                    maxZIndex = layer.children.length
-                                                            }, 300)
+                                                                    var contactText = 
+                                                                        'FUNERARIAS MARIÑA SL\n'+
+                                                                        'TANATORIOS - CREMATORIO\n'+
+                                                                        'Burela y Cervo\n'+
+                                                                        'Tfnos.: 982 58 01 99 - 617 49 04 20\n'+
+                                                                        'CONDOLENCIAS en www.funerariaburela.es'
+
+                                                                    var styleContact = {
+                                                                        fontFamily: contactFontFamily,
+                                                                        fontSize: contactFontSize,
+                                                                        fontStyle: contactFontStyle,
+                                                                        fontVariant: 'normal',
+                                                                        textDecoration: 'empty string',
+                                                                        text: contactText,
+                                                                        align: contactAlign,
+                                                                        verticalAlign: 'top',
+                                                                        padding: 0,
+                                                                        lineHeight: contactLineHeight,
+                                                                        wrap: 'word',
+                                                                        ellipsis: false
+                                                                    }
+
+                                                                    setTimeout(() => {
+                                                                        drawText(optionsContact, styleContact)
+
+                                                                        stage.find('#background')[0].zIndex(0)
+                                                                        
+                                                                        switch(parseInt(obituaryModel)){
+                                                                            case 0:
+                                                                            case 1:
+                                                                            case 2:
+                                                                            case 3:
+                                                                            case 5:
+                                                                            case 6:
+                                                                                var elems = [
+                                                                                    'transept',
+                                                                                    'quote',
+                                                                                    'deceased',
+                                                                                    'extraText',
+                                                                                    'widow',
+                                                                                    'died',
+                                                                                    'dep',
+                                                                                    'family',
+                                                                                    'pray',
+                                                                                    'mortuaryLabel',
+                                                                                    'mortuaryInfo1',
+                                                                                    'mortuaryInfo2',
+                                                                                    'bus',
+                                                                                    'funeral',
+                                                                                    'location',
+                                                                                    'contact',
+                                                                                ]
+
+                                                                                var i = 1
+                                                                                $.each(elems, function(index, elem){
+                                                                                    if(stage.find('#' + elem)[0] != undefined){
+                                                                                        stage.find('#' + elem)[0].zIndex(i)
+                                                                                        i++
+                                                                                    }
+                                                                                })
+                                                                            break
+                                                                            case 4:
+                                                                                var i = 1
+                                                                                $.each(elems, function(index, elem){
+                                                                                    if(stage.find('#' + elem)[0] != undefined){
+                                                                                        stage.find('#' + elem)[0].zIndex(i)
+                                                                                        i++
+                                                                                    }
+                                                                                })
+                                                                            break
+                                                                        }
+
+                                                                        stage.draw()
+                                                                        states.push($.parseJSON(stage.toJSON()))
+                                                                        $('.main').removeClass('hide')
+
+                                                                        firtsLoad = false;
+                                                                        maxZIndex = layer.children.length
+                                                                }, 300)
+                                                            }, 150)
                                                         }, 150)
                                                     }, 150)
                                                 }, 150)
