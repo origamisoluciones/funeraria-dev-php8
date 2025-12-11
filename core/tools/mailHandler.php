@@ -79,7 +79,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -151,7 +151,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -323,7 +323,7 @@
                                         }
                                     </style>
                                 </head>
-                                <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                                <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                     <div style='background-color:#fff;padding:15px;'>
                                         <table class='table' style='width: 100%; margin-top: 30px;'>
                                             <tbody>
@@ -432,7 +432,7 @@
                                         }
                                     </style>
                                 </head>
-                                <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                                <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                     <div style='background-color:#fff;padding:15px;'>
                                         <table class='table' style='width: 100%; margin-top: 30px;'>
                                             <tbody>
@@ -653,7 +653,7 @@
                                         }
                                     </style>
                                 </head>
-                                <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                                <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                     <div style='background-color:#fff;padding:15px;'>
                                         <table class='table' style='width: 100%; margin-top: 30px;'>
                                             <tbody>
@@ -758,7 +758,7 @@
                                         }
                                     </style>
                                 </head>
-                                <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                                <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                     <div style='background-color:#fff;padding:15px;'>
                                         <table class='table' style='width: 100%; margin-top: 30px;'>
                                             <tbody>
@@ -954,7 +954,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <div style='background-color:#fff;padding:15px;'>
                                     <table class='table' style='width: 100%; margin-top: 30px;'>
                                         <tbody>
@@ -1096,7 +1096,7 @@
                                         }
                                     </style>
                                 </head>
-                                <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                                <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                     <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                         <tbody>
                                             <tr>
@@ -1214,7 +1214,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1286,7 +1286,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                             <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                 <tbody>
                                     <tr>
@@ -1350,7 +1350,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1424,7 +1424,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1498,7 +1498,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1571,7 +1571,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1645,7 +1645,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1719,7 +1719,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1786,7 +1786,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1853,7 +1853,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1921,7 +1921,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -1989,7 +1989,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2056,7 +2056,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2124,7 +2124,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2191,7 +2191,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2265,7 +2265,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2339,7 +2339,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2540,7 +2540,7 @@
                                     }
                                 </style>
                             </head>
-                            <body style='-webkit-text-size-adjust:none;background-color:#E1E0E0;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
+                            <body style='-webkit-text-size-adjust:none;background-color:#fff;width:650px;font-family:Open-sans, sans-serif;color:#333;font-size:14px;line-height:18px;margin:auto' >
                                 <table class='table table-mail' style='width: 100%; margin-top: 30px; background-color: #fff;'>
                                     <tbody>
                                         <tr>
@@ -2600,7 +2600,8 @@
                 )
             );
 
-            $mail->CharSet = "utf8";
+            $mail->CharSet = "UTF-8";
+            $mail->Encoding = 'base64';
             $mail->IsSMTP();
             $mail->IsHTML(true);
             $mail->WordWrap = 50;
