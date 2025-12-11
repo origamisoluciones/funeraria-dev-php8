@@ -18167,7 +18167,18 @@
                                                 l7.name as moveCollectionLocation, l7.province as moveCollectionProvince, l7.postalCode as moveCollectionPostalCode,
                                                 l8.name as moveDestinationLocation, l8.province as moveDestinationProvince, l8.postalCode as moveDestinationPostalCode,
                                                 st4.name as familyAssistanceName, st4.surname as familyAssistanceSurname,
-                                                st4.name as crematoriumTechnicalName, st4.surname as crematoriumTechnicalSurname
+                                                st4.name as crematoriumTechnicalName, st4.surname as crematoriumTechnicalSurname,
+                                                exwo.ID as workOrderID,
+                                                exwo.arkEmbalmmentDate as workOrderArkEmbalmmentDate,
+                                                exwo.arkEmbalmmentTime as workOrderArkEmbalmmentTime,
+                                                exwo.arkCTransientDate as workOrderArkCTransientDate,
+                                                exwo.arkCTransientTime as workOrderArkCTransientTime,
+                                                exwo.arkClothes as workOrderArkClothes,
+                                                exwo.arkAesthetics as workOrderArkAesthetics,
+                                                exwo.arkCross as workOrderArkCross,
+                                                exwo.arkJesus as workOrderArkJesus,
+                                                exwo.arkClothesRosary as workOrderArkClothesRosary,
+                                                exwo.inhumationIronCross as workOrderInhumationIronCross
                                     FROM        (Expedients e, Expedients_Services es)
                                     LEFT JOIN   Locations l ON e.applicantLocation = l.locationID
                                     LEFT JOIN   Locations l2 ON e.familyContactLocation = l2.locationID
@@ -18198,10 +18209,73 @@
                                     LEFT JOIN   Doctors do ON do.ID = e.deceasedDoctor
                                     LEFT JOIN   Staff st4 ON es.familyAssistance = st4.ID
                                     LEFT JOIN   Staff st5 ON e.crematoriumTechnical = st5.ID
+                                    LEFT JOIN   Expedients_Work_Orders exwo ON exwo.expedient = e.expedientID
                                     WHERE       e.expedientID = $expedient AND
-                                                e.expedientID = es.expedient");
+                                                e.expedientID = es.expedient
+            ");
 
-            return mysqli_num_rows($result) == 0 ? null : $db->resultToArray($result)[0];
+            if(mysqli_num_rows($result) == 0){
+                return null;
+            }else{
+                $expedientInfo = $db->resultToArray($result)[0];
+
+                // Get Ark name
+                $expedientInfo['workOrderArkName'] = null;
+                $arca = $db->query("    SELECT  CONCAT(s.name, ' - ', pm.name) as name
+                                        FROM    Expedients_Hirings eh, Products p, Products_Models pm, Suppliers s
+                                        WHERE   eh.expedient = " . $expedient . " AND
+                                                eh.check = 1 AND
+                                                eh.product = p.productID AND
+                                                p.isArca = 1 AND
+                                                eh.model = pm.productModelID AND
+                                                eh.supplier = s.supplierID
+                ");
+
+                if(mysqli_num_rows($arca) > 0){
+                    $resultArks = $db->resultToArray($arca);
+                    
+                    $arkName = '';
+                    foreach($resultArks as $item){
+                        $arkName .= $item['name'] . ' + ';
+                    }
+                    if($arkName != ''){
+                        $arkName = substr($arkName, 0, -3);
+                    }
+
+                    $expedientInfo['workOrderArkName'] = $arkName;
+                }
+
+                $expedientInfo['workOrderCommunication'] = array();
+
+                if($expedientInfo['workOrderID'] != null && $expedientInfo['workOrderID'] != ''){
+
+                    $workOrderID = $expedientInfo['workOrderID'];
+
+                    // Comunication Items
+                    $communication = $db->query("   SELECT      eh.ID, 
+                                                                p.name as product_name, 
+                                                                pm.name as model_name,
+                                                                exwoc.ID as work_order_communication_id,
+                                                                exwoc.date,
+                                                                exwoc.photo
+                                                    FROM        (Expedients_Hirings eh, Products p, Products_Models pm, Suppliers s)
+                                                    LEFT JOIN   Expedients_Work_Orders_Communication exwoc ON exwoc.hiring = eh.ID AND exwoc.leavingDate IS NULL AND exwoc.workOrder = $workOrderID
+                                                    WHERE       eh.expedient = " . $expedient . " AND
+                                                                eh.check = 1 AND
+                                                                eh.product = p.productID AND
+                                                                p.blockBelow = 8 AND
+                                                                eh.model = pm.productModelID AND
+                                                                eh.supplier = s.supplierID
+                                                                
+                    ");
+
+                    if(mysqli_num_rows($communication) > 0){
+                        $expedientInfo['workOrderCommunication'] = $db->resultToArray($communication);
+                    }
+                }
+
+                return $expedientInfo;
+            }
         }
         
         /**

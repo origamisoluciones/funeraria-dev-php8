@@ -337,6 +337,10 @@ function drawLoad(){
 
             var text = $(this)[0].text();
 
+            // "Fechas"
+            text = text.split('#224#').join(moment().format('DD/MM/YYYY'));
+            text = text.split('#225#').join(moment().format('LL'));
+
             // "Datos del expediente"
             text = text.split('#1#').join(expedientDataSheetInfo.number == null || expedientDataSheetInfo.number == '' ? '' : expedientDataSheetInfo.number);
             text = text.split('#4#').join(expedientDataSheetInfo.requestDate == null || expedientDataSheetInfo.requestDate == '' ? '' : moment(expedientDataSheetInfo.requestDate, 'YYYY-MM-DD').format('DD/MM/YYYY'));
@@ -872,11 +876,28 @@ function drawLoad(){
             text = text.split('#252#').join(expedientDataSheetInfo.agencyContactPhone == null || expedientDataSheetInfo.agencyContactPhone == '' ? '' : expedientDataSheetInfo.agencyContactPhone);
             text = text.split('#156#').join(expedientDataSheetInfo.moveNotes == null || expedientDataSheetInfo.moveNotes == '' ? '' : expedientDataSheetInfo.moveNotes);
             
+            // "Observaciones"
             text = text.split('#223#').join(expedientDataSheetInfo.notesExpedient == null || expedientDataSheetInfo.notesExpedient == '' ? '' : expedientDataSheetInfo.notesExpedient);
             
-            text = text.split('#224#').join(moment().format('DD/MM/YYYY'));
-            text = text.split('#225#').join(moment().format('LL'));
-
+            // "Orden de Trabajo"
+            text = text.split('#268#').join(expedientDataSheetInfo.workOrderArkEmbalmmentDate == null || expedientDataSheetInfo.workOrderArkEmbalmmentDate == '' ? '' : moment(expedientDataSheetInfo.workOrderArkEmbalmmentDate, "X").format("DD/MM/YYYY"));
+            text = text.split('#269#').join(expedientDataSheetInfo.workOrderArkEmbalmmentTime == null || expedientDataSheetInfo.workOrderArkEmbalmmentTime == '' ? '' : moment(expedientDataSheetInfo.workOrderArkEmbalmmentTime, "X").format("HH:mm"));
+            text = text.split('#270#').join(expedientDataSheetInfo.workOrderArkCTransientDate == null || expedientDataSheetInfo.workOrderArkCTransientDate == '' ? '' : moment(expedientDataSheetInfo.workOrderArkCTransientDate, "X").format("DD/MM/YYYY"));
+            text = text.split('#271#').join(expedientDataSheetInfo.workOrderArkCTransientTime == null || expedientDataSheetInfo.workOrderArkCTransientTime == '' ? '' : moment(expedientDataSheetInfo.workOrderArkCTransientTime, "X").format("HH:mm"));
+            text = text.split('#272#').join(expedientDataSheetInfo.workOrderArkClothes == null || expedientDataSheetInfo.workOrderArkClothes == '' ? '' : expedientDataSheetInfo.workOrderArkClothes);
+            text = text.split('#273#').join(expedientDataSheetInfo.workOrderArkAesthetics == null || expedientDataSheetInfo.workOrderArkAesthetics == '' ? '' : expedientDataSheetInfo.workOrderArkAesthetics);
+            text = text.split('#274#').join(expedientDataSheetInfo.workOrderArkName == null || expedientDataSheetInfo.workOrderArkName == '' ? '' : expedientDataSheetInfo.workOrderArkName);
+            text = text.split('#275#').join(expedientDataSheetInfo.workOrderArkClothesRosary == null || expedientDataSheetInfo.workOrderArkClothesRosary == '' ? '' : (expedientDataSheetInfo.workOrderArkClothesRosary == '0' ? 'No' : 'Si'));
+            text = text.split('#276#').join(expedientDataSheetInfo.workOrderArkCross == null || expedientDataSheetInfo.workOrderArkCross == '' ? '' : (expedientDataSheetInfo.workOrderArkCross == '0' ? 'No' : 'Si'));
+            text = text.split('#277#').join(expedientDataSheetInfo.workOrderArkJesus == null || expedientDataSheetInfo.workOrderArkJesus == '' ? '' : (expedientDataSheetInfo.workOrderArkJesus == '0' ? 'No' : 'Si'));
+            text = text.split('#279#').join(expedientDataSheetInfo.workOrderInhumationIronCross == null || expedientDataSheetInfo.workOrderInhumationIronCross == '' ? '' : (expedientDataSheetInfo.workOrderInhumationIronCross == '0' ? 'No' : 'Si'));
+            
+            var workOrderPressItems = '';
+            $.each(expedientDataSheetInfo.workOrderCommunication, function(indexPress, itPress){
+                workOrderPressItems += itPress.product_name + ' Tamaño: ' + itPress.model_name + ' Fecha: ' + (itPress.date != null ? moment(itPress.date, "X").format("DD/MM/YYYY") : '-') + ' Foto: ' + (itPress.photo == 1 ? 'Si' : 'No') + '\n';
+            })
+            text = text.split('#278#').join(workOrderPressItems);
+            
             var styleText = {
                 fontFamily: $(this)[0].fontFamily(),
                 fontSize: $(this)[0].fontSize(),
