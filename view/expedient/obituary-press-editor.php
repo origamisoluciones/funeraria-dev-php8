@@ -298,6 +298,7 @@
         <script src="<?php echo $utils->getRoute(); ?>resources/themes/adminlte/functions.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/js/tools/konva/konva.min.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/js/tools/colpick/colpick.js?v=<?= CACHE_DATE ?>"></script>
+        <script src="<?php echo $utils->getRoute(); ?>resources/js/tools/commonEditorsOnePage.js?v=<?= CACHE_DATE ?>"></script>
         <script src="<?php echo $utils->getRoute(); ?>resources/js/expedient/obituary-press-editor/functions.js?v=<?= CACHE_DATE ?>"></script>
         <?php if($_SESSION['company'] == '1' || $_SESSION['company'] == '3' || $_SESSION['company'] == '8'){ ?>
             <script src="<?php echo $utils->getRoute(); ?>resources/js/expedient/obituary-press-editor/company3.js?v=<?= CACHE_DATE ?>"></script>
