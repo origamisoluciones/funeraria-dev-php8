@@ -130,8 +130,11 @@
                                                     <div class="hide" id="fillSection" style="padding-bottom: 5px;">
                                                         <button class="btn btn-default btn-block" id="fillOption">Relleno</button>
                                                     </div>
-                                                    <div class="hide" id="strokeSection">
+                                                    <div class="hide" id="strokeSection" style="padding-bottom: 5px;">
                                                         <button class="btn btn-default btn-block" id="strokeOption">Borde</button>
+                                                    </div>
+                                                    <div class="hide" id="changeFillSection">
+                                                        <button class="btn btn-default btn-block" id="changeFillOption">Añadir / Quitar relleno</button>
                                                     </div>
                                                     <div class="hide" id="strokeWidthSection">
                                                         <label for="strokeWidthOption">Ancho de borde</label>

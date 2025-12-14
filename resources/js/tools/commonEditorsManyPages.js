@@ -683,6 +683,7 @@ function drawRectangle(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -722,8 +723,10 @@ function drawRectangle(options){
         $('#optionsSection').removeClass('hide');
         $('#toLayerPlus').attr('disabled', false);
         $('#toLayerMinus').attr('disabled', false);
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#fillSection').removeClass('hide');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#widthSection').removeClass('hide');
         $('#heightSection').removeClass('hide');
@@ -768,6 +771,7 @@ function drawCircle(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -810,7 +814,9 @@ function drawCircle(options){
         $('#toLayerMinus').attr('disabled', false);
         
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#radiusSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
@@ -854,6 +860,7 @@ function drawEllipse(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -894,7 +901,9 @@ function drawEllipse(options){
         $('#toLayerPlus').attr('disabled', false);
         $('#toLayerMinus').attr('disabled', false);
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#radiusXSection').removeClass('hide');
         $('#radiusYSection').removeClass('hide');
@@ -940,6 +949,7 @@ function drawWedge(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         rotation: options.rotation,
@@ -984,7 +994,9 @@ function drawWedge(options){
         $('#toLayerMinus').attr('disabled', false);
         
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#radiusSection').removeClass('hide');
         $('#angleSection').removeClass('hide');
@@ -1109,6 +1121,7 @@ function drawStar(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -1156,7 +1169,9 @@ function drawStar(options){
         $('#innerRadiusSection').removeClass('hide');
         $('#outerRadiusSection').removeClass('hide');
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
     })
@@ -1200,6 +1215,7 @@ function drawRing(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -1245,7 +1261,9 @@ function drawRing(options){
         $('#innerRadiusSection').removeClass('hide');
         $('#outerRadiusSection').removeClass('hide');
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
     })
@@ -1290,6 +1308,7 @@ function drawArc(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -1337,7 +1356,9 @@ function drawArc(options){
         $('#innerRadiusSection').removeClass('hide');
         $('#outerRadiusSection').removeClass('hide');
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
     })
@@ -1381,6 +1402,7 @@ function drawPolygon(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -1426,7 +1448,9 @@ function drawPolygon(options){
         $('#sidesSection').removeClass('hide');
         $('#radiusSection').removeClass('hide');
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
     })
@@ -1470,6 +1494,7 @@ function drawArrow(options){
         id: options.id,
         draggable: false,
         fill: options.fill,
+        fillEnabled: options.fillEnabled,
         stroke: options.stroke,
         strokeWidth: options.strokeWidth,
         opacity: options.opacity,
@@ -1515,7 +1540,9 @@ function drawArrow(options){
         $('#pointerLengthSection').removeClass('hide');
         $('#pointerWidthSection').removeClass('hide');
         $('#fillSection').removeClass('hide');
+        $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
         $('#strokeSection').removeClass('hide');
+        $('#changeFillSection').removeClass('hide');
         $('#strokeWidthSection').removeClass('hide');
         $('#opacitySection').removeClass('hide');
     })
@@ -1556,6 +1583,22 @@ function toFillColor(){
         },
         submitText: 'Aceptar',
         style: {'z-index': '1000'}
+    })
+}
+
+/**
+ * Para cambiar el color de relleno
+ */
+function toChangeFill(){
+    $('#changeFillOption').click(function(){
+        if(selected != null){
+            selected.setFillEnabled(!(selected.getFillEnabled() ? true : false));
+            $('#changeFillOption').text(selected.getFillEnabled() ? 'Quitar relleno' : 'Añadir relleno');
+
+            layers[currentPage].draw();
+            
+            saveAction(false);
+        }
     })
 }
 
@@ -2330,6 +2373,7 @@ function cleanOptions(){
     $('#optionsSection').addClass('hide');
     $('#fillSection').addClass('hide');
     $('#strokeSection').addClass('hide');
+    $('#changeFillSection').addClass('hide');
     $('#strokeWidthSection').addClass('hide');
     $('#widthSection').addClass('hide');
     $('#heightSection').addClass('hide');

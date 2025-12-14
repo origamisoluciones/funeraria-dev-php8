@@ -281,6 +281,7 @@ function drawLoad(expedient, type, model, data){
         
         // Opciones
         toFillColor()
+        toChangeFill();
         toStrokeColor()
         changeOptions()
         
@@ -501,6 +502,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -523,6 +525,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -546,6 +549,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -569,6 +573,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             rotation: $(this)[0].rotation(),
@@ -617,6 +622,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -640,6 +646,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -664,6 +671,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -687,6 +695,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -711,6 +720,7 @@ function drawLoad(expedient, type, model, data){
                                             id: $(this)[0].id(),
                                             draggable: $(this)[0].draggable(),
                                             fill: $(this)[0].fill(),
+                                            fillEnabled: $(this)[0].fillEnabled(),
                                             stroke: $(this)[0].stroke(),
                                             strokeWidth: $(this)[0].strokeWidth(),
                                             opacity: $(this)[0].opacity(),
@@ -1282,6 +1292,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1304,6 +1315,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1327,6 +1339,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1350,6 +1363,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     rotation: $(this)[0].rotation(),
@@ -1398,6 +1412,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1421,6 +1436,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1445,6 +1461,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1468,6 +1485,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -1492,6 +1510,7 @@ function redraw(expedient, type, model){
                     id: $(this)[0].id(),
                     draggable: $(this)[0].draggable(),
                     fill: $(this)[0].fill(),
+                    fillEnabled: $(this)[0].fillEnabled(),
                     stroke: $(this)[0].stroke(),
                     strokeWidth: $(this)[0].strokeWidth(),
                     opacity: $(this)[0].opacity(),
@@ -2173,6 +2192,7 @@ $(function(){
 
     // Opciones
     toFillColor()
+    toChangeFill();
     toStrokeColor()
     changeOptions()
 
