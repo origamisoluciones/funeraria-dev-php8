@@ -4379,7 +4379,7 @@ $(function(){
         ---------------------------------------------------------- Sección de otros ----------------------------------------------------------------
         --------------------------------------------------------------------------------------------------------------------------------------------
     */
-    if(company != 1 && company != 6 && company != 3 && company != 2 && company != 9 && company != 20 && company != 19 && company != 11 && company != 22){
+    if(company != 1 && company != 6 && company != 3 && company != 2 && company != 9 && company != 20 && company != 19 && company != 11 && company != 22 && company != 28){
         setTimeout(() => {
             $('#webNotApply').prop('checked', true).trigger('change')
         }, 250)

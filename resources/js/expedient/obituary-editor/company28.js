@@ -51,7 +51,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 1:
@@ -62,7 +62,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 2:
@@ -73,7 +73,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 3:
@@ -84,7 +84,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 4:
@@ -95,7 +95,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 5:
@@ -106,7 +106,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                     case 6:
@@ -117,7 +117,7 @@ $(function(){
                         deceasedFontSize = 35
                         deceasedFontStyle = 'bold'
                         deceasedAlign = 'center'
-                        deceasedLineHeight = 1
+                        deceasedLineHeight = 1.5
                         fill = '#000000'
                     break
                 }
@@ -170,7 +170,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 1:
@@ -181,7 +181,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 2:
@@ -192,7 +192,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 3:
@@ -203,7 +203,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 4:
@@ -214,7 +214,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 5:
@@ -225,7 +225,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break
                         case 6:
@@ -236,7 +236,7 @@ $(function(){
                             extraTextFontSize = 18
                             extraTextFontStyle = 'bold'
                             extraTextAlign = 'center'
-                            extraTextLineHeight = 1
+                            extraTextLineHeight = 1.5
                             fill = '#000000'
                         break;
                     }
@@ -289,7 +289,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break
                             case 1:
@@ -300,7 +300,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break
                             case 2:
@@ -311,7 +311,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break;
                             case 3:
@@ -322,7 +322,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break;
                             case 4:
@@ -333,7 +333,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break
                             case 5:
@@ -344,7 +344,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break
                             case 6:
@@ -355,7 +355,7 @@ $(function(){
                                 diedFontSize = 16
                                 diedFontStyle = 'normal'
                                 diedAlign = 'center'
-                                diedLineHeight = 1.25
+                                diedLineHeight = 1.5
                                 fill = '#000000'
                             break;
                         }
@@ -408,7 +408,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break;
                                 case 1:
@@ -419,7 +419,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break;
                                 case 2:
@@ -430,7 +430,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break
                                 case 3:
@@ -441,7 +441,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break
                                 case 4:
@@ -452,7 +452,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break
                                 case 5:
@@ -463,7 +463,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break
                                 case 6:
@@ -474,7 +474,7 @@ $(function(){
                                     depFontSize = 20
                                     depFontStyle = 'bold'
                                     depAlign = 'center'
-                                    depLineHeight = 1
+                                    depLineHeight = 1.5
                                     fill = '#000000'
                                 break
                             }
@@ -785,7 +785,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 1:
@@ -795,7 +795,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 2:
@@ -805,7 +805,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 3:
@@ -815,7 +815,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 4:
@@ -825,7 +825,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 5:
@@ -835,7 +835,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                             case 6:
@@ -845,7 +845,7 @@ $(function(){
                                                 mortuaryDateFontFamily = 'arial'
                                                 mortuaryDateFontSize = 16
                                                 mortuaryDateFontStyle = 'bold'
-                                                mortuaryDateLineHeight = 1.25
+                                                mortuaryDateLineHeight = 1.5
                                                 fill = '#000000'
                                             break
                                         }
@@ -903,7 +903,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 1:
@@ -913,7 +913,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 2:
@@ -923,7 +923,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 3:
@@ -933,7 +933,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 4:
@@ -943,7 +943,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 5:
@@ -953,7 +953,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                                 case 6:
@@ -963,7 +963,7 @@ $(function(){
                                                     mortuaryTimeFontFamily = 'arial'
                                                     mortuaryTimeFontSize = 16
                                                     mortuaryTimeFontStyle = 'bold'
-                                                    mortuaryTimeLineHeight = 1.25
+                                                    mortuaryTimeLineHeight = 1.5
                                                     fill = '#000000'
                                                 break
                                             }
@@ -1029,7 +1029,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 1:
@@ -1039,7 +1039,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 2:
@@ -1049,7 +1049,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 3:
@@ -1059,7 +1059,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 4:
@@ -1069,7 +1069,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 5:
@@ -1079,7 +1079,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                     case 6:
@@ -1089,7 +1089,7 @@ $(function(){
                                                         MourningFontFamily = 'arial'
                                                         MourningFontSize = 17
                                                         MourningFontStyle = 'bold'
-                                                        MourningLineHeight = 1.25
+                                                        MourningLineHeight = 1.5
                                                         fill = '#000000'
                                                     break
                                                 }
@@ -1159,7 +1159,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 1:
@@ -1170,7 +1170,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 2:
@@ -1181,7 +1181,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 3:
@@ -1192,7 +1192,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 4:
@@ -1203,7 +1203,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 5:
@@ -1214,7 +1214,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                         case 6:
@@ -1225,7 +1225,7 @@ $(function(){
                                                             FuneralFontSize = 17
                                                             FuneralFontStyle = 'normal'
                                                             FuneralAlign = 'normal'
-                                                            FuneralLineHeight = 1
+                                                            FuneralLineHeight = 1.5
                                                             fill = '#000000'
                                                         break
                                                     }
@@ -1278,7 +1278,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 1:
@@ -1289,7 +1289,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 2:
@@ -1300,7 +1300,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 3:
@@ -1311,7 +1311,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 4:
@@ -1322,7 +1322,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 5:
@@ -1333,7 +1333,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                             case 6:
@@ -1344,7 +1344,7 @@ $(function(){
                                                                 mortuaryFontSize = 17
                                                                 mortuaryFontStyle = 'bold'
                                                                 mortuaryAlign = 'normal'
-                                                                mortuaryLineHeight = 1.25
+                                                                mortuaryLineHeight = 1.5
                                                                 fill = '#000000'
                                                             break
                                                         }
@@ -1400,7 +1400,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 1:
@@ -1411,7 +1411,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 2:
@@ -1422,7 +1422,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 3:
@@ -1433,7 +1433,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 4:
@@ -1444,7 +1444,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 5:
@@ -1455,7 +1455,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                                 case 6:
@@ -1466,7 +1466,7 @@ $(function(){
                                                                     busFontSize = 17
                                                                     busFontStyle = 'normal'
                                                                     busAlign = 'justify'
-                                                                    busLineHeight = 1.25
+                                                                    busLineHeight = 1.5
                                                                     fill = '#000000'
                                                                 break
                                                             }
@@ -1508,7 +1508,7 @@ $(function(){
                                                                 var contactFontSize = 14;
                                                                 var contactFontStyle = 'normal';
                                                                 var contactAlign = 'normal';
-                                                                var contactLineHeight = 1.25;
+                                                                var contactLineHeight = 1;
                                                                 var fill = '#86754e';
 
                                                                 var contactText = 

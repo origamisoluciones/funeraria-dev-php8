@@ -969,6 +969,12 @@ function changeOptions(){
     $('#widthOption').change(function(){
         if(selected != null && $(this).val() != ''){
             selected.width(Math.abs($(this).val()))
+            selected.setAttr('wrapWidth', Math.abs(value));
+
+            if(selected.align() == 'justify'){
+                applyJustify(selected);
+            }
+
             layer.draw()
 
             saveAction(false)
@@ -1542,6 +1548,7 @@ function drawText(options, style, heightParam = null){
             x: options.x,
             y: options.y,
             width: options.width,
+            wrapWidth: options.width,
             height:heightParam,
             name: options.name,
             id: options.id,
@@ -1655,17 +1662,23 @@ function drawText(options, style, heightParam = null){
         break
     }
 
+    textNode.on('dragend', function(){
+        saveAction(false)
+    })
+
+    textNode.on('dragstart', function(){
+        startX = this.x()
+        startY = this.y()
+    })
+
     textNode.on('transform', function(){
         this.setAttrs({
             width: Math.max(this.width() * this.scaleX(), 20),
+            wrapWidth: Math.max(this.width() * this.scaleX(), 20),
             height: Math.max(this.height() * this.scaleY(), 20),
             scaleX: 1,
             scaleY: 1,
         });
-    })
-
-    textNode.on('dragend', function(){
-        saveAction(false)
     })
 
     textNode.on('transformend', function(){
@@ -1725,11 +1738,6 @@ function drawText(options, style, heightParam = null){
         $('#toFontSize').val(selected.fontSize())
         $('#toFontFamily').val(selected.fontFamily())
         $('#toLineHeight').val(selected.lineHeight())
-    })
-
-    textNode.on('dragstart', function(){
-        startX = this.x()
-        startY = this.y()
     })
 
     handleTransform(textNode)
@@ -2757,7 +2765,17 @@ function handleTransform(textNode){
         // Elimina el textarea al clickar fuera de él
         function handleOutsideClick(e){
             if(e.target !== textarea){
-				removeTextarea()
+                textNode.text(textarea.value);
+				removeTextarea();
+                if(currentText != textNode.text()){
+                    saveAction(false);
+                }
+                stage.find('Transformer').destroy();
+			    layer.draw();
+
+                selected = null;
+                
+                cleanActions();
 			}
         }
         setTimeout(() => {

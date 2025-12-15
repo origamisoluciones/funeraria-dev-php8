@@ -87,8 +87,8 @@
                                                 </select>
                                                 <label for="orderTypes">Tipo de pedido</label>
                                                 <select id="orderTypes">
-                                                    <option value="0">Productos del servicio</option>
-                                                    <option value="1" selected>Productos Libres</option>
+                                                    <option value="0" selected>Productos del servicio</option>
+                                                    <option value="1">Productos Libres</option>
                                                 </select>
                                                 <label>
                                                     Buscar:
