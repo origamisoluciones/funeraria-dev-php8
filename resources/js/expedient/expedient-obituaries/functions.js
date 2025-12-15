@@ -498,10 +498,10 @@ function loadNewObituary(obituary, obituaryType){
                 case 32:
                     if(obituary.deceasedGender == "Hombre"){
                         $('#formNewNote #prayForText').val('EL SEÑOR');
-                        $('#namePre').val('DON');
+                        $('#namePre').val('D.');
                     }else{
                         $('#formNewNote #prayForText').val('LA SEÑORA');
-                        $('#namePre').val('DOÑA');
+                        $('#namePre').val('Dña.');
                     }
                 break;
                 default:
@@ -1455,15 +1455,27 @@ function loadNewObituary(obituary, obituaryType){
                     var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName
                     mortuaryName = 'desde el tanatorio  ' + mortuaryName;
 
-                    var dayNameAux = dayName.split(' ');
-                    dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
+                    var funeralDateAux = '';
+                    if(obituary.funeralDate != null && funeralDate.funeralDate != ''){
+                        var dayNameAux = dayName.split(' ');
+                        dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
 
-                    var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
-                    var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
-                    ceremonyTime = getFuneralTime(h2, m2, 'es');
+                        if(obituary.funeralTime != null && obituary.funeralTime != ''){
+                            funeralDateAux = dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ' + momento.toLowerCase();
+                        }else{
+                            funeralDateAux = dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ';
+                        }
+                    }
+
+                    var ceremonyTime = '';
+                    if(obituary.ceremonyTime != null && obituary.ceremonyTime != ''){
+                        var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
+                        var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
+                        ceremonyTime = getFuneralTime(h2, m2, 'es');
+                    }
 
                     pray = 'Ruegan una oración por su alma y la asistencia a '
-                        + 'la conducción del cadáver que tendrá lugar el ' + dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ' + momento.toLowerCase() + ', ' 
+                        + 'la conducción del cadáver que tendrá lugar el ' + funeralDateAux  + ', ' 
                         + 'desde el tanatorio hasta la '+ (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? obituary.churchLabel + ' de': obituary.churchLabel) + ' ' + obituary.churchName + ', '
                         + 'donde se celebrará el Funeral. A continuación, se le dará sepultura en el '+ (obituary.cemeteryLabel == 'Otro' ? '' : obituary.cemeteryLabel) + ' ' + obituary.cemeteryName + '.' 
                 break;
@@ -1728,10 +1740,10 @@ function loadNewObituary(obituary, obituaryType){
                 case 32:
                     if(obituary.deceasedGender == "Hombre"){
                         $('#formNewNote #prayForText').val('O SEÑOR');
-                        $('#namePre').val('DON');
+                        $('#namePre').val('D.');
                     }else{
                         $('#formNewNote #prayForText').val('A SEÑORA');
-                        $('#namePre').val('DONA');
+                        $('#namePre').val('Dna.');
                     }
 
                     switch (obituary.deceasedMaritalStatus) {
@@ -2117,14 +2129,26 @@ function loadNewObituary(obituary, obituaryType){
                 break;
                 case 32:
                     var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName
-                    mortuaryName = 'desde el tanatorio  ' + mortuaryName;
+                    mortuaryName = 'dende o tanatorio  ' + mortuaryName;
 
-                    var dayNameAux = dayName.split(' ');
-                    dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
+                    var funeralDateAux = '';
+                    if(obituary.funeralDate != null && funeralDate.funeralDate != ''){
+                        var dayNameAux = dayName.split(' ');
+                        dayName = dayNameAux[1].replace(',', '') + ' día ' + dayNameAux[2] + ' de '+  dayNameAux[4];
 
-                    var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
-                    var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
-                    ceremonyTime = getFuneralTime(h2, m2, 'es');
+                        if(obituary.funeralTime != null && obituary.funeralTime != ''){
+                            funeralDateAux = dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ' + momento.toLowerCase();
+                        }else{
+                            funeralDateAux = dayName.toLowerCase() + ' a las '+ funerTime.toUpperCase() +' de la ';
+                        }
+                    }
+
+                    var ceremonyTime = '';
+                    if(obituary.ceremonyTime != null && obituary.ceremonyTime != ''){
+                        var h2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('HH'));
+                        var m2 = (moment(obituary.ceremonyTime, "hh:mm:ss").format('mm'));
+                        ceremonyTime = getFuneralTime(h2, m2, 'es');
+                    }
 
                     pray = 'Pregan unha oración pola súa alma e a asistencia á '
                         + 'conducción do cadáver, que terá lugar o ' + dayName.toLowerCase() + ' ás '+ funerTime.toUpperCase() +' da ' + momento.toLowerCase() + ', ' 

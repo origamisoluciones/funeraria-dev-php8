@@ -1118,7 +1118,7 @@ $(function(){
                                                 fontStyle: mortuaryLabelFontStyle,
                                                 fontVariant: 'normal',
                                                 textDecoration: 'empty string',
-                                                text: obituaryModel == 2 ? 'CAPELA ARDENTE' : 'CAPILLA ARDIENTE:',
+                                                text: obituaryType == '1' ? 'CAPELA ARDENTE' : 'CAPILLA ARDIENTE:',
                                                 align: mortuaryLabelAlign,
                                                 verticalAlign: 'top',
                                                 padding: 0,
@@ -1347,7 +1347,12 @@ $(function(){
                                                                     opacity: 1
                                                                 }
 
-                                                                var locationText = obituary.location;
+                                                                if(obituaryType == '1'){
+                                                                    moment.locale('gl');
+                                                                }else{
+                                                                    moment.locale('es');
+                                                                }
+                                                                var locationText = obituary.location + ', ' + moment().format('MMMM') +  ' de ' + moment().format('YYYY');
                                                                     
                                                                 var styleLocation = {
                                                                     fontFamily: locationFontFamily,

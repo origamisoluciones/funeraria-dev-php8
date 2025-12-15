@@ -30,74 +30,6 @@
         $whereDates .= ' AND (e.requestDate >= "' . $_GET['from'] . '" AND e.requestDate <= "' . $_GET['to'] . '")';
     }
 
-    // Type and status
-    // if(isset($_GET['type'])){
-    //     if(isset($_GET['status'])){
-    //         if($_GET['status'] == '1' || $_GET['status'] == 1){
-    //             if($_GET['type'] == '0'){
-    //                 $where = "e.leavingDate IS NULL AND e.type IN (1,3)";
-    //             }else{
-    //                 $where = "e.leavingDate IS NULL AND e.type = " . $_GET['type'];
-    //             }
-    //         }else{
-    //             if($_GET['type'] == '0'){
-    //                 $where = "e.leavingDate IS NULL AND e.status = " . $_GET['status'] . " AND e.type IN (1,3)";
-    //             }else{
-    //                 $where = "e.leavingDate IS NULL AND e.type = " . $_GET['type'] . " AND e.status = " . $_GET['status'];
-    //             }
-    //         }
-    //     }else{
-    //         if($_GET['type'] == '0'){
-    //             $where = "e.leavingDate IS NULL";
-    //         }else{
-    //             $where = "e.leavingDate IS NULL AND e.type = " . $_GET['type'];
-    //         }
-    //     }
-    // }else{
-    //     if(isset($_GET['status'])){
-    //         switch ($_GET['status']) {
-    //             case 1:
-    //                 $where = "e.leavingDate IS NULL AND e.type IN (1,3)";
-    //             break;
-    //             case 2:
-    //                 $where = "e.leavingDate IS NULL AND e.type IN (1,3) AND e.status = 2";
-    //             break;
-    //             case 3:
-    //             case 4:
-    //             case 5:
-    //                 $where = "e.leavingDate IS NULL AND e.type IN (1,3) AND e.status =" . $_GET['status'];
-    //             break;
-    //             case 6:
-    //                 $where = "e.leavingDate IS NULL AND e.status = {$_GET['status']} AND e.type IN (1,3)";
-    //             break;
-    //             default:
-    //                 $where = "e.leavingDate IS NULL AND e.status = 2 AND e.type IN (1,3)";
-    //             break;
-    //         }            
-    //     }else if(isset($_GET['all'])){
-    //         $where = "  e.leavingDate IS NULL AND
-    //                     e.status = 2 AND (
-    //                         e.type = 1 OR
-    //                         e.type = 3
-    //                     ) OR (
-    //                         e.status IN (3,4) AND
-    //                         e.leavingDate IS NULL AND 
-    //                         (
-    //                             (
-    //                                 e.funeralDate > '$currentDate' OR
-    //                                 (
-    //                                     e.funeralDate = '$currentDate' AND
-    //                                     e.funeralTime >= '$currentTime'
-    //                                 )
-    //                             ) AND
-    //                             IF(ev.end IS NULL, 1, ev.end >= '$currentDate $currentTime')
-    //                         )
-    //                     )";
-    //     }else{
-    //         $where = "e.leavingDate IS NULL AND e.status = 2 AND e.type IN (1,3)";
-    //     }
-    // }
-
     $where = 'e.leavingDate IS NULL';
     if(isset($_GET['all'])){
         $where .= "  
@@ -133,7 +65,6 @@
         if(isset($_GET['status'])){
             $where .= " AND e.status = " . $_GET['status'];
         }
-
         
         // Expedient covid
         if(isset($_GET['covid'])){
