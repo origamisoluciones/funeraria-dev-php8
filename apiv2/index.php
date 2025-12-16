@@ -676,6 +676,9 @@
                 case 'appsanjose':
                     $company = 22;
                 break;
+                case 'appmartinez':
+                    $company = 28;
+                break;
             }
 
             foreach($deceased as $index => $elem){
