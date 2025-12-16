@@ -2574,23 +2574,28 @@
                 if(intval($status) === 1){ // Pagada
 
                     $where .= " AND
-                                ABS(ROUND(ri.total, 2)) <= ABS((
-                                               SELECT   COALESCE(SUM(rip.amount), 0)
+                                    (
+                                        ABS(ROUND(ri.total, 2)) <= 
+                                        ABS(
+                                            (
+                                                SELECT   COALESCE(SUM(rip.amount), 0)
                                                 FROM    Received_Invoices_Payments rip
                                                 WHERE   rip.leavingDate IS NULL
                                                     AND rip.invoice = ri.ID
-                                            ))
+                                            )
+                                        )
+                                )
                     ";
                     
                 }else{ // Pendiente
 
                     $where .= " AND
                                 ABS(ROUND(ri.total, 2)) > ABS((
-                                                SELECT  COALESCE(SUM(rip.amount), 0)
-                                                FROM    Received_Invoices_Payments rip
-                                                WHERE   rip.leavingDate IS NULL
-                                                    AND rip.invoice = ri.ID
-                                            ))
+                                    SELECT  COALESCE(SUM(rip.amount), 0)
+                                    FROM    Received_Invoices_Payments rip
+                                    WHERE   rip.leavingDate IS NULL
+                                        AND rip.invoice = ri.ID
+                                ))
                     ";
                 }
             }
@@ -2660,10 +2665,10 @@
                                                 ri.withholding, 
                                                 ri.supplied, 
                                                 ri.total, 
-                                                (   SELECT SUM(rip.amount)
-                                                    FROM Received_Invoices_Payments rip
-                                                    WHERE rip.leavingDate IS NULL AND
-                                                          rip.invoice = ri.ID 
+                                                (   SELECT  SUM(rip.amount)
+                                                    FROM    Received_Invoices_Payments rip
+                                                    WHERE   rip.leavingDate IS NULL AND
+                                                            rip.invoice = ri.ID 
                                                 ) as pagado,
                                                 ri.feeHoldIva, 
                                                 ri.feeHoldIva2, 

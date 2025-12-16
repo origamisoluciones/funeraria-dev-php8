@@ -6515,9 +6515,11 @@
                                                     e.deceasedMortuaryAddress, e.deceasedLocality, e.deceasedProvince, e.deceasedUsualAddress, 
                                                     l.name as mortuaryLocation, l.postalCode as mortuaryPostalCode, l.province as mortuaryProvince,
                                                     e.startVelacionDate, e.startVelacionTime, e.endVelacionTime, di.name as deceasedInName,
-                                                    e.cemeteryLabel, cem.name AS cemeteryName,
+                                                    e.cemeteryLabel, 
+                                                    IF(e.cemeteryLabel = 'Otro', e.otherInhumation, cem.name) AS cemeteryName,
                                                     m.address as mortuaryAddress, m.phones as mortuaryPhones,
-                                                    e.churchLabel, ch.name AS churchName,
+                                                    e.churchLabel, 
+                                                    IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS churchName,
                                                     e.ceremonyDate, e.ceremonyTime,
                                                     f.name AS funeralHome
                                         FROM        (Expedients_Obituaries eo, Expedients e, Expedients_Services es)
@@ -6544,9 +6546,11 @@
                                                     e.deceasedMortuaryAddress, e.deceasedLocality, e.deceasedProvince, e.deceasedUsualAddress, 
                                                     l.name as mortuaryLocation, l.postalCode as mortuaryPostalCode, l.province as mortuaryProvince,
                                                     e.startVelacionDate, e.startVelacionTime, e.endVelacionTime, di.name as deceasedInName,
-                                                    e.cemeteryLabel, cem.name AS cemeteryName,
+                                                    e.cemeteryLabel, 
+                                                    IF(e.cemeteryLabel = 'Otro', e.otherInhumation, cem.name) AS cemeteryName,
                                                     m.address as mortuaryAddress, m.phones as mortuaryPhones,
-                                                    e.churchLabel, ch.name AS churchName,
+                                                    e.churchLabel, 
+                                                    IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS churchName,
                                                     e.ceremonyDate, e.ceremonyTime,
                                                     f.name AS funeralHome
                                         FROM        (Expedients_Obituaries eo, Clients c, Expedients e, Expedients_Services es)
@@ -6840,7 +6844,7 @@
                                                 es.sinceAniversaryWeb, es.untilAniversaryWeb, es.showAgeObituaryWeb, es.churchAniversaryWeb, es.dateAniversaryWeb, es.timeAniversaryWeb,
                                                 es.surveyNotApply, es.surveySend,
                                                 es.poll, po.title as poll_title,
-                                                chu.name as churchAniversaryWebName,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, chu.name) as churchAniversaryWebName,
                                                 st.name as staffName, st.surname as staffSurname, st2.name as doctorDelivName, st2.surname as doctorDelivSurname,
                                                 ch.name as choirName, 
                                                 b.name as bellringerName,
@@ -8547,9 +8551,9 @@
                                                 e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 e.startVelacionDate, e.startVelacionTime,
                                                 m.name AS mortuary,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 l.name AS mortuaryLocation,
-                                                ch.name AS church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) as church,
                                                 es.carriersTime,
                                                 f.name AS funeralHome,
                                                 cr.name as crematoriumName
@@ -8658,9 +8662,9 @@
                                                 e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 e.startVelacionDate, e.startVelacionTime,
                                                 m.name AS mortuary,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 l.name AS mortuaryLocation,
-                                                ch.name AS church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) as church,
                                                 es.carriersTime,
                                                 f.name AS funeralHome,
                                                 cr.name as crematoriumName
@@ -8766,9 +8770,9 @@
                                                 e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 e.startVelacionDate, e.startVelacionTime,
                                                 m.name AS mortuary,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 l.name AS mortuaryLocation,
-                                                ch.name AS church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) as church,
                                                 es.carriersTime,
                                                 f.name AS funeralHome,
                                                 cr.name as crematoriumName
@@ -8886,24 +8890,95 @@
                     
                     $maxNumHiring = $this->getActiveHiring($expedient['expedientID']);
 
-                    $result = $db->query("  SELECT	    p.name as product_name, 
-                                                        pm.name as model_name,
-                                                        REPLACE(et.value, '\\\', '') as texts,
-                                                        sup.name as supplier_name,
-                                                        ord.deliveryDate
-                                            FROM	    (Expedients e, Expedients_Hirings eh, Products p, Products_Models pm, Suppliers sup)
-                                            LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
-                                            LEFT JOIN   Pre_Orders po ON po.leavingDate IS NULL AND po.hiring = eh.ID
-                                            LEFT JOIN   Orders ord ON ord.leavingDate IS NULL AND po.order = ord.ID
-                                            WHERE	    e.expedientID = {$expedient['expedientID']} AND
-                                                        eh.expedient = e.expedientID AND
-                                                        eh.num_hiring = $maxNumHiring AND
-                                                        eh.check = 1 AND
-                                                        eh.product = p.productID AND
-                                                        p.blockBelow = 3 AND
-                                                        eh.model = pm.productModelID AND
-                                                        eh.supplier = sup.supplierID
+                    // Obtenemos los expedientes asociados al expediente actual
+                    $result = $db->query("  SELECT  exas.expedientID
+                                            FROM    Expedients_Associates exas
+                                            WHERE   exas.associate = {$expedient['expedientID']} AND
+                                                    exas.leavingDate IS NULL
                     ");
+                    $expedientesAssociates = $db->resultToArray($result);
+
+                    $expedientesAssociatesIds = '';
+                    if(count($expedientesAssociates) > 0){
+                        foreach($expedientesAssociates as $elem){
+                            $expedientesAssociatesIds.= $elem['expedientID'] . ',';
+                        }
+                        if($expedientesAssociatesIds != ''){
+                            $expedientesAssociatesIds = substr($expedientesAssociatesIds, 0, -1);
+                        }
+                    }
+
+                    if($expedientesAssociatesIds != ''){
+
+                        $result = $db->query("   SELECT  Z.product_name, 
+                                                        Z.model_name, 
+                                                        Z.texts, 
+                                                        Z.supplier_name,
+                                                        Z.deliveryDate
+                                                FROM(
+                                                        (
+                                                            SELECT	    p.name as product_name, 
+                                                                        pm.name as model_name,
+                                                                        REPLACE(et.value, '\\\', '') as texts,
+                                                                        sup.name as supplier_name,
+                                                                        ord.deliveryDate
+                                                            FROM	    (Expedients e, Expedients_Hirings eh, Products p, Products_Models pm, Suppliers sup)
+                                                            LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
+                                                            LEFT JOIN   Pre_Orders po ON po.leavingDate IS NULL AND po.hiring = eh.ID
+                                                            LEFT JOIN   Orders ord ON ord.leavingDate IS NULL AND po.order = ord.ID
+                                                            WHERE	    e.expedientID = {$expedient['expedientID']} AND
+                                                                        eh.expedient = e.expedientID AND
+                                                                        eh.num_hiring = $maxNumHiring AND
+                                                                        eh.check = 1 AND
+                                                                        eh.product = p.productID AND
+                                                                        p.blockBelow = 3 AND
+                                                                        eh.model = pm.productModelID AND
+                                                                        eh.supplier = sup.supplierID
+                                                        )
+                                                        UNION
+                                                        (
+                                                            SELECT      p.name as product_name, 
+                                                                        pm.name as model_name,
+                                                                        REPLACE(et.value, '\\\', '') as texts,
+                                                                        sup.name as supplier_name,
+                                                                        ord.deliveryDate
+                                                            FROM        (Expedients e, Expedients_Hirings eh, Products p, Products_Models pm, Suppliers sup)
+                                                            LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
+                                                            LEFT JOIN   Pre_Orders po ON po.leavingDate IS NULL AND po.hiring = eh.ID
+                                                            LEFT JOIN   Orders ord ON ord.leavingDate IS NULL AND po.order = ord.ID
+                                                            WHERE	    e.expedientID IN ($expedientesAssociatesIds) AND 
+                                                                        eh.expedient = e.expedientID AND
+                                                                        eh.num_hiring = 0 AND
+                                                                        eh.check = 1 AND
+                                                                        eh.product = p.productID AND
+                                                                        p.blockBelow = 3 AND
+                                                                        eh.model = pm.productModelID AND
+                                                                        eh.supplier = sup.supplierID
+                                                        )
+                                                ) as Z
+                        ");
+
+                    }else{
+                        $result = $db->query("  SELECT	    p.name as product_name, 
+                                                            pm.name as model_name,
+                                                            REPLACE(et.value, '\\\', '') as texts,
+                                                            sup.name as supplier_name,
+                                                            ord.deliveryDate
+                                                FROM	    (Expedients e, Expedients_Hirings eh, Products p, Products_Models pm, Suppliers sup)
+                                                LEFT JOIN   Expedients_Texts et ON eh.ID = et.hiring
+                                                LEFT JOIN   Pre_Orders po ON po.leavingDate IS NULL AND po.hiring = eh.ID
+                                                LEFT JOIN   Orders ord ON ord.leavingDate IS NULL AND po.order = ord.ID
+                                                WHERE	    e.expedientID = {$expedient['expedientID']} AND
+                                                            eh.expedient = e.expedientID AND
+                                                            eh.num_hiring = $maxNumHiring AND
+                                                            eh.check = 1 AND
+                                                            eh.product = p.productID AND
+                                                            p.blockBelow = 3 AND
+                                                            eh.model = pm.productModelID AND
+                                                            eh.supplier = sup.supplierID
+                        ");
+                    }
+
 
                     if(mysqli_num_rows($result) > 0){
                         $expedients[$key]['products'] = $db->resultToArray($result);
@@ -10859,7 +10934,7 @@
 
             $result = $db->query("  SELECT      e.applicantName, e.applicantSurname, e.applicantNIF, e.number, e.deceasedGender, e.deceasedName, 
                                                 e.deceasedSurname, e.deceasedDate, e.deceasedTime,
-                                                c.name AS deceasedCemetery
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS deceasedCemetery
                                     FROM        Expedients e
                                     LEFT JOIN   Cemeteries c ON e.cemetery = c.cemeteryID
                                     WHERE       expedientID = " . $data . "");
@@ -11410,9 +11485,9 @@
                                                 e.deceasedChildOfMother, e.deceasedMaritalStatus, e.deceasedFirstNuptials, e.deceasedRoom, e.deceasedBirthday,
                                                 e.deceasedUsualAddress, e.deceasedGender, e.churchLabel, e.deceasedRoom, e.deceasedMortuaryAddress, e.regime, e.exhumation,
                                                 e.nicheHeight, e.funeralNicheNumber,
-                                                ch.name as church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) as church,
                                                 di.name as deceasedIn,
-                                                c.name as cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 m.name as mortuary,
                                                 l.name as birthdayLocation, l.province AS deceasedBirthdayProvince,
                                                 l2.name as locationName, l2.province locationProvince,
@@ -11446,7 +11521,7 @@
                                                 e.niche, e.nicheHeight, e.exhumation, e.regime, e.cemeteryLabel,
                                                 l.name AS familyContactLocality, l.province AS familyContactProvince,
                                                 di.name as deceasedIn, CONCAT(l2.name, ', ', l2.province) AS deceasedInName,
-                                                c.name AS cemetery, 
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 l3.name AS cemeteryLocation, l3.province AS cemeteryProvince,
                                                 CONCAT(l4.name, ', ' , l4.province) AS applicantLocation
                                     FROM        Expedients e
@@ -11494,7 +11569,7 @@
 
             $result = $db->query("  SELECT      e.deceasedName, e.deceasedSurname, e.deceasedGender, applicantName, applicantSurname, applicantNif, applicantLocation, 
                                                 deceasedName, deceasedSurname, deceasedGender, deceasedLocation as expedientDL, e.otherDeceasedLocation,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 l.name AS cemeteryLocation, l.province AS cemeteryProvince,
                                                 l2.name as deceasedLocation
                                     FROM        Expedients e
@@ -12927,8 +13002,8 @@
             $result = $db->query("  SELECT      e.deceasedName, e.deceasedSurname, e.funeralDate, e.funeralTime, e.deceasedDate, e.deceasedRoom, e.deceasedGender, e.churchLabel,
                                                 l.name AS deceasedLocation, l.province AS deceasedProvince,
                                                 m.name AS deceasedMortuary,
-                                                c.name AS deceasedCemetery,
-                                                ch.name AS churchName
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS deceasedCemetery,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS churchName
                                     FROM        (Expedients e)
                                     LEFT JOIN   Locations l ON e.deceasedLocation = l.locationID
                                     LEFT JOIN   Mortuaries m ON e.deceasedMortuary = m.mortuaryID
@@ -12963,7 +13038,7 @@
                                                 c.name AS client,
                                                 l.name AS location,
                                                 m.name AS mortuary,
-                                                ce.name AS cemetery
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, ce.name) AS cemetery
                                     FROM        (Expedients e)
                                     LEFT JOIN   Clients c ON e.client = c.clientID
                                     LEFT JOIN   Cemeteries ce ON e.cemetery = ce.cemeteryID
@@ -13135,7 +13210,8 @@
                 $expedient = $db->query("   SELECT      e.deceasedName, e.deceasedSurname, e.number, e.funeralDate, e.policy, e.clientType, e.familyContactName, e.familyContactSurname,
                                                         e.familyContactNIF, e.familyContactPhone, e.familyContactMobilePhone, e.familyContactAddress, l.name AS familyContactLocation,
                                                         l.province AS familyContactProvince, e.lossNumber, e.deceasedGender, e.deceasedDate,
-                                                        CONCAT(c.name, ' ', c.surname) AS clientName, c.nif AS clientCIF, c.brandName, c.address AS clientAddress, ch.name AS church,
+                                                        CONCAT(c.name, ' ', c.surname) AS clientName, c.nif AS clientCIF, c.brandName, c.address AS clientAddress, 
+                                                        IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                         l2.name as churchLocationName, l2.province as churchLocationProvince
                                             FROM        (Expedients e)
                                             LEFT JOIN   Locations l ON l.locationID = e.familyContactLocation
@@ -13147,7 +13223,8 @@
                 $expedient = $db->query("   SELECT      e.deceasedName, e.deceasedSurname, e.number, e.funeralDate, e.policy, e.clientType, e.familyContactName, e.familyContactSurname,
                                                         e.familyContactNIF, e.familyContactPhone, e.familyContactMobilePhone, e.familyContactAddress, l.name AS familyContactLocation,
                                                         l.province AS familyContactProvince, e.lossNumber, e.deceasedGender, e.deceasedDate,
-                                                        CONCAT(c.name, ' ', c.surname) AS clientName, c.nif AS clientCIF, c.brandName, c.address AS clientAddress, ch.name AS church,
+                                                        CONCAT(c.name, ' ', c.surname) AS clientName, c.nif AS clientCIF, c.brandName, c.address AS clientAddress, 
+                                                        IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                         l2.name as churchLocationName, l2.province as churchLocationProvince
                                             FROM        (Expedients e)
                                             LEFT JOIN   Locations l ON l.locationID = e.familyContactLocation
@@ -13243,9 +13320,9 @@
                                                 e.ceremonyTime, e.funeralTimeBurial, e.cremation, ev.start as crematoriumEntry,
                                                 e.startVelacionDate, e.startVelacionTime,
                                                 m.name AS mortuary,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
                                                 l.name AS mortuaryLocation,
-                                                ch.name AS church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                 es.carriersTime,
                                                 f.name AS funeralHome,
                                                 cr.name as crematoriumName
@@ -13355,8 +13432,8 @@
             $query = $db->query("   SELECT      e.deceasedGender, e.deceasedName, e.deceasedSurname, e.number, e.deceasedRoom, e.funeralTime, e.authDate, e.authName, e.authTime, e.authPlace,
                                                 e.cremation, e.crematoriumIntroduction, e.crematoriumWaitOnRoom, e.crematoriumVaseBio, e.crematoriumPacemaker, e.ecologicCoffin,
                                                 cr.name as crematorium,
-                                                c.name AS cemetery,
-                                                ch.name AS church,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                 m.name AS mortuary,
                                                 es.routeSummary, es.notesSummary, es.churchSummary, es.licenseSummary, es.deliveryReceiptSummary, es.reminderSummary
                                     FROM        (Expedients e, Expedients_Services es)
@@ -13476,7 +13553,7 @@
             $result = $db->query("  SELECT      e.exhumation, e.deceasedName, e.deceasedSurname, e.funeralNicheNumber, e.deceasedGender, e.number, applicantName, applicantSurname, applicantNIF, funeralDateNiche, authName,
                                                 e.deceasedNiche, e.funeralDateNiche, e.familyContactName, e.familyContactSurname, e.familyContactNIF, e.familyContactAddress, e.deceasedDate,
                                                 e.niche, e.nicheHeight, e.exhumation, e.regime, e.cemeteryLabel, e.applicantLocation,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
                                                 l.name AS cemeteryLocation, l.province AS cemeteryProvince,
                                                 l1.name as familyContactLocality, l1.province AS familyContactProvince,
                                                 di.name as deceasedIn, CONCAT(l2.name, ', ', l2.province) AS deceasedInName,
@@ -13546,7 +13623,8 @@
 
             $result = $db->query("  SELECT      e.deceasedName, e.deceasedGender, e.funeralNicheNumber, e.number, applicantName, applicantNIF, 
                                                 applicantAddress, authName,
-                                                c.name AS deceasedCemetery, c.location,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS deceasedCemetery,
+                                                c.location,
                                     FROM        (Expedients e)
                                     LEFT JOIN   Cemeteries c ON e.cemetery = c.cemeteryID
                                     WHERE       expedientID = " . $data . "");
@@ -13658,7 +13736,7 @@
 
             $result = $db->query("  SELECT      e.applicantName, e.applicantNif, e.applicantAddress,  e.deceasedGender, e.deceasedNIF, e.deceasedName, e.deceasedSurname, e.funeralNicheNumber, e.deceasedDate, e.deceasedTime, e.deceasedGender, e.deceasedNIF, e.deceasedBirthday,
                                                 e.familyContactName, e.familyContactSurname, e.familyContactName, e.familyContactSurname, e.familyContactNIF, e.familyContactPhone, e.funeralNicheNumber, e.cremation,
-                                                c.name AS deceasedCemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as deceasedCemetery,
                                                 l1.name AS cemeteryLocation,
                                                 l2.name AS deceasedBirthdayLocation, l2.province AS deceasedBirthdayProvince,
                                                 l3.name AS deceasedLocation, l3.province AS deceasedProvince,
@@ -15228,8 +15306,8 @@
             $result = $db->query("   SELECT     e.deceasedGender, e.deceasedName, e.deceasedSurname, e.number, e.deceasedRoom, e.funeralTime, e.authDate, e.authName, e.authTime, e.authPlace,
                                                 e.cremation, e.crematoriumIntroduction, e.crematoriumWaitOnRoom, e.crematoriumVaseBio, e.crematoriumPacemaker, e.ecologicCoffin,
                                                 cr.name as crematorium,
-                                                c.name AS cemetery,
-                                                ch.name AS church,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                 m.name AS mortuary,
                                                 es.routeSummary, es.notesSummary, es.churchSummary, es.licenseSummary, es.deliveryReceiptSummary, es.reminderSummary,
                                                 CONCAT(s.name, ' ' , s.surname) as technicalName, 
@@ -16908,8 +16986,11 @@
                                                 di.name as deceasedLocation, l1.name as deceasedLocationName, l2.name as deceasedBirthdayLocationName,
                                                 l2.province as deceasedBirthdayLocationProvince,
                                                 eo.extraText,
-                                                ch.name as churchName, l3.name as churchLocationName,
-                                                ce.cemeteryID as cemetery, ce.name as cemeteryName, l4.name as cemeteryLocationName,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, ce.name) AS cemeteryName,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS churchName,
+                                                l3.name as churchLocationName,
+                                                ce.cemeteryID as cemetery, 
+                                                l4.name as cemeteryLocationName,
                                                 cr.crematoriumID as crematorium, cr.name as crematoriumName, l5.name as crematoriumLocationName
                                     FROM        (Expedients e)
                                     LEFT JOIN   DeceasedIn di ON e.deceasedLocation = di.deceasedInID
@@ -17292,7 +17373,7 @@
                                                 l4.name as crematoriumLocation,
                                                 fh.name as funeralHome,
                                                 m.name as mortuary,
-                                                c.name as cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) as cemetery,
                                                 cr.name as crematorium,
                                                 ev.start, ev.end
                                     FROM        (Expedients e)
@@ -17431,7 +17512,9 @@
 
             $result = $db->query("  SELECT      e.requestDate, CONCAT(e.deceasedName, ' ', e.deceasedSurname) as deceased, e.deceasedBirthday, e.deceasedDate, e.lossNumber, e.number, 
                                                 e.deceasedMortuary, m.name as mortuaryName, e.deceasedRoom, e.entryDate, e.ceremonyDate, e.ceremonyTime,
-                                                e.cremation, ev.start as cremationStart, ch.name as churchName, e.funeralHomeEntryDate, e.funeralHomeEntryTime, e.deceasedMortuaryAddress,
+                                                e.cremation, ev.start as cremationStart, 
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) as churchName,
+                                                e.funeralHomeEntryDate, e.funeralHomeEntryTime, e.deceasedMortuaryAddress,
                                                 di.name as deceasedInName, l2.name AS deceasedLocation, l2.province AS deceasedProvince
                                     FROM        (Expedients e)
                                     LEFT JOIN   Locations l ON e.deceasedBirthdayLocation = l.locationID
@@ -17505,7 +17588,7 @@
                                                 CONCAT(e.deceasedName, ' ', e.deceasedSurname) as deceased, e.deceasedGender, e.deceasedMortuaryAddress,
                                                 e.deceasedRoom, e.deceasedDate, e.funeralNicheNumber, e.number,
                                                 m.name as mortuary, l2.name AS mortuaryLocation,
-                                                c.name as cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
                                                 l.name AS cemeteryLocation, l.province AS cemeteryProvince,
                                                 fh.name as funeralHome, fh.nif as funeralHomeCif, l1.name as funeralHomeLocation,
                                                 (
@@ -17644,7 +17727,8 @@
                                                 CONCAT(e.familyContactName, ' ', e.familyContactSurname) as familyContact, e.familyContactPhone,
                                                 e.familyContactMail, e.otherContactRelationship, l.name as familyContactLocation, l.postalCode as familyContactPostalCode, l.province as familyContactProvince,
                                                 d.name as deceasedLocation, l3.name as cemeteryLocation, fh.name as sourceFuneralHome, fh2.name as destinationFuneralHome,
-                                                m.name as mortuaryName, ce.name as cemeteryName,
+                                                m.name as mortuaryName, 
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, ce.name) as cemeteryName,
                                                 CONCAT(l4.name, ', ', l4.province) AS deceasedInName
                                     FROM        (Expedients e)
                                     LEFT JOIN   Clients c ON c.clientID = e.client
@@ -18012,9 +18096,9 @@
 
             $result = $db->query("  SELECT      e.expedientID, e.type, e.funeralDate, e.funeralTime, e.number, e.deceasedGender, e.deceasedName, e.deceasedSurname, e.deceasedRoom, e.crematoriumArriveTime,
                                                 m.name AS mortuary,
-                                                c.name AS cemetery,
+                                                IF(e.cemeteryLabel = 'Otro', e.otherInhumation, c.name) AS cemetery,
                                                 l.name AS mortuaryLocation,
-                                                ch.name AS church,
+                                                IF(e.churchLabel = 'Otro', e.otherCeremony, ch.name) AS church,
                                                 es.carriersTime,
                                                 f.name AS funeralHome
                                     FROM        (Expedients e, Expedients_Services es)

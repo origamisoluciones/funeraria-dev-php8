@@ -1406,7 +1406,18 @@ function loadNewObituary(obituary, obituaryType){
                     }
                 break;
                 case 28:
-                    pray =  'Ruegan una oración por el eterno descanso de su alma.'
+                    pray =  "Ruegan una oración por el eterno descanso de su alma.\n";
+
+                    if(obituary.churchName.toLowerCase() == obituary.cemeteryName.toLowerCase()){
+                        pray += 'Funeral de cuerpo presente y entierro en la Iglesia y cementerio parroquiales de ' +  obituary.churchName + '.'
+                    }else{
+                        pray += 
+                            'Funeral de cuerpo presente en la ' +  
+                            (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? obituary.churchLabel.toLowerCase() + ' de': obituary.churchLabel) + ' ' + obituary.churchName + 
+                            ' y el entierro en el ' +
+                            obituary.cemeteryLabel.toLowerCase() + ' ' + obituary.cemeteryName + '.';
+                    }
+                    pray += ' Favores por los que anticipan las más expresivas gracias.';
                 break;
                 case 29:
                     var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName;
@@ -1533,13 +1544,6 @@ function loadNewObituary(obituary, obituaryType){
                 $('#formNewNote #location').val(obituary.mortuaryLocation.toUpperCase());
             }else if(companyId == 25){
                 $('#formNewNote #location').val(obituary.mortuaryPhones);
-            }else if(companyId == 28){
-                var funeralData = 
-                    'Funeral de cuerpo presente en la ' +  
-                    (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? obituary.churchLabel.toLowerCase() + ' de': obituary.churchLabel) + ' ' + obituary.churchName + 
-                    ' y el entierro en el ' +
-                    obituary.cemeteryLabel.toLowerCase() + ' ' + obituary.cemeteryName + '.';
-                $('#funeral').val(funeralData);
             }else if(companyId == 30){
 
                 var funeralDate = '';
@@ -1736,6 +1740,48 @@ function loadNewObituary(obituary, obituaryType){
                     }
 
                     moment.locale('ca'); 
+                break;
+                case 28:
+                    if(obituary.deceasedGender == "Hombre"){
+                        $('#formNewNote #prayForText').val('O SEÑOR');
+                        $('#namePre').val('D.');
+                    }else{
+                        $('#formNewNote #prayForText').val('A SEÑORA');
+                        $('#namePre').val('Dna.');
+                    }
+
+                    switch (obituary.deceasedMaritalStatus) {
+                        case "Viudo":
+                            if(obituary.deceasedGender == "Hombre"){
+                                $('#spousePre').val('Vvo. de Dna., ');
+                            }else{
+                                $('#spousePre').val('Vva. de D., ');
+                            }
+                            if(obituary.deceasedSecondNuptials  != ""){
+                                $('#spouseName').val(obituary.deceasedSecondNuptials);
+                            }else{
+                                $('#spouseName').val(obituary.deceasedFirstNuptials);
+                            }
+                        break;
+                        case "Casado":
+                            if(obituary.deceasedGender == "Hombre"){   
+                                $('#spousePre').val('A súa esposa, ');
+                            }else{
+                                $('#spousePre').val('O seu esposo, ');                        
+                            }
+                            if(obituary.deceasedSecondNuptials  != ""){
+                                $('#spouseName').val(obituary.deceasedSecondNuptials);
+                            }else{
+                                $('#spouseName').val(obituary.deceasedFirstNuptials);
+                            }
+                        break;       
+                        default:
+                            $('#spousePre').val('');
+                            $('#spouseName').val('');
+                        break;
+                    }
+
+                    moment.locale('gl'); 
                 break;
                 case 32:
                     if(obituary.deceasedGender == "Hombre"){
@@ -1940,7 +1986,23 @@ function loadNewObituary(obituary, obituaryType){
                         }
 
                         $('#died').val('Finou o  ' + deceasedDateAux + ', aos ' + yearsLife + ' anos de idade, confortad'+prayAuxGender+' cos Santos Sacramentos.');
+                    }else if(companyId == 28){
+                        moment.locale('gl'); 
 
+                        var yearsLife = null;
+                        var deceasedDateInfo = '   ';
+                        if(obituary.deceasedDate != null && obituary.deceasedBirthday){
+                            yearsLife = moment(obituary.deceasedDate, "YYYY-MM-DD").diff(moment(obituary.deceasedBirthday, "YYYY-MM-DD"), 'years');
+                            
+                            deceasedDateAux =  moment(moment(obituary.deceasedDate, "YYYY-MM-DD").format("X"), "X").format('LLLL').split(' ');
+                            deceasedDateInfo = 'día ' + deceasedDateAux[1] + ' de ' + deceasedDateAux[3] + ' de ' + deceasedDateAux[5];
+                        }
+            
+                        if(isNaN(yearsLife) || yearsLife == null || yearsLife == ''){
+                            yearsLife = '   ';
+                        }
+
+                        $('#died').val('Faleceu o ' + deceasedDateInfo + ', ós ' + yearsLife + ' anos de idade.');
                     }else if(companyId == 32){
 
                         var deceasedPlace = '';
@@ -2127,6 +2189,20 @@ function loadNewObituary(obituary, obituaryType){
                     pray = 'Pregan unha oración pola súa alma e a asistencia á misa polo seu eterno descanso que celebrarase ' + ceremonyTimeDate 
                             + 'na ' + (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? 'Igrexa Parroquial' + ' de': obituary.churchLabel) + ' ' + obituary.churchName + '. Favores que agradecerán.'
                 break;
+                case 28:
+                    pray =  "Pregan unha oración polo eterno descanso da súa alma. \n"
+
+                    if(obituary.churchName.toLowerCase() == obituary.cemeteryName.toLowerCase()){
+                        pray += 'Funeral de corpo presente e enterro na Igrexa e cemiterio parroquiais de ' +  obituary.churchName + '.'
+                    }else{
+                        pray += 
+                            'Funeral de corpo presente e enterro na ' +  
+                            (obituary.churchLabel == 'Otro' ? '' : obituary.churchLabel == 'Iglesia Parroquial' ? 'Igrexa Parroquial de ' : obituary.churchLabel) + ' ' + obituary.churchName + 
+                            ' e enterro no ' +
+                            (obituary.cemeteryLabel.toLowerCase() == 'Cementerio' ? 'Cemiterio' : obituary.cemeteryLabel.toLowerCase()) + ' de ' + obituary.cemeteryName + '.';
+                    }
+                    pray += ' Favores polos que anticipan as máis expresivas grazas.';
+                break;
                 case 32:
                     var mortuaryName = obituary.mortuaryName == null ? '' : obituary.mortuaryName
                     mortuaryName = 'dende o tanatorio  ' + mortuaryName;
@@ -2176,7 +2252,6 @@ function loadNewObituary(obituary, obituaryType){
                 break;
             }
             $('#pray').val(pray);
-
         break;
 
         // Esquela evangélica
@@ -4271,6 +4346,7 @@ $(function(){
         case 28:
             $('#obituaryType').append('<option value="--" disabled>Seleccionar tipo esquela</option>');
             $('#obituaryType').append('<option value="0">Principal</option>');
+            $('#obituaryType').append('<option value="1">Esquela en Galego</option>');
 
             $(".company-28-hide").addClass('hide');
 

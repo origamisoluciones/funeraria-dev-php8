@@ -789,7 +789,8 @@ function inicializateInhumationSection(){
         var dayNameAux = moment(expedientData.expedient.exhumationDate1, "X").format("dddd")
         dayNameAux = dayNameAux.charAt(0).toUpperCase() + dayNameAux.slice(1);
         var monthAux = moment(expedientData.expedient.exhumationDate1, "X").format("MMMM")
-        exhumationDate1 = dayNameAux + ' ' + dayAux + ' de ' + monthAux;
+        var yearAux = moment(expedientData.expedient.exhumationDate1, "X").format("YYYY")
+        exhumationDate1 = dayNameAux + ' ' + dayAux + ' de ' + monthAux + ' de ' + yearAux;
     }
     $("#exhumationDate1").val(exhumationDate1);
     if(expedientData.expedient.exhumation1 == null || expedientData.expedient.exhumation1 == ''){
@@ -804,7 +805,8 @@ function inicializateInhumationSection(){
         var dayNameAux = moment(expedientData.expedient.exhumationDate2, "X").format("dddd")
         dayNameAux = dayNameAux.charAt(0).toUpperCase() + dayNameAux.slice(1);
         var monthAux = moment(expedientData.expedient.exhumationDate2, "X").format("MMMM")
-        exhumationDate2 = dayNameAux + ' ' + dayAux + ' de ' + monthAux;
+        var yearAux = moment(expedientData.expedient.exhumationDate2, "X").format("YYYY")
+        exhumationDate2 = dayNameAux + ' ' + dayAux + ' de ' + monthAux + ' de ' + yearAux;
     }
     $("#exhumationDate2").val(exhumationDate2);
     if(expedientData.expedient.exhumation2 == null || expedientData.expedient.exhumation2 == ''){
@@ -819,7 +821,8 @@ function inicializateInhumationSection(){
         var dayNameAux = moment(expedientData.expedient.exhumationDate3, "X").format("dddd")
         dayNameAux = dayNameAux.charAt(0).toUpperCase() + dayNameAux.slice(1);
         var monthAux = moment(expedientData.expedient.exhumationDate3, "X").format("MMMM")
-        exhumationDate3 = dayNameAux + ' ' + dayAux + ' de ' + monthAux;
+        var yearAux = moment(expedientData.expedient.exhumationDate3, "X").format("YYYY")
+        exhumationDate3 = dayNameAux + ' ' + dayAux + ' de ' + monthAux + ' de ' + yearAux;
     }
     $("#exhumationDate3").val(exhumationDate3);
     if(expedientData.expedient.exhumation3 == null || expedientData.expedient.exhumation3 == ''){
