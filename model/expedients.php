@@ -19009,7 +19009,7 @@
     
                 $associate = $currentExpedientData['associate'] == null ? 'null' : $currentExpedientData['associate'];
                 $type = $currentExpedientData['type'] == null ? 'null' : $currentExpedientData['type'];
-                $status = $currentExpedientData['status'] == null ? 'null' : $currentExpedientData['status'];
+                $status = 2;
                 $user = $currentExpedientData['user'] == null ? 'null' : $currentExpedientData['user'];
                 $applicantLocation = $currentExpedientData['applicantLocation'] == null ? 'null' : $currentExpedientData['applicantLocation'];
                 $familyContactLocation = $currentExpedientData['familyContactLocation'] == null ? 'null' : $currentExpedientData['familyContactLocation'];
@@ -19285,7 +19285,7 @@
                                 $startVelacionDate, $startVelacionTime, $hearse, $placeDestinationMiddle, $placeDestinationFinal, $placeDestinationFinalCemetery, $hiring_rectified,
                                 $smokeOpacityDateStart, $smokeOpacityTimeStart, $smokeOpacityDateEnd, $smokeOpacityTimeEnd, $smokeOpacityLoadWeight, $smokeOpacityBacharachScale,
                                 $smokeOpacityDateReading, $smokeOpacityTimeReading, $smokeOpacityIncidents, '$smokeOpacityIncidentsNotes', '$notesExpedient', '$tellmebyeRoom', '$tellmebyeRoomName',
-                                $entryDateBarrow, $entryTimeBarrow, $refrigeratedChamberName $refrigeratedChamberDateStart $refrigeratedChamberTimeStart $refrigeratedChamberDateEnd $refrigeratedChamberTimeEnd,
+                                $entryDateBarrow, $entryTimeBarrow, $refrigeratedChamberName, $refrigeratedChamberDateStart, $refrigeratedChamberTimeStart, $refrigeratedChamberDateEnd, $refrigeratedChamberTimeEnd,
                                 '$internalRef', $endVelacionDate, $endVelacionTime, $startVelacionDate2, $startVelacionTime2, $endVelacionDate2, $endVelacionTime2,
                                 '$deceasedNiche2', $funeralDateNiche2, '$deceasedNiche3', $funeralDateNiche3, '$agency', '$agencyContact', '$agencyContactPhone', $departureDate, $arrivalDate,
                                 '$carCollection1LicensePlate', '$carCollection1Brand', '$carCollection1Model', '$hearseLicensePlate', '$hearseBrand', '$hearseModel', '$mortuaryRegNotes', $next_invoice_status,
