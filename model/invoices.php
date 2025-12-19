@@ -1615,11 +1615,21 @@
                     $statusWhere .= ' 
                         AND i.invoice_type != 3 
                         AND i.paymentState = 0 
-                        AND i.ID = (
-                            SELECT  MAX(i2.ID)
-                            FROM    Invoices i2
-                            WHERE   i2.expedient = i.expedient AND
-                                    i2.leavingDate IS NULL
+                        AND (
+                            i.ID = (
+                                SELECT  MAX(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL
+                            )
+                            OR
+                            i.ID = (
+                                SELECT  MIN(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL AND
+                                        i2.invoice_type = 1
+                            )
                         )
                     ';
                 }else if(intval($status) == 1){ // Pagada
@@ -1787,7 +1797,8 @@
         */
         public function getTotalInvoicesDatatables(
             $from = null, $to = null, $type, $clientType, $client, $status, $invoiceType,
-            $paymentMethod = null, $numAccount = null, $invoiceDateFilter = null, $invoicePaymentFilter = null
+            $paymentMethod = null, $numAccount = null, $invoiceDateFilter = null, $invoicePaymentFilter = null,
+            $search = ''
         ){
             $db = new DbHandler;
 
@@ -1811,11 +1822,21 @@
                     $statusWhere .= ' 
                         AND i.invoice_type != 3 
                         AND i.paymentState = 0 
-                        AND i.ID = (
-                            SELECT  MAX(i2.ID)
-                            FROM    Invoices i2
-                            WHERE   i2.expedient = i.expedient AND
-                                    i2.leavingDate IS NULL
+                        AND (
+                            i.ID = (
+                                SELECT  MAX(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL
+                            )
+                            OR
+                            i.ID = (
+                                SELECT  MIN(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL AND
+                                        i2.invoice_type = 1
+                            )
                         )
                     ';
                 }else if(intval($status) == 1){ // Pagada
@@ -1883,12 +1904,26 @@
                 $paymentMethodWhere .= " AND i.accountNumber = '$numAccount'";
             }
 
+            if($search != ''){
+                $searchWhere = " AND (e.number LIKE '%$search%'
+                            OR i.generatedInvoiceNumber LIKE '%$search%'
+                            OR c.brandName LIKE '%$search%'
+                            OR c.name LIKE '%$search%'
+                            OR c.surname LIKE '%$search%'
+                            OR e.deceasedName LIKE '%$search%'
+                            OR e.deceasedSurname LIKE '%$search%'
+                            OR e.deceasedNIF LIKE '%$search%'
+                            OR u.username LIKE '%$search%')";
+            }else{
+                $searchWhere = '';
+            }
+
             $where = "  e.leavingDate IS NULL
                         AND i.leavingDate IS NULL 
                         AND i.expedient = e.expedientID 
                         AND u.userID = i.user 
                         AND i.invoice_type != 3
-                        $type $clientType $clientWhere $statusWhere $invoiceTypeWhere $paymentMethodWhere";
+                        $type $clientType $clientWhere $statusWhere $invoiceTypeWhere $paymentMethodWhere $searchWhere";
                        
             if(isset($from) && isset($to) && $from != null && $from != '' && $to != null && $to != ''){
                 if($invoiceDateFilter == null || $invoicePaymentFilter == null){
@@ -2020,11 +2055,21 @@
                     $statusWhere .= ' 
                         AND i.invoice_type != 3 
                         AND i.paymentState = 0 
-                        AND i.ID = (
-                            SELECT  MAX(i2.ID)
-                            FROM    Invoices i2
-                            WHERE   i2.expedient = i.expedient AND
-                                    i2.leavingDate IS NULL
+                        AND (
+                            i.ID = (
+                                SELECT  MAX(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL
+                            )
+                            OR
+                            i.ID = (
+                                SELECT  MIN(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL AND
+                                        i2.invoice_type = 1
+                            )
                         )
                     ';
                 }else if(intval($status) == 1){ // Pagada
@@ -2180,11 +2225,21 @@
                     $statusWhere .= ' 
                         AND i.invoice_type != 3 
                         AND i.paymentState = 0 
-                        AND i.ID = (
-                            SELECT  MAX(i2.ID)
-                            FROM    Invoices i2
-                            WHERE   i2.expedient = i.expedient AND
-                                    i2.leavingDate IS NULL
+                        AND (
+                            i.ID = (
+                                SELECT  MAX(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL
+                            )
+                            OR
+                            i.ID = (
+                                SELECT  MIN(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL AND
+                                        i2.invoice_type = 1
+                            )
                         )
                     ';
                 }else if(intval($status) == 1){ // Pagada
@@ -2480,11 +2535,21 @@
                     $statusWhere .= ' 
                         AND i.invoice_type != 3 
                         AND i.paymentState = 0 
-                        AND i.ID = (
-                            SELECT  MAX(i2.ID)
-                            FROM    Invoices i2
-                            WHERE   i2.expedient = i.expedient AND
-                                    i2.leavingDate IS NULL
+                        AND (
+                            i.ID = (
+                                SELECT  MAX(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL
+                            )
+                            OR
+                            i.ID = (
+                                SELECT  MIN(i2.ID)
+                                FROM    Invoices i2
+                                WHERE   i2.expedient = i.expedient AND
+                                        i2.leavingDate IS NULL AND
+                                        i2.invoice_type = 1
+                            )
                         )
                     ';
                 }else if(intval($status) == 1){ // Pagada

@@ -238,7 +238,8 @@ function getTotals(from, to, type, clientType, client, status, invoiceType, paym
                 paymentMethod: paymentMethodFilter,
                 numAccount: numAccount,
                 invoiceDateFilter: invoiceDateFilter,
-                invoicePaymentFilter: invoicePaymentFilter
+                invoicePaymentFilter: invoicePaymentFilter,
+                search: $("#input-search").val()
         },
         type: 'POST',
         async: false,
@@ -786,6 +787,32 @@ $(function(){
         invoicesTable.search( this.value ).draw();
         search = this.value
     });
+
+    $('#input-search').on('change', function () {
+
+        // Get totals
+        clientType = $('#clientType').val()
+        invoiceType = $('#invoiceType').val()
+        client = $('#clients').val()
+        status = $('#status').val()
+        var year = parseInt($('#year').val());
+
+        var paymentMethodFilter = $('#paymentMethodFilter').val()
+        var numAccount = '';
+        if(paymentMethodFilter == 'Transferencia'){
+            numAccount = $("#bankAccountFilter").val();
+        }else if(paymentMethodFilter == 'Tarjeta'){
+            numAccount = $("#tpvFilter").val();
+        }
+        var invoiceDateFilter = $('#invoiceDateFilter').prop('checked') ? 1 : 0;
+        var invoicePaymentFilter = $('#invoicePaymentFilter').prop('checked') ? 1 : 0;
+
+        if(year == 0){
+            getTotals(null, null, type, clientType, client, status, invoiceType, paymentMethodFilter, numAccount, invoiceDateFilter, invoicePaymentFilter);
+        }else{
+            getTotals(from, to, type, clientType, client, status, invoiceType, paymentMethodFilter, numAccount, invoiceDateFilter, invoicePaymentFilter);
+        }
+    })
 
     invoicesTable.on('click', 'tbody .viewClick', function () {
 

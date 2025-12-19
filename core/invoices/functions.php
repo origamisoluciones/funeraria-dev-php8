@@ -90,7 +90,7 @@
                 echo json_encode(exportImportExcel($_POST['data'], $_POST['number']));
             break;
             case 'getTotals':
-                echo json_encode(getTotals($_POST['from'], $_POST['to'], $_POST['typeInvoice'], $_POST['clientType'], $_POST['client'], $_POST['status'], $_POST['invoiceType'], $_POST['paymentMethod'], $_POST['numAccount'], $_POST['invoiceDateFilter'], $_POST['invoicePaymentFilter']));
+                echo json_encode(getTotals($_POST['from'], $_POST['to'], $_POST['typeInvoice'], $_POST['clientType'], $_POST['client'], $_POST['status'], $_POST['invoiceType'], $_POST['paymentMethod'], $_POST['numAccount'], $_POST['invoiceDateFilter'], $_POST['invoicePaymentFilter'], $_POST['search']));
             break;
             case 'getInvoiceInfoToDownload':
                 echo json_encode(getInvoiceInfoToDownload((isset($_POST['invoice']) ? $_POST['invoice'] : null), (isset($_POST['expedient']) ? $_POST['expedient'] : null), (isset($_POST['isRectified']) ? $_POST['isRectified'] : null)));
@@ -355,10 +355,12 @@
      */
     function getTotals(
         $from, $to, $type, $clientType, $client, $status, 
-        $invoiceType, $paymentMethodFilter, $numAccount, $invoicePayment, $invoiceDate
+        $invoiceType, $paymentMethodFilter, $numAccount, $invoicePayment, $invoiceDate,
+        $search
     ){
         $invoice = new Invoices;
-        return $invoice->getTotalInvoicesDatatables($from, $to, $type, $clientType, $client, $status, $invoiceType, $paymentMethodFilter, $numAccount, $invoicePayment, $invoiceDate);
+
+        return $invoice->getTotalInvoicesDatatables($from, $to, $type, $clientType, $client, $status, $invoiceType, $paymentMethodFilter, $numAccount, $invoicePayment, $invoiceDate, $search);
     }
 
     /**
