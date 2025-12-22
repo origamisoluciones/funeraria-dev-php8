@@ -2436,7 +2436,8 @@
 
             $utils = new Utils;
 
-            $subject = 'Nuevo documento';
+            // $subject = 'Nuevo documento';
+            $subject = $doc;
 
             $body = '
                 <!doctype html>
