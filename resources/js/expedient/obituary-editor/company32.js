@@ -63,7 +63,7 @@ $(function(){
                 id: 'transept',
                 draggable: true,
                 name: 'image',
-                src: uri + 'resources/files/' + company + '/expedients/' + expedientID + '/obituary-press/' + obituaryType + '/' + obituaryModel + '/img/transept.jpg',
+                src: uri + 'resources/files/' + company + '/expedients/' + expedientID + '/obituary/' + obituaryType + '/' + obituaryModel + '/img/transept.jpg',
                 mouse: true,
                 rotation: null,
                 scaleX: transeptScaleX,
@@ -559,7 +559,7 @@ $(function(){
                             fontStyle: widowFontStyle,
                             fontVariant: 'normal',
                             textDecoration: 'empty string',
-                            text: obituary.deceasedMaritalStatus.toLowerCase() == 'viudo' ? '(' + obituary.spousePre + ' ' + obituary.spouseName + ')' : '',
+                            text: obituary.deceasedMaritalStatus != null ? (obituary.deceasedMaritalStatus.toLowerCase() == 'viudo' ? '(' + obituary.spousePre + ' ' + obituary.spouseName + ')' : '') : '',
                             align: widowAlign,
                             verticalAlign: 'top',
                             padding: 0,
@@ -1353,7 +1353,7 @@ $(function(){
                                                                     moment.locale('es');
                                                                 }
                                                                 var locationText = obituary.location + ', ' + moment().format('MMMM') +  ' de ' + moment().format('YYYY');
-                                                                    
+                                                                
                                                                 var styleLocation = {
                                                                     fontFamily: locationFontFamily,
                                                                     fontSize: locationFontSize,

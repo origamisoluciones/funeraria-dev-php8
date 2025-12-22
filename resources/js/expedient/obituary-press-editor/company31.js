@@ -596,7 +596,7 @@ $(function(){
                                 fontStyle: widowFontStyle,
                                 fontVariant: 'normal',
                                 textDecoration: 'empty string',
-                                text: obituary.deceasedMaritalStatus.toLowerCase() == 'viudo' ? '(' + obituary.spousePre + ' ' + obituary.spouseName + ')' : '',
+                                text: obituary.deceasedMaritalStatus != null ? (obituary.deceasedMaritalStatus.toLowerCase() == 'viudo' ? '(' + obituary.spousePre + ' ' + obituary.spouseName + ')' : '') : '',
                                 align: widowAlign,
                                 verticalAlign: 'top',
                                 padding: 0,
@@ -958,8 +958,11 @@ $(function(){
                                         }
 
                                         var family = '';
-                                        if(obituary.deceasedMaritalStatus.toLowerCase() != 'viudo'){
-                                            family += obituary.spouseName != '' ? obituary.spousePre + ' ' + obituary.spouseName + '; ' : ''
+
+                                        if(obituary.deceasedMaritalStatus != null){
+                                            if(obituary.deceasedMaritalStatus.toLowerCase() != 'viudo'){
+                                                family += obituary.spouseName != '' ? obituary.spousePre + ' ' + obituary.spouseName + '; ' : ''
+                                            }
                                         }
                                         family += obituary.childrenNames != '' ? obituary.childrenPre + ' ' + obituary.childrenNames + '; ' : ''
                                         family += obituary.childrenInLawNames != '' ? obituary.childrenInLawPre + ' ' + obituary.childrenInLawNames + '; ' : ''
@@ -1430,7 +1433,7 @@ $(function(){
                                                                             opacity: 1
                                                                         }
 
-                                                                        var churchLabelText = 'IGLESIA Y ' + expedientInfo.cemeteryLabel.toUpperCase() + ':';
+                                                                        var churchLabelText = 'IGLESIA Y ' + (expedientInfo.cemeteryLabel != null ? expedientInfo.cemeteryLabel.toUpperCase() : '') + ':';
 
                                                                         var styleChurchLabel = {
                                                                             fontFamily: ChurchLabelFontFamily,
