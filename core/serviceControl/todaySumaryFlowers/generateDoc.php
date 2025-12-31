@@ -89,6 +89,9 @@
                         <tbody>
     ';
 
+    if($listData['expedients'] == null){
+        $listData['expedients'] = [];
+    }
     foreach($listData['expedients'] as $index=>$item){
 
         $html .= '
