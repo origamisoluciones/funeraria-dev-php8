@@ -92,6 +92,7 @@ RewriteRule ^error-plan$ view/error/plan.php
 # RewriteRule ^scripts/updates/fixInvoices$ core/scripts/updates/fixInvoices.php
 # RewriteRule ^scripts/updates/fixInvoicesDocs$ core/scripts/updates/fixInvoicesDocs.php
 # RewriteRule ^scripts/updates/fixBillingSeries$ core/scripts/updates/fixBillingSeries.php
+# RewriteRule ^scripts/fixPrices$ core/scripts/fixPrices.php
 
 # GESTIÓN DE ARCHIVOS
 RewriteRule ^descargar-archivo$ core/tools/filesHandler.php
