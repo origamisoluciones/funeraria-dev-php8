@@ -256,7 +256,7 @@ $(function(){
     var table = $('#datatable').DataTable({
         // "processing": true,
         // "serverSide": true,
-        "ajax": uri + "core/warehouse/orders/listDatatables.php?type=1&agreement=0&from="+ from + "&to="+ to,
+        "ajax": uri + "core/warehouse/orders/listDatatables.php?type=0&agreement=0&from="+ from + "&to="+ to,
         "responsive": false,
         // "paging": true,
         "pageLength": 25,
