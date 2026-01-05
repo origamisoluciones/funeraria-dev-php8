@@ -20323,7 +20323,7 @@
                     }
                     
                     // Cobrado
-                    $result = $db->query("  SELECT  (
+                    $result = $db->query("  SELECT  SUM(
                                                         (
                                                             SELECT      COALESCE(SUM(i.pay), 0)
                                                             FROM        Invoices i
@@ -20745,7 +20745,7 @@
                 $resultFinal['total']['name'] = 'Total';
 
                 // Cobrado
-                $result = $db->query("  SELECT      (
+                $result = $db->query("  SELECT      SUM(
                                                         (
                                                             SELECT      COALESCE(SUM(i.pay), 0)
                                                             FROM        Invoices i
