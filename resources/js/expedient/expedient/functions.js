@@ -998,7 +998,11 @@ $(function(){
                     response = $.parseJSON(response)
                     if(Array.isArray(response)){
                         if(response[0]){
-                            $('#block-message').html('<div class="alert alert-success alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> El expediente se ha eliminado con éxito.</div>');
+                            if(response[1] === 'has_invoice'){
+                                $('#block-message').html('<div class="alert alert-warning alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> No se puede borrar el expediente porque tiene una factura generada.</div>');
+                            }else{
+                                $('#block-message').html('<div class="alert alert-success alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> El expediente se ha eliminado con éxito.</div>');
+                            }
                             
                             table.ajax.reload();
                         }else{

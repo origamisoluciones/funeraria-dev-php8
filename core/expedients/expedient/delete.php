@@ -25,13 +25,18 @@
     $logs = new Logs;
 
     $expedientID = $_POST['expedientID'];
-    
-    $result = $expedients->deleteExpedient($_POST);
-    if($result[0]){
-        $logs->createExpedient("Expedientes", $expedientID, "Expedientes - Baja", "'Ha eliminado el expediente'");
-        echo json_encode($result);
+
+    $hasInvoice = $expedients->hasInvoice($expedientID);
+    if($hasInvoice){
+        $result = $expedients->deleteExpedient($_POST);
+        if($result[0]){
+            $logs->createExpedient("Expedientes", $expedientID, "Expedientes - Baja", "'Ha eliminado el expediente'");
+            echo json_encode($result);
+        }else{
+            $logs->createExpedient("Expedientes", $expedientID, "Expedientes - Baja", "'Error! Ha ocurrido un error al eliminar el expediente'");
+            echo json_encode($result);
+        }
     }else{
-        $logs->createExpedient("Expedientes", $expedientID, "Expedientes - Baja", "'Error! Ha ocurrido un error al eliminar el expediente'");
-        echo json_encode($result);
+        echo json_encode(array(true, 'has_invoice'));
     }
 ?>

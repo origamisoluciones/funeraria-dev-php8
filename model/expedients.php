@@ -21330,6 +21330,23 @@
                 ];
             }
         }
+
+        /**
+        * Comprueba si existe la factura
+        *
+        * @param array $data
+        */
+        public function hasInvoice($expedient){
+            $db = new DbHandler;
+
+            $result =  $db->query(" SELECT  i.*
+                                    FROM    Invoices i
+                                    WHERE   i.expedient = " . $expedient . " AND 
+                                            i.leavingDate IS NULL
+            ");
+
+            return mysqli_num_rows($result) > 0 ? true : false;
+        }
     }
 
 ?>
