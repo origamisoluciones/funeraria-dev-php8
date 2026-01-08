@@ -329,17 +329,17 @@ function drawTemplate(client, templateID){
                 $('#supplier' + index).prop('disabled', false);
                 $('#model' + index).prop('disabled', false);
                 $('#warehouse' + index).prop('disabled', false);
-                if(prod.supplied == 1 || prod.editPrice == 1){
-                    $('.cost' + index).prop('disabled', false);
-                }
+                // if(prod.supplied == 1 || prod.editPrice == 1){
+                    $('.cost' + index).prop('disabled', true);
+                // }
                 $('#amount' + index).prop('disabled', false);
                 $('#0discount' + index).prop('disabled', false);
                 $('.btn-add' + index).prop('disabled', false);
 
                 //SETS THE PRODUCTS VARIOS PRICES
-                if(prod.editPrice == '1'){
-                    $('.cost' + index).val(parseFloat(prod.valueEditPrice).toFixed(2));
-                }
+                // if(prod.editPrice == '1'){
+                //     $('.cost' + index).val(parseFloat(prod.valueEditPrice).toFixed(2));
+                // }
 
                 // Actualiza el total
                 var totalAmount = $('#amount' + index).val()
@@ -447,9 +447,9 @@ function drawTemplate(client, templateID){
                  
                     // $('#model' + index).trigger('change')
                     $('#warehouse' + index).prop('disabled', false);
-                    if(prod.supplied == 1 || prod.editPrice == 1){
-                        $('.cost' + index).prop('disabled', false);
-                    }
+                    // if(prod.supplied == 1 || prod.editPrice == 1){
+                        $('.cost' + index).prop('disabled', true);
+                    // }
                     $('#amount' + index).prop('disabled', false);
                     var numDiscounts = $('.discount' + index).find('input').length
                     for(i = 0; i < numDiscounts; i++){
@@ -1122,9 +1122,9 @@ function drawTemplate(client, templateID){
                         $('#model' + index).prop('disabled', false);
                         $('#model' + index).val('').trigger('change')
                         $('#warehouse' + index).prop('disabled', false);
-                        if(prod.supplied == 1 || prod.editPrice == 1){
-                            $('.cost' + index).prop('disabled', false);
-                        }
+                        // if(prod.supplied == 1 || prod.editPrice == 1){
+                            $('.cost' + index).prop('disabled', true);
+                        // }
                         $('#amount' + index).prop('disabled', false);
                         var numDiscounts = $('.discount' + index).find('input').length
                         for(i = 0; i < numDiscounts; i++){
@@ -1633,9 +1633,9 @@ function drawTemplate(client, templateID){
                     $('#model' + index).prop('disabled', false);
                     $('#warehouse' + index).prop('disabled', false);
                     $('#model' + index).text('');
-                    if(prod.supplied == 1){
-                        $('.cost' + index).prop('disabled', false);
-                    }
+                    // if(prod.supplied == 1){
+                        $('.cost' + index).prop('disabled', true);
+                    // }
                     $('#amount' + index).prop('disabled', false);
                     $('#discount' + index).prop('disabled', false);
                     $('#' + index + 'text0').attr('disabled', false)
