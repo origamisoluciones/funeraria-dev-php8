@@ -26,7 +26,11 @@
     
     $result = $expedients->createExpedientTPV($_POST);
 
-    $logs->createSimple("Expedientes", "Expedientes - Alta", "'Ha creado un expediente'");
+    if(isset($result['expedient'])){
+        $logs->createExpedient("Expedientes", $result['expedient'], "Expedientes - Alta", "'Ha creado un expediente'");
+    }else{
+        $logs->createSimple("Expedientes", "Expedientes - Alta", "'Ha ocurrido un error al crear un expediente'");
+    }
     
     echo json_encode($result);
 ?>
