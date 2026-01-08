@@ -27,7 +27,7 @@
     $expedientID = $_POST['expedientID'];
 
     $hasInvoice = $expedients->hasInvoice($expedientID);
-    if($hasInvoice){
+    if(!$hasInvoice){
         $result = $expedients->deleteExpedient($_POST);
         if($result[0]){
             $logs->createExpedient("Expedientes", $expedientID, "Expedientes - Baja", "'Ha eliminado el expediente'");
