@@ -635,3 +635,22 @@ function cleanInput(input){
     $(input).removeClass('validateError')
     $(input + 'Error').text('')
 }
+
+/**
+ * Checks if only contains alpha chars
+ * 
+ * @param {string} elem Elem
+ * @returns {boolean}
+ */
+function isUsername(elem){
+    var form = elem.closest('form').attr('id')
+    var pc = $(elem.selector).val();
+
+    if( (/^[A-Za-z]+$/.test(pc)) ) {
+        success(elem, form)
+        return true
+    }else{
+        error(elem, 'Formato incorrecto (solo caracteres alfabéticos).', form)
+        return false
+    }
+}

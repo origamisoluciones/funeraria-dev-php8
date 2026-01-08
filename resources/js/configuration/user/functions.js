@@ -468,6 +468,10 @@ $(function () {
         
         if(isEmpty($('#formNewData #username'))){
             validate++;
+        }else{
+            if(isUsername($('#formNewData #username'))){
+                validate++;
+            }
         }
         if(isEmpty($('#formNewData #password'))){
             validate++;
