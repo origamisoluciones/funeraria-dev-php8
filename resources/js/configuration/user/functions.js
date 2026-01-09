@@ -469,7 +469,7 @@ $(function () {
         if(isEmpty($('#formNewData #username'))){
             validate++;
         }else{
-            if(isUsername($('#formNewData #username'))){
+            if(!isUsername($('#formNewData #username'))){
                 validate++;
             }
         }
